@@ -1,14 +1,29 @@
-import { create } from "zarrita";
-
 type RequireAtLeastOne<T, Keys extends keyof T = keyof T> =
-    Pick<T, Exclude<keyof T, Keys>> 
-    & {
-        [K in Keys]-?: Required<Pick<T, K>> & Partial<Pick<T, Exclude<Keys, K>>>
-    }[Keys]
+Pick<T, Exclude<keyof T, Keys>> 
+& {
+    [K in Keys]-?: Required<Pick<T, K>> & Partial<Pick<T, Exclude<Keys, K>>>
+}[Keys];
 
-interface Geometry {
-
+interface Geom1 {
+    type: "Point",
+    coordinates: [number, number]
 }
+
+interface Geom2 {
+    type: "LineString" | "MultiPoint",
+    coordinates: [number, number][]
+}
+
+interface Geom3 {
+    type: "Polygon" | "MultiLineString",
+    coordinates: [number, number][][]
+}
+
+interface Geom4 {
+    type: "MultiPolygon",
+    coordinates: [number, number][][][]
+}
+type Geometry = Geom1 | Geom2 | Geom3 | Geom4;
 
 interface _Contact {  // see: https://github.com/stac-extensions/contacts?tab=readme-ov-file#contact-object, there's more
     name?: string,
@@ -19,7 +34,7 @@ interface _Contact {  // see: https://github.com/stac-extensions/contacts?tab=re
 type Contact = RequireAtLeastOne<_Contact, 'name' | 'organization'>
 
 interface Properties {
-    datetime?: string | null,
+    datetime?: string | null,
     title?: string,
     description?: string,
     keywords?: string[],
@@ -38,7 +53,7 @@ interface Link {
     title?: string,
     method?: string,
     headers?: Map<string, string | [string]>,
-    body?: any,
+    body?: unknown,
 }
 
 interface Asset {
@@ -54,7 +69,7 @@ export interface StacItem {
     stac_version: string,
     stac_extensions?: string[],
     id: string,
-    geometry: Geometry | null,
+    geometry: Geometry | null,
     bbox?: [number],
     properties: Properties,
     links: Link[],
@@ -62,7 +77,7 @@ export interface StacItem {
     collection?: string,
 }
 
-export default function parseMetadata(ds): StacItem {
+export default function parseMetadata(ds: any): StacItem {
     console.log("parseMetadata", ds);
     const properties: Properties = {
         title: ds.attrs?.title,
@@ -79,10 +94,10 @@ export default function parseMetadata(ds): StacItem {
     const emails = ds.attrs.creator_email?.split(",").map((n:string) => n.trim());
     const contacts = [];
 
-    if ( names !== undefined ) {
+    if ( names !== undefined ) {
         for( const [i, name] of names.entries()) {
             const es = [];
-            if ( emails !== undefined && emails.length() > i) {
+            if ( emails !== undefined && emails.length > i) {
                 es.push({value: emails[i], roles: []});
             }
             contacts.push({name, emails});
