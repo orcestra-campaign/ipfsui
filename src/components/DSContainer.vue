@@ -1,21 +1,40 @@
 <script setup lang="ts">
-import { ref, watch, onBeforeMount } from 'vue'
-import AttrView from './AttrView.vue';
+import { ref, unref, watch, computed, onBeforeMount } from 'vue'
 
 import * as zarr from "zarrita";
-import OpenWithXArrayTip from './OpenWithXArrayTip.vue';
+import ItemView from './ItemView.vue';
+import parseMetadata from '../utils/parseMetadata';
 
 const props = defineProps<{ src: string }>();
 
-const metadata = ref({global_attrs: {}});
+const metadata = ref({attrs: {}, variables: {}});
+
+const stac_item = computed(() => parseMetadata(unref(metadata)));
 
 const update = async () => {
     const store = await zarr.withConsolidated(new zarr.FetchStore(props.src));
     const group = await zarr.open(store, { kind: "group" });
 
-    console.log(store.contents());
-    console.log(group);
-    metadata.value = {global_attrs: group.attrs};
+    metadata.value = {attrs: group.attrs, variables: {}};
+
+    const contents = store.contents();
+    
+    const variables = {};
+
+    for ( const {path, kind } of contents ) {
+        if(kind !== "array") {
+            continue;
+        }
+        const variable = await zarr.open(group.resolve(path), {kind});
+        variables[path.slice(1)] = {
+            shape: variable.shape,
+            chunks: variable.chunks,
+            attrs: variable.attrs
+        };
+    }
+
+    metadata.value = {attrs: group.attrs, variables};
+    console.log(metadata.value);
 };
 
 onBeforeMount(update);
@@ -23,6 +42,5 @@ watch(() => props.src, update);
 </script>
 
 <template>
-    <OpenWithXArrayTip :src="props.src"/>
-    <AttrView :attrs="metadata.global_attrs" />
+    <ItemView :item="stac_item" />
 </template>

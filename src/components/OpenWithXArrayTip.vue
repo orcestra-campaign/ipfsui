@@ -1,14 +1,3 @@
-<script setup lang="ts">
-import { computed } from 'vue';
-
-const props = defineProps<{ src: {} }>();
-
-const pythonExampleCode = computed(() =>
-`import xarray as xr
-ds = xr.open_dataset("${props.src}")
-`)
-</script>
-
 <script lang="ts">
 import hljs from 'highlight.js/lib/core';
 import python from 'highlight.js/lib/languages/python';
@@ -21,6 +10,17 @@ export default {
         highlightjs: hljsVuePlugin.component
     }
 }
+</script>
+
+<script setup lang="ts">
+import { computed } from 'vue';
+
+const props = defineProps<{ src: {} }>();
+
+const pythonExampleCode = computed(() =>
+`import xarray as xr
+ds = xr.open_dataset("${props.src}")
+`)
 </script>
 
 <template>

@@ -12,6 +12,7 @@
     "@highlightjs/vue-plugin": "^2.1.0",
     "highlight.js": "^11.11.1",
     "vue": "^3.5.13",
+    "vue3-markdown": "^1.1.9",
     "zarrita": "^0.4.0-next.19"
   },
   "devDependencies": {

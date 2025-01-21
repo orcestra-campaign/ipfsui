@@ -13,6 +13,9 @@ const props = defineProps<{ attrs: {} }>();
 </template>
 
 <style scoped>
+table {
+    background-color: beige;
+}
 th, td {
     text-align: left;
 }
