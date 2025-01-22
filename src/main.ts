@@ -1,13 +1,13 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+import { createApp } from "vue";
+import "./style.css";
+import App from "./App.vue";
 
-import { routes } from './routes.ts'
-import { createWebHashHistory, createRouter } from 'vue-router'
+import { routes } from "./routes.ts";
+import { createRouter, createWebHashHistory } from "vue-router";
 
 const router = createRouter({
-    history: createWebHashHistory(),
-    routes,
-})
+  history: createWebHashHistory(),
+  routes,
+});
 
-createApp(App).use(router).mount('#app')
+createApp(App).use(router).mount("#app");
