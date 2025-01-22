@@ -5,6 +5,9 @@ import * as zarr from "zarrita";
 import ItemView from './ItemView.vue';
 import parseMetadata from '../utils/parseMetadata';
 
+import { getStore } from '../utils/store';
+
+
 const props = defineProps<{ src: string }>();
 
 const metadata = ref({attrs: {}, variables: {}});
@@ -12,7 +15,7 @@ const metadata = ref({attrs: {}, variables: {}});
 const stac_item = computed(() => parseMetadata(unref(metadata)));
 
 const update = async () => {
-    const store = await zarr.withConsolidated(new zarr.FetchStore(props.src));
+    const store = await zarr.withConsolidated(getStore(props.src));
     const group = await zarr.open(store, { kind: "group" });
 
     metadata.value = {attrs: group.attrs, variables: {}};
