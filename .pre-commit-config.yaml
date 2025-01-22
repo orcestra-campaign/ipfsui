@@ -1,6 +1,8 @@
 repos:
--   repo: https://github.com/nozaq/pre-commit-deno
-    rev: 0.1.0  # Use the ref you want to point at
+  - repo: https://github.com/nozaq/pre-commit-deno
+    rev: 0.1.0 # Use the ref you want to point at
     hooks:
-    -   id: deno-fmt
-    -   id: deno-lint
+      - id: deno-fmt
+        types: [file]
+      - id: deno-lint
+        types: [file]
