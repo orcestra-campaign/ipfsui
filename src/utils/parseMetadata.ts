@@ -1,11 +1,12 @@
 import type { StacItem, Properties } from "./stac";
+import type { LooseGlobalAttrs } from "./dsAttrConvention";
 
-export default function parseMetadata(ds: any): StacItem {
+export default function parseMetadata(ds: {attrs: LooseGlobalAttrs}): StacItem {
     console.log("parseMetadata", ds);
     const properties: Properties = {
         title: ds.attrs?.title,
         description: ds.attrs?.summary,
-        keywords: ds.attrs?.keywords,
+        keywords: ds.attrs?.keywords?.split(",").map((n:string) => n.trim()),
         license: ds.attrs?.license,
         platform: ds.attrs?.platform,
         mission: ds.attrs?.project,
@@ -23,7 +24,7 @@ export default function parseMetadata(ds: any): StacItem {
             if ( emails !== undefined && emails.length > i) {
                 es.push({value: emails[i], roles: []});
             }
-            contacts.push({name, emails});
+            contacts.push({name, es});
         }
         properties.contacts = contacts;
     }
