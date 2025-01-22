@@ -3,15 +3,6 @@ import { VMarkdownView } from 'vue3-markdown'
 import 'vue3-markdown/dist/style.css'
 
 const props = defineProps<{ item: {} }>();
-/*
-const authors = computed(() => {
-    const attrs = props.metadata.global_attrs;
-    return attrs.contributor_name ?? attrs.authors;
-});
-const summary = computed(() => {
-    return props.metadata.global_attrs.summary;
-});
-*/
 </script>
 
 <template>
