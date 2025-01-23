@@ -12,7 +12,7 @@ const props = defineProps<{ src: string }>();
 
 const metadata = shallowRef({attrs: {}, variables: {}});
 
-const stac_item = computed(() => parseMetadata(unref(metadata)));
+const stac_item = ref({});
 
 const update = async () => {
     const store = await zarr.withConsolidated(getStore(props.src));
@@ -33,6 +33,7 @@ const update = async () => {
 
     metadata.value = {attrs: group.attrs, variables};
     console.log(metadata.value);
+    stac_item.value = await parseMetadata(unref(metadata));
 };
 
 onBeforeMount(update);

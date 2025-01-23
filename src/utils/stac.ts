@@ -28,13 +28,15 @@ export type Geometry = Geom1 | Geom2 | Geom3 | Geom4;
 interface _Contact { // see: https://github.com/stac-extensions/contacts?tab=readme-ov-file#contact-object, there's more
   name?: string;
   organization?: string;
-  emails?: [{ value: string; roles: [string] }];
+  emails?: { value: string; roles: string[] }[];
 }
 
 export type Contact = RequireAtLeastOne<_Contact, "name" | "organization">;
 
 export interface Properties {
   datetime?: string | null;
+  start_datetime?: string | null;
+  end_datetime?: string | null;
   title?: string;
   description?: string;
   keywords?: string[];
