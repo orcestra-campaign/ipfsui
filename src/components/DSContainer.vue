@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, unref, watch, computed, onBeforeMount } from 'vue'
+import { ref, unref, shallowRef, watch, computed, onBeforeMount } from 'vue'
 
 import * as zarr from "zarrita";
 import ItemView from './ItemView.vue';
@@ -10,7 +10,7 @@ import { getStore } from '../utils/store';
 
 const props = defineProps<{ src: string }>();
 
-const metadata = ref({attrs: {}, variables: {}});
+const metadata = shallowRef({attrs: {}, variables: {}});
 
 const stac_item = computed(() => parseMetadata(unref(metadata)));
 
@@ -22,18 +22,13 @@ const update = async () => {
 
     const contents = store.contents();
     
-    const variables = {};
+    const variables: {[key: string]: any} = {};
 
     for ( const {path, kind } of contents ) {
         if(kind !== "array") {
             continue;
         }
-        const variable = await zarr.open(group.resolve(path), {kind});
-        variables[path.slice(1)] = {
-            shape: variable.shape,
-            chunks: variable.chunks,
-            attrs: variable.attrs
-        };
+        variables[path.slice(1)] = await zarr.open(group.resolve(path), {kind});
     }
 
     metadata.value = {attrs: group.attrs, variables};
