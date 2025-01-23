@@ -9,9 +9,9 @@ dayjs.extend(minMax);
 const unitsRegEx = /([a-zA-Z]+) since (.+)$/;
 
 export function hasUnits(
-  maybeHasUnits: { units: string } | unknown,
+  maybeHasUnits: unknown,
 ): maybeHasUnits is { units: string } {
-  return typeof maybeHasUnits?.units === "string";
+  return typeof (maybeHasUnits as { units: string }).units === "string";
 }
 
 function isInterval(maybeInterval: string): maybeInterval is ManipulateType {
