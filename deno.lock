@@ -10,10 +10,12 @@
     "npm:@highlightjs/vue-plugin@^2.1.0": "2.1.0_highlight.js@11.11.1_vue@3.5.13__typescript@5.6.3_typescript@5.6.3",
     "npm:@vitejs/plugin-vue@^5.2.1": "5.2.1_vite@6.0.10_vue@3.5.13__typescript@5.6.3_typescript@5.6.3",
     "npm:@vue/tsconfig@0.7": "0.7.0_typescript@5.6.3_vue@3.5.13__typescript@5.6.3",
+    "npm:dayjs@^1.11.13": "1.11.13",
     "npm:highlight.js@^11.11.1": "11.11.1",
     "npm:numcodecs@~0.3.2": "0.3.2",
     "npm:typescript@~5.6.2": "5.6.3",
     "npm:vite@^6.0.5": "6.0.10",
+    "npm:vue-json-viewer@^3.0.4": "3.0.4_vue@3.5.13__typescript@5.6.3_typescript@5.6.3",
     "npm:vue-router@^4.5.0": "4.5.0_vue@3.5.13__typescript@5.6.3_typescript@5.6.3",
     "npm:vue-tsc@^2.2.0": "2.2.0_typescript@5.6.3",
     "npm:vue3-markdown@^1.1.9": "1.1.9_typescript@5.6.3",
@@ -3092,6 +3094,14 @@
     "ci-info@3.9.0": {
       "integrity": "sha512-NIxF55hv4nSqQswkAeiOi1r83xy8JldOFDTWiug55KBu9Jnblncd2U6ViHmYgHf01TPZS77NJBhBMKdWj9HQMQ=="
     },
+    "clipboard@2.0.11": {
+      "integrity": "sha512-C+0bbOqkezLIsmWSvlsXS0Q0bmkugu7jcfMIACB+RDEntIzQIkdr148we28AfSloQLRdZlYL/QYyrq05j/3Faw==",
+      "dependencies": [
+        "good-listener",
+        "select",
+        "tiny-emitter"
+      ]
+    },
     "cliui@8.0.1": {
       "integrity": "sha512-BSeNnyus75C4//NQ9gQt1/csTXyo/8Sb+afLAkzAptFuMsod9HFokGNudZpi/oQV73hnVK+sR+5PVRMd+Dr7YQ==",
       "dependencies": [
@@ -3196,6 +3206,9 @@
         "it-take"
       ]
     },
+    "dayjs@1.11.13": {
+      "integrity": "sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg=="
+    },
     "de-indent@1.0.2": {
       "integrity": "sha512-e/1zu3xH5MQryN2zdVaF0OrdNLUbvWxzMbi+iNA6Bky7l1RoP8a2fIbRocyHclXt/arDrrR6lL3TqFD9pMQTsg=="
     },
@@ -3237,6 +3250,9 @@
     },
     "delayed-stream@1.0.0": {
       "integrity": "sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ=="
+    },
+    "delegate@3.2.0": {
+      "integrity": "sha512-IofjkYBZaZivn0V8nnsMJGBr4jVLxHDheKSW88PyxS5QC4Vo9ZbZVvhzlSxY87fVq3STR6r+4cGepyHkcWOQSw=="
     },
     "denodeify@1.2.1": {
       "integrity": "sha512-KNTihKNmQENUZeKu5fzfpzRqR5S2VMp4gl9RFHiWzj9DfvYQPMJ6XHKNaQxaGCXwPk6y9yme3aUoaiAe+KX+vg=="
@@ -3521,6 +3537,12 @@
     },
     "globals@11.12.0": {
       "integrity": "sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA=="
+    },
+    "good-listener@1.2.2": {
+      "integrity": "sha512-goW1b+d9q/HIwbVYZzZ6SsTr4IgE+WA44A0GmPIQstuOrgsFcT7VEJ48nmr9GaRtNu0XTKacFLGnBPAM6Afouw==",
+      "dependencies": [
+        "delegate"
+      ]
     },
     "graceful-fs@4.2.11": {
       "integrity": "sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ=="
@@ -5348,6 +5370,9 @@
         "loose-envify"
       ]
     },
+    "select@1.1.2": {
+      "integrity": "sha512-OwpTSOfy6xSs1+pwcNrv0RBMOzI39Lp3qQKUTPVVPRjCdNa5JH/oPRiqsesIskK8TVgmRiHwO4KXlV2Li9dANA=="
+    },
     "selfsigned@2.4.1": {
       "integrity": "sha512-th5B4L2U+eGLq1TVh7zNRGBapioSORUeymIydxgFpwww9d2qyKvtuPU2jJuHvYAwwqi2Y596QBL3eEqcPEYL8Q==",
       "dependencies": [
@@ -5588,6 +5613,9 @@
     "timestamp-nano@1.0.1": {
       "integrity": "sha512-4oGOVZWTu5sl89PtCDnhQBSt7/vL1zVEwAfxH1p49JhTosxzVQWYBYFRFZ8nJmo0G6f824iyP/44BFAwIoKvIA=="
     },
+    "tiny-emitter@2.1.0": {
+      "integrity": "sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q=="
+    },
     "tiny-invariant@1.3.3": {
       "integrity": "sha512-+FbBPE1o9QAYvviau/qC5SE3caw21q3xkvWKBtja5vgqOWIHHJ3ioaq1VPfn/Szqctz2bU/oYeKd9/z5BL+PVg=="
     },
@@ -5735,6 +5763,13 @@
     },
     "vscode-uri@3.0.8": {
       "integrity": "sha512-AyFQ0EVmsOZOlAnxoFOGOq1SQDWAB7C6aqMGS23svWAllfOaxbuFvcT8D1i8z3Gyn8fraVeZNNmN6e9bxxXkKw=="
+    },
+    "vue-json-viewer@3.0.4_vue@3.5.13__typescript@5.6.3_typescript@5.6.3": {
+      "integrity": "sha512-pnC080rTub6YjccthVSNQod2z9Sl5IUUq46srXtn6rxwhW8QM4rlYn+CTSLFKXWfw+N3xv77Cioxw7B4XUKIbQ==",
+      "dependencies": [
+        "clipboard",
+        "vue"
+      ]
     },
     "vue-router@4.5.0_vue@3.5.13__typescript@5.6.3_typescript@5.6.3": {
       "integrity": "sha512-HDuk+PuH5monfNuY+ct49mNmkCRK4xJAV9Ts4z9UFc4rzdDnxQLyCMGGc8pKhZhHTVzfanpNwB/lwqevcBwI4w==",
@@ -5905,9 +5940,11 @@
         "npm:@highlightjs/vue-plugin@^2.1.0",
         "npm:@vitejs/plugin-vue@^5.2.1",
         "npm:@vue/tsconfig@0.7",
+        "npm:dayjs@^1.11.13",
         "npm:highlight.js@^11.11.1",
         "npm:typescript@~5.6.2",
         "npm:vite@^6.0.5",
+        "npm:vue-json-viewer@^3.0.4",
         "npm:vue-router@^4.5.0",
         "npm:vue-tsc@^2.2.0",
         "npm:vue3-markdown@^1.1.9",
