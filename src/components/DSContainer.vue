@@ -8,10 +8,9 @@ import parseMetadata from '../utils/parseMetadata';
 import { getStore } from '../utils/store';
 import ItemDebugView from './ItemDebugView.vue';
 
-
 const props = defineProps<{ src: string }>();
 
-const metadata = shallowRef({attrs: {}, variables: {}});
+const metadata = shallowRef({src: "", attrs: {}, variables: {}});
 
 const stac_item = ref({});
 
@@ -19,7 +18,7 @@ const update = async () => {
     const store = await zarr.withConsolidated(getStore(props.src));
     const group = await zarr.open(store, { kind: "group" });
 
-    metadata.value = {attrs: group.attrs, variables: {}};
+    metadata.value = {src: props.src, attrs: group.attrs, variables: {}};
 
     const contents = store.contents();
     
@@ -32,7 +31,7 @@ const update = async () => {
         variables[path.slice(1)] = await zarr.open(group.resolve(path), {kind});
     }
 
-    metadata.value = {attrs: group.attrs, variables};
+    metadata.value = {src: props.src, attrs: group.attrs, variables};
     console.log(metadata.value);
     stac_item.value = await parseMetadata(unref(metadata));
 };

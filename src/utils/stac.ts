@@ -54,7 +54,7 @@ export interface Link {
   type?: string;
   title?: string;
   method?: string;
-  headers?: Map<string, string | [string]>;
+  headers?: { [key: string]: string | [string] };
   body?: unknown;
 }
 
@@ -75,6 +75,6 @@ export interface StacItem {
   bbox?: [number];
   properties: Properties;
   links: Link[];
-  assets: Map<string, Asset>;
+  assets: { [key: string]: Asset };
   collection?: string;
 }

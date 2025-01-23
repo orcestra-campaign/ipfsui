@@ -6,6 +6,7 @@ import type { SomeArray } from "./ds/types";
 import dayjs from "dayjs";
 
 interface DatasetMetadata {
+  src: string;
   attrs: LooseGlobalAttrs;
   variables: {
     [key: string]: SomeArray;
@@ -80,6 +81,12 @@ export default async function parseMetadata(
     // bbox: [1,2,3,4],
     properties,
     links: [],
-    assets: new Map(),
+    assets: {
+      data: {
+        href: ds.src,
+        roles: ["data"],
+        type: "application/vnd+zarr",
+      },
+    },
   };
 }
