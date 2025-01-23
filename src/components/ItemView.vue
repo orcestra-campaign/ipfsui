@@ -2,9 +2,6 @@
 import { VMarkdownView } from 'vue3-markdown'
 import 'vue3-markdown/dist/style.css'
 
-import JsonViewer from 'vue-json-viewer'
-import 'vue-json-viewer/style.css'
-
 const props = defineProps<{ item: {} }>();
 </script>
 
@@ -25,10 +22,6 @@ const props = defineProps<{ item: {} }>();
             mode="view"
             :content="props.item.properties.description"
         ></VMarkdownView>
-    </div>
-
-    <div class="raw">
-        <JsonViewer :value="props.item" :expand-depth=3></JsonViewer>
     </div>
 </template>
 

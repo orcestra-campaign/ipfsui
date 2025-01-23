@@ -6,6 +6,7 @@ import ItemView from './ItemView.vue';
 import parseMetadata from '../utils/parseMetadata';
 
 import { getStore } from '../utils/store';
+import ItemDebugView from './ItemDebugView.vue';
 
 
 const props = defineProps<{ src: string }>();
@@ -42,4 +43,5 @@ watch(() => props.src, update);
 
 <template>
     <ItemView :item="stac_item" />
+    <ItemDebugView :item="stac_item" />
 </template>
