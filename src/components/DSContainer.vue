@@ -14,6 +14,11 @@ const metadata = shallowRef({src: "", attrs: {}, variables: {}});
 
 const stac_item = ref({});
 
+const allAttrs = computed(() => {
+    const {attrs, variables} = metadata.value;
+    return {attrs, ...Object.fromEntries(Object.entries(variables).map(([k, v]) => [k, {attrs: v?.attrs || {}}]))};
+});
+
 const update = async () => {
     const store = await zarr.withConsolidated(getStore(props.src));
     const group = await zarr.open(store, { kind: "group" });
@@ -42,5 +47,5 @@ watch(() => props.src, update);
 
 <template>
     <ItemView :item="stac_item" />
-    <ItemDebugView :item="stac_item" />
+    <ItemDebugView :item="stac_item" :dsattrs="allAttrs" />
 </template>
