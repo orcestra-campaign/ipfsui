@@ -13,22 +13,11 @@ interface DatasetMetadata {
   };
 }
 
-export default async function parseMetadata(
+async function getTimeBounds(
   ds: DatasetMetadata,
-): Promise<StacItem> {
-  const properties: Properties = {
-    title: ds.attrs?.title,
-    description: ds.attrs?.summary,
-    keywords: ds.attrs?.keywords?.split(",").map((n: string) => n.trim()),
-    license: ds.attrs?.license,
-    platform: ds.attrs?.platform,
-    mission: ds.attrs?.project,
-    "processing:lineage": ds.attrs?.history,
-  };
-
+): Promise<{ start_datetime: string; end_datetime: string } | undefined> {
   const time_vars: { name: string; t0: dayjs.Dayjs; t1: dayjs.Dayjs }[] = [];
   for (const [varname, variable] of Object.entries(ds.variables)) {
-    console.log(variable);
     const attrs = variable.attrs;
     if (
       hasUnits(attrs) && isTimeVariable(varname, attrs) &&
@@ -44,18 +33,33 @@ export default async function parseMetadata(
   }
 
   if (time_vars.length > 0) {
-    properties.start_datetime = (dayjs.min(...time_vars.map(({ t0 }) =>
-      t0
-    )) as dayjs.Dayjs).toISOString();
-    properties.end_datetime = (dayjs.max(...time_vars.map(({ t1 }) =>
-      t1
-    )) as dayjs.Dayjs).toISOString();
+    return {
+      start_datetime: (dayjs.min(...time_vars.map(({ t0 }) =>
+        t0
+      )) as dayjs.Dayjs).toISOString(),
+      end_datetime: (dayjs.max(...time_vars.map(({ t1 }) => t1)) as dayjs.Dayjs)
+        .toISOString(),
+    };
   }
+}
+
+export default async function parseMetadata(
+  ds: DatasetMetadata,
+): Promise<StacItem> {
+  const properties: Properties = {
+    title: ds.attrs?.title,
+    description: ds.attrs?.summary,
+    keywords: ds.attrs?.keywords?.split(",").map((n: string) => n.trim()),
+    license: ds.attrs?.license,
+    platform: ds.attrs?.platform,
+    mission: ds.attrs?.project,
+    "processing:lineage": ds.attrs?.history,
+    ...(await getTimeBounds(ds) ?? {}),
+  };
 
   const names = (ds.attrs.creator_name ?? ds.attrs.authors)?.split(",").map((
     n: string,
   ) => n.trim());
-  console.log("attrs", ds.attrs.authors);
   const emails = ds.attrs.creator_email?.split(",").map((n: string) =>
     n.trim()
   );
