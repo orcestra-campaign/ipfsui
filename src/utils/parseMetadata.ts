@@ -13,32 +13,30 @@ interface DatasetMetadata {
   };
 }
 
+async function getFirstAndLast(variable: SomeArray): Promise<[number, number]> {
+    return [
+        ...(await get(variable, [slice(0, null, variable.shape[0] - 1)])).data,
+    ] as [number, number];
+}
+
 async function getTimeBounds(
   ds: DatasetMetadata,
 ): Promise<{ start_datetime: string; end_datetime: string } | undefined> {
-  const time_vars: { name: string; t0: dayjs.Dayjs; t1: dayjs.Dayjs }[] = [];
+  const times = [];
   for (const [varname, variable] of Object.entries(ds.variables)) {
     const attrs = variable.attrs;
     if (
       hasUnits(attrs) && isTimeVariable(varname, attrs) &&
       variable.shape.length == 1
     ) {
-      const [t0, t1] = [
-        ...(await get(variable, [slice(0, null, variable.shape[0] - 1)])).data,
-      ]
-        .map((t) => decodeTime(t as number, attrs) as dayjs.Dayjs);
-
-      time_vars.push({ name: varname, t0, t1 });
+      times.push(...(await getFirstAndLast(variable)).map((t) => decodeTime(t, attrs) as dayjs.Dayjs));
     }
   }
 
-  if (time_vars.length > 0) {
+  if (times.length > 0) {
     return {
-      start_datetime: (dayjs.min(...time_vars.map(({ t0 }) =>
-        t0
-      )) as dayjs.Dayjs).toISOString(),
-      end_datetime: (dayjs.max(...time_vars.map(({ t1 }) => t1)) as dayjs.Dayjs)
-        .toISOString(),
+      start_datetime: (dayjs.min(...times) as dayjs.Dayjs).toISOString(),
+      end_datetime: (dayjs.max(...times) as dayjs.Dayjs).toISOString(),
     };
   }
 }
@@ -54,7 +52,7 @@ export default async function parseMetadata(
     platform: ds.attrs?.platform,
     mission: ds.attrs?.project,
     "processing:lineage": ds.attrs?.history,
-    ...(await getTimeBounds(ds) ?? {}),
+    ...(await getTimeBounds(ds)),
   };
 
   const names = (ds.attrs.creator_name ?? ds.attrs.authors)?.split(",").map((
