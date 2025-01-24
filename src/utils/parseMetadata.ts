@@ -1,6 +1,12 @@
-import type { Properties, StacItem } from "./stac";
+import type { Geometry, Properties, StacItem } from "./stac";
 import type { LooseGlobalAttrs } from "./dsAttrConvention";
-import { decodeTime, hasUnits, isTimeVariable } from "./cf";
+import {
+  decodeTime,
+  hasUnits,
+  isLatitudeVariable,
+  isLongitudeVariable,
+  isTimeVariable,
+} from "./cf";
 import { get, slice } from "./ds";
 import type { SomeArray } from "./ds/types";
 import dayjs from "dayjs";
@@ -14,9 +20,45 @@ interface DatasetMetadata {
 }
 
 async function getFirstAndLast(variable: SomeArray): Promise<[number, number]> {
-    return [
-        ...(await get(variable, [slice(0, null, variable.shape[0] - 1)])).data,
-    ] as [number, number];
+  return [
+    ...(await get(variable, [slice(0, null, variable.shape[0] - 1)])).data,
+  ] as [number, number];
+}
+
+async function getSpatialBounds(
+  ds: DatasetMetadata,
+): Promise<
+  { bbox: [number, number, number, number]; geometry: Geometry } | undefined
+> {
+  const lats = [];
+  const lons = [];
+  for (const [varname, variable] of Object.entries(ds.variables)) {
+    const attrs = variable.attrs;
+    if (hasUnits(attrs) && variable.shape.length == 1) {
+      if (isLatitudeVariable(varname, attrs)) {
+        lats.push(...await getFirstAndLast(variable));
+      }
+      if (isLongitudeVariable(varname, attrs)) {
+        lons.push(...await getFirstAndLast(variable));
+      }
+    }
+  }
+  if (lats.length > 0 && lons.length > 0) {
+    const lat0 = Math.min(...lats);
+    const lat1 = Math.max(...lats);
+    const lon0 = Math.min(...lons);
+    const lon1 = Math.max(...lons);
+    return {
+      bbox: [lon0, lat0, lon1, lat1],
+      geometry: {
+        type: "Polygon",
+        coordinates: [[[lon0, lat0], [lon1, lat0], [lon1, lat1], [lon0, lat1], [
+          lon0,
+          lat0,
+        ]]],
+      },
+    };
+  }
 }
 
 async function getTimeBounds(
@@ -29,7 +71,11 @@ async function getTimeBounds(
       hasUnits(attrs) && isTimeVariable(varname, attrs) &&
       variable.shape.length == 1
     ) {
-      times.push(...(await getFirstAndLast(variable)).map((t) => decodeTime(t, attrs) as dayjs.Dayjs));
+      times.push(
+        ...(await getFirstAndLast(variable)).map((t) =>
+          decodeTime(t, attrs) as dayjs.Dayjs
+        ),
+      );
     }
   }
 
@@ -53,6 +99,7 @@ export default async function parseMetadata(
     mission: ds.attrs?.project,
     "processing:lineage": ds.attrs?.history,
     ...(await getTimeBounds(ds)),
+    ...(await getSpatialBounds(ds)),
   };
 
   const names = (ds.attrs.creator_name ?? ds.attrs.authors)?.split(",").map((

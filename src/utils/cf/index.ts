@@ -50,3 +50,11 @@ export function decodeTime(
   const timepoint = ref.add(value, interval);
   return timepoint;
 }
+
+export function isLatitudeVariable(_name: string, attrs: { units: string }) {
+  return !!attrs.units.match(/degrees?_?(N|north)/);
+}
+
+export function isLongitudeVariable(_name: string, attrs: { units: string }) {
+  return !!attrs.units.match(/degrees?_?(E|east)/);
+}
