@@ -14,6 +14,12 @@ export function hasUnits(
   return typeof (maybeHasUnits as { units: string }).units === "string";
 }
 
+export function hasAxis(
+  maybeHasUnits: unknown,
+): maybeHasUnits is { axis: string } {
+  return typeof (maybeHasUnits as { axis: string }).axis === "string";
+}
+
 function isInterval(maybeInterval: string): maybeInterval is ManipulateType {
   return ["milliseconds", "seconds", "minutes", "hours", "days"].includes(
     maybeInterval,

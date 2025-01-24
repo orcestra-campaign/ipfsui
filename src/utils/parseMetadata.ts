@@ -1,13 +1,20 @@
-import type { Geometry, Properties, StacItem } from "./stac";
+import type {
+  Dimension,
+  Geometry,
+  Properties,
+  StacItem,
+  Variable,
+} from "./stac";
 import type { LooseGlobalAttrs } from "./dsAttrConvention";
 import {
   decodeTime,
+  hasAxis,
   hasUnits,
   isLatitudeVariable,
   isLongitudeVariable,
   isTimeVariable,
 } from "./cf";
-import { get, slice } from "./ds";
+import { get, getDimensions, slice } from "./ds";
 import type { SomeArray } from "./ds/types";
 import dayjs from "dayjs";
 
@@ -87,6 +94,41 @@ async function getTimeBounds(
   }
 }
 
+function getDatacubeProperties(
+  ds: DatasetMetadata,
+): {
+  "cube:dimensions"?: { [key: string]: Dimension };
+  "cube:variables"?: { [key: string]: Variable };
+} {
+  const dimensions: { [key: string]: Dimension } = {};
+  const variables: { [key: string]: Variable } = {};
+  for (const [varname, variable] of Object.entries(ds.variables)) {
+    const varDimensions = getDimensions(variable);
+    if (varDimensions !== undefined) {
+      if (varDimensions.length == 1 && varDimensions[0] == varname) {
+        const attrs = variable.attrs;
+        if (hasUnits(attrs)) {
+          if (isTimeVariable(varname, attrs)) {
+            dimensions[varname] = { type: "temporal" };
+            continue;
+          }
+        }
+        if (hasAxis(attrs)) {
+          const axis = attrs.axis.toLowerCase();
+          if (["x", "y", "z"].includes(axis)) {
+            dimensions[varname] = { type: "spatial", axis };
+            continue;
+          }
+        }
+      } else {
+        variables[varname] = { dimensions: varDimensions, type: "data" };
+        continue;
+      }
+    }
+  }
+  return { "cube:dimensions": dimensions, "cube:variables": variables };
+}
+
 export default async function parseMetadata(
   ds: DatasetMetadata,
 ): Promise<StacItem> {
@@ -100,6 +142,7 @@ export default async function parseMetadata(
     "processing:lineage": ds.attrs?.history,
     ...(await getTimeBounds(ds)),
     ...(await getSpatialBounds(ds)),
+    ...getDatacubeProperties(ds),
   };
 
   const names = (ds.attrs.creator_name ?? ds.attrs.authors)?.split(",").map((

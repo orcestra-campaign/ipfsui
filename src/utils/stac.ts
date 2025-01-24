@@ -33,6 +33,19 @@ interface _Contact { // see: https://github.com/stac-extensions/contacts?tab=rea
 
 export type Contact = RequireAtLeastOne<_Contact, "name" | "organization">;
 
+export interface Dimension {
+  type: string;
+}
+
+export interface Variable {
+  dimensions: string[];
+  type: "data" | "auxiliary";
+  description?: string;
+  extent?: [number | string, number | string];
+  values?: (number | string)[];
+  unit?: string;
+}
+
 export interface Properties {
   datetime?: string | null;
   start_datetime?: string | null;
@@ -46,6 +59,8 @@ export interface Properties {
   mission?: string;
   "processing:lineage"?: string;
   "sci:citation"?: string;
+  "cube:dimensions"?: { [key: string]: Dimension };
+  "cube:variables"?: { [key: string]: Variable };
 }
 
 export interface Link {
