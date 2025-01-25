@@ -35,6 +35,7 @@ export type Contact = RequireAtLeastOne<_Contact, "name" | "organization">;
 
 export interface Dimension {
   type: string;
+  axis?: "x" | "y" | "z";
 }
 
 export interface Variable {

@@ -117,7 +117,10 @@ function getDatacubeProperties(
         if (hasAxis(attrs)) {
           const axis = attrs.axis.toLowerCase();
           if (["x", "y", "z"].includes(axis)) {
-            dimensions[varname] = { type: "spatial", axis };
+            dimensions[varname] = {
+              type: "spatial",
+              axis: axis as "x" | "y" | "z",
+            };
             continue;
           }
         }
