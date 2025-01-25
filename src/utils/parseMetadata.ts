@@ -1,4 +1,5 @@
 import type {
+  BBox,
   Dimension,
   Geometry,
   Properties,
@@ -35,7 +36,7 @@ async function getFirstAndLast(variable: SomeArray): Promise<[number, number]> {
 async function getSpatialBounds(
   ds: DatasetMetadata,
 ): Promise<
-  { bbox: [number, number, number, number]; geometry: Geometry } | undefined
+  { bbox: BBox; geometry: Geometry } | undefined
 > {
   const lats = [];
   const lons = [];
@@ -141,7 +142,6 @@ export default async function parseMetadata(
     mission: ds.attrs?.project,
     "processing:lineage": ds.attrs?.history,
     ...(await getTimeBounds(ds)),
-    ...(await getSpatialBounds(ds)),
     ...getDatacubeProperties(ds),
   };
 
@@ -169,8 +169,7 @@ export default async function parseMetadata(
     stac_version: "1.1.0",
     stac_extensions: [],
     id: "TODO: need some ID / CID",
-    geometry: null,
-    // bbox: [1,2,3,4],
+    ...(await getSpatialBounds(ds)),
     properties,
     links: [],
     assets: {

@@ -81,13 +81,15 @@ export interface Asset {
   roles?: string[];
 }
 
+export type BBox = [number, number, number, number];
+
 export interface StacItem {
   type: string;
   stac_version: string;
   stac_extensions?: string[];
   id: string;
-  geometry: Geometry | null;
-  bbox?: [number];
+  geometry?: Geometry;
+  bbox?: BBox;
   properties: Properties;
   links: Link[];
   assets: { [key: string]: Asset };
