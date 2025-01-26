@@ -12,7 +12,7 @@ const props = defineProps<{ src: string }>();
 
 const metadata = shallowRef({src: "", attrs: {}, variables: {}});
 
-const stac_item = ref({});
+const stac_item = ref();
 
 const allAttrs = computed(() => {
     const {attrs, variables} = metadata.value;
@@ -46,6 +46,6 @@ watch(() => props.src, update);
 </script>
 
 <template>
-    <ItemView :item="stac_item" />
-    <ItemDebugView :item="stac_item" :dsattrs="allAttrs" />
+    <ItemView v-if="stac_item" :item="stac_item" />
+    <ItemDebugView v-if="stac_item" :item="stac_item" :dsattrs="allAttrs" />
 </template>
