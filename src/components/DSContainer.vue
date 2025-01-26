@@ -30,7 +30,8 @@ const allAttrs = computed(() => {
 });
 
 const update = async () => {
-    const store = await zarr.withConsolidated(getStore(props.src));
+    if (heliaProvider.loading.value) return;
+    const store = await zarr.withConsolidated(getStore(props.src, heliaProvider?.helia?.value));
     const group = await zarr.open(store, { kind: "group" });
 
     metadata.value = {src: props.src, attrs: group.attrs, variables: {}};
@@ -70,7 +71,7 @@ const update = async () => {
 };
 
 onBeforeMount(update);
-watch(() => [props.src, heliaProvider?.loading], update);
+watch([props.src, heliaProvider.loading], update);
 </script>
 
 <template>

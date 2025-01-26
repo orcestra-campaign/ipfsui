@@ -1,6 +1,11 @@
+import { type Helia } from "helia";
 import type { AbsolutePath, AsyncReadable, RangeQuery } from "./types";
 import { fetch_range, merge_init } from "./utils";
-import { verifiedFetch } from "@helia/verified-fetch";
+import {
+  createVerifiedFetch,
+  type VerifiedFetch,
+  verifiedFetch,
+} from "@helia/verified-fetch";
 
 function resolve(root: string | URL, path: AbsolutePath): URL {
   const base = typeof root === "string" ? new URL(root) : root;
@@ -33,6 +38,7 @@ async function fetch_suffix(
   suffix_length: number,
   init: RequestInit,
   use_suffix_request: boolean,
+  verifiedFetch: VerifiedFetch,
 ): Promise<Response> {
   if (use_suffix_request) {
     return verifiedFetch(url, {
@@ -63,13 +69,30 @@ async function fetch_suffix(
 class IPFSFetchStore implements AsyncReadable<RequestInit> {
   #overrides: RequestInit;
   #use_suffix_request: boolean;
+  #getVerifiedFetch: () => Promise<VerifiedFetch>;
 
   constructor(
     public url: string | URL,
-    options: { overrides?: RequestInit; useSuffixRequest?: boolean } = {},
+    options: {
+      overrides?: RequestInit;
+      useSuffixRequest?: boolean;
+      helia?: Helia;
+    } = {},
   ) {
     this.#overrides = options.overrides ?? {};
     this.#use_suffix_request = options.useSuffixRequest ?? false;
+    if (options?.helia !== undefined) {
+      let instance: VerifiedFetch;
+      this.#getVerifiedFetch = async () => {
+        if (instance === undefined) {
+          console.log("creating verified fetch");
+          instance = await createVerifiedFetch(options.helia);
+        }
+        return instance;
+      };
+    } else {
+      this.#getVerifiedFetch = () => Promise.resolve(verifiedFetch);
+    }
   }
 
   #merge_init(overrides: RequestInit) {
@@ -81,6 +104,7 @@ class IPFSFetchStore implements AsyncReadable<RequestInit> {
     options: RequestInit = {},
   ): Promise<Uint8Array | undefined> {
     const href = resolve(this.url, key).href;
+    const verifiedFetch = await this.#getVerifiedFetch();
     const response = await verifiedFetch(href, this.#merge_init(options));
     return handle_response(response);
   }
@@ -92,6 +116,7 @@ class IPFSFetchStore implements AsyncReadable<RequestInit> {
   ): Promise<Uint8Array | undefined> {
     const url = resolve(this.url, key);
     const init = this.#merge_init(options);
+    const verifiedFetch = await this.#getVerifiedFetch();
     let response: Response;
     if ("suffixLength" in range) {
       response = await fetch_suffix(
@@ -99,6 +124,7 @@ class IPFSFetchStore implements AsyncReadable<RequestInit> {
         range.suffixLength,
         init,
         this.#use_suffix_request,
+        verifiedFetch,
       );
     } else {
       response = await fetch_range(url, range.offset, range.length, init);
