@@ -19,12 +19,16 @@ import { get, getDimensions, slice } from "./ds";
 import type { SomeArray } from "./ds/types";
 import dayjs from "dayjs";
 
-interface DatasetMetadata {
+import { CID } from "multiformats";
+
+export interface DatasetMetadata {
   src: string;
   attrs: LooseGlobalAttrs;
   variables: {
     [key: string]: SomeArray;
   };
+  item_cid?: CID;
+  root_cid?: CID;
 }
 
 async function getFirstAndLast(variable: SomeArray): Promise<[number, number]> {
@@ -136,6 +140,12 @@ function getDatacubeProperties(
 export default async function parseMetadata(
   ds: DatasetMetadata,
 ): Promise<StacItem> {
+  let stableSrc = ds.src;
+
+  if (ds.item_cid !== undefined) {
+    stableSrc = "ipfs://" + ds.item_cid.toString();
+  }
+
   const properties: Properties = {
     title: ds.attrs?.title,
     description: ds.attrs?.summary,
@@ -171,13 +181,13 @@ export default async function parseMetadata(
     type: "Feature",
     stac_version: "1.1.0",
     stac_extensions: [],
-    id: "TODO: need some ID / CID",
+    id: (ds?.item_cid?.toString() ?? ds.src) + "-stac_item",
     ...(await getSpatialBounds(ds)),
     properties,
     links: [],
     assets: {
       data: {
-        href: ds.src,
+        href: stableSrc,
         roles: ["data"],
         type: "application/vnd+zarr",
       },
