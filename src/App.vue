@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+import IPFSStatus from './components/IPFSStatus.vue'
+
 const ds_url = ref("http://127.0.0.1:8080/ipns/latest.orcestra-campaign.org/products/HALO/dropsondes/Level_3/PERCUSION_Level_3.zarr")
 </script>
 
@@ -13,6 +15,9 @@ const ds_url = ref("http://127.0.0.1:8080/ipns/latest.orcestra-campaign.org/prod
     -->
     <!--<DSContainer :src="ds_url" />-->
     <!--<DummyItem />-->
+    <nav>
+      <IPFSStatus />
+    </nav>
     <div>
       <ul>
         <li><a href="#/ds/http://127.0.0.1:8080/ipns/latest.orcestra-campaign.org/products/HALO/dropsondes/Level_3/PERCUSION_Level_3.zarr">DS L3</a></li>
