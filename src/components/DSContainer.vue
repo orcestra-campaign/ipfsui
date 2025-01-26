@@ -71,7 +71,7 @@ const update = async () => {
 };
 
 onBeforeMount(update);
-watch([props.src, heliaProvider.loading], update);
+watch([() => props.src, heliaProvider.loading], update);
 </script>
 
 <template>
