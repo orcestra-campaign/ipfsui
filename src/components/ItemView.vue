@@ -27,7 +27,7 @@ const props = defineProps<{ item: {} }>();
 
 <style scoped>
 .head {
-    background-color: #eee;
+    background-color: var(--highlight-bg-color);
     border-radius: 3px;
     padding: 5px 15px;
     margin: 5px -15px;

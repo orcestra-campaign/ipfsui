@@ -7,29 +7,15 @@ const ds_url = ref("http://127.0.0.1:8080/ipns/latest.orcestra-campaign.org/prod
 </script>
 
 <template>
-  <div>
-    <!--
-    <div>
-      <input class="url" v-model="ds_url">
-    </div>
-    -->
-    <!--<DSContainer :src="ds_url" />-->
-    <!--<DummyItem />-->
-    <nav>
-      <IPFSStatus />
-    </nav>
-    <div>
-      <ul>
-        <li><a href="#/ds/http://127.0.0.1:8080/ipns/latest.orcestra-campaign.org/products/HALO/dropsondes/Level_3/PERCUSION_Level_3.zarr">DS L3</a></li>
-        <li><a href="#/ds/http://127.0.0.1:8080/ipns/latest.orcestra-campaign.org/products/METEOR/GNSS_IWV.zarr">GNSS IWV</a></li>
-      </ul>
-    </div>
-    <RouterView />
-  </div>
+  <nav>
+    <div class="brand">ORCESTRA Data Browser</div>
+    <IPFSStatus class="_end" />
+  </nav>
+  <RouterView clas="content" />
 </template>
 
 <style scoped>
-input.url {
-  width: 100%;
+.brand {
+  font-weight: bold;
 }
 </style>
