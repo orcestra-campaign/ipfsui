@@ -11,6 +11,7 @@ import ItemDebugView from './ItemDebugView.vue';
 
 import { HeliaProviderKey } from '../plugins/HeliaProvider';
 import resolve from '../utils/ipfs/resolve';
+import PathView from './PathView.vue';
 
 const props = defineProps<{ src: string }>();
 
@@ -75,6 +76,7 @@ watch([() => props.src, heliaProvider.loading], update);
 </script>
 
 <template>
+    <PathView v-bind="metadata" />
     <ItemView v-if="stac_item" :item="stac_item" />
     <ItemDebugView v-if="stac_item" :item="stac_item" :dsattrs="allAttrs" />
 </template>

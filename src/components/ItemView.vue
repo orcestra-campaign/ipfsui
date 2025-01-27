@@ -30,7 +30,7 @@ const props = defineProps<{ item: {} }>();
     background-color: var(--highlight-bg-color);
     border-radius: 3px;
     padding: 5px 15px;
-    margin: 5px -15px;
+    margin: 0;
 }
 
 .authors ul {
