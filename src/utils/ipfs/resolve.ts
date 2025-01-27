@@ -61,6 +61,9 @@ export default async function resolve(helia: Helia, url: string) {
       const res = await name.resolveDNSLink(srcUrl.host);
       root_cid = res.cid;
       path = res.path;
+    } else if (srcUrl?.protocol == "ipfs:") {
+      root_cid = CID.parse(srcUrl.host);
+      path = "";
     }
     if (root_cid !== undefined) {
       path = joinPaths(path, srcUrl?.pathname ?? "");
