@@ -76,7 +76,7 @@ watch([() => props.src, heliaProvider.loading], update);
 </script>
 
 <template>
-    <PathView v-bind="metadata" />
+    <PathView v-if="metadata?.src" :src="metadata?.src as string" :item_cid="metadata?.item_cid" />
     <ItemView v-if="stac_item" :item="stac_item" />
     <ItemDebugView v-if="stac_item" :item="stac_item" :dsattrs="allAttrs" />
 </template>
