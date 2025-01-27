@@ -9,7 +9,7 @@ const heliaProvider = inject(HeliaProviderKey);
 
 <template>
     <div class="ipfsstatus">
-        <IpfsLogo width="1.3em" height="" viewBox="0 0 169 196" style="vertical-align: bottom; display: inline-block;"/> IPFS
+        <IpfsLogo width="1.3em" height="1.3em" viewBox="0 0 169 196" style="vertical-align: bottom; display: inline-block;"/> IPFS
         <span v-if="heliaProvider?.loading.value" title="loading">⏳</span>
         <span v-if="heliaProvider?.helia.value" title="available">✅</span>
         <span v-if="heliaProvider?.error.value" :title="heliaProvider?.error.value">❌</span>

@@ -17,5 +17,6 @@ const ds_url = ref("http://127.0.0.1:8080/ipns/latest.orcestra-campaign.org/prod
 <style scoped>
 .brand {
   font-weight: bold;
+  font-size: 2em;
 }
 </style>
