@@ -1,7 +1,6 @@
 import { type App, type InjectionKey, type ShallowRef, shallowRef } from "vue";
-import { createHelia, type Helia } from "helia";
-import { IDBBlockstore } from "blockstore-idb";
-import { IDBDatastore } from "datastore-idb";
+import { type Helia } from "helia";
+import setupHelia from "../lib/setupHelia";
 
 export const HeliaProviderKey = Symbol("HeliaProvider") as InjectionKey<
   {
@@ -22,10 +21,7 @@ export default {
       helia,
     });
     try {
-      const blockstore = new IDBBlockstore("ipfs/blockstore");
-      const datastore = new IDBDatastore("ipfs/datastore");
-      await Promise.all([blockstore.open(), datastore.open()]);
-      const instance = await createHelia({ blockstore, datastore });
+      const instance = await setupHelia();
       loading.value = false;
       helia.value = instance;
     } catch (e) {
