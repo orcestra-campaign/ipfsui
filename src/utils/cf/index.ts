@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc";
-import minMax from "dayjs/plugin/minMax";
+import utc from "dayjs/plugin/utc.js";
+import minMax from "dayjs/plugin/minMax.js";
 import type { ManipulateType } from "dayjs";
 
 dayjs.extend(utc);

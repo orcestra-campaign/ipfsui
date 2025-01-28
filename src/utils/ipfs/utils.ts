@@ -1,4 +1,4 @@
-import type { AbsolutePath } from "./types";
+import type { AbsolutePath } from "./types.ts";
 
 export function strip_prefix<Path extends AbsolutePath>(
   path: Path,

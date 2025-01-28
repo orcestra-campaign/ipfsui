@@ -15,3 +15,11 @@ export interface GlobalAttrs {
 export interface LooseGlobalAttrs extends GlobalAttrs {
   authors?: string;
 }
+
+export function extractLoose(
+  attrs: Record<string, undefined>,
+): LooseGlobalAttrs {
+  return Object.fromEntries(
+    Object.entries(attrs).filter(([_k, v]) => typeof v === "string"),
+  );
+}
