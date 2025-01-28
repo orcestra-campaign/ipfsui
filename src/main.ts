@@ -10,6 +10,12 @@ import hljs from "highlight.js/lib/core";
 import python from "highlight.js/lib/languages/python";
 import hljsVuePlugin from "@highlightjs/vue-plugin";
 
+import { registry } from "zarrita";
+import { DeltaCodec } from "./utils/ds/codecs/delta.ts";
+
+// @ts-expect-error DeltaCodec only handles numbers, but I didn't yet figure out how to check this properly
+registry.set("delta", () => DeltaCodec);
+
 hljs.registerLanguage("python", python);
 
 const router = createRouter({
