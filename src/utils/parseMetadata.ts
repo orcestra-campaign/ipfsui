@@ -16,7 +16,7 @@ import {
   isLongitudeVariable,
   isTimeVariable,
 } from "./cf/index.ts";
-import { get, getDimensions, slice } from "./ds/index.ts";
+import { get, getDimensions } from "./ds/index.ts";
 import type { SomeArray } from "./ds/types.ts";
 import dayjs from "dayjs";
 
@@ -32,10 +32,29 @@ export interface DatasetMetadata {
   root_cid?: CID;
 }
 
+/*
 async function getFirstAndLast(variable: SomeArray): Promise<[number, number]> {
   return [
     ...(await get(variable, [slice(0, null, variable.shape[0] - 1)])).data,
   ] as [number, number];
+}
+*/
+
+async function getMinMax(variable: SomeArray): Promise<[number, number]> {
+  if (variable.is("number")) {
+    let hi = -Infinity;
+    let lo = Infinity;
+    const { data } = await get(variable);
+    for (const v of data) {
+      if (isFinite(v)) {
+        hi = hi > v ? hi : v;
+        lo = lo < v ? lo : v;
+      }
+    }
+    return [hi, lo];
+  } else {
+    return [NaN, NaN];
+  }
 }
 
 async function getSpatialBounds(
@@ -46,14 +65,11 @@ async function getSpatialBounds(
   const lats = [];
   const lons = [];
   for (const [varname, variable] of Object.entries(ds.variables)) {
-    const attrs = variable.attrs;
-    if (variable.shape.length == 1) {
-      if (isLatitudeVariable(varname, attrs)) {
-        lats.push(...await getFirstAndLast(variable));
-      }
-      if (isLongitudeVariable(varname, attrs)) {
-        lons.push(...await getFirstAndLast(variable));
-      }
+    if (isLatitudeVariable(varname, variable.attrs)) {
+      lats.push(...await getMinMax(variable));
+    }
+    if (isLongitudeVariable(varname, variable.attrs)) {
+      lons.push(...await getMinMax(variable));
     }
   }
   if (lats.length > 0 && lons.length > 0) {
@@ -81,11 +97,10 @@ async function getTimeBounds(
   for (const [varname, variable] of Object.entries(ds.variables)) {
     const attrs = variable.attrs;
     if (
-      hasUnits(attrs) && isTimeVariable(varname, attrs) &&
-      variable.shape.length == 1
+      hasUnits(attrs) && isTimeVariable(varname, attrs)
     ) {
       times.push(
-        ...(await getFirstAndLast(variable)).map((t) =>
+        ...(await getMinMax(variable)).map((t) =>
           decodeTime(t, attrs) as dayjs.Dayjs
         ),
       );
