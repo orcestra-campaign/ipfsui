@@ -40,11 +40,25 @@ async function getFirstAndLast(variable: SomeArray): Promise<[number, number]> {
 }
 */
 
+function applyOffsetAndScale(data, attrs) {
+  let out = data;
+  if (attrs?.scale_factor) {
+    out = Float64Array.from(out).map((v) => v * attrs?.scale_factor);
+  }
+  if (attrs?.add_offset) {
+    out = Float64Array.from(out).map((v) => v + attrs?.add_offset);
+  }
+  return out;
+}
+
 async function getMinMax(variable: SomeArray): Promise<[number, number]> {
   if (variable.is("number")) {
     let hi = -Infinity;
     let lo = Infinity;
-    const { data } = await get(variable);
+    const data = applyOffsetAndScale(
+      (await get(variable)).data,
+      variable.attrs,
+    );
     for (const v of data) {
       if (isFinite(v)) {
         hi = hi > v ? hi : v;
