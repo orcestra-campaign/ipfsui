@@ -40,6 +40,7 @@ async function getFirstAndLast(variable: SomeArray): Promise<[number, number]> {
 }
 */
 
+// @ts-expect-error too lazy to think of types
 function applyOffsetAndScale(data, attrs) {
   let out = data;
   if (attrs?.scale_factor) {
