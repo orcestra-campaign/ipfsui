@@ -70,5 +70,5 @@ export function isLatitudeVariable(name: string, attrs: unknown) {
 
 export function isLongitudeVariable(name: string, attrs: unknown) {
   return (hasUnits(attrs) && !!attrs.units.match(/degrees?_?(E|east)/)) ||
-    name == "lat";
+    name == "lon";
 }
