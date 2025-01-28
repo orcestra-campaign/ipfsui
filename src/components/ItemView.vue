@@ -52,8 +52,7 @@ xr.open_dataset("${ props?.item?.assets?.data?.href }", engine="zarr")`)
 
 .authors li {
     display: inline-block;
-    margin: 3px;
-    padding: 3px 5px;
+    margin-right: 15px;
 }
 
 .aux {
