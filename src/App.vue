@@ -8,15 +8,16 @@ const ds_url = ref("http://127.0.0.1:8080/ipns/latest.orcestra-campaign.org/prod
 
 <template>
   <nav>
-    <div class="brand">ORCESTRA Data Browser</div>
+    <div class="brand"><a href="#/">ORCESTRA Data Browser</a></div>
     <IPFSStatus class="_end" />
   </nav>
   <RouterView />
 </template>
 
 <style scoped>
-.brand {
+.brand a {
   font-weight: bold;
   font-size: 2em;
+  color: var(--fg-color);
 }
 </style>
