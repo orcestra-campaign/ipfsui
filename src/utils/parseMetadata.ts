@@ -5,8 +5,8 @@ import type {
   Properties,
   StacItem,
   Variable,
-} from "./stac";
-import type { LooseGlobalAttrs } from "./dsAttrConvention";
+} from "./stac.ts";
+import type { LooseGlobalAttrs } from "./dsAttrConvention.ts";
 import {
   decodeTime,
   hasAxis,
@@ -14,9 +14,9 @@ import {
   isLatitudeVariable,
   isLongitudeVariable,
   isTimeVariable,
-} from "./cf";
-import { get, getDimensions, slice } from "./ds";
-import type { SomeArray } from "./ds/types";
+} from "./cf/index.ts";
+import { get, getDimensions, slice } from "./ds/index.ts";
+import type { SomeArray } from "./ds/types.ts";
 import dayjs from "dayjs";
 
 import { CID } from "multiformats";
