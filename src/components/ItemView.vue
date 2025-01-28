@@ -4,8 +4,10 @@ import { VMarkdownView } from 'vue3-markdown'
 import 'vue3-markdown/dist/style.css'
 
 import VarTable from './VarTable.vue';
+import type { StacItem } from '../utils/stac';
+import StacMap from './StacMap.vue';
 
-const props = defineProps<{ item: {} }>();
+const props = defineProps<{ item: StacItem }>();
 
 const code = computed(() => `import xarray as xr
 
@@ -25,11 +27,14 @@ xr.open_dataset("${ props?.item?.assets?.data?.href }", engine="zarr")`)
         </div>
     </div>
 
-    <div class="summary" v-if="props.item.properties?.description">    
-        <VMarkdownView
-            mode="view"
-            :content="props.item.properties.description"
-        ></VMarkdownView>
+    <div class="description">
+        <div class="summary" v-if="props.item.properties?.description">
+            <VMarkdownView
+                mode="view"
+                :content="props.item.properties.description"
+            ></VMarkdownView>
+        </div>
+        <StacMap :item="props.item" />
     </div>
 
     <div>
@@ -80,5 +85,20 @@ xr.open_dataset("${ props?.item?.assets?.data?.href }", engine="zarr")`)
     padding: 3px 5px;
     border-radius: 3px;
     background-color: lightgreen;
+}
+
+.description {
+    display: flex;
+}
+
+.summary {
+    flex: 10 10 auto;
+}
+
+.map {
+    width: 400px;
+    height: 300px;
+    flex: 1 2 auto;
+    margin: 5px 0 5px 5px;
 }
 </style>

@@ -17,6 +17,7 @@
     "npm:@types/command-line-args@^5.2.3": "5.2.3",
     "npm:@types/command-line-usage@^5.0.4": "5.0.4",
     "npm:@vitejs/plugin-vue@^5.2.1": "5.2.1_vite@6.0.10_vue@3.5.13__typescript@5.6.3_typescript@5.6.3",
+    "npm:@vue-leaflet/vue-leaflet@~0.10.1": "0.10.1_leaflet@1.9.4_typescript@5.6.3",
     "npm:@vue/tsconfig@0.7": "0.7.0_typescript@5.6.3_vue@3.5.13__typescript@5.6.3",
     "npm:blockstore-fs@^2.0.2": "2.0.2",
     "npm:blockstore-idb@^2.0.1": "2.0.1",
@@ -28,6 +29,7 @@
     "npm:helia@^5.2.0": "5.2.0",
     "npm:highlight.js@^11.11.1": "11.11.1",
     "npm:ipfs-unixfs-exporter@^13.6.1": "13.6.1",
+    "npm:leaflet@^1.9.4": "1.9.4",
     "npm:multiformats@^13.3.1": "13.3.1",
     "npm:numcodecs@~0.3.2": "0.3.2",
     "npm:reference-spec-reader@0.2": "0.2.0",
@@ -2695,6 +2697,13 @@
         "vscode-uri"
       ]
     },
+    "@vue-leaflet/vue-leaflet@0.10.1_leaflet@1.9.4_typescript@5.6.3": {
+      "integrity": "sha512-RNEDk8TbnwrJl8ujdbKgZRFygLCxd0aBcWLQ05q/pGv4+d0jamE3KXQgQBqGAteE1mbQsk3xoNcqqUgaIGfWVg==",
+      "dependencies": [
+        "leaflet",
+        "vue"
+      ]
+    },
     "@vue/compiler-core@3.5.13": {
       "integrity": "sha512-oOdAkwqUfW1WqpwSYJce06wvt6HljgY3fGeM9NcVA1HaYOij3mZG9Rkysn0OHuyUAGMbEbARIpsG+LPVlBJ5/Q==",
       "dependencies": [
@@ -4445,6 +4454,9 @@
     },
     "kleur@4.1.5": {
       "integrity": "sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ=="
+    },
+    "leaflet@1.9.4": {
+      "integrity": "sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA=="
     },
     "leven@3.1.0": {
       "integrity": "sha512-qsda+H8jTaUaN/x5vzW2rzc+8Rw4TAQ/4KjB46IwK5VH+IlVeeeje/EoZRpiXvIqjFgK84QffqPztGI3VBLG1A=="
@@ -6238,6 +6250,7 @@
         "npm:@types/command-line-args@^5.2.3",
         "npm:@types/command-line-usage@^5.0.4",
         "npm:@vitejs/plugin-vue@^5.2.1",
+        "npm:@vue-leaflet/vue-leaflet@~0.10.1",
         "npm:@vue/tsconfig@0.7",
         "npm:blockstore-fs@^2.0.2",
         "npm:blockstore-idb@^2.0.1",
@@ -6249,6 +6262,7 @@
         "npm:helia@^5.2.0",
         "npm:highlight.js@^11.11.1",
         "npm:ipfs-unixfs-exporter@^13.6.1",
+        "npm:leaflet@^1.9.4",
         "npm:multiformats@^13.3.1",
         "npm:typescript@~5.6.2",
         "npm:vite-svg-loader@^5.1.0",
