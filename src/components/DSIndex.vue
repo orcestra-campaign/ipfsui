@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import indexData from "./data/meteor_products_items.json" with {type: "json"};
-import JsonViewer from 'vue-json-viewer'
-import 'vue-json-viewer/style.css'
 
 console.log(indexData);
 
