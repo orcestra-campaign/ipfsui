@@ -10,6 +10,7 @@ import type { LooseGlobalAttrs } from "./dsAttrConvention";
 import {
   decodeTime,
   hasAxis,
+  hasLongName,
   hasUnits,
   isLatitudeVariable,
   isLongitudeVariable,
@@ -110,11 +111,15 @@ function getDatacubeProperties(
   for (const [varname, variable] of Object.entries(ds.variables)) {
     const varDimensions = getDimensions(variable);
     if (varDimensions !== undefined) {
+      const attrs = variable.attrs;
       if (varDimensions.length == 1 && varDimensions[0] == varname) {
-        const attrs = variable.attrs;
         if (hasUnits(attrs)) {
           if (isTimeVariable(varname, attrs)) {
-            dimensions[varname] = { type: "temporal" };
+            dimensions[varname] = {
+              type: "temporal",
+              unit: attrs.units,
+              ...(hasLongName(attrs) && { description: attrs.long_name }),
+            };
             continue;
           }
         }
@@ -124,12 +129,19 @@ function getDatacubeProperties(
             dimensions[varname] = {
               type: "spatial",
               axis: axis as "x" | "y" | "z",
+              ...(hasUnits(attrs) && { unit: attrs.units }),
+              ...(hasLongName(attrs) && { description: attrs.long_name }),
             };
             continue;
           }
         }
       } else {
-        variables[varname] = { dimensions: varDimensions, type: "data" };
+        variables[varname] = {
+          dimensions: varDimensions,
+          type: "data",
+          ...(hasUnits(attrs) && { unit: attrs.units }),
+          ...(hasLongName(attrs) && { description: attrs.long_name }),
+        };
         continue;
       }
     }
