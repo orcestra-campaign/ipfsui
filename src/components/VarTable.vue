@@ -17,7 +17,7 @@ const {item} = defineProps<{ item: StacItem }>();
       </thead>
       <tbody>
         <tr v-for="[k, v] of Object.entries(item?.properties['cube:dimensions'])"><th class="dim" scope="row"><pre>{{ k }}</pre></th><td>{{ v.unit }}</td><td>{{ v.description }}</td></tr>
-        <tr v-for="[k, v] of Object.entries(item?.properties['cube:variables'])"><th scope="row"><pre>{{ k }}</pre></th><td>{{ v.unit }}</td><td>{{ v.description }}</td></tr>
+        <tr v-for="[k, v] of Object.entries(item?.properties['cube:variables'])"><th scope="row"><pre>{{ k }} <span class="dimensions">(<span class="dimension" v-for="d of v.dimensions">{{ d }}</span>)</span></pre></th><td>{{ v.unit }}</td><td>{{ v.description }}</td></tr>
       </tbody>
     </table>
   </div>
@@ -52,5 +52,12 @@ tbody tr:nth-child(odd) {
 
 pre {
   margin: 0 0;
+}
+
+span.dimensions {
+  font-weight: 400;
+}
+span.dimension:nth-last-child(n + 2)::after  {
+    content: ", "
 }
 </style>
