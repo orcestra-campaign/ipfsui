@@ -3,6 +3,8 @@ import { computed } from 'vue'
 import { VMarkdownView } from 'vue3-markdown'
 import 'vue3-markdown/dist/style.css'
 
+import VarTable from './VarTable.vue';
+
 const props = defineProps<{ item: {} }>();
 
 const code = computed(() => `import xarray as xr
@@ -32,6 +34,11 @@ xr.open_dataset("${ props?.item?.assets?.data?.href }", engine="zarr")`)
 
     <div>
         <highlightjs language='python' :code="code" />
+    </div>
+
+    <h2>Parameter(s)</h2>
+    <div>
+        <VarTable :item="props.item" />
     </div>
 
 </template>
