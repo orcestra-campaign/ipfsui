@@ -12,6 +12,8 @@ import ItemDebugView from './ItemDebugView.vue';
 import { HeliaProviderKey } from '../plugins/HeliaProvider';
 import resolve from '../utils/ipfs/resolve';
 import PathView from './PathView.vue';
+import { readDataset } from '../utils/ds';
+import { extractLoose } from '../utils/dsAttrConvention';
 
 const props = defineProps<{ src: string }>();
 
@@ -31,24 +33,15 @@ const allAttrs = computed(() => {
 });
 
 const update = async () => {
-    if (heliaProvider.loading.value) return;
-    const store = await zarr.withConsolidated(getStore(props.src, heliaProvider?.helia?.value));
-    const group = await zarr.open(store, { kind: "group" });
+    if (heliaProvider?.loading.value) return;
+    const store = getStore(props.src, {helia: heliaProvider?.helia?.value});
+    const dsMeta = await readDataset(store);
 
-    metadata.value = {src: props.src, attrs: group.attrs, variables: {}};
-
-    const contents = store.contents();
+    const attrs = extractLoose(dsMeta.attrs);
+    const variables = dsMeta.variables;
     
-    const variables: {[key: string]: any} = {};
+    metadata.value = {src: props.src, attrs, variables};
 
-    for ( const {path, kind } of contents ) {
-        if(kind !== "array") {
-            continue;
-        }
-        variables[path.slice(1)] = await zarr.open(group.resolve(path), {kind});
-    }
-
-    metadata.value = {src: props.src, attrs: group.attrs, variables};
     console.log(metadata.value);
 
     if (heliaProvider?.helia?.value) {
@@ -57,15 +50,8 @@ const update = async () => {
         const root_cid = resolveResult?.cids.at(0)?.cid;
         const item_cid = resolveResult?.cids.at(-1)?.cid;
 
-        /*
-        if (item_cid !== undefined) {
-            stableSrc = "ipfs://" + item_cid.toString();
-        }
-        */
-        metadata.value = {src: props.src, attrs: group.attrs, variables, root_cid, item_cid};
+        metadata.value = {src: props.src, attrs, variables, root_cid, item_cid};
         console.log("IPNS resolve", props.src, item_cid?.toString());
-    } else {
-        metadata.value = {src: props.src, attrs: group.attrs, variables};
     }
     console.log(metadata.value);
     stac_item.value = await parseMetadata(unref(metadata));
