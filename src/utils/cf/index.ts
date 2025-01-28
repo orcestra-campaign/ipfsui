@@ -65,10 +65,10 @@ export function decodeTime(
 
 export function isLatitudeVariable(name: string, attrs: unknown) {
   return (hasUnits(attrs) && !!attrs.units.match(/degrees?_?(N|north)/)) ||
-    name == "lat";
+    name == "lat" || name == "latitude";
 }
 
 export function isLongitudeVariable(name: string, attrs: unknown) {
   return (hasUnits(attrs) && !!attrs.units.match(/degrees?_?(E|east)/)) ||
-    name == "lon";
+    name == "lon" || name == "longitude";
 }
