@@ -23,7 +23,9 @@
     "npm:ipfs-unixfs-exporter@^13.6.1": "13.6.1",
     "npm:multiformats@^13.3.1": "13.3.1",
     "npm:numcodecs@~0.3.2": "0.3.2",
+    "npm:reference-spec-reader@0.2": "0.2.0",
     "npm:typescript@~5.6.2": "5.6.3",
+    "npm:unzipit@^1.4.3": "1.4.3",
     "npm:vite-svg-loader@^5.1.0": "5.1.0_vue@3.5.13__typescript@5.6.3_typescript@5.6.3",
     "npm:vite@^6.0.5": "6.0.10",
     "npm:vue-json-viewer@^3.0.4": "3.0.4_vue@3.5.13__typescript@5.6.3_typescript@5.6.3",
@@ -37,6 +39,7 @@
     "@zarrita/core@0.1.0-next.17": {
       "integrity": "7dcf9aef62d628f8b0bfb6e52a496e628cc35cbb6b4649b3d8abb65115d61029",
       "dependencies": [
+        "jsr:@zarrita/storage",
         "jsr:@zarrita/typedarray",
         "npm:numcodecs"
       ]
@@ -44,11 +47,16 @@
     "@zarrita/indexing@0.1.0-next.19": {
       "integrity": "abf7982aebad93f098abf6f6ab34c5a90bb352ff5f506ce294d6c4a82f8b4e08",
       "dependencies": [
-        "jsr:@zarrita/core"
+        "jsr:@zarrita/core",
+        "jsr:@zarrita/storage"
       ]
     },
     "@zarrita/storage@0.1.0-next.8": {
-      "integrity": "dd99a2edbe87c1391ab5008ec9b85a6a56511a85209e1d77341de6686b043cce"
+      "integrity": "dd99a2edbe87c1391ab5008ec9b85a6a56511a85209e1d77341de6686b043cce",
+      "dependencies": [
+        "npm:reference-spec-reader",
+        "npm:unzipit"
+      ]
     },
     "@zarrita/typedarray@0.1.0-next.4": {
       "integrity": "313bb50d8fc4abc66256f0346b263d7203b6d329f36651c167e3fdc40dd100c5"

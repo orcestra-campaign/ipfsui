@@ -1,8 +1,14 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { VMarkdownView } from 'vue3-markdown'
 import 'vue3-markdown/dist/style.css'
 
 const props = defineProps<{ item: {} }>();
+
+const code = computed(() => `import xarray as xr
+
+xr.open_dataset("${ props?.item?.assets?.data?.href }", engine="zarr")`)
+
 </script>
 
 <template>
@@ -23,6 +29,11 @@ const props = defineProps<{ item: {} }>();
             :content="props.item.properties.description"
         ></VMarkdownView>
     </div>
+
+    <div>
+        <highlightjs language='python' :code="code" />
+    </div>
+
 </template>
 
 <style scoped>
