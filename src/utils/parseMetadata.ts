@@ -47,7 +47,7 @@ async function getSpatialBounds(
   const lons = [];
   for (const [varname, variable] of Object.entries(ds.variables)) {
     const attrs = variable.attrs;
-    if (hasUnits(attrs) && variable.shape.length == 1) {
+    if (variable.shape.length == 1) {
       if (isLatitudeVariable(varname, attrs)) {
         lats.push(...await getFirstAndLast(variable));
       }

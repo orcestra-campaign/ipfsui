@@ -63,10 +63,12 @@ export function decodeTime(
   return timepoint;
 }
 
-export function isLatitudeVariable(_name: string, attrs: { units: string }) {
-  return !!attrs.units.match(/degrees?_?(N|north)/);
+export function isLatitudeVariable(name: string, attrs: unknown) {
+  return (hasUnits(attrs) && !!attrs.units.match(/degrees?_?(N|north)/)) ||
+    name == "lat";
 }
 
-export function isLongitudeVariable(_name: string, attrs: { units: string }) {
-  return !!attrs.units.match(/degrees?_?(E|east)/);
+export function isLongitudeVariable(name: string, attrs: unknown) {
+  return (hasUnits(attrs) && !!attrs.units.match(/degrees?_?(E|east)/)) ||
+    name == "lat";
 }
