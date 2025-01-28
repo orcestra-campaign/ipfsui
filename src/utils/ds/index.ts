@@ -1,6 +1,6 @@
 import { open, withConsolidated } from "zarrita";
 import type { SomeArray } from "./types.ts";
-import { type Dataset, type SomeStore } from "./types.ts";
+import { type Dataset, isListableStore, type SomeStore } from "./types.ts";
 
 export { Array, get, slice } from "zarrita";
 
@@ -12,11 +12,12 @@ export async function readDataset(
   store: SomeStore, /*| Listable<SomeStore>*/
 ): Promise<Dataset> {
   //const _store  = (store?.contents !== undefined) ? store : await withConsolidated(store);
-  const _store = await withConsolidated(store);
+
+  const _store = isListableStore(store) ? store : await withConsolidated(store);
   const group = await open(_store, { kind: "group" });
   const contents = _store.contents();
 
-  const variables: Record<string, undefined> = {};
+  const variables: Record<string, SomeArray> = {};
 
   for (const { path, kind } of contents) {
     if (kind !== "array") {
