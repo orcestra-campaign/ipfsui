@@ -52,6 +52,15 @@ async function getMinMax(variable: SomeArray): Promise<[number, number]> {
       }
     }
     return [hi, lo];
+  } else if (variable.is("bigint")) {
+    let hi = BigInt(-Number.MAX_SAFE_INTEGER);
+    let lo = BigInt(Number.MAX_SAFE_INTEGER);
+    const { data } = await get(variable);
+    for (const v of data) {
+      hi = hi > v ? hi : v;
+      lo = lo < v ? lo : v;
+    }
+    return [Number(hi), Number(lo)];
   } else {
     return [NaN, NaN];
   }
