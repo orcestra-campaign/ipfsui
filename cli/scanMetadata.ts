@@ -10,10 +10,10 @@ import { FsDatastore } from "datastore-fs";
 import { FsBlockstore } from "blockstore-fs";
 import process from "node:process";
 import type { UnixFSEntry } from "ipfs-unixfs-exporter";
-import { getStore } from "../utils/store.ts";
-import { readDataset } from "../utils/ds/index.ts";
-import { extractLoose } from "../utils/dsAttrConvention.ts";
-import parseMetadata from "../utils/parseMetadata.ts";
+import { getStore } from "../src/utils/store.ts";
+import { readDataset } from "../src/utils/ds/index.ts";
+import { extractLoose } from "../src/utils/dsAttrConvention.ts";
+import parseMetadata from "../src/utils/parseMetadata.ts";
 
 import commandLineArgs from "command-line-args";
 import commandLineUsage from "command-line-usage";
