@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { ref, unref, shallowRef, watch, computed, onBeforeMount, inject, type Ref } from 'vue'
+import { ref, unref, shallowRef, watch, onBeforeMount, inject, type Ref } from 'vue'
 
-import * as zarr from "zarrita";
 import ItemView from './ItemView.vue';
 import parseMetadata from '../utils/parseMetadata';
 import { type DatasetMetadata } from '../utils/parseMetadata';
 
 import { getStore } from '../utils/store';
-import ItemDebugView from './ItemDebugView.vue';
 
 import { HeliaProviderKey } from '../plugins/HeliaProvider';
 import resolve from '../utils/ipfs/resolve';
@@ -22,15 +20,6 @@ const heliaProvider = inject(HeliaProviderKey);
 const metadata: Ref<DatasetMetadata | undefined> = shallowRef();
 
 const stac_item = ref();
-
-const allAttrs = computed(() => {
-    if (metadata.value !== undefined) {
-        const {attrs, variables} = metadata.value;
-        return {attrs, ...Object.fromEntries(Object.entries(variables).map(([k, v]) => [k, {attrs: v?.attrs || {}}]))};
-    } else {
-        return {attrs: {}, variables: {}};
-    }
-});
 
 const update = async () => {
     if (heliaProvider?.loading.value) return;
@@ -64,5 +53,4 @@ watch([() => props.src, heliaProvider?.loading], update);
 <template>
     <PathView v-if="metadata?.src" :src="metadata?.src as string" :item_cid="metadata?.item_cid" />
     <ItemView v-if="stac_item" :item="stac_item" />
-    <ItemDebugView v-if="stac_item" :item="stac_item" :dsattrs="allAttrs" />
 </template>
