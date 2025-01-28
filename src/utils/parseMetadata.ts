@@ -60,6 +60,9 @@ async function getMinMax(variable: SomeArray): Promise<[number, number]> {
       (await get(variable)).data,
       variable.attrs,
     );
+    if (data === undefined) {
+      return [NaN, NaN];
+    }
     for (const v of data) {
       if (isFinite(v)) {
         hi = hi > v ? hi : v;
