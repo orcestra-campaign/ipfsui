@@ -110,11 +110,15 @@ function getDatacubeProperties(
   for (const [varname, variable] of Object.entries(ds.variables)) {
     const varDimensions = getDimensions(variable);
     if (varDimensions !== undefined) {
+      const attrs = variable.attrs;
       if (varDimensions.length == 1 && varDimensions[0] == varname) {
-        const attrs = variable.attrs;
         if (hasUnits(attrs)) {
           if (isTimeVariable(varname, attrs)) {
-            dimensions[varname] = { type: "temporal" };
+            dimensions[varname] = {
+              type: "temporal",
+              unit: attrs?.units,
+              description: attrs?.long_name,
+            };
             continue;
           }
         }
@@ -129,7 +133,12 @@ function getDatacubeProperties(
           }
         }
       } else {
-        variables[varname] = { dimensions: varDimensions, type: "data" };
+        variables[varname] = {
+          dimensions: varDimensions,
+          type: "data",
+          unit: attrs?.units,
+          description: attrs?.long_name,
+        };
         continue;
       }
     }
