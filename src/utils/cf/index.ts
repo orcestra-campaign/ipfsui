@@ -14,6 +14,12 @@ export function hasUnits(
   return typeof (maybeHasUnits as { units: string }).units === "string";
 }
 
+export function hasLongName(
+  maybeHasUnits: unknown,
+): maybeHasUnits is { long_name: string } {
+  return typeof (maybeHasUnits as { long_name: string }).long_name === "string";
+}
+
 export function hasAxis(
   maybeHasUnits: unknown,
 ): maybeHasUnits is { axis: string } {
