@@ -20,7 +20,6 @@ export class DeltaCodec<D extends NumberDataType> {
     configuration: { astype: string; dtype: string },
     _meta: { data_type: D },
   ) {
-    console.log("loading delta codec", configuration);
     if (configuration.astype !== configuration.dtype) {
       throw new Error(
         "delta encoding is currently only implemented for unchanged types",
@@ -54,13 +53,11 @@ export class DeltaCodec<D extends NumberDataType> {
    * @returns The decoded chunk
    */
   decode(chunk: Chunk<D>): Chunk<D> {
-    console.log("decoding", chunk.data);
     const out = empty_like(chunk);
     out.data[0] = chunk.data[0];
     for (let i = 1; i < out.data.length; ++i) {
       out.data[i] = out.data[i - 1] + chunk.data[i];
     }
-    console.log("decoded", out.data);
     return out;
   }
 }
