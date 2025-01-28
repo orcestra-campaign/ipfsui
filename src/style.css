@@ -1,6 +1,6 @@
 @font-face {
- font-family: 'Roboto Slab';
- src: url('fonts/RobotoSlab-VariableFont_wght.ttf') format('truetype');
+  font-family: "Roboto Slab";
+  src: url("fonts/RobotoSlab-VariableFont_wght.ttf") format("truetype");
 }
 
 :root {
@@ -42,7 +42,7 @@ nav ._end {
 }
 
 h1 {
-  font-family: 'Roboto Slab';
+  font-family: "Roboto Slab";
   font-size: 3em;
   line-height: 1.1;
 }
