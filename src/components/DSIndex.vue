@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import indexData from "./data/meteor_products_items.json" with {type: "json"};
+import indexData from "./data/many_items.json" with {type: "json"};
 
 console.log(indexData);
 
