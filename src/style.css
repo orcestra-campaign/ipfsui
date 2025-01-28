@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Roboto Slab";
+  src: url("fonts/RobotoSlab-VariableFont_wght.ttf") format("truetype");
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -37,7 +42,8 @@ nav ._end {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-family: "Roboto Slab";
+  font-size: 3em;
   line-height: 1.1;
 }
 
