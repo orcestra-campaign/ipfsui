@@ -41,12 +41,9 @@ async function fetch_suffix(
   verifiedFetch: VerifiedFetch,
 ): Promise<Response> {
   if (use_suffix_request) {
-    return verifiedFetch(url, {
-      ...init,
-      headers: { ...init.headers, Range: `bytes=-${suffix_length}` },
-    });
+    return verifiedFetch(url);
   }
-  const response = await verifiedFetch(url, { ...init, method: "HEAD" });
+  const response = await verifiedFetch(url);
   if (!response.ok) {
     // will be picked up by handle_response
     return response;
@@ -85,7 +82,6 @@ class IPFSFetchStore implements AsyncReadable<RequestInit> {
       let instance: VerifiedFetch;
       this.#getVerifiedFetch = async () => {
         if (instance === undefined) {
-          console.log("creating verified fetch");
           instance = await createVerifiedFetch(options.helia);
         }
         return instance;
@@ -101,11 +97,11 @@ class IPFSFetchStore implements AsyncReadable<RequestInit> {
 
   async get(
     key: AbsolutePath,
-    options: RequestInit = {},
+    _options: RequestInit = {},
   ): Promise<Uint8Array | undefined> {
     const href = resolve(this.url, key).href;
     const verifiedFetch = await this.#getVerifiedFetch();
-    const response = await verifiedFetch(href, this.#merge_init(options));
+    const response = await verifiedFetch(href);
     return handle_response(response);
   }
 
