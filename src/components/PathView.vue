@@ -25,6 +25,7 @@ const {src, item_cid} = defineProps<{ src: string, item_cid?: CID }>();
     border-top-right-radius: 5px;
     border-color: var(--highlight-bg-color);
     padding: 3px 5px;
+    overflow: hidden;
 }
 div.srcPath {
     font-weight: bold;

@@ -89,6 +89,13 @@ xr.open_dataset("${ props?.item?.assets?.data?.href }", engine="zarr")`)
 
 .description {
     display: flex;
+    gap: 5px;
+}
+
+@media (width <= 800px) {
+    .description {
+        flex-direction: column;
+    }
 }
 
 .summary {
@@ -96,9 +103,10 @@ xr.open_dataset("${ props?.item?.assets?.data?.href }", engine="zarr")`)
 }
 
 .map {
-    width: 400px;
+    max-width: 100%;
+    /*width: 400px;*/
     height: 300px;
-    flex: 1 2 auto;
-    margin: 5px 0 5px 5px;
+    flex: 1 1 400px;
+    margin: 5px 0;
 }
 </style>
