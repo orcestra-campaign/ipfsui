@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc.js";
 import minMax from "dayjs/plugin/minMax.js";
 import type { ManipulateType } from "dayjs";
+import type { DatasetMetadata } from "../parseMetadata";
 
 dayjs.extend(utc);
 dayjs.extend(minMax);
@@ -71,4 +72,9 @@ export function isLatitudeVariable(name: string, attrs: unknown) {
 export function isLongitudeVariable(name: string, attrs: unknown) {
   return (hasUnits(attrs) && !!attrs.units.match(/degrees?_?(E|east)/)) ||
     name == "lon" || name == "longitude";
+}
+
+export function isTrajectory(ds: DatasetMetadata) {
+  if (ds.attrs?.featureType === undefined) return false;
+  return ["trajectory", "trajectoryProfile"].includes(ds.attrs?.featureType);
 }
