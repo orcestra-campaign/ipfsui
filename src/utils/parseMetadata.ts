@@ -15,6 +15,7 @@ import {
   isLatitudeVariable,
   isLongitudeVariable,
   isTimeVariable,
+  isTrajectory,
 } from "./cf/index.ts";
 import { get, getDimensions } from "./ds/index.ts";
 import type { SomeArray } from "./ds/types.ts";
@@ -52,24 +53,27 @@ function applyOffsetAndScale(data, attrs) {
   return out;
 }
 
+function nanMinMax(array: Iterable<number>): [number, number] {
+  if (array === undefined) return [NaN, NaN];
+  let hi = -Infinity;
+  let lo = Infinity;
+
+  for (const v of array) {
+    if (isFinite(v)) {
+      hi = hi > v ? hi : v;
+      lo = lo < v ? lo : v;
+    }
+  }
+  return [hi, lo];
+}
+
 async function getMinMax(variable: SomeArray): Promise<[number, number]> {
   if (variable.is("number")) {
-    let hi = -Infinity;
-    let lo = Infinity;
     const data = applyOffsetAndScale(
       (await get(variable)).data,
       variable.attrs,
     );
-    if (data === undefined) {
-      return [NaN, NaN];
-    }
-    for (const v of data) {
-      if (isFinite(v)) {
-        hi = hi > v ? hi : v;
-        lo = lo < v ? lo : v;
-      }
-    }
-    return [hi, lo];
+    return nanMinMax(data);
   } else if (variable.is("bigint")) {
     let hi = BigInt(-Number.MAX_SAFE_INTEGER);
     let lo = BigInt(Number.MAX_SAFE_INTEGER);
@@ -84,7 +88,7 @@ async function getMinMax(variable: SomeArray): Promise<[number, number]> {
   }
 }
 
-async function getSpatialBounds(
+async function getSpatialBoundsDefault(
   ds: DatasetMetadata,
 ): Promise<
   { bbox: BBox; geometry: Geometry } | undefined
@@ -114,6 +118,61 @@ async function getSpatialBounds(
         ]]],
       },
     };
+  }
+}
+
+interface LikeAnArray<T> extends Iterable<T> {
+  [n: number]: T;
+}
+
+async function getSpatialBoundsTrajectory(
+  ds: DatasetMetadata,
+): Promise<
+  { bbox: BBox; geometry: Geometry } | undefined
+> {
+  let lats: LikeAnArray<number> | undefined = undefined;
+  let lons: LikeAnArray<number> | undefined = undefined;
+  for (const [varname, variable] of Object.entries(ds.variables)) {
+    if (
+      isLatitudeVariable(varname, variable.attrs) && variable.shape.length == 1
+    ) {
+      if (lats !== undefined) console.warn("more than one latitude variable");
+      lats = applyOffsetAndScale((await get(variable)).data, variable.attrs);
+    }
+    if (
+      isLongitudeVariable(varname, variable.attrs) && variable.shape.length == 1
+    ) {
+      if (lons !== undefined) console.warn("more than one longitude variable");
+      lons = applyOffsetAndScale((await get(variable)).data, variable.attrs);
+    }
+  }
+  if (lats === undefined || lons === undefined) {
+    console.warn(
+      "dataset is a trajaectory, but it was not possible to figure out the coordinates",
+    );
+    return getSpatialBoundsDefault(ds);
+  }
+
+  const [lat0, lat1] = nanMinMax(lats);
+  const [lon0, lon1] = nanMinMax(lons);
+  return {
+    bbox: [lon0, lat0, lon1, lat1],
+    geometry: {
+      type: "LineString",
+      coordinates: Array.from(lons).map((lon, i) => [lon, lats[i]]),
+    },
+  };
+}
+
+function getSpatialBounds(
+  ds: DatasetMetadata,
+): Promise<
+  { bbox: BBox; geometry: Geometry } | undefined
+> {
+  if (isTrajectory(ds)) {
+    return getSpatialBoundsTrajectory(ds);
+  } else {
+    return getSpatialBoundsDefault(ds);
   }
 }
 

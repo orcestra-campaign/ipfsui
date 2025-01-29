@@ -13,6 +13,7 @@ export interface GlobalAttrs {
 }
 
 export interface LooseGlobalAttrs extends GlobalAttrs {
+  featureType?: string;
   authors?: string;
 }
 
