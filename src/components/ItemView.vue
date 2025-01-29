@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { VMarkdownView } from 'vue3-markdown'
 import 'vue3-markdown/dist/style.css'
 
+import License from './License.vue';
 import VarTable from './VarTable.vue';
 import type { StacItem } from '../utils/stac';
 import StacMap from './StacMap.vue';
@@ -23,7 +24,7 @@ xr.open_dataset("${ props?.item?.assets?.data?.href }", engine="zarr")`)
             <div class="time" v-if="props.item?.properties?.datetime">{{ props.item.properties.datetime }}</div>
             <div class="time" v-if="props.item?.properties?.start_datetime && props.item?.properties?.end_datetime">{{ props.item.properties.start_datetime }} - {{ props.item.properties.end_datetime }}</div>
             <div class="keywords" v-if="props.item?.properties?.keywords"><ul><li v-for="kw in props.item.properties.keywords">{{ kw }}</li></ul></div>
-            <div class="license" v-if="props.item?.properties?.license">⚖️ {{ props.item.properties.license }}</div>
+            <div><License :spdx="props.item?.properties?.license" /></div>
         </div>
     </div>
 
@@ -60,6 +61,7 @@ xr.open_dataset("${ props?.item?.assets?.data?.href }", engine="zarr")`)
     list-style: none;
     margin: 0;
     padding: 0;
+    font-weight: bolder;
 }
 
 .authors li {
