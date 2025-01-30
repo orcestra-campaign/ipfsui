@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import indexData from "./data/many_items.json" with {type: "json"};
+import indexData from "./data/products.json" with {type: "json"};
 
 indexData.sort((a, b) => (a.properties?.title === undefined ? 1 : (b.properties?.title === undefined ? -1 : a.properties.title.localeCompare(b.properties.title))))
 
