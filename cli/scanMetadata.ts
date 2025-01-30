@@ -61,13 +61,19 @@ async function collectDatasets(
     console.log("collecting", path);
     return [{ cid, path }];
   } else {
-    //return (await Promise.all(res.filter(e => e.type === "directory").map((e) => collectDatasets(e.cid, path + "/" + e.name)))).flat();
+    const out = (await Promise.all(
+      res.filter((e) => e.type === "directory").map((e) =>
+        collectDatasets(e.cid, path + "/" + e.name, blacklist)
+      ),
+    )).flat();
+    /*
     const out = [];
     for (const e of res) {
       if (e.type === "directory") {
         out.push(...await collectDatasets(e.cid, path + "/" + e.name));
       }
     }
+    */
     return out;
   }
 }
@@ -215,22 +221,23 @@ const blacklist = [
 
 const datasetLocations = await collectDatasets(root_cid, "", blacklist);
 
-const stacItems = [];
-for (const { cid, path } of datasetLocations) {
-  const store = getStore("ipfs://" + cid.toString(), { helia });
-  const dsMeta = await readDataset(store);
-  const src = "ipfs://" + root_cid.toString() + path;
-  const metadata = {
-    src,
-    attrs: extractLoose(dsMeta.attrs),
-    variables: dsMeta.variables,
-    root_cid,
-    item_cid: cid,
-  };
-  const stacItem = await parseMetadata(metadata);
-  console.log(stacItem.properties?.title);
-  stacItems.push(stacItem);
-}
+const stacItems = await Promise.all(
+  datasetLocations.map(async ({ cid, path }) => {
+    const store = getStore("ipfs://" + cid.toString(), { helia });
+    const dsMeta = await readDataset(store);
+    const src = "ipfs://" + root_cid.toString() + path;
+    const metadata = {
+      src,
+      attrs: extractLoose(dsMeta.attrs),
+      variables: dsMeta.variables,
+      root_cid,
+      item_cid: cid,
+    };
+    const stacItem = await parseMetadata(metadata);
+    console.log(stacItem.properties?.title);
+    stacItems.push(stacItem);
+  }),
+);
 
 if (args?.outfile !== undefined) {
   await Deno.writeTextFile(args.outfile, JSON.stringify(stacItems));
