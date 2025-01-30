@@ -43,13 +43,10 @@ async function getFirstAndLast(variable: SomeArray): Promise<[number, number]> {
 
 // @ts-expect-error too lazy to think of types
 function applyOffsetAndScale(data, attrs) {
-  let out = data;
-  if (attrs?.scale_factor) {
-    out = Float64Array.from(out).map((v) => v * attrs?.scale_factor);
-  }
-  if (attrs?.add_offset) {
-    out = Float64Array.from(out).map((v) => v + attrs?.add_offset);
-  }
+  const scale = attrs?.scale_factor ?? 1.;
+  const offset = attrs?.add_offset ?? 0.;
+  if (scale === 1. && offset === 0.) return data;
+  const out = Float64Array.from(data).map((v) => v * scale + offset);
   return out;
 }
 
