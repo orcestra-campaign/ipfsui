@@ -3,6 +3,12 @@ import { unixfs } from "@helia/unixfs";
 import { createHelia } from "helia";
 import { CID } from "multiformats";
 
+import * as path from "jsr:@std/path";
+
+import { createHeliaHTTP } from "npm:@helia/http";
+import { trustlessGateway } from "npm:@helia/block-brokers";
+import { httpGatewayRouting } from "npm:@helia/routers";
+
 import { dns } from "@multiformats/dns";
 import { dnsJsonOverHttps } from "@multiformats/dns/resolvers";
 
@@ -55,7 +61,50 @@ async function collectDatasets(
   }
 }
 
-async function configureHelia() {
+async function getGatewayFromFile(
+  filename: string,
+): Promise<string | undefined> {
+  console.info("trying", filename);
+  try {
+    return (await Deno.readTextFile(filename))?.split("\n")[0]?.trim();
+  } catch {
+    return undefined;
+  }
+}
+
+async function getLocalGatewayConfiguration(): Promise<string | undefined> {
+  const IPFS_GATEWAY = Deno.env.get("IPFS_GATEWAY");
+  if (IPFS_GATEWAY) {
+    return IPFS_GATEWAY;
+  }
+  const IPFS_PATH = Deno.env.get("IPFS_PATH");
+  if (IPFS_PATH) {
+    const GATEWAY = await getGatewayFromFile(path.join(IPFS_PATH, "gateway"));
+    if (GATEWAY) return GATEWAY;
+  }
+  const HOME = Deno.env.get("HOME");
+  if (HOME) {
+    const GATEWAY = await getGatewayFromFile(
+      path.join(HOME, ".ipfs", "gateway"),
+    );
+    if (GATEWAY) return GATEWAY;
+  }
+  const CONFIG_HOME = Deno.env.get("XDG_CONFIG_HOME");
+  if (CONFIG_HOME) {
+    const GATEWAY = await getGatewayFromFile(
+      path.join(CONFIG_HOME, "ipfs", "gateway"),
+    );
+    if (GATEWAY) return GATEWAY;
+  }
+  {
+    const GATEWAY = await getGatewayFromFile(
+      path.join("/etc", "ipfs", "gateway"),
+    );
+    if (GATEWAY) return GATEWAY;
+  }
+}
+
+async function configureStandaloneHelia() {
   const datastore = new FsDatastore(".helia/datastore");
   const blockstore = new FsBlockstore(".helia/blockstore");
 
@@ -68,13 +117,39 @@ async function configureHelia() {
     },
   });
 
-  //const helia = await setupHelia();
-  return await createHelia({
+  const helia = await createHelia({
     datastore,
     blockstore,
     dns: resolver,
     libp2p: { dns: resolver },
   });
+  console.info("this node's peerId:", helia.libp2p.peerId.toString());
+  return helia;
+}
+
+async function configureLocalHelia(gateway: string) {
+  const helia = await createHeliaHTTP({
+    blockBrokers: [
+      trustlessGateway({ allowInsecure: true, allowLocal: true }),
+    ],
+    routers: [
+      httpGatewayRouting({
+        gateways: [gateway],
+      }),
+    ],
+  });
+  return helia;
+}
+
+async function configureHelia() {
+  const gateway = await getLocalGatewayConfiguration();
+  if (gateway) {
+    console.log("using local IPFS gateway configuration:", gateway);
+    return await configureLocalHelia(gateway);
+  } else {
+    console.log("using standalone IPFS implementation");
+    return await configureStandaloneHelia();
+  }
 }
 
 const options = [

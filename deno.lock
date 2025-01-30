@@ -1,6 +1,7 @@
 {
   "version": "4",
   "specifiers": {
+    "jsr:@std/path@*": "1.0.8",
     "jsr:@zarrita/core@~0.1.0-next.17": "0.1.0-next.17",
     "jsr:@zarrita/indexing@~0.1.0-next.19": "0.1.0-next.19",
     "jsr:@zarrita/storage@~0.1.0-next.8": "0.1.0-next.8",
@@ -45,6 +46,9 @@
     "npm:zarrita@~0.4.0-next.19": "0.4.0-next.19"
   },
   "jsr": {
+    "@std/path@1.0.8": {
+      "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
+    },
     "@zarrita/core@0.1.0-next.17": {
       "integrity": "7dcf9aef62d628f8b0bfb6e52a496e628cc35cbb6b4649b3d8abb65115d61029",
       "dependencies": [
