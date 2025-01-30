@@ -50,7 +50,12 @@ interface CIDPath {
 async function collectDatasets(
   cid: CID,
   path: string = "",
+  blacklist: string[] = [],
 ): Promise<Array<CIDPath>> {
+  if (blacklist.includes(path)) {
+    console.log("skipping path", path);
+    return [];
+  }
   const res = await Array.fromAsync(fs.ls(cid));
   if (isDataset(res)) {
     console.log("collecting", path);
@@ -203,7 +208,12 @@ const root_cid = CID.parse(args.cid);
 const helia = await configureHelia();
 const fs = unixfs(helia);
 
-const datasetLocations = await collectDatasets(root_cid);
+const blacklist = [
+  "/HALO/dropsondes/Level_1",
+  "/HALO/dropsondes/Level_2",
+];
+
+const datasetLocations = await collectDatasets(root_cid, "", blacklist);
 
 const stacItems = [];
 for (const { cid, path } of datasetLocations) {
