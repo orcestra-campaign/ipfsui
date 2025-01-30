@@ -34,3 +34,14 @@ deno run -A cli/scanMetadata.ts --cid <CID> -o products.json
 loally an will use it if present. In case it doesn't find the gateway, it will
 run it's own IPFS node, but that might be slower than using a well-connected
 long-running node as gateway.
+
+### compress the index
+
+Currently, we use the array of stac items as index for the main page (as
+produced by the scanning tool). This can quickly become large, especially when
+including trajectory data. A hacky way to compress the index can be done using
+`jq`:
+
+```bash
+cat products.json | jq 'map({properties, assets})' > products_short.json
+```
