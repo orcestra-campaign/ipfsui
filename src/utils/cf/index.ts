@@ -28,7 +28,15 @@ export function hasAxis(
 }
 
 function isInterval(maybeInterval: string): maybeInterval is ManipulateType {
-  return ["milliseconds", "seconds", "minutes", "hours", "days"].includes(
+  return [
+    "nanoseconds",
+    "microseconds",
+    "milliseconds",
+    "seconds",
+    "minutes",
+    "hours",
+    "days",
+  ].includes(
     maybeInterval,
   );
 }
