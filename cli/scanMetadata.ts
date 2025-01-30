@@ -58,9 +58,10 @@ async function collectDatasets(
   }
   const res = await Array.fromAsync(fs.ls(cid));
   if (isDataset(res)) {
-    console.log("collecting", path);
+    console.log("collected", path);
     return [{ cid, path }];
   } else {
+    console.log("entering path", path);
     const out = (await Promise.all(
       res.filter((e) => e.type === "directory").map((e) =>
         collectDatasets(e.cid, path + "/" + e.name, blacklist)
@@ -74,6 +75,7 @@ async function collectDatasets(
       }
     }
     */
+    console.log("finished path", path);
     return out;
   }
 }
@@ -220,6 +222,8 @@ const blacklist = [
 ];
 
 const datasetLocations = await collectDatasets(root_cid, "", blacklist);
+
+console.log("all datasets collected, extracting metadata");
 
 const stacItems = await Promise.all(
   datasetLocations.map(async ({ cid, path }) => {
