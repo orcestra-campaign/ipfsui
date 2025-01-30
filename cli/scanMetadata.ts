@@ -24,6 +24,12 @@ import parseMetadata from "../src/utils/parseMetadata.ts";
 import commandLineArgs from "command-line-args";
 import commandLineUsage from "command-line-usage";
 
+import { registry } from "zarrita";
+import { DeltaCodec } from "../src/utils/ds/codecs/delta.ts";
+
+// @ts-expect-error DeltaCodec only handles numbers, but I didn't yet figure out how to check this properly
+registry.set("delta", () => DeltaCodec);
+
 function isDataset(directoryListing: Array<UnixFSEntry>) {
   for (const entry of directoryListing) {
     if (
