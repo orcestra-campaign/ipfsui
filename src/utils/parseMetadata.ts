@@ -251,7 +251,9 @@ async function getSpatialBoundsTrajectory(
   }
   if (lats === undefined || lons === undefined) {
     console.warn(
-      "dataset is a trajaectory, but it was not possible to figure out the coordinates",
+      "dataset",
+      ds.src,
+      "is a trajaectory, but it was not possible to figure out the coordinates",
     );
     return getSpatialBoundsDefault(ds);
   }
