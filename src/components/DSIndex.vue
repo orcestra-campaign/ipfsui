@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import indexData from "./data/many_items.json" with {type: "json"};
+import indexData from "./data/products_short.json" with {type: "json"};
 
-console.log(indexData);
+indexData.sort((a, b) => (!a.properties?.title ? 1 : (!b.properties?.title ? -1 : a.properties.title.localeCompare(b.properties.title))))
 
 const filter = ref("");
 
@@ -36,7 +36,7 @@ const filteredIndex = computed(() => {
     </label>
     <ul class="stac_listing">
         <li v-for="item of filteredIndex">
-            <a :href="'#/ds/' + item.assets.data.href">{{ item.properties.title }}</a>
+            <a :href="'#/ds/' + item.assets.data.href">{{ item.properties?.title ?? item.assets.data.href }}</a>
             <ul class="authors"><li v-for="contact in item.properties?.contacts">{{ contact.name ?? contact.organization }}</li></ul>
         </li>
     </ul>

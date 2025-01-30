@@ -43,13 +43,10 @@ async function getFirstAndLast(variable: SomeArray): Promise<[number, number]> {
 
 // @ts-expect-error too lazy to think of types
 function applyOffsetAndScale(data, attrs) {
-  let out = data;
-  if (attrs?.scale_factor) {
-    out = Float64Array.from(out).map((v) => v * attrs?.scale_factor);
-  }
-  if (attrs?.add_offset) {
-    out = Float64Array.from(out).map((v) => v + attrs?.add_offset);
-  }
+  const scale = attrs?.scale_factor ?? 1.;
+  const offset = attrs?.add_offset ?? 0.;
+  if (scale === 1. && offset === 0.) return data;
+  const out = Float64Array.from(data).map((v) => v * scale + offset);
   return out;
 }
 
@@ -123,6 +120,112 @@ async function getSpatialBoundsDefault(
 
 interface LikeAnArray<T> extends Iterable<T> {
   [n: number]: T;
+  length: number;
+  constructor: new (size: number) => LikeAnArray<T>;
+}
+
+function sqLineDist(
+  x0: number,
+  y0: number,
+  x1: number,
+  y1: number,
+  x2: number,
+  y2: number,
+): number {
+  // squared distance form (x0, y0) to line (x1, y1) -- (x2, y2)
+  // Adapted from the [Simplify.js](https://mourner.github.io/simplify-js/) library.
+  let x = x1;
+  let y = y1;
+  let dx = x2 - x1;
+  let dy = y2 - y1;
+
+  if (dx !== 0 || dy !== 0) {
+    const t = ((x0 - x) * dx + (y0 - y) * dy) / (dx * dx + dy * dy);
+
+    if (t > 1) {
+      x = x2;
+      y = y2;
+    } else if (t > 0) {
+      x += dx * t;
+      y += dy * t;
+    }
+  }
+
+  dx = x0 - x;
+  dy = y0 - y;
+
+  return dx * dx + dy * dy;
+}
+
+function _simplifyGeometry<T extends LikeAnArray<number>>(
+  xs: T,
+  ys: T,
+  maxDistanceSq: number,
+  i1: number,
+  i2: number,
+  keep: Uint8Array,
+): number {
+  const x1 = xs[i1];
+  const y1 = ys[i1];
+  const x2 = xs[i2];
+  const y2 = ys[i2];
+
+  let maxIndex = 0;
+  let maxSqDistInSegment = -1;
+
+  for (let i = i1 + 1; i < i2; i++) {
+    const sqDist = sqLineDist(xs[i], ys[i], x1, y1, x2, y2);
+    if (sqDist > maxSqDistInSegment) {
+      maxIndex = i;
+      maxSqDistInSegment = sqDist;
+    }
+  }
+
+  let nKeep = 0;
+
+  if (maxSqDistInSegment > maxDistanceSq) {
+    keep[maxIndex] = 1;
+    nKeep = 1;
+
+    if (maxIndex - i1 > 1) {
+      nKeep += _simplifyGeometry(xs, ys, maxDistanceSq, i1, maxIndex, keep);
+    }
+
+    if (i2 - maxIndex > 1) {
+      nKeep += _simplifyGeometry(xs, ys, maxDistanceSq, maxIndex, i2, keep);
+    }
+  }
+  return nKeep;
+}
+
+function simplifyGeometry<T extends LikeAnArray<number>>(
+  xs: T,
+  ys: T,
+  maxDistance: number,
+): [T, T] {
+  // adapted from https://observablehq.com/@chnn/running-ramer-douglas-peucker-on-typed-arrays
+  const keep = new Uint8Array(xs.length);
+  const maxDistanceSq = maxDistance * maxDistance;
+
+  keep[0] = 1;
+  keep[keep.length - 1] = 1;
+
+  const nKeep = 2 +
+    _simplifyGeometry(xs, ys, maxDistanceSq, 0, keep.length - 1, keep);
+
+  const xsOut = new xs.constructor(nKeep) as T;
+  const ysOut = new ys.constructor(nKeep) as T;
+
+  let i = 0;
+
+  for (let j = 0; j < keep.length; j++) {
+    if (keep[j] === 1) {
+      xsOut[i] = xs[j];
+      ysOut[i] = ys[j];
+      i++;
+    }
+  }
+  return [xsOut, ysOut];
 }
 
 async function getSpatialBoundsTrajectory(
@@ -148,18 +251,27 @@ async function getSpatialBoundsTrajectory(
   }
   if (lats === undefined || lons === undefined) {
     console.warn(
-      "dataset is a trajaectory, but it was not possible to figure out the coordinates",
+      "dataset",
+      ds.src,
+      "is a trajaectory, but it was not possible to figure out the coordinates",
     );
     return getSpatialBoundsDefault(ds);
   }
 
   const [lat0, lat1] = nanMinMax(lats);
   const [lon0, lon1] = nanMinMax(lons);
+
+  const [lats2, lons2] = simplifyGeometry(lats, lons, .0001);
+  const coordinates = Array.from(lons2).map((lon, i) => [lon, lats2[i]]) as [
+    number,
+    number,
+  ][];
+
   return {
     bbox: [lon0, lat0, lon1, lat1],
     geometry: {
       type: "LineString",
-      coordinates: Array.from(lons).map((lon, i) => [lon, lats[i]]),
+      coordinates,
     },
   };
 }

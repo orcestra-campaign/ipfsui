@@ -3,6 +3,12 @@ import { unixfs } from "@helia/unixfs";
 import { createHelia } from "helia";
 import { CID } from "multiformats";
 
+import * as path from "jsr:@std/path";
+
+import { createHeliaHTTP } from "npm:@helia/http";
+import { trustlessGateway } from "npm:@helia/block-brokers";
+import { httpGatewayRouting } from "npm:@helia/routers";
+
 import { dns } from "@multiformats/dns";
 import { dnsJsonOverHttps } from "@multiformats/dns/resolvers";
 
@@ -17,6 +23,12 @@ import parseMetadata from "../src/utils/parseMetadata.ts";
 
 import commandLineArgs from "command-line-args";
 import commandLineUsage from "command-line-usage";
+
+import { registry } from "zarrita";
+import { DeltaCodec } from "../src/utils/ds/codecs/delta.ts";
+
+// @ts-expect-error DeltaCodec only handles numbers, but I didn't yet figure out how to check this properly
+registry.set("delta", () => DeltaCodec);
 
 function isDataset(directoryListing: Array<UnixFSEntry>) {
   for (const entry of directoryListing) {
@@ -38,24 +50,80 @@ interface CIDPath {
 async function collectDatasets(
   cid: CID,
   path: string = "",
+  blacklist: string[] = [],
 ): Promise<Array<CIDPath>> {
+  if (blacklist.includes(path)) {
+    console.log("skipping path", path);
+    return [];
+  }
   const res = await Array.fromAsync(fs.ls(cid));
   if (isDataset(res)) {
-    console.log("collecting", path);
+    console.log("collected", path);
     return [{ cid, path }];
   } else {
-    //return (await Promise.all(res.filter(e => e.type === "directory").map((e) => collectDatasets(e.cid, path + "/" + e.name)))).flat();
+    console.log("entering path", path);
+    const out = (await Promise.all(
+      res.filter((e) => e.type === "directory").map((e) =>
+        collectDatasets(e.cid, path + "/" + e.name, blacklist)
+      ),
+    )).flat();
+    /*
     const out = [];
     for (const e of res) {
       if (e.type === "directory") {
         out.push(...await collectDatasets(e.cid, path + "/" + e.name));
       }
     }
+    */
+    console.log("finished path", path);
     return out;
   }
 }
 
-async function configureHelia() {
+async function getGatewayFromFile(
+  filename: string,
+): Promise<string | undefined> {
+  console.info("trying", filename);
+  try {
+    return (await Deno.readTextFile(filename))?.split("\n")[0]?.trim();
+  } catch {
+    return undefined;
+  }
+}
+
+async function getLocalGatewayConfiguration(): Promise<string | undefined> {
+  const IPFS_GATEWAY = Deno.env.get("IPFS_GATEWAY");
+  if (IPFS_GATEWAY) {
+    return IPFS_GATEWAY;
+  }
+  const IPFS_PATH = Deno.env.get("IPFS_PATH");
+  if (IPFS_PATH) {
+    const GATEWAY = await getGatewayFromFile(path.join(IPFS_PATH, "gateway"));
+    if (GATEWAY) return GATEWAY;
+  }
+  const HOME = Deno.env.get("HOME");
+  if (HOME) {
+    const GATEWAY = await getGatewayFromFile(
+      path.join(HOME, ".ipfs", "gateway"),
+    );
+    if (GATEWAY) return GATEWAY;
+  }
+  const CONFIG_HOME = Deno.env.get("XDG_CONFIG_HOME");
+  if (CONFIG_HOME) {
+    const GATEWAY = await getGatewayFromFile(
+      path.join(CONFIG_HOME, "ipfs", "gateway"),
+    );
+    if (GATEWAY) return GATEWAY;
+  }
+  {
+    const GATEWAY = await getGatewayFromFile(
+      path.join("/etc", "ipfs", "gateway"),
+    );
+    if (GATEWAY) return GATEWAY;
+  }
+}
+
+async function configureStandaloneHelia() {
   const datastore = new FsDatastore(".helia/datastore");
   const blockstore = new FsBlockstore(".helia/blockstore");
 
@@ -68,13 +136,39 @@ async function configureHelia() {
     },
   });
 
-  //const helia = await setupHelia();
-  return await createHelia({
+  const helia = await createHelia({
     datastore,
     blockstore,
     dns: resolver,
     libp2p: { dns: resolver },
   });
+  console.info("this node's peerId:", helia.libp2p.peerId.toString());
+  return helia;
+}
+
+async function configureLocalHelia(gateway: string) {
+  const helia = await createHeliaHTTP({
+    blockBrokers: [
+      trustlessGateway({ allowInsecure: true, allowLocal: true }),
+    ],
+    routers: [
+      httpGatewayRouting({
+        gateways: [gateway],
+      }),
+    ],
+  });
+  return helia;
+}
+
+async function configureHelia() {
+  const gateway = await getLocalGatewayConfiguration();
+  if (gateway) {
+    console.log("using local IPFS gateway configuration:", gateway);
+    return await configureLocalHelia(gateway);
+  } else {
+    console.log("using standalone IPFS implementation");
+    return await configureStandaloneHelia();
+  }
 }
 
 const options = [
@@ -122,24 +216,32 @@ const root_cid = CID.parse(args.cid);
 const helia = await configureHelia();
 const fs = unixfs(helia);
 
-const datasetLocations = await collectDatasets(root_cid);
+const blacklist = [
+  "/HALO/dropsondes/Level_1",
+  "/HALO/dropsondes/Level_2",
+];
 
-const stacItems = [];
-for (const { cid, path } of datasetLocations) {
-  const store = getStore("ipfs://" + cid.toString(), { helia });
-  const dsMeta = await readDataset(store);
-  const src = "ipfs://" + root_cid.toString() + path;
-  const metadata = {
-    src,
-    attrs: extractLoose(dsMeta.attrs),
-    variables: dsMeta.variables,
-    root_cid,
-    item_cid: cid,
-  };
-  const stacItem = await parseMetadata(metadata);
-  console.log(stacItem.properties?.title);
-  stacItems.push(stacItem);
-}
+const datasetLocations = await collectDatasets(root_cid, "", blacklist);
+
+console.log("all datasets collected, extracting metadata");
+
+const stacItems = await Promise.all(
+  datasetLocations.map(async ({ cid, path }) => {
+    const store = getStore("ipfs://" + cid.toString(), { helia });
+    const dsMeta = await readDataset(store);
+    const src = "ipfs://" + root_cid.toString() + path;
+    const metadata = {
+      src,
+      attrs: extractLoose(dsMeta.attrs),
+      variables: dsMeta.variables,
+      root_cid,
+      item_cid: cid,
+    };
+    const stacItem = await parseMetadata(metadata);
+    console.log(stacItem.properties?.title);
+    stacItems.push(stacItem);
+  }),
+);
 
 if (args?.outfile !== undefined) {
   await Deno.writeTextFile(args.outfile, JSON.stringify(stacItems));
