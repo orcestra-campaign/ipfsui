@@ -239,7 +239,7 @@ const stacItems = await Promise.all(
     };
     const stacItem = await parseMetadata(metadata);
     console.log(stacItem.properties?.title);
-    stacItems.push(stacItem);
+    return stacItem;
   }),
 );
 
