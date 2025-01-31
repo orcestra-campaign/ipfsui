@@ -27,6 +27,8 @@ export function hasAxis(
   return typeof (maybeHasUnits as { axis: string }).axis === "string";
 }
 
+type IntervalType = ManipulateType | "nanoseconds" | "microseconds";
+
 function isInterval(maybeInterval: string): maybeInterval is ManipulateType {
   return [
     "nanoseconds",
@@ -43,7 +45,7 @@ function isInterval(maybeInterval: string): maybeInterval is ManipulateType {
 
 export function parseTimeUnits(
   units: string,
-): { interval: ManipulateType; refdate: string } | undefined {
+): { interval: IntervalType; refdate: string } | undefined {
   const regExMatch = units.match(unitsRegEx);
   if (!regExMatch) {
     return undefined;
@@ -66,7 +68,14 @@ export function decodeTime(
   if (timeUnits === undefined) {
     return undefined;
   }
-  const { interval, refdate } = timeUnits;
+  let { interval, refdate } = timeUnits;
+  if (interval === "nanoseconds") {
+    value = value * 1e-6;
+    interval = "milliseconds";
+  } else if (interval === "microseconds") {
+    value = value * 1e-3;
+    interval = "milliseconds";
+  }
   const ref = dayjs.utc(refdate);
   const timepoint = ref.add(value, interval);
   return timepoint;
