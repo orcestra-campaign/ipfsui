@@ -19,12 +19,14 @@ xr.open_dataset("${ props?.item?.assets?.data?.href }", engine="zarr")`)
 <template>
     <div class="head">
         <h1 class="title">{{ props.item.properties?.title }}</h1>
-        <div class="authors"><ul><li v-for="contact in props.item.properties?.contacts">{{ contact.name ?? contact.organization }}</li></ul></div>
         <div class="aux">
-            <div class="time" v-if="props.item?.properties?.datetime">{{ props.item.properties.datetime }}</div>
-            <div class="time" v-if="props.item?.properties?.start_datetime && props.item?.properties?.end_datetime">{{ props.item.properties.start_datetime }} - {{ props.item.properties.end_datetime }}</div>
-            <div class="keywords" v-if="props.item?.properties?.keywords"><ul><li v-for="kw in props.item.properties.keywords">{{ kw }}</li></ul></div>
-            <div><License :spdx="props.item?.properties?.license" /></div>
+            <div class="col">
+                <div class="authors"><ul><li v-for="contact in props.item.properties?.contacts">{{ contact.name ?? contact.organization }}</li></ul></div>
+                <div class="time" v-if="props.item?.properties?.start_datetime && props.item?.properties?.end_datetime">{{ props.item.properties.start_datetime }} - {{ props.item.properties.end_datetime }}</div>
+                <div class="time" v-else-if="props.item?.properties?.datetime">{{ props.item.properties.datetime }}</div>
+                <div class="keywords" v-if="props.item?.properties?.keywords"><ul><li v-for="kw in props.item.properties.keywords">{{ kw }}</li></ul></div>
+            </div>
+            <div class="col"><License :spdx="props.item?.properties?.license" /></div>
         </div>
     </div>
 
@@ -71,8 +73,13 @@ xr.open_dataset("${ props?.item?.assets?.data?.href }", engine="zarr")`)
 
 .aux {
     display: flex;
-    align-items: baseline;
     justify-content: space-between;
+}
+
+.aux .col {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
 }
 
 .keywords ul {
