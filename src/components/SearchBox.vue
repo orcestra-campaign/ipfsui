@@ -35,5 +35,6 @@ input[type="search"] {
     box-sizing: border-box;
     display: block;
     color: var(--fg-color);
+    font-size: larger;
 }
 </style>
