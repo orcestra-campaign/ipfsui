@@ -258,10 +258,11 @@ async function getSpatialBoundsTrajectory(
     return getSpatialBoundsDefault(ds);
   }
 
-  const [lat0, lat1] = nanMinMax(lats);
-  const [lon0, lon1] = nanMinMax(lons);
-
   const [lats2, lons2] = simplifyGeometry(lats, lons, .0001);
+
+  const [lat0, lat1] = nanMinMax(lats2);
+  const [lon0, lon1] = nanMinMax(lons2);
+
   const coordinates = Array.from(lons2).map((lon, i) => [lon, lats2[i]]) as [
     number,
     number,
