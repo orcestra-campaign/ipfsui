@@ -7,7 +7,7 @@ import { type DatasetMetadata } from '../utils/parseMetadata';
 
 import { getStore } from '../utils/store';
 
-import { HeliaProviderKey } from '../plugins/HeliaProvider';
+import { useHelia } from '../plugins/HeliaProvider';
 import resolve from '../utils/ipfs/resolve';
 import PathView from './PathView.vue';
 import { readDataset } from '../utils/ds';
@@ -15,15 +15,15 @@ import { extractLoose } from '../utils/dsAttrConvention';
 
 const props = defineProps<{ src: string }>();
 
-const heliaProvider = inject(HeliaProviderKey);
+const heliaProvider = useHelia();
 
 const metadata: Ref<DatasetMetadata | undefined> = shallowRef();
 
 const stac_item = ref();
 
 const update = async () => {
-    if (heliaProvider?.loading.value) return;
-    const store = getStore(props.src, {helia: heliaProvider?.helia?.value});
+    if (heliaProvider.loading.value) return;
+    const store = getStore(props.src, {helia: heliaProvider.helia.value});
     const dsMeta = await readDataset(store);
 
     const attrs = extractLoose(dsMeta.attrs);
@@ -33,7 +33,7 @@ const update = async () => {
 
     console.log(metadata.value);
 
-    if (heliaProvider?.helia?.value) {
+    if (heliaProvider.helia.value) {
         const helia = heliaProvider.helia.value;
         const resolveResult = await resolve(helia, props.src);
         const root_cid = resolveResult?.cids.at(0)?.cid;

@@ -7,8 +7,10 @@
     "jsr:@zarrita/storage@~0.1.0-next.8": "0.1.0-next.8",
     "jsr:@zarrita/typedarray@~0.1.0-next.4": "0.1.0-next.4",
     "jsr:@zarrita/zarrita@~0.4.0-next.19": "0.4.0-next.19",
+    "npm:@helia/block-brokers@^4.0.3": "4.0.3",
     "npm:@helia/http@^2.0.3": "2.0.3",
     "npm:@helia/ipns@^8.1.0": "8.1.0",
+    "npm:@helia/routers@3": "3.0.0",
     "npm:@helia/unixfs@^4.0.2": "4.0.2",
     "npm:@helia/verified-fetch@^2.4.0": "2.4.0",
     "npm:@highlightjs/vue-plugin@^2.1.0": "2.1.0_highlight.js@11.11.1_vue@3.5.13__typescript@5.6.3_typescript@5.6.3",
@@ -6243,8 +6245,10 @@
     ],
     "packageJson": {
       "dependencies": [
+        "npm:@helia/block-brokers@^4.0.3",
         "npm:@helia/http@^2.0.3",
         "npm:@helia/ipns@^8.1.0",
+        "npm:@helia/routers@3",
         "npm:@helia/unixfs@^4.0.2",
         "npm:@helia/verified-fetch@^2.4.0",
         "npm:@highlightjs/vue-plugin@^2.1.0",
