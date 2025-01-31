@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import indexData from "./data/products_short.json" with {type: "json"};
+import SearchBox from "./SearchBox.vue";
 
 indexData.sort((a, b) => (!a.properties?.title ? 1 : (!b.properties?.title ? -1 : a.properties.title.localeCompare(b.properties.title))))
 
@@ -31,18 +32,22 @@ const filteredIndex = computed(() => {
 </script>
 
 <template>
-    <label>search: 
-        <input v-model="filter" />
-    </label>
-    <ul class="stac_listing">
-        <li v-for="item of filteredIndex">
-            <a :href="'#/ds/' + item.assets.data.href">{{ item.properties?.title ?? item.assets.data.href }}</a>
-            <ul class="authors"><li v-for="contact in item.properties?.contacts">{{ contact.name ?? contact.organization }}</li></ul>
-        </li>
-    </ul>
+    <SearchBox v-model="filter" />
+    <div class="search_results">
+        <ul class="stac_listing">
+            <li v-for="item of filteredIndex">
+                <a :href="'#/ds/' + item.assets.data.href">{{ item.properties?.title ?? item.assets.data.href }}</a>
+                <ul class="authors"><li v-for="contact in item.properties?.contacts">{{ contact.name ?? contact.organization }}</li></ul>
+            </li>
+        </ul>
+    </div>
 </template>
 
 <style scoped>
+
+div.search_results {
+    margin-top: 20px;
+}
 
 ul {
   list-style-type: none;
