@@ -134,6 +134,7 @@ button:focus-visible {
   --fg-color: #213547;
   --bg-color: #ffffff;
   --highlight-bg-color: #eee;
+  --orcestra-blue: #00267f;
 }
 
 a {
