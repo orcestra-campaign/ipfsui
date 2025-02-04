@@ -7,7 +7,7 @@ const {loading, helia, error, inBrowser} = useHelia();
 
 <template>
     <div class="ipfsstatus">
-        <IpfsLogo width="1.3em" height="1.3em" viewBox="0 0 169 196" style="vertical-align: bottom; display: inline-block;"/> IPFS
+        <a target="_blank" href="https://ipfs.tech"><IpfsLogo width="1.3em" height="1.3em" viewBox="0 0 169 196" style="vertical-align: bottom; display: inline-block;" alt="IPFS"/></a>
         <span v-if="loading" class="tooltip left" data-tip="loading">⏳</span>
         <span v-if="helia" class="tooltip left" data-tip="available">✅</span>
         <span v-if="error" class="tooltip left" :data-tip="error">❌</span>
