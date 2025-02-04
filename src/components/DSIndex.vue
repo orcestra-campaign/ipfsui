@@ -45,6 +45,10 @@ const filteredIndex = computed(() => {
 
 <style scoped>
 
+a {
+    font-weight: 700;
+}
+
 div.search_results {
     margin-top: 20px;
 }
@@ -69,6 +73,7 @@ ul.stac_listing > li {
 ul.authors > li {
     display: inline-block;
     margin: 0 .1em;
+    font-size: smaller;
 }
 
 ul.authors > li:nth-last-child(n + 3)::after  {
