@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref, unref, shallowRef, watch, onBeforeMount, inject, type Ref } from 'vue'
 
+import PlaneAnimation from './PlaneAnimation.vue';
+
 import ItemView from './ItemView.vue';
 import parseMetadata from '../utils/parseMetadata';
 import { type DatasetMetadata } from '../utils/parseMetadata';
@@ -53,4 +55,5 @@ watch([() => props.src, heliaProvider?.loading], update);
 <template>
     <PathView v-if="metadata?.src" :src="metadata?.src as string" :item_cid="metadata?.item_cid" />
     <ItemView v-if="stac_item" :item="stac_item" />
+    <PlaneAnimation v-else />
 </template>
