@@ -6,6 +6,8 @@ import { computed, ref } from "vue";
 
 const { item } = defineProps<{ item: StacItem }>();
 
+const style = { color: "#3388ff"};
+
 const mapBounds = computed(() => [[item?.bbox[1], item?.bbox[0]], [item?.bbox[3], item?.bbox[2]]]);
 const mapCenter = computed(() => [(item?.bbox[1] + item?.bbox[3]) / 2, (item?.bbox[0] + item?.bbox[2]) / 2]);
 
@@ -28,7 +30,7 @@ const onMapReady = (mapObject) => {
             layer-type="base"
             name="OpenStreetMap"
         ></LTileLayer>
-        <LGeoJson :geojson="item" />
+        <LGeoJson :geojson="item" :options-style="style"/>
         </LMap>
     </div>
 </template>
