@@ -37,4 +37,9 @@ input[type="search"] {
     color: var(--fg-color);
     font-size: larger;
 }
+
+input[type="search"]:focus, textarea:focus {
+  outline: solid var(--orcestra-yellow);
+  outline-offset: 2px;
+}
 </style>
