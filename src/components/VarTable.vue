@@ -26,9 +26,9 @@ const {item} = defineProps<{ item: StacItem }>();
 <style scoped>
 table {
   table-layout: fixed;
-  width: 100%;
   border-collapse: collapse;
   text-align: left;
+  margin-bottom: 5px;
 }
 
 thead {
