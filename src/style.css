@@ -151,7 +151,7 @@ a:hover {
 @media (prefers-color-scheme: dark) {
   :root {
     --fg-color: rgba(255, 255, 255, 0.87);
-    --bg-color: #24242;
+    --bg-color: #151515;
     --highlight-bg-color: #444;
   }
   a:hover {
