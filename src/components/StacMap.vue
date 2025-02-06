@@ -6,7 +6,7 @@ import { computed, ref, onMounted, onUnmounted } from "vue";
 
 const { item } = defineProps<{ item: StacItem }>();
 
-const style = { color: "#3388ff"};
+const style = { color: "var(--line-color)" };
 
 const mapBounds = computed(() => [[item?.bbox[1], item?.bbox[0]], [item?.bbox[3], item?.bbox[2]]]);
 const mapCenter = computed(() => [(item?.bbox[1] + item?.bbox[3]) / 2, (item?.bbox[0] + item?.bbox[2]) / 2]);
@@ -44,3 +44,15 @@ const url = computed(() => `https://tiles.stadiamaps.com/tiles/alidade_smooth${i
         </LMap>
     </div>
 </template>
+
+<style>
+:root {
+  --line-color: var(--orcestra-blue-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --line-color: var(--orcestra-yellow);
+  }
+}
+</style>
