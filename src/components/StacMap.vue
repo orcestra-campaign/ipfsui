@@ -2,7 +2,7 @@
 
 import "leaflet/dist/leaflet.css";
 import { LGeoJson, LMap, LTileLayer } from "@vue-leaflet/vue-leaflet";
-import { computed, ref } from "vue";
+import { computed, ref, onMounted, onUnmounted } from "vue";
 
 const { item } = defineProps<{ item: StacItem }>();
 
@@ -20,15 +20,25 @@ const onMapReady = (mapObject) => {
   }
 };
 
+const mediaQuery = window.matchMedia('(prefers-color-scheme : dark)');
+const isDarkMode = ref(mediaQuery.matches);
+
+const update = (event) => (isDarkMode.value = event.matches);
+onMounted(() => mediaQuery.addEventListener("change", update));
+onUnmounted(() => mediaQuery.removeEventListener("change", update));
+
+const url = computed(() => `https://tiles.stadiamaps.com/tiles/alidade_smooth${isDarkMode.value ? '_dark' : ''}/{z}/{x}/{y}{r}.png`);
+
 </script>
 
 <template>
     <div class="map" v-if="item.bbox">
         <LMap ref="map" :center="mapCenter" :use-global-leaflet="false" @ready="onMapReady">
         <LTileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            :url="url"
             layer-type="base"
-            name="OpenStreetMap"
+            name="Stadia Maps"
+            attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a>'
         ></LTileLayer>
         <LGeoJson :geojson="item" :options-style="style"/>
         </LMap>
