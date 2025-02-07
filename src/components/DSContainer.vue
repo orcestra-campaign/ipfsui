@@ -2,6 +2,11 @@
 import { ref, unref, shallowRef, watch, onBeforeMount, inject, type Ref } from 'vue'
 
 import PlaneAnimation from './PlaneAnimation.vue';
+import ShipAnimation from './ShipAnimation.vue';
+import SondeAnimation from './SondeAnimation.vue';
+
+const animations = [PlaneAnimation, ShipAnimation, SondeAnimation];
+const Animation = animations[Math.floor(Math.random() * animations.length)];
 
 import ItemView from './ItemView.vue';
 import parseMetadata from '../utils/parseMetadata';
@@ -55,5 +60,5 @@ watch([() => props.src, heliaProvider?.loading], update);
 <template>
     <PathView v-if="metadata?.src" :src="metadata?.src as string" :item_cid="metadata?.item_cid" />
     <ItemView v-if="stac_item" :item="stac_item" />
-    <PlaneAnimation v-else />
+    <Animation v-else />
 </template>
