@@ -6,58 +6,86 @@ const {item} = defineProps<{ item: StacItem }>();
 </script>
 
 <template>
-  <div>
-    <table>
-      <thead>
-        <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Unit</th>
-          <th scope="col">Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="[k, v] of Object.entries(item?.properties['cube:dimensions'])"><th class="dim" scope="row"><pre>{{ k }}</pre></th><td>{{ v.unit }}</td><td>{{ v.description }}</td></tr>
-        <tr v-for="[k, v] of Object.entries(item?.properties['cube:variables'])"><th scope="row"><pre>{{ k }} <span class="dimensions">(<span class="dimension" v-for="d of v.dimensions">{{ d }}</span>)</span></pre></th><td>{{ v.unit }}</td><td>{{ v.description }}</td></tr>
-      </tbody>
-    </table>
+  <div class="vartable">
+    <div class="row header">
+        <div class="col name">Name</div>
+        <div class="col unit">Unit</div>
+        <div class="col description">Description</div>
+    </div>
+    <div class="row dim" v-for="[k, v] of Object.entries(item?.properties['cube:dimensions'])">
+      <div class="col name">{{ k }}</div><div class="col unit">{{ v.unit }}</div><div class="col description">{{ v.description }}</div>
+    </div>
+    <div class="row var" v-for="[k, v] of Object.entries(item?.properties['cube:variables'])">
+      <div class="col name">{{ k }} <span class="dimensions">(<span class="dimension" v-for="d of v.dimensions">{{ d }}</span>)</span></div><div class="col unit">{{ v.unit }}</div><div class="col description">{{ v.description }}</div>
+    </div>
   </div>
 </template>
 
 <style scoped>
-table {
-  table-layout: fixed;
-  border-collapse: collapse;
-  text-align: left;
+.vartable {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 5px;
 }
 
-thead {
-  text-transform: uppercase;
-}
-thead th:nth-child(1) {
-  width: 20%;
-}
-
-thead th:nth-child(2) {
-  width: 20%;
+.row {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  vertical-align: middle;
 }
 
-th, td {
-  padding: 5px 5px;
-}
-
-tbody tr:nth-child(odd) {
+.row:nth-child(even) {
   background-color: var(--highlight-bg-color);
 }
 
-pre {
-  margin: 0 0;
+.header {
+  display: none;
+}
+
+.col.name:not(div.header *) {
+  font-family: 'Menlo', 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+@media (width >= 700px) {
+  .row {
+    flex-direction: row;
+    padding: none;
+  }
+
+  .col {
+    padding: 5px;
+  }
+
+  .col.name {
+    flex: 0 0 20em;
+  }
+
+  .header {
+    text-transform: uppercase;
+    font-weight: bold;
+    display: flex;
+  }
+
+  .header .col.name {
+    font-family: unset;
+  }
+
+  .col.unit {
+    flex: 0 0 10em;
+  }
+
+  col.description {
+    flex: 1;
+  }
 }
 
 span.dimensions {
   font-weight: 400;
 }
 span.dimension:nth-last-child(n + 2)::after  {
-    content: ", "
+  content: ",\00a0"
 }
 </style>
