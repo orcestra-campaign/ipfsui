@@ -49,6 +49,11 @@ xr.open_dataset("${ props?.item?.assets?.data?.href }", engine="zarr")`)
         <VarTable :item="props.item" />
     </div>
 
+    <div v-if="props.item?.properties?.references">
+        <h2>References:</h2>
+        <div class="references"><ul><li v-for="ref in props.item.properties?.references">{{ ref }}</li></ul></div>
+    </div>
+
 </template>
 
 <style scoped>

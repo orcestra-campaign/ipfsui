@@ -377,6 +377,7 @@ export default async function parseMetadata(
     description: ds.attrs?.summary,
     keywords: ds.attrs?.keywords?.split(",").map((n: string) => n.trim()),
     license: ds.attrs?.license,
+    references: ds.attrs?.references?.split(",").map((n: string) => n.trim()),
     platform: ds.attrs?.platform,
     mission: ds.attrs?.project,
     "processing:lineage": ds.attrs?.history,
