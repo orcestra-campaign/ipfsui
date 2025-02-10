@@ -57,6 +57,7 @@ export interface Properties {
   description?: string;
   keywords?: string[];
   license?: string;
+  references?: string[];
   contacts?: Contact[];
   platform?: string;
   mission?: string;
