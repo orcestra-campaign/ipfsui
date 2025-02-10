@@ -1,4 +1,5 @@
 //import setupHelia from "../lib/setupHelia.ts";
+import { clearTimeout, setTimeout } from "node:timers";
 import { unixfs } from "@helia/unixfs";
 import { createHelia } from "helia";
 import { CID } from "multiformats";
@@ -231,6 +232,9 @@ console.log("all datasets collected, extracting metadata");
 const stacItems = await Promise.all(
   datasetLocations.map(async ({ cid, path }) => {
     const store = getStore("ipfs://" + cid.toString(), { helia });
+    const timeout = setTimeout(() => {
+      console.log(cid.toString(), "takes longer than expected");
+    }, 50000);
     const dsMeta = await readDataset(store);
     const src = "ipfs://" + root_cid.toString() + path;
     const metadata = {
@@ -242,6 +246,7 @@ const stacItems = await Promise.all(
     };
     const stacItem = await parseMetadata(metadata);
     console.log(stacItem.properties?.title);
+    clearTimeout(timeout);
     return stacItem;
   }),
 );
