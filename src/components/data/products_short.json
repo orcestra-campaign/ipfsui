@@ -1,6 +1,1347 @@
 [
   {
     "properties": {
+      "title": "MAESTRO-2024 ATR42 Chemistry Observation - Ozone",
+      "description": "SAFIRE ATR42 CHEMISTRY in situ measurements",
+      "keywords": [
+        "earth science",
+        "aircraft",
+        "altitude",
+        "trace gases",
+        "ozone"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "http://dx.doi.org/10.25326/747"
+      ],
+      "platform": "ATR-42",
+      "mission": "ORCESTRA, MAESTRO",
+      "start_datetime": "1970-04-15T05:59:59.254Z",
+      "end_datetime": "2024-09-10T20:51:36.965Z",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "nanoseconds since 2024-07-17 11:02:19.109362",
+          "description": "time UTC"
+        }
+      },
+      "cube:variables": {
+        "ALTITUDE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Altitude from AIRINS"
+        },
+        "FLAG_O3": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Flag O3 OzoneMonitor 2493DB mixing ratio"
+        },
+        "LATITUDE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_north",
+          "description": "Latitude from AIRINS"
+        },
+        "LONGITUDE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_east",
+          "description": "Longitude from AIRINS"
+        },
+        "O3_MONITOR2": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "ppbv",
+          "description": "O3 OzoneMonitor 2493DB mixing ratio"
+        },
+        "O3_MONITOR2_ANALOG": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "ppb",
+          "description": "O3 2493DB OzoneMonitor concentration analogical"
+        },
+        "PCELL_MONITOR2": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "hPa",
+          "description": "O3 2493DB OzoneMonitor cell presure"
+        },
+        "TCELL_MONITOR2": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Celsius",
+          "description": "O3 2493DB OzoneMonitor cell temperature"
+        },
+        "VOLFLRATE_MONITOR2": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "cc/min",
+          "description": "O3 2493DB OzoneMonitor volumetric flow rate"
+        },
+        "time_bnds": {
+          "dimensions": [
+            "time",
+            "level"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Traitement Avancé des Données",
+          "emails": [
+            {
+              "value": "data@safire.fr",
+              "roles": []
+            }
+          ]
+        }
+      ]
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://Qmby7pegamDerhYT5Lbi17kJ4ZNuQCM3j13uzD5S4M38Qw",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "MAESTRO-2024 ATR42 Navigation parameters",
+      "description": "SAFIRE ATR42 navigation parameters post-processed at 1Hz from Inertial/GPS system",
+      "keywords": [
+        "earth science",
+        "atmosphere",
+        "aircraft",
+        "aircraft motion sensor",
+        "altitude",
+        "platform characteristics",
+        "attitude characteristics",
+        "ground speed"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "http://dx.doi.org/10.25326/741"
+      ],
+      "platform": "ATR-42",
+      "mission": "ORCESTRA, MAESTRO",
+      "start_datetime": "1970-04-15T05:59:59.254Z",
+      "end_datetime": "2024-09-10T20:51:53.000Z",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "seconds since 2024-07-17 11:02:06",
+          "description": "time UTC"
+        }
+      },
+      "cube:variables": {
+        "ALTITUDE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Altitude"
+        },
+        "COURSE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Course"
+        },
+        "GS": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m.s-1",
+          "description": "Ground speed"
+        },
+        "LATITUDE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_north",
+          "description": "Latitude"
+        },
+        "LONGITUDE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_east",
+          "description": "Longitude"
+        },
+        "PITCH": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Platform Pitch angle"
+        },
+        "ROLL": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Platform Roll angle"
+        },
+        "THEAD": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "True Heading"
+        },
+        "TOP": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Event marker (see flight report)"
+        },
+        "VE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m.s-1",
+          "description": "Platform Eastward speed"
+        },
+        "VN": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m.s-1",
+          "description": "Platform North speed"
+        },
+        "VV": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m.s-1",
+          "description": "Vertical speed"
+        },
+        "time_bnds": {
+          "dimensions": [
+            "time",
+            "level"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Traitement Avancé des Données",
+          "emails": [
+            {
+              "value": "data@safire.fr",
+              "roles": []
+            }
+          ]
+        }
+      ]
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://QmZbmLjLvsVwYnEkeR7CzMaQXmnFbccNGzJUiwJ1hSPu4B",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "MAESTRO-2024 ATR42 Thermodynamics and Dynamic Core Observation",
+      "description": "SAFIRE ATR42 in situ measurements post-processed at 1Hz including thermodynamics, dynamic and wind parameters",
+      "keywords": [
+        "earth science",
+        "aircraft",
+        "atmosphere",
+        "altitude",
+        "atmospheric pressure",
+        "barometric pressure",
+        "atmospheric temperature",
+        "atmospheric humidity",
+        "absolute humidity",
+        "humidity mixing ratio",
+        "relative humidity",
+        "airspeed",
+        "u/v wind direction",
+        "wind direction and wind speed"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "http://dx.doi.org/10.25326/744"
+      ],
+      "platform": "ATR-42",
+      "mission": "ORCESTRA, MAESTRO",
+      "start_datetime": "1970-04-15T05:59:59.254Z",
+      "end_datetime": "2024-09-07T13:38:52.000Z",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "seconds since 2024-07-17 12:25:39",
+          "description": "time UTC"
+        }
+      },
+      "cube:variables": {
+        "ALTITUDE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Altitude"
+        },
+        "ALTP1": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Altitude pressure"
+        },
+        "AOA_RAD": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Angle of Attack"
+        },
+        "AOA_RAD_FLAG": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Flag Angle of Attack"
+        },
+        "AOS_RAD": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Angle of Sideslip"
+        },
+        "AOS_RAD_FLAG": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Flag Angle of Sideslip"
+        },
+        "DP1": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Celsius",
+          "description": "Dew Point Temperature"
+        },
+        "DP2": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Celsius",
+          "description": "Dew Point Temperature"
+        },
+        "DP3": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Celsius",
+          "description": "Dew Point Temperature"
+        },
+        "DYNP": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "hPa",
+          "description": "Dynamic pressure"
+        },
+        "FLAG_DP1": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "V",
+          "description": "Flag Dew Point Temperature"
+        },
+        "HABS1": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "g.m-3",
+          "description": "Abolute Humidity"
+        },
+        "HABS2": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "g.m-3",
+          "description": "Abolute Humidity"
+        },
+        "HABS3": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "g.m-3",
+          "description": "Abolute Humidity"
+        },
+        "HEIGHT": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Height"
+        },
+        "LATITUDE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_north",
+          "description": "Latitude"
+        },
+        "LONGITUDE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_east",
+          "description": "Longitude"
+        },
+        "MR1": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "g.kg-1",
+          "description": "Water Vapor Mixing ratio"
+        },
+        "MR2": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "g.kg-1",
+          "description": "Water Vapor Mixing ratio"
+        },
+        "MR3": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "g.kg-1",
+          "description": "Water Vapor Mixing ratio"
+        },
+        "PRES": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "hPa",
+          "description": "Static pressure"
+        },
+        "P_CABIN": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "hPa",
+          "description": "Cabin Pressure"
+        },
+        "RH1": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "percent",
+          "description": "Relative Humidity"
+        },
+        "RH2": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "percent",
+          "description": "Relative Humidity"
+        },
+        "RH3": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "percent",
+          "description": "Relative Humidity"
+        },
+        "TAS1": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m.s-1",
+          "description": "True Air Speed"
+        },
+        "TAS2": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "kt",
+          "description": "True Air Speed"
+        },
+        "TEMP1": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Celsius",
+          "description": "Air Static Temperature, non-deiced sensor"
+        },
+        "TEMP2": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Celsius",
+          "description": "Air Static Temperature, deiced sensor"
+        },
+        "THETA": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Celsius",
+          "description": "Potential Temperature"
+        },
+        "TOP": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Event marker (see flight report)"
+        },
+        "TTEMP1": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Celsius",
+          "description": "Total Temperature, non-deiced sensor"
+        },
+        "TTEMP2": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Celsius",
+          "description": "Total Temperature, deiced sensor"
+        },
+        "TVIR": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Celsius",
+          "description": "Virtual Temperature"
+        },
+        "T_CABIN": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Celsius",
+          "description": "Cabin Temperature"
+        },
+        "UW": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m.s-1",
+          "description": "Eastward Wind"
+        },
+        "VW": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m.s-1",
+          "description": "Northward Wind"
+        },
+        "WD": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Horizontal Wind Direction"
+        },
+        "WIND_FLAG": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Flag Eastward Wind"
+        },
+        "WS": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m.s-1",
+          "description": "Horizontal Wind Speed"
+        },
+        "WW": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m.s-1",
+          "description": "Upward Wind"
+        },
+        "time_bnds": {
+          "dimensions": [
+            "time",
+            "level"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Traitement Avancé des Données",
+          "emails": [
+            {
+              "value": "data@safire.fr",
+              "roles": []
+            }
+          ]
+        }
+      ]
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://QmW7eRTHj2PAUR2YSJz7YpgmNyPvRVgZnQk6HRCUFE54TA",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "MAESTRO-2024 ATR42 Temperature and Humidity Fast Observation",
+      "description": "SAFIRE ATR42 temperature and humidity measurements post-processed at 25Hz",
+      "keywords": [
+        "earth science",
+        "aircraft",
+        "atmosphere",
+        "altitude",
+        "atmospheric humidity",
+        "absolute humidity",
+        "humidity mixing ratio",
+        "atmospheric temperature"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "http://dx.doi.org/10.25326/738"
+      ],
+      "platform": "ATR-42",
+      "mission": "ORCESTRA, MAESTRO",
+      "start_datetime": "1970-04-15T05:59:59.254Z",
+      "end_datetime": "2024-09-10T20:45:17.960Z",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "nanoseconds since 2024-07-23 12:02:36.840000",
+          "description": "time UTC"
+        }
+      },
+      "cube:variables": {
+        "ALTITUDE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Altitude"
+        },
+        "HABS6": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "g.m-3",
+          "description": "Abolute Humidity"
+        },
+        "LATITUDE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_north",
+          "description": "Latitude"
+        },
+        "LONGITUDE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_east",
+          "description": "Longitude"
+        },
+        "MR6": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "g.kg-1",
+          "description": "Water Vapor Mixing ratio"
+        },
+        "TFAST1": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Celsius",
+          "description": "Air Static Temperature, 5um thin wire"
+        },
+        "TFAST2": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Celsius",
+          "description": "Air Static Temperature, 10um thin wire"
+        },
+        "time_bnds": {
+          "dimensions": [
+            "time",
+            "level"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Traitement Avancé des Données",
+          "emails": [
+            {
+              "value": "data@safire.fr",
+              "roles": []
+            }
+          ]
+        }
+      ]
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://QmPPT5ns8pA1zZ1huM4t5DjXuzxLrD1s3VHctbzmqCojWi",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "MAESTRO-2024 ATR42 Liquid Water Content measurements",
+      "description": "SAFIRE ATR42 LWC in situ measurements from LWC300, Gerber and Robust sensors, post-processed at 1Hz",
+      "keywords": [
+        "earth science",
+        "aircraft",
+        "atmosphere",
+        "altitude",
+        "cloud liquid water content"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "http://dx.doi.org/10.25326/740"
+      ],
+      "platform": "ATR-42",
+      "mission": "ORCESTRA, MAESTRO",
+      "start_datetime": "1970-04-15T05:59:59.254Z",
+      "end_datetime": "2024-09-10T20:44:48.000Z",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "seconds since 2024-07-17 12:25:48",
+          "description": "time UTC"
+        }
+      },
+      "cube:variables": {
+        "ALTITUDE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Altitude"
+        },
+        "FLAG_LWC2": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Flag Liquid Water Content"
+        },
+        "LATITUDE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_north",
+          "description": "Latitude"
+        },
+        "LONGITUDE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_east",
+          "description": "Longitude"
+        },
+        "LWC2": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "g.m-3",
+          "description": "Liquid Water Content"
+        },
+        "TOP": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Event marker (see flight report)"
+        },
+        "time_bnds": {
+          "dimensions": [
+            "time",
+            "level"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Traitement Avancé des Données",
+          "emails": [
+            {
+              "value": "data@safire.fr",
+              "roles": []
+            }
+          ]
+        }
+      ]
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://QmPyJjWCMUivR78nfNY6x13g5GqJLjftpHMYz4CvXSKqzE",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "MAESTRO-2024 ATR42 Radiation Observations",
+      "description": "SAFIRE ATR42 in situ  measurements post-processed at 1Hz including Shortwave and Longwave Radiation and CLIMAT-CE332 Radiometer observation",
+      "keywords": [
+        "earth science",
+        "aircraft",
+        "atmosphere",
+        "altitude",
+        "radiation",
+        "downwelling longwave radiation",
+        "upwelling longwave radiation",
+        "downwelling shortwave radiation",
+        "upwelling shortwave radiation",
+        "brightness temperature",
+        "infrared radiance"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "http://dx.doi.org/10.25326/743"
+      ],
+      "platform": "ATR-42",
+      "mission": "ORCESTRA, MAESTRO",
+      "start_datetime": "1970-04-15T05:59:59.254Z",
+      "end_datetime": "2024-09-10T20:46:05.000Z",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "seconds since 2024-07-17 11:16:32",
+          "description": "time UTC"
+        }
+      },
+      "cube:variables": {
+        "ALTITUDE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Altitude from AIRINS"
+        },
+        "LATITUDE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_north",
+          "description": "Latitude from AIRINS"
+        },
+        "LONGITUDE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_east",
+          "description": "Longitude from AIRINS"
+        },
+        "LWD": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "W.m-2",
+          "description": "Downwelling longwave radiation-No atitude correction and invalidation for pitch/roll >±3°"
+        },
+        "LWU": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "W.m-2",
+          "description": "Upwelling longwave radiation-No atitude correction and invalidation for pitch/roll >±3°"
+        },
+        "RAD_C1": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1000000 m-1.kg.s-3",
+          "description": "Radiance, channel1 (8.7μm) from ce332 radiometer"
+        },
+        "RAD_C2": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1000000 m-1.kg.s-3",
+          "description": "Radiance channel2 (10.6μm) from ce332 radiometer"
+        },
+        "RAD_C3": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1000000 m-1.kg.s-3",
+          "description": "Radiance channel3 (12μm) from ce332 radiometer"
+        },
+        "SWD": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "W.m-2",
+          "description": "Downwelling Shortwave radiation clear dome-No attitude correction and no invalidation for pitch/roll >±3°"
+        },
+        "SWDC": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "W.m-2",
+          "description": "Downwelling Shortwave radiation clear dome- Attitude correction for pitch/roll <±3°and invalidation for pitch/roll >±3°"
+        },
+        "SWDC_RED": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "W.m-2",
+          "description": "Downwelling shortwave radiation red dome-Attitude correction for pitch/roll <±3°and invalidation for pitch/roll >±3°"
+        },
+        "SWD_RED": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "W.m-2",
+          "description": "Downwelling Shortwave radiation red dome-No attitude correction and no invalidation for pitch/roll >±3°"
+        },
+        "SWU": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "W.m-2",
+          "description": "Upwelling Shortwave radiation clear dome-No attitude correction and no invalidation for pitch/roll >±3°"
+        },
+        "SWU_RED": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "W.m-2",
+          "description": "Upwelling shortwave radiation red dome-No attitude correction and invalidation for pitch/roll >±3°"
+        },
+        "TB_C1": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Brightness temperature channel1 (8.7μm) ce332 radiometer"
+        },
+        "TB_C2": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Brightness temperature channel2 (10.6μm) ce332 radiometer"
+        },
+        "TB_C3": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Brightness temperature channel3 (12μm) ce332 radiometer"
+        },
+        "TOP": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Event marker (see flight report)"
+        },
+        "time_bnds": {
+          "dimensions": [
+            "time",
+            "level"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Traitement Avancé des Données",
+          "emails": [
+            {
+              "value": "data@safire.fr",
+              "roles": []
+            }
+          ]
+        }
+      ]
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://QmPjdKEX55K6ZuAwJ3bzcaiEZ3MSgsvA4QNYs4mt2gGLTw",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "MAESTRO-2024 ATR42 SPP300 parameters",
+      "description": "SAFIRE ATR42 SPP300 parameters post-processed at 1Hz",
+      "keywords": [
+        "earth science",
+        "aircraft",
+        "atmosphere",
+        "altitude",
+        "cloud liquid water content"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "http://dx.doi.org/10.25326/739"
+      ],
+      "platform": "ATR-42",
+      "mission": "ORCESTRA, MAESTRO",
+      "start_datetime": "1970-04-15T05:59:59.254Z",
+      "end_datetime": "2024-08-26T19:57:29.734Z",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "microseconds since 2024-07-17 11:27:57.101562",
+          "description": "time UTC"
+        }
+      },
+      "cube:variables": {
+        "ALTITUDE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Altitude"
+        },
+        "LATITUDE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_north",
+          "description": "Latitude"
+        },
+        "LONGITUDE": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_east",
+          "description": "Longitude"
+        },
+        "SPP300_AUX5": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "volt",
+          "description": "SPP300 Laser Reference Voltage : aux5"
+        },
+        "SPP300_CONC": {
+          "dimensions": [
+            "time",
+            "SPP300_CONC_class"
+          ],
+          "type": "data",
+          "unit": "count.cm-3",
+          "description": "SPP300 particles concentration bin[1]...bin[30]"
+        },
+        "SPP300_CONC_class_bnds": {
+          "dimensions": [
+            "time",
+            "SPP300_CONC_class",
+            "level"
+          ],
+          "type": "data"
+        },
+        "SPP300_COUNT": {
+          "dimensions": [
+            "time",
+            "SPP300_COUNT_class"
+          ],
+          "type": "data",
+          "unit": "count/(1 second)",
+          "description": "SPP300 particles count bin[1]...bin[30]"
+        },
+        "SPP300_COUNT_class_bnds": {
+          "dimensions": [
+            "time",
+            "SPP300_COUNT_class",
+            "level"
+          ],
+          "type": "data"
+        },
+        "SPP300_STAT1": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "none",
+          "description": "SPP300 statistics1 : RejectedDofCount"
+        },
+        "SPP300_STAT10": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "none",
+          "description": "SPP300 statistics10 : SumOfParticles"
+        },
+        "SPP300_STAT11": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "none",
+          "description": "SPP300 statistics11 : SumOfTransit"
+        },
+        "SPP300_STAT2": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "none",
+          "description": "SPP300 statistics2 : : RejectedATCount"
+        },
+        "SPP300_STAT3": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "none",
+          "description": "SPP300 statistics3 : AverageTransit"
+        },
+        "SPP300_STAT4": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "none",
+          "description": "SPP300 statistics4 : FIFOfull"
+        },
+        "SPP300_STAT5": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "none",
+          "description": "SPP300 statistics5 : ResetFlag"
+        },
+        "SPP300_STAT6": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "none",
+          "description": "SPP300 statistics6 : ADCoverflow"
+        },
+        "SPP300_STAT7": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "none",
+          "description": "SPP300 statistics7 : BackOverflow"
+        },
+        "SPP300_STAT8": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "none",
+          "description": "SPP300 statistics8 : OversizeRejects"
+        },
+        "SPP300_STAT9": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "none",
+          "description": "SPP300 statistics9 : EndRejects"
+        },
+        "SPP300_TCONC": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "count.cm-3",
+          "description": "SPP300 Total particles concentration"
+        },
+        "SPP300_TCOUNT": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Hz",
+          "description": "SPP300 total particles count"
+        },
+        "time_bnds": {
+          "dimensions": [
+            "time",
+            "level"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Traitement Avancé des Données",
+          "emails": [
+            {
+              "value": "data@safire.fr",
+              "roles": []
+            }
+          ]
+        }
+      ]
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://Qmf6yF4UMT2fNgaiHAAAdb7ZULhxuFTzx6tiiq8hKodjfP",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
       "title": "ORCESTRA level 2 sounding data",
       "processing:lineage": "created with pysonde (0.0) on Mon Nov  4 18:05:52 2024",
       "start_datetime": "1732-05-29T01:17:53.085Z",
