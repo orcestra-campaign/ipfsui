@@ -207,11 +207,23 @@ function simplifyGeometry<T extends LikeAnArray<number>>(
   const keep = new Uint8Array(xs.length);
   const maxDistanceSq = maxDistance * maxDistance;
 
-  keep[0] = 1;
-  keep[keep.length - 1] = 1;
+  let i1 = 0;
+  let i2 = keep.length - 1;
+  for (; i1 < keep.length; ++i1) {
+    if (isFinite(xs[i1]) && isFinite(xs[i1])) {
+      keep[i1] = 1;
+      break;
+    }
+  }
+  for (; i2 >= 0; --i2) {
+    if (isFinite(xs[i2]) && isFinite(xs[i2])) {
+      keep[i2] = 1;
+      break;
+    }
+  }
 
   const nKeep = 2 +
-    _simplifyGeometry(xs, ys, maxDistanceSq, 0, keep.length - 1, keep);
+    _simplifyGeometry(xs, ys, maxDistanceSq, i1, i2, keep);
 
   const xsOut = new xs.constructor(nKeep) as T;
   const ysOut = new ys.constructor(nKeep) as T;
