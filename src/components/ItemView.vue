@@ -59,8 +59,8 @@ xr.open_dataset("${ props?.item?.assets?.data?.href }", engine="zarr")`)
 <style scoped>
 .head {
     background-color: var(--highlight-bg-color);
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     padding: 5px 15px;
     margin: 0;
 }
