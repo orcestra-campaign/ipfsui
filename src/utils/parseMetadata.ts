@@ -303,7 +303,9 @@ function getSpatialBounds(
 
 async function getTimeBounds(
   ds: DatasetMetadata,
-): Promise<{ start_datetime: string; end_datetime: string } | undefined> {
+): Promise<
+  { start_datetime: string; end_datetime: string; datetime: string } | undefined
+> {
   const times = [];
   for (const [varname, variable] of Object.entries(ds.variables)) {
     const attrs = variable.attrs;
@@ -319,9 +321,13 @@ async function getTimeBounds(
   }
 
   if (times.length > 0) {
+    const start_datetime = dayjs.min(...times) as dayjs.Dayjs;
+    const end_datetime = dayjs.max(...times) as dayjs.Dayjs;
     return {
-      start_datetime: (dayjs.min(...times) as dayjs.Dayjs).toISOString(),
-      end_datetime: (dayjs.max(...times) as dayjs.Dayjs).toISOString(),
+      datetime: start_datetime.add(end_datetime.diff(start_datetime) / 2)
+        .toISOString(),
+      start_datetime: start_datetime.toISOString(),
+      end_datetime: end_datetime.toISOString(),
     };
   }
 }
