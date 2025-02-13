@@ -8,36 +8,36 @@ import VarTable from './VarTable.vue';
 import type { StacItem } from '../utils/stac';
 import StacMap from './StacMap.vue';
 
-const props = defineProps<{ item: StacItem }>();
+const {item} = defineProps<{ item: StacItem }>();
 
 const code = computed(() => `import xarray as xr
 
-xr.open_dataset("${ props?.item?.assets?.data?.href }", engine="zarr")`)
+xr.open_dataset("${ item?.assets?.data?.href }", engine="zarr")`)
 
 </script>
 
 <template>
     <div class="head">
-        <h1 class="title">{{ props.item.properties?.title }}</h1>
+        <h1 class="title">{{ item.properties?.title }}</h1>
         <div class="aux">
             <div class="col">
-                <div class="authors"><ul><li v-for="contact in props.item.properties?.contacts">{{ contact.name ?? contact.organization }}</li></ul></div>
-                <div class="time" v-if="props.item?.properties?.start_datetime && props.item?.properties?.end_datetime">{{ props.item.properties.start_datetime }} - {{ props.item.properties.end_datetime }}</div>
-                <div class="time" v-else-if="props.item?.properties?.datetime">{{ props.item.properties.datetime }}</div>
-                <div class="keywords" v-if="props.item?.properties?.keywords"><ul><li v-for="kw in props.item.properties.keywords">{{ kw }}</li></ul></div>
+                <div class="authors"><ul><li v-for="contact in item.properties?.contacts">{{ contact.name ?? contact.organization }}</li></ul></div>
+                <div class="time" v-if="item?.properties?.start_datetime && item?.properties?.end_datetime">{{ item.properties.start_datetime }} - {{ item.properties.end_datetime }}</div>
+                <div class="time" v-else-if="item?.properties?.datetime">{{ item.properties.datetime }}</div>
+                <div class="keywords" v-if="item?.properties?.keywords"><ul><li v-for="kw in item.properties.keywords">{{ kw }}</li></ul></div>
             </div>
-            <div class="col"><License :spdx="props.item?.properties?.license" /></div>
+            <div class="col"><License :spdx="item?.properties?.license" /></div>
         </div>
     </div>
 
     <div class="description">
-        <div class="summary" v-if="props.item.properties?.description">
+        <div class="summary" v-if="item.properties?.description">
             <VMarkdownView
                 mode="view"
-                :content="props.item.properties.description"
+                :content="item.properties.description"
             ></VMarkdownView>
         </div>
-        <StacMap :item="props.item" />
+        <StacMap :item="item" />
     </div>
 
     <div>
@@ -46,12 +46,12 @@ xr.open_dataset("${ props?.item?.assets?.data?.href }", engine="zarr")`)
 
     <h2>Parameter(s)</h2>
     <div>
-        <VarTable :item="props.item" />
+        <VarTable :item="item" />
     </div>
 
-    <div v-if="props.item?.properties?.references">
+    <div v-if="item?.properties?.references">
         <h2>References:</h2>
-        <div class="references"><ul><li v-for="ref in props.item.properties?.references">{{ ref }}</li></ul></div>
+        <div class="references"><ul><li v-for="ref in item.properties?.references">{{ ref }}</li></ul></div>
     </div>
 
 </template>
