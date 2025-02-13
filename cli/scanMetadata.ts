@@ -61,7 +61,7 @@ async function collectDatasets(
   const res = await Array.fromAsync(fs.ls(cid));
   if (isDataset(res)) {
     console.log("collected", path);
-    return [{ cid, path }];
+    return [{ cid: cid.toV1(), path }];
   } else {
     console.log("entering path", path);
     const out = (await Promise.all(

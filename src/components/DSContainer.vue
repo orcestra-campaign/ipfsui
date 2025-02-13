@@ -43,8 +43,8 @@ const update = async () => {
     if (heliaProvider.helia.value) {
         const helia = heliaProvider.helia.value;
         const resolveResult = await resolve(helia, props.src);
-        const root_cid = resolveResult?.cids.at(0)?.cid;
-        const item_cid = resolveResult?.cids.at(-1)?.cid;
+        const root_cid = resolveResult?.cids.at(0)?.cid.toV1();
+        const item_cid = resolveResult?.cids.at(-1)?.cid.toV1();
 
         metadata.value = {src: props.src, attrs, variables, root_cid, item_cid};
         console.log("IPNS resolve", props.src, item_cid?.toString());
