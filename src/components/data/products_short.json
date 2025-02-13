@@ -1559,16 +1559,18 @@
   },
   {
     "properties": {
-      "title": "Dropsonde data from the ORCESTRA field campaign",
+      "title": "Dropsonde data from the ORCESTRA field campaign 2024 Level 3",
+      "license": "CC-BY-4.0",
       "references": [
-        "https://orcestra-campaign.org/orcestra.html",
         "https://github.com/atmdrops/pydropsonde"
       ],
-      "processing:lineage": "ASPEN processing with Aspen V4.0.2 \nquality control with pydropsonde 0.0.0.post510.dev0+2d0ed52 \nLevel 3 processing with pydropsonde 0.0.0.post510.dev0+2d0ed52 \n2025-01-17T15:57:33.816173+00:00 level3 concatenation with pydropsonde 0.0.0.post510.dev0+2d0ed52 \n",
+      "platform": "HALO",
+      "mission": "ORCESTRA, PERCUSION, MAESTRO",
+      "processing:lineage": "ASPEN processing with Aspen V4.0.2 \nquality control with pydropsonde 0.2.2 \nLevel 3 processing with pydropsonde 0.2.2 \n2025-02-13T14:26:55.152512+00:00 level3 concatenation with pydropsonde 0.2.2 \n",
       "start_datetime": "2024-08-09T14:27:30.166Z",
       "end_datetime": "2024-09-28T19:30:42.013Z",
       "cube:dimensions": {
-        "gpsalt": {
+        "altitude": {
           "type": "spatial",
           "axis": "z",
           "unit": "m",
@@ -1578,48 +1580,39 @@
       "cube:variables": {
         "aircraft_latitude": {
           "dimensions": [
-            "sonde_id"
+            "sonde"
           ],
           "type": "data",
-          "unit": "deg_N",
+          "unit": "degrees_north",
           "description": "aircraft latitude at launch"
         },
         "aircraft_longitude": {
           "dimensions": [
-            "sonde_id"
+            "sonde"
           ],
           "type": "data",
-          "unit": "deg_E",
+          "unit": "degrees_east",
           "description": "aircraft longitude at launch"
         },
         "aircraft_msl_altitude": {
           "dimensions": [
-            "sonde_id"
+            "sonde"
           ],
           "type": "data",
           "unit": "m",
           "description": "aircraft altitude at launch"
         },
-        "alt": {
-          "dimensions": [
-            "sonde_id",
-            "gpsalt"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "altitude above MSL"
-        },
         "flight_id": {
           "dimensions": [
-            "sonde_id"
+            "sonde"
           ],
           "type": "data",
           "description": "flight identifier"
         },
         "gps_N_qc": {
           "dimensions": [
-            "sonde_id",
-            "gpsalt"
+            "sonde",
+            "altitude"
           ],
           "type": "data",
           "unit": "1",
@@ -1627,8 +1620,8 @@
         },
         "gpspos_N_qc": {
           "dimensions": [
-            "sonde_id",
-            "gpsalt"
+            "sonde",
+            "altitude"
           ],
           "type": "data",
           "unit": "1",
@@ -1636,8 +1629,8 @@
         },
         "interp_time": {
           "dimensions": [
-            "sonde_id",
-            "gpsalt"
+            "sonde",
+            "altitude"
           ],
           "type": "data",
           "unit": "nanoseconds since 2000-01-01",
@@ -1645,7 +1638,7 @@
         },
         "iwv": {
           "dimensions": [
-            "sonde_id"
+            "sonde"
           ],
           "type": "data",
           "unit": "kg m-2",
@@ -1653,34 +1646,26 @@
         },
         "lat": {
           "dimensions": [
-            "sonde_id",
-            "gpsalt"
+            "sonde",
+            "altitude"
           ],
           "type": "data",
-          "unit": "degree_north",
+          "unit": "degrees_north",
           "description": "latitude"
-        },
-        "launch_time": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "nanoseconds since 2000-01-01",
-          "description": "dropsonde launch time"
         },
         "lon": {
           "dimensions": [
-            "sonde_id",
-            "gpsalt"
+            "sonde",
+            "altitude"
           ],
           "type": "data",
-          "unit": "degree_east",
+          "unit": "degrees_east",
           "description": "longitude"
         },
         "p": {
           "dimensions": [
-            "sonde_id",
-            "gpsalt"
+            "sonde",
+            "altitude"
           ],
           "type": "data",
           "unit": "Pa",
@@ -1688,8 +1673,8 @@
         },
         "p_N_qc": {
           "dimensions": [
-            "sonde_id",
-            "gpsalt"
+            "sonde",
+            "altitude"
           ],
           "type": "data",
           "unit": "1",
@@ -1697,22 +1682,22 @@
         },
         "p_qc": {
           "dimensions": [
-            "sonde_id"
+            "sonde"
           ],
           "type": "data",
           "description": "qc for p"
         },
         "platform_id": {
           "dimensions": [
-            "sonde_id"
+            "sonde"
           ],
           "type": "data",
           "description": "platform identifier"
         },
         "q": {
           "dimensions": [
-            "sonde_id",
-            "gpsalt"
+            "sonde",
+            "altitude"
           ],
           "type": "data",
           "unit": "1",
@@ -1720,8 +1705,8 @@
         },
         "q_N_qc": {
           "dimensions": [
-            "sonde_id",
-            "gpsalt"
+            "sonde",
+            "altitude"
           ],
           "type": "data",
           "unit": "1",
@@ -1729,8 +1714,8 @@
         },
         "rh": {
           "dimensions": [
-            "sonde_id",
-            "gpsalt"
+            "sonde",
+            "altitude"
           ],
           "type": "data",
           "unit": "1",
@@ -1738,22 +1723,37 @@
         },
         "rh_qc": {
           "dimensions": [
-            "sonde_id"
+            "sonde"
           ],
           "type": "data",
           "description": "qc for rh"
         },
+        "sonde_id": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "description": "sonde identifier"
+        },
         "sonde_qc": {
           "dimensions": [
-            "sonde_id"
+            "sonde"
           ],
           "type": "data",
           "description": "aggregated quality flag for sonde"
         },
+        "sonde_time": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 2000-01-01",
+          "description": "dropsonde launch time"
+        },
         "ta": {
           "dimensions": [
-            "sonde_id",
-            "gpsalt"
+            "sonde",
+            "altitude"
           ],
           "type": "data",
           "unit": "K",
@@ -1761,15 +1761,15 @@
         },
         "ta_qc": {
           "dimensions": [
-            "sonde_id"
+            "sonde"
           ],
           "type": "data",
           "description": "qc for ta"
         },
         "theta": {
           "dimensions": [
-            "sonde_id",
-            "gpsalt"
+            "sonde",
+            "altitude"
           ],
           "type": "data",
           "unit": "kelvin",
@@ -1777,8 +1777,8 @@
         },
         "theta_N_qc": {
           "dimensions": [
-            "sonde_id",
-            "gpsalt"
+            "sonde",
+            "altitude"
           ],
           "type": "data",
           "unit": "1",
@@ -1786,8 +1786,8 @@
         },
         "u": {
           "dimensions": [
-            "sonde_id",
-            "gpsalt"
+            "sonde",
+            "altitude"
           ],
           "type": "data",
           "unit": "m s-1",
@@ -1795,15 +1795,15 @@
         },
         "u_qc": {
           "dimensions": [
-            "sonde_id"
+            "sonde"
           ],
           "type": "data",
           "description": "qc for u"
         },
         "v": {
           "dimensions": [
-            "sonde_id",
-            "gpsalt"
+            "sonde",
+            "altitude"
           ],
           "type": "data",
           "unit": "m s-1",
@@ -1811,32 +1811,39 @@
         },
         "v_qc": {
           "dimensions": [
-            "sonde_id"
+            "sonde"
           ],
           "type": "data",
           "description": "qc for v"
         },
         "w_dir": {
           "dimensions": [
-            "sonde_id",
-            "gpsalt"
+            "sonde",
+            "altitude"
           ],
           "type": "data",
-          "unit": "degree"
+          "unit": "degree",
+          "description": "wind direction"
         },
         "w_spd": {
           "dimensions": [
-            "sonde_id",
-            "gpsalt"
+            "sonde",
+            "altitude"
           ],
           "type": "data",
-          "unit": "m s-1"
+          "unit": "m s-1",
+          "description": "wind speed"
         }
       },
       "contacts": [
         {
           "name": "Helene Gloeckner",
-          "emails": []
+          "emails": [
+            {
+              "value": "helene.gloeckner@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
         },
         {
           "name": "Theresa Mieslinger",
@@ -1850,466 +1857,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmRgZ7b7muasm9uxVMFm2SR5BYbgQVqjaHypSqVfXsDrrZ",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "Dropsonde data from the ORCESTRA field campaign",
-      "references": [
-        "https://orcestra-campaign.org/orcestra.html",
-        "https://github.com/atmdrops/pydropsonde"
-      ],
-      "processing:lineage": "ASPEN processing with Aspen V4.0.2 \nquality control with pydropsonde 0.0.0.post510.dev0+2d0ed52 \nLevel 3 processing with pydropsonde 0.0.0.post510.dev0+2d0ed52 \n2025-01-17T15:32:51.659899+00:00 level3 concatenation with pydropsonde 0.0.0.post510.dev0+2d0ed52 \n",
-      "start_datetime": "2024-08-09T14:27:30.166Z",
-      "end_datetime": "2024-09-28T19:30:42.013Z",
-      "cube:dimensions": {
-        "gpsalt": {
-          "type": "spatial",
-          "axis": "z",
-          "unit": "m",
-          "description": "gps reported altitude above MSL"
-        }
-      },
-      "cube:variables": {
-        "aircraft_latitude": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "deg_N",
-          "description": "aircraft latitude at launch"
-        },
-        "aircraft_longitude": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "deg_E",
-          "description": "aircraft longitude at launch"
-        },
-        "aircraft_msl_altitude": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "aircraft altitude at launch"
-        },
-        "alt": {
-          "dimensions": [
-            "sonde_id",
-            "gpsalt"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "altitude above MSL"
-        },
-        "alt_near_gpsalt": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "description": "maximal difference between alt and gpsalt"
-        },
-        "alt_near_gpsalt_max_diff": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "maximal difference between alt and gpsalt"
-        },
-        "flight_id": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "description": "flight identifier"
-        },
-        "gps_N_qc": {
-          "dimensions": [
-            "sonde_id",
-            "gpsalt"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "Number of values per bin for u"
-        },
-        "gpspos_N_qc": {
-          "dimensions": [
-            "sonde_id",
-            "gpsalt"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "Number of values per bin for lat"
-        },
-        "interp_time": {
-          "dimensions": [
-            "sonde_id",
-            "gpsalt"
-          ],
-          "type": "data",
-          "unit": "nanoseconds since 2000-01-01",
-          "description": "time of recorded measurement"
-        },
-        "iwv": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "kg m-2",
-          "description": "integrated water vapour"
-        },
-        "lat": {
-          "dimensions": [
-            "sonde_id",
-            "gpsalt"
-          ],
-          "type": "data",
-          "unit": "degree_north",
-          "description": "latitude"
-        },
-        "launch_time": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "nanoseconds since 2000-01-01",
-          "description": "dropsonde launch time"
-        },
-        "lon": {
-          "dimensions": [
-            "sonde_id",
-            "gpsalt"
-          ],
-          "type": "data",
-          "unit": "degree_east",
-          "description": "longitude"
-        },
-        "low_physics": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "description": "low physics"
-        },
-        "low_physics_rh_min": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "%",
-          "description": "minimal relative humidity below 100m"
-        },
-        "low_physics_ta_min": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "degreeC",
-          "description": "minimal temperature below 100m"
-        },
-        "p": {
-          "dimensions": [
-            "sonde_id",
-            "gpsalt"
-          ],
-          "type": "data",
-          "unit": "Pa",
-          "description": "atmospheric pressure"
-        },
-        "p_N_qc": {
-          "dimensions": [
-            "sonde_id",
-            "gpsalt"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "Number of values per bin for p"
-        },
-        "p_near_surface_count": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "value for qc  p near surface count"
-        },
-        "p_profile_extend_max_diff": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "value for qc  p profile extend max diff"
-        },
-        "p_profile_fullness_fraction": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "value for qc  p profile fullness fraction"
-        },
-        "p_qc": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "description": "qc for p"
-        },
-        "platform_id": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "description": "platform identifier"
-        },
-        "q": {
-          "dimensions": [
-            "sonde_id",
-            "gpsalt"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "specific humidity"
-        },
-        "q_N_qc": {
-          "dimensions": [
-            "sonde_id",
-            "gpsalt"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "Number of values per bin for q"
-        },
-        "rh": {
-          "dimensions": [
-            "sonde_id",
-            "gpsalt"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "relative humidity"
-        },
-        "rh_near_surface_count": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "value for qc  rh near surface count"
-        },
-        "rh_profile_extend_max_diff": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "value for qc  rh profile extend max diff"
-        },
-        "rh_profile_fullness_fraction": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "value for qc  rh profile fullness fraction"
-        },
-        "rh_qc": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "description": "qc for rh"
-        },
-        "sonde_qc": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "description": "aggregated quality flag for sonde"
-        },
-        "ta": {
-          "dimensions": [
-            "sonde_id",
-            "gpsalt"
-          ],
-          "type": "data",
-          "unit": "K",
-          "description": "air temperature"
-        },
-        "ta_near_surface_count": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "value for qc  ta near surface count"
-        },
-        "ta_profile_extend_max_diff": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "value for qc  ta profile extend max diff"
-        },
-        "ta_profile_fullness_fraction": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "value for qc  ta profile fullness fraction"
-        },
-        "ta_qc": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "description": "qc for ta"
-        },
-        "theta": {
-          "dimensions": [
-            "sonde_id",
-            "gpsalt"
-          ],
-          "type": "data",
-          "unit": "kelvin",
-          "description": "potential temperature"
-        },
-        "theta_N_qc": {
-          "dimensions": [
-            "sonde_id",
-            "gpsalt"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "Number of values per bin for theta"
-        },
-        "u": {
-          "dimensions": [
-            "sonde_id",
-            "gpsalt"
-          ],
-          "type": "data",
-          "unit": "m s-1",
-          "description": "u component of winds"
-        },
-        "u_near_surface_count": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "value for qc  u near surface count"
-        },
-        "u_profile_extend_max_diff": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "value for qc  u profile extend max diff"
-        },
-        "u_profile_fullness_fraction": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "value for qc  u profile fullness fraction"
-        },
-        "u_qc": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "description": "qc for u"
-        },
-        "v": {
-          "dimensions": [
-            "sonde_id",
-            "gpsalt"
-          ],
-          "type": "data",
-          "unit": "m s-1",
-          "description": "v component of winds"
-        },
-        "v_near_surface_count": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "value for qc  v near surface count"
-        },
-        "v_profile_extend_max_diff": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "value for qc  v profile extend max diff"
-        },
-        "v_profile_fullness_fraction": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "value for qc  v profile fullness fraction"
-        },
-        "v_qc": {
-          "dimensions": [
-            "sonde_id"
-          ],
-          "type": "data",
-          "description": "qc for v"
-        },
-        "w_dir": {
-          "dimensions": [
-            "sonde_id",
-            "gpsalt"
-          ],
-          "type": "data",
-          "unit": "degree"
-        },
-        "w_spd": {
-          "dimensions": [
-            "sonde_id",
-            "gpsalt"
-          ],
-          "type": "data",
-          "unit": "m s-1"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Helene Gloeckner",
-          "emails": []
-        },
-        {
-          "name": "Theresa Mieslinger",
-          "emails": []
-        },
-        {
-          "name": "Nina Robbins",
-          "emails": []
-        }
-      ]
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://QmYKRm7YcQCm2GBVZcsvuFYwJjrDQz7b1No11JfghqoCQB",
+        "href": "ipfs://QmanzsQBqHuVJywmtvcRDuBzRb1jQj2bDiyN2nnKxMDxoy",
         "roles": [
           "data"
         ],
