@@ -26,7 +26,7 @@ const heliaProvider = useHelia();
 
 const metadata: Ref<DatasetMetadata | undefined> = shallowRef();
 
-const stac_item = ref();
+const stac_item = shallowRef();
 
 const update = async () => {
     if (heliaProvider.loading.value) return;
@@ -50,7 +50,9 @@ const update = async () => {
         console.log("IPNS resolve", props.src, item_cid?.toString());
     }
     console.log(metadata.value);
-    stac_item.value = await parseMetadata(unref(metadata));
+    for await (const item of parseMetadata(unref(metadata))) {
+        stac_item.value = item;
+    }
 };
 
 onBeforeMount(update);

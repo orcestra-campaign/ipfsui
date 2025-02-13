@@ -375,9 +375,55 @@ function getDatacubeProperties(
   return { "cube:dimensions": dimensions, "cube:variables": variables };
 }
 
-export default async function parseMetadata(
+function isObject(item: unknown) {
+  return item !== null && typeof item === "object" && !Array.isArray(item);
+}
+
+function deepMerge<T>(target: T, ...sources: Array<Partial<T>>): T {
+  if (!sources.length) return target;
+  const source = sources.shift();
+
+  if (isObject(target) && isObject(source)) {
+    for (const key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        const sourceValue = source[key];
+        if (sourceValue !== undefined && isObject(target[key])) {
+          target = { ...target, [key]: deepMerge(target[key], sourceValue) };
+        } else {
+          target = { ...target, [key]: sourceValue };
+        }
+      }
+    }
+  }
+  return deepMerge(target, ...sources);
+}
+
+async function* asCompleted<T>(promises: Array<Promise<T>>): AsyncGenerator<T> {
+  const _promises = promises
+    .map((p, i) => {
+      return {
+        key: i,
+        promise: p.then((r) => {
+          return { key: i, result: r };
+        }),
+      };
+    });
+
+  while (_promises.length > 0) {
+    const { key, result } = await Promise.race(
+      _promises.map(({ promise }) => promise),
+    );
+    yield result;
+    const index = _promises.findIndex((p) => p.key === key);
+    if (index !== -1) {
+      _promises.splice(index, 1);
+    }
+  }
+}
+
+export default async function* parseMetadata(
   ds: DatasetMetadata,
-): Promise<StacItem> {
+): AsyncGenerator<StacItem> {
   let stableSrc = ds.src;
 
   if (ds.item_cid !== undefined) {
@@ -393,7 +439,6 @@ export default async function parseMetadata(
     platform: ds.attrs?.platform,
     mission: ds.attrs?.project,
     "processing:lineage": ds.attrs?.history,
-    ...(await getTimeBounds(ds)),
     ...getDatacubeProperties(ds),
   };
 
@@ -416,12 +461,11 @@ export default async function parseMetadata(
     properties.contacts = contacts;
   }
 
-  return {
+  let stacItem: StacItem = {
     type: "Feature",
     stac_version: "1.1.0",
     stac_extensions: [],
     id: (ds?.item_cid?.toString() ?? ds.src) + "-stac_item",
-    ...(await getSpatialBounds(ds)),
     properties,
     links: [],
     assets: {
@@ -432,4 +476,22 @@ export default async function parseMetadata(
       },
     },
   };
+
+  yield stacItem;
+
+  const fetchTime = async () => {
+    return {
+      properties: { ...(await getTimeBounds(ds)) },
+    } as Partial<StacItem>;
+  };
+
+  const fetchSpatial = async () => {
+    return { ...(await getSpatialBounds(ds)) } as Partial<StacItem>;
+  };
+
+  const promises = [fetchTime(), fetchSpatial()];
+  for await (const result of asCompleted(promises)) {
+    stacItem = deepMerge(stacItem, result);
+    yield stacItem;
+  }
 }
