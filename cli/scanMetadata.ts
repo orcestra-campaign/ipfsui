@@ -27,6 +27,7 @@ import commandLineUsage from "command-line-usage";
 
 import { registry } from "zarrita";
 import { DeltaCodec } from "../src/utils/ds/codecs/delta.ts";
+import { StacItem } from "../src/utils/stac.ts";
 
 // @ts-expect-error DeltaCodec only handles numbers, but I didn't yet figure out how to check this properly
 registry.set("delta", () => DeltaCodec);
@@ -244,10 +245,14 @@ const stacItems = await Promise.all(
       root_cid,
       item_cid: cid,
     };
-    const stacItem = await parseMetadata(metadata);
-    console.log(stacItem.properties?.title);
+
+    let stacItem;
+    for await (const item of parseMetadata(metadata)) {
+      stacItem = item;
+    }
+    console.log(stacItem?.properties?.title);
     clearTimeout(timeout);
-    return stacItem;
+    return stacItem as StacItem;
   }),
 );
 

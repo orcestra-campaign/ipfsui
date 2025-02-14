@@ -40,7 +40,7 @@ const url = computed(() => `https://tiles.stadiamaps.com/tiles/alidade_smooth${i
             name="Stadia Maps"
             attribution='&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
         ></LTileLayer>
-        <LGeoJson :geojson="item" :options-style="style"/>
+        <LGeoJson :geojson="item" :options-style="() => style"/>
         </LMap>
     </div>
 </template>
