@@ -16,8 +16,6 @@
       ],
       "platform": "ATR-42",
       "mission": "ORCESTRA, MAESTRO",
-      "start_datetime": "1970-04-15T05:59:59.254Z",
-      "end_datetime": "2024-09-10T20:51:36.965Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -117,11 +115,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "1997-06-28T13:25:48.109Z",
+      "start_datetime": "1970-04-15T05:59:59.254Z",
+      "end_datetime": "2024-09-10T20:51:36.965Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://Qmby7pegamDerhYT5Lbi17kJ4ZNuQCM3j13uzD5S4M38Qw",
+        "href": "ipfs://bafybeigkp57oro2mx6pgbtqzajjghvhypg33btkd5sicf6zegvvptu7yda",
         "roles": [
           "data"
         ],
@@ -149,8 +150,6 @@
       ],
       "platform": "ATR-42",
       "mission": "ORCESTRA, MAESTRO",
-      "start_datetime": "1970-04-15T05:59:59.254Z",
-      "end_datetime": "2024-09-10T20:51:53.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -274,11 +273,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "1997-06-28T13:25:56.127Z",
+      "start_datetime": "1970-04-15T05:59:59.254Z",
+      "end_datetime": "2024-09-10T20:51:53.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmZbmLjLvsVwYnEkeR7CzMaQXmnFbccNGzJUiwJ1hSPu4B",
+        "href": "ipfs://bafybeifhj7cdxa5edqhgn2fvfa3ticiy6pz2f46jxye7r4hnihawzbxjra",
         "roles": [
           "data"
         ],
@@ -312,8 +314,6 @@
       ],
       "platform": "ATR-42",
       "mission": "ORCESTRA, MAESTRO",
-      "start_datetime": "1970-04-15T05:59:59.254Z",
-      "end_datetime": "2024-09-07T13:38:52.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -669,11 +669,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "1997-06-26T21:49:25.627Z",
+      "start_datetime": "1970-04-15T05:59:59.254Z",
+      "end_datetime": "2024-09-07T13:38:52.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmW7eRTHj2PAUR2YSJz7YpgmNyPvRVgZnQk6HRCUFE54TA",
+        "href": "ipfs://bafybeidtrcpmrymqfep6caqc3xe4hneby3xsgpsy37pghk4rmbbdggg6ze",
         "roles": [
           "data"
         ],
@@ -701,8 +704,6 @@
       ],
       "platform": "ATR-42",
       "mission": "ORCESTRA, MAESTRO",
-      "start_datetime": "1970-04-15T05:59:59.254Z",
-      "end_datetime": "2024-09-10T20:45:17.960Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -786,11 +787,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "1997-06-28T13:22:38.607Z",
+      "start_datetime": "1970-04-15T05:59:59.254Z",
+      "end_datetime": "2024-09-10T20:45:17.960Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmPPT5ns8pA1zZ1huM4t5DjXuzxLrD1s3VHctbzmqCojWi",
+        "href": "ipfs://bafybeiapsnej3k5q374wynbox77zs537afyvnqoubxh5yfvwehvhwicfam",
         "roles": [
           "data"
         ],
@@ -815,8 +819,6 @@
       ],
       "platform": "ATR-42",
       "mission": "ORCESTRA, MAESTRO",
-      "start_datetime": "1970-04-15T05:59:59.254Z",
-      "end_datetime": "2024-09-10T20:44:48.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -892,11 +894,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "1997-06-28T13:22:23.627Z",
+      "start_datetime": "1970-04-15T05:59:59.254Z",
+      "end_datetime": "2024-09-10T20:44:48.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmPyJjWCMUivR78nfNY6x13g5GqJLjftpHMYz4CvXSKqzE",
+        "href": "ipfs://bafybeiayh6lqzcxm7nvegmjqsqhdgww7mtzs2m3uskjmyqobeqqrlefrs4",
         "roles": [
           "data"
         ],
@@ -927,8 +932,6 @@
       ],
       "platform": "ATR-42",
       "mission": "ORCESTRA, MAESTRO",
-      "start_datetime": "1970-04-15T05:59:59.254Z",
-      "end_datetime": "2024-09-10T20:46:05.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -1100,11 +1103,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "1997-06-28T13:23:02.127Z",
+      "start_datetime": "1970-04-15T05:59:59.254Z",
+      "end_datetime": "2024-09-10T20:46:05.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmPjdKEX55K6ZuAwJ3bzcaiEZ3MSgsvA4QNYs4mt2gGLTw",
+        "href": "ipfs://bafybeiauxz4axsdbal7qiqcpkehcyafjs7zk2pltqadttvmsdh3q2xis5y",
         "roles": [
           "data"
         ],
@@ -1129,8 +1135,6 @@
       ],
       "platform": "ATR-42",
       "mission": "ORCESTRA, MAESTRO",
-      "start_datetime": "1970-04-15T05:59:59.254Z",
-      "end_datetime": "2024-08-26T19:57:29.734Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -1328,11 +1332,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "1997-06-21T00:58:44.494Z",
+      "start_datetime": "1970-04-15T05:59:59.254Z",
+      "end_datetime": "2024-08-26T19:57:29.734Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://Qmf6yF4UMT2fNgaiHAAAdb7ZULhxuFTzx6tiiq8hKodjfP",
+        "href": "ipfs://bafybeihzcwakly2vlkifrdktcte3njleh6gouvn5lieyxdp4irpap2gf3i",
         "roles": [
           "data"
         ],
@@ -1344,8 +1351,6 @@
     "properties": {
       "title": "ORCESTRA level 2 sounding data",
       "processing:lineage": "created with pysonde (0.0) on Mon Nov  4 18:05:52 2024",
-      "start_datetime": "1732-05-29T01:17:53.085Z",
-      "end_datetime": "2024-09-28T21:12:31.154Z",
       "cube:dimensions": {},
       "cube:variables": {
         "N_gps": {
@@ -1545,11 +1550,14 @@
           "unit": "m/s",
           "description": "wind speed"
         }
-      }
+      },
+      "datetime": "1878-07-29T23:15:12.120Z",
+      "start_datetime": "1732-05-29T01:17:53.085Z",
+      "end_datetime": "2024-09-28T21:12:31.154Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmYjjbSAJyZm3J16pWVtduuAHuosF7RQWgnERGeZkWSUPY",
+        "href": "ipfs://bafybeie2p3afnaht3tgtam3azme3vdspjelfh35t4nht5mwgqvf32j3j74",
         "roles": [
           "data"
         ],
@@ -1567,8 +1575,6 @@
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION, MAESTRO",
       "processing:lineage": "ASPEN processing with Aspen V4.0.2 \nquality control with pydropsonde 0.2.2 \nLevel 3 processing with pydropsonde 0.2.2 \n2025-02-13T14:26:55.152512+00:00 level3 concatenation with pydropsonde 0.2.2 \n",
-      "start_datetime": "2024-08-09T14:27:30.166Z",
-      "end_datetime": "2024-09-28T19:30:42.013Z",
       "cube:dimensions": {
         "altitude": {
           "type": "spatial",
@@ -1853,11 +1859,14 @@
           "name": "Nina Robbins",
           "emails": []
         }
-      ]
+      ],
+      "datetime": "2024-09-03T16:59:06.089Z",
+      "start_datetime": "2024-08-09T14:27:30.166Z",
+      "end_datetime": "2024-09-28T19:30:42.013Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmanzsQBqHuVJywmtvcRDuBzRb1jQj2bDiyN2nnKxMDxoy",
+        "href": "ipfs://bafybeifzbqr3asxyr3kunogbxjqq3glofv2sfiydmrvwcp3fdfemzpkv4a",
         "roles": [
           "data"
         ],
@@ -1872,8 +1881,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-08-09T09:03:59.000Z",
-      "end_datetime": "2024-08-09T16:13:58.620Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -1940,11 +1947,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-08-09T12:38:58.810Z",
+      "start_datetime": "2024-08-09T09:03:59.000Z",
+      "end_datetime": "2024-08-09T16:13:58.620Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmRjUJrGHAFq5goxSufTLoMvyWNq7wPtgqprgo84AAerWp",
+        "href": "ipfs://bafybeibsnoulepkq3hbogmcqhimkg4h6rwfjmgxprp3he5d5qggkixzg3u",
         "roles": [
           "data"
         ],
@@ -1959,8 +1969,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-08-11T11:07:03.000Z",
-      "end_datetime": "2024-08-11T20:48:03.380Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -2027,11 +2035,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-08-11T15:57:33.190Z",
+      "start_datetime": "2024-08-11T11:07:03.000Z",
+      "end_datetime": "2024-08-11T20:48:03.380Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmcPD9hAq3yaooCRgS85LTz3AUi5h9sR9XbqHRMaNQmmGA",
+        "href": "ipfs://bafybeigqvn23zyorwmig2fuocfmrostq5c2zppt6ceoai3lz7qv3uei7j4",
         "roles": [
           "data"
         ],
@@ -2046,8 +2057,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-08-13T12:46:34.000Z",
-      "end_datetime": "2024-08-13T23:18:08.330Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -2114,11 +2123,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-08-13T18:02:21.165Z",
+      "start_datetime": "2024-08-13T12:46:34.000Z",
+      "end_datetime": "2024-08-13T23:18:08.330Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmT36NRcxDj4qGjXufgDfNChwenLTskBGaoRvV5vmhy6LH",
+        "href": "ipfs://bafybeicfzl7kghvvegacnbadwswkuepbp3euexmgor5u2jrv7fy4rnfuci",
         "roles": [
           "data"
         ],
@@ -2133,8 +2145,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-08-16T10:16:09.000Z",
-      "end_datetime": "2024-08-16T20:15:09.080Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -2201,11 +2211,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-08-16T15:15:39.040Z",
+      "start_datetime": "2024-08-16T10:16:09.000Z",
+      "end_datetime": "2024-08-16T20:15:09.080Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmQdeatEJ2u4hYFygzs1hWqUMU8pcbBFYSqdeP2y9y1w3M",
+        "href": "ipfs://bafybeibccinvpafmygfewyv5jdr34cuu26psafbgratdelxdhely7fgpea",
         "roles": [
           "data"
         ],
@@ -2220,8 +2233,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-08-18T09:31:25.000Z",
-      "end_datetime": "2024-08-18T19:13:26.010Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -2288,11 +2299,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-08-18T14:22:25.505Z",
+      "start_datetime": "2024-08-18T09:31:25.000Z",
+      "end_datetime": "2024-08-18T19:13:26.010Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmXdvF4iy3iMLinDz4jyhQ4ppq2nEVjb9CSnwEY85ypQx6",
+        "href": "ipfs://bafybeiekewpmhvekq2h37hkvksc72iyhgvptoabnffblj2sxeu4nrtdaj4",
         "roles": [
           "data"
         ],
@@ -2307,8 +2321,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-08-21T11:32:11.000Z",
-      "end_datetime": "2024-08-21T20:02:11.140Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -2375,11 +2387,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-08-21T15:47:11.070Z",
+      "start_datetime": "2024-08-21T11:32:11.000Z",
+      "end_datetime": "2024-08-21T20:02:11.140Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://Qmbr9UVgq8naCG15nQWh5N1RSVZ5FxcxzuzA5tVgW13sQE",
+        "href": "ipfs://bafybeigiwzgg47nuiepjwkhz3kqg4ateq6n6t6imb6toj5jy7otk7zw6pm",
         "roles": [
           "data"
         ],
@@ -2394,8 +2409,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-08-22T10:13:28.000Z",
-      "end_datetime": "2024-08-22T19:50:29.480Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -2462,11 +2475,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-08-22T15:01:58.740Z",
+      "start_datetime": "2024-08-22T10:13:28.000Z",
+      "end_datetime": "2024-08-22T19:50:29.480Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmY6jcnzZdcCwtNKCgRVHjSxBatQxwRhSnLG93zAXT5xi4",
+        "href": "ipfs://bafybeierare3fewfi3g4q3ngbocxe5vf3zhdz6yeswtgm73fk4yq75qfze",
         "roles": [
           "data"
         ],
@@ -2481,8 +2497,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-08-25T08:09:48.000Z",
-      "end_datetime": "2024-08-25T19:09:49.730Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -2549,11 +2563,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-08-25T13:39:48.865Z",
+      "start_datetime": "2024-08-25T08:09:48.000Z",
+      "end_datetime": "2024-08-25T19:09:49.730Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmcTRg5t246TLAxrMYbvCsEtDcbVQi1MKVta7rQ3KS4BgG",
+        "href": "ipfs://bafybeigrx7y25q3c5vaxblai7htemqswzwwgsnyeuonangavmuehep4nsu",
         "roles": [
           "data"
         ],
@@ -2568,8 +2585,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-08-27T08:48:23.000Z",
-      "end_datetime": "2024-08-27T19:08:18.900Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -2636,11 +2651,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-08-27T13:58:20.950Z",
+      "start_datetime": "2024-08-27T08:48:23.000Z",
+      "end_datetime": "2024-08-27T19:08:18.900Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmPFHuxijbudAy9DFSQsUs9tyDSiENwhvmxkqkupU9Aiz4",
+        "href": "ipfs://bafybeianprcowpfg6mvb35nnrizfhmlf3oudikwplfpfnekoahzq2242he",
         "roles": [
           "data"
         ],
@@ -2655,8 +2673,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-08-29T11:24:01.150Z",
-      "end_datetime": "2024-08-29T20:41:02.240Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -2723,11 +2739,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-08-29T16:02:31.695Z",
+      "start_datetime": "2024-08-29T11:24:01.150Z",
+      "end_datetime": "2024-08-29T20:41:02.240Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmcobW2MkCrdDtKNwLbDBL3B5mm7KkY3CSkQwTCRDpqwqD",
+        "href": "ipfs://bafybeigw5kv5b7ysrjbuwokhxdvgzn6fzi54bncjrkd5sl7jxk36bj7e6q",
         "roles": [
           "data"
         ],
@@ -2742,8 +2761,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-08-31T07:38:45.150Z",
-      "end_datetime": "2024-08-31T17:50:44.910Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -2810,11 +2827,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-08-31T12:44:45.030Z",
+      "start_datetime": "2024-08-31T07:38:45.150Z",
+      "end_datetime": "2024-08-31T17:50:44.910Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmWwLpjYsJcymnvKQnr1FYvptrWMjoqUznJHoXi9h8Jqug",
+        "href": "ipfs://bafybeid7ycm2wzkbf33i2lwobez2gec4plzp35k4p3wmbw4bnrngc2e6i4",
         "roles": [
           "data"
         ],
@@ -2829,8 +2849,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-09-03T10:22:45.000Z",
-      "end_datetime": "2024-09-03T20:36:45.190Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -2897,11 +2915,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-03T15:29:45.095Z",
+      "start_datetime": "2024-09-03T10:22:45.000Z",
+      "end_datetime": "2024-09-03T20:36:45.190Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmYAuaJdaVS1vEs9AoiJEMTJdEd4FvfzBPfpz3YPaRYWMR",
+        "href": "ipfs://bafybeiescxpkahpxg6aejrlngh5fbn3rira244lriuexgrxgtidcbizwvq",
         "roles": [
           "data"
         ],
@@ -2916,8 +2937,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-09-06T10:12:03.000Z",
-      "end_datetime": "2024-09-06T18:15:04.480Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -2984,11 +3003,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-06T14:13:33.740Z",
+      "start_datetime": "2024-09-06T10:12:03.000Z",
+      "end_datetime": "2024-09-06T18:15:04.480Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmVcGi3Qk7FdJ9ZxwJUAFhGBzCM8LxDTJ98YoQCBLLMEH5",
+        "href": "ipfs://bafybeidmai4ylqhynropihrij5qiu2cumot56degueukyfclswvyoiovva",
         "roles": [
           "data"
         ],
@@ -3003,8 +3025,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-09-07T11:10:43.000Z",
-      "end_datetime": "2024-09-07T20:57:43.140Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -3071,11 +3091,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-07T16:04:13.070Z",
+      "start_datetime": "2024-09-07T11:10:43.000Z",
+      "end_datetime": "2024-09-07T20:57:43.140Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmYDUAJrPFVXQaXtZQx2Hcma24zMfSsTiPACdgw67rAgFW",
+        "href": "ipfs://bafybeiesxxqg2gcyng7xlpav6jk4m3r3ts7hr3g3yxhaocv5pidgwjukhu",
         "roles": [
           "data"
         ],
@@ -3090,8 +3113,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-09-09T10:48:32.000Z",
-      "end_datetime": "2024-09-09T20:55:31.800Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -3158,11 +3179,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-09T15:52:01.900Z",
+      "start_datetime": "2024-09-09T10:48:32.000Z",
+      "end_datetime": "2024-09-09T20:55:31.800Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmRPvaobuPkn6Ef5ZudFLeVKyaonTkUmzqVHmvav8MFz9G",
+        "href": "ipfs://bafybeibnnhait7ka4rwrmtctxyyachtld6pteaxp3cn3p4u6lhb37aemom",
         "roles": [
           "data"
         ],
@@ -3177,8 +3201,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-09-12T10:41:09.000Z",
-      "end_datetime": "2024-09-12T20:42:08.660Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -3245,11 +3267,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-12T15:41:38.830Z",
+      "start_datetime": "2024-09-12T10:41:09.000Z",
+      "end_datetime": "2024-09-12T20:42:08.660Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmZnH4pv5tNsMwBXesewCedWeggXCwjMMhj8b6fUodEmYK",
+        "href": "ipfs://bafybeifkaexysjva7fhilsvdqs7msy7ek3ad35hnnzbt3mduxqp3ilftca",
         "roles": [
           "data"
         ],
@@ -3264,8 +3289,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-09-14T10:40:02.000Z",
-      "end_datetime": "2024-09-14T20:10:01.650Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -3332,11 +3355,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-14T15:25:01.825Z",
+      "start_datetime": "2024-09-14T10:40:02.000Z",
+      "end_datetime": "2024-09-14T20:10:01.650Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmPq8UzP3WiRWV6Wcd9BzYRbwdmrtZVfDr6ZftjUPGB7Hm",
+        "href": "ipfs://bafybeiawe5nih67ympn6e5yj6jbseql5aimepoqdiklqqt6l7cji2ldauq",
         "roles": [
           "data"
         ],
@@ -3351,8 +3377,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-09-16T10:52:39.000Z",
-      "end_datetime": "2024-09-16T21:08:38.570Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -3419,11 +3443,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-16T16:00:38.785Z",
+      "start_datetime": "2024-09-16T10:52:39.000Z",
+      "end_datetime": "2024-09-16T21:08:38.570Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmPziAS8jJwUhbKWH2FNvXWDnjvpmYCKy9fgqV2nmPtGWL",
+        "href": "ipfs://bafybeiaytou3zfwgdkw55ywh7oasqcfaiajg6f62cr7hyqaxppygdkyele",
         "roles": [
           "data"
         ],
@@ -3438,8 +3465,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-09-19T10:06:17.000Z",
-      "end_datetime": "2024-09-19T20:03:16.550Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -3506,11 +3531,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-19T15:04:46.775Z",
+      "start_datetime": "2024-09-19T10:06:17.000Z",
+      "end_datetime": "2024-09-19T20:03:16.550Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmbFwxfFmPNfCVt6PVdMptEvA3PfYfrta94cr7UZVGzusi",
+        "href": "ipfs://bafybeif76oebyt52kujc4qae4y7uxtz62noygqncykijfpz4wqa54eusuu",
         "roles": [
           "data"
         ],
@@ -3525,8 +3553,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-09-21T10:30:58.000Z",
-      "end_datetime": "2024-09-21T20:15:57.970Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -3593,11 +3619,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-21T15:23:27.985Z",
+      "start_datetime": "2024-09-21T10:30:58.000Z",
+      "end_datetime": "2024-09-21T20:15:57.970Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmVLbTeAXwN5EM6HAC4CEcFZDc966UTTZ3nx4wi4uwp3DP",
+        "href": "ipfs://bafybeidh7yrgnkb2t6l66yonhhhrlpa2leyy56p2ozqcv2yajjjidklzry",
         "roles": [
           "data"
         ],
@@ -3612,8 +3641,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-09-23T10:21:59.000Z",
-      "end_datetime": "2024-09-23T20:14:58.710Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -3680,11 +3707,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-23T15:18:28.855Z",
+      "start_datetime": "2024-09-23T10:21:59.000Z",
+      "end_datetime": "2024-09-23T20:14:58.710Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmabAPGNiaNsui9uYbMMuJnQC3JtZTavg6TTkpYRV9EBoJ",
+        "href": "ipfs://bafybeifwapw2d7zoxvil3qfa4mj4nbfnltkvoaa2mwzj4sah5kssb3pynu",
         "roles": [
           "data"
         ],
@@ -3699,8 +3729,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-09-24T15:00:47.000Z",
-      "end_datetime": "2024-09-24T21:52:47.740Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -3767,11 +3795,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-24T18:26:47.370Z",
+      "start_datetime": "2024-09-24T15:00:47.000Z",
+      "end_datetime": "2024-09-24T21:52:47.740Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmQAojLBNieP9KWNzjNJgAw6dWxjvijdqZaJYurmg2bYk3",
+        "href": "ipfs://bafybeia3ghcbnsdocxw4mjrlopxu6ox3t35u6b445fr3xhxgsdwvl2tolq",
         "roles": [
           "data"
         ],
@@ -3786,8 +3817,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-09-26T10:59:10.000Z",
-      "end_datetime": "2024-09-26T20:32:10.570Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -3854,11 +3883,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-26T15:45:40.285Z",
+      "start_datetime": "2024-09-26T10:59:10.000Z",
+      "end_datetime": "2024-09-26T20:32:10.570Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmYEmBjkKz6qcS4CPi5QK2473wAiXRDHBqGpgQhPczNA6a",
+        "href": "ipfs://bafybeietck2rc54u5ma2w4ukkc2bi2jsklrkt374pjtrpl6wiqwtscuix4",
         "roles": [
           "data"
         ],
@@ -3873,8 +3905,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-09-28T10:24:16.000Z",
-      "end_datetime": "2024-09-28T20:10:15.530Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -3941,11 +3971,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-28T15:17:15.765Z",
+      "start_datetime": "2024-09-28T10:24:16.000Z",
+      "end_datetime": "2024-09-28T20:10:15.530Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmTfnTxUhDnVZay27aG3e9pDn4HWbug2iRTpGtnosr1VBo",
+        "href": "ipfs://bafybeicpge6wghsjo3hfubg34rvw6yuxqbza3b7ykdjq5pizjm66x4riwi",
         "roles": [
           "data"
         ],
@@ -3960,8 +3993,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-09-29T21:01:04.000Z",
-      "end_datetime": "2024-09-30T07:20:03.639Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -4028,11 +4059,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-30T02:10:33.819Z",
+      "start_datetime": "2024-09-29T21:01:04.000Z",
+      "end_datetime": "2024-09-30T07:20:03.639Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmPMLn1TSrRVrpox38HvUFSoMw8Ty9jcHVtQ3gGCBzyZM3",
+        "href": "ipfs://bafybeiapbd63wx3ssxsixvduszzn2x3qluzjw42oaq2hsfhje6djznct3i",
         "roles": [
           "data"
         ],
@@ -4047,8 +4081,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-11-05T10:20:07.000Z",
-      "end_datetime": "2024-11-05T18:49:06.910Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -4115,11 +4147,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-11-05T14:34:36.955Z",
+      "start_datetime": "2024-11-05T10:20:07.000Z",
+      "end_datetime": "2024-11-05T18:49:06.910Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmS6iyBQ2QZfuUnPUGfow74asANPjiohwmPkAVnsnuqwdB",
+        "href": "ipfs://bafybeibx3vxnynypxgjpwutd6wdgdytviwlbgykkqtuwf4kg3gp5cby4vi",
         "roles": [
           "data"
         ],
@@ -4134,8 +4169,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-11-07T09:52:28.000Z",
-      "end_datetime": "2024-11-07T19:13:28.410Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -4202,11 +4235,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-11-07T14:32:58.205Z",
+      "start_datetime": "2024-11-07T09:52:28.000Z",
+      "end_datetime": "2024-11-07T19:13:28.410Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmZ4XuKpuHP1WdCL2St84dxrxuaSWUsUJjKhFow8C4QRNV",
+        "href": "ipfs://bafybeie7j6isrprsxidi26bil3jiahq2xhwxrs5hjqxv5nocfl4ebiy3uy",
         "roles": [
           "data"
         ],
@@ -4221,8 +4257,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-11-10T08:52:09.000Z",
-      "end_datetime": "2024-11-10T15:44:08.800Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -4289,11 +4323,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-11-10T12:18:08.900Z",
+      "start_datetime": "2024-11-10T08:52:09.000Z",
+      "end_datetime": "2024-11-10T15:44:08.800Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmdyjaNUSYgDuSeNdStseQgSP5yR2pxwo3JG8cxegboKfT",
+        "href": "ipfs://bafybeihil5f6uvtqilcj3r3xl7zeycpup7ossr6xfpai2j4yse5de7vvvy",
         "roles": [
           "data"
         ],
@@ -4308,8 +4345,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-11-12T09:29:36.000Z",
-      "end_datetime": "2024-11-12T19:18:35.550Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -4376,11 +4411,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-11-12T14:24:05.775Z",
+      "start_datetime": "2024-11-12T09:29:36.000Z",
+      "end_datetime": "2024-11-12T19:18:35.550Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmRnzFmwXkjbpLvut2QegcC9X6i1YJUmn6LsiboeVdAkSv",
+        "href": "ipfs://bafybeibtkjbtphbondh6udu6urvgcm6oe2lto3ana4fnchfpohfgc3sakm",
         "roles": [
           "data"
         ],
@@ -4395,8 +4433,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-11-14T09:16:05.000Z",
-      "end_datetime": "2024-11-14T18:48:06.050Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -4463,11 +4499,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-11-14T14:02:05.525Z",
+      "start_datetime": "2024-11-14T09:16:05.000Z",
+      "end_datetime": "2024-11-14T18:48:06.050Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmZPthBYJsUQojxfVZMLAixpMbduFnJpbvfnQqxeJRJhYZ",
+        "href": "ipfs://bafybeifeiuoengnp4yfsfkfmtjzdwib624df7jhcsbqpjjue6dg7ua25jy",
         "roles": [
           "data"
         ],
@@ -4482,8 +4521,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-11-16T09:31:32.000Z",
-      "end_datetime": "2024-11-16T18:43:32.420Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -4550,11 +4587,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-11-16T14:07:32.210Z",
+      "start_datetime": "2024-11-16T09:31:32.000Z",
+      "end_datetime": "2024-11-16T18:43:32.420Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmZyrQ2WTeGdYUvfTVMvJEvzF5Tre2mUM5XfBwc1JknU67",
+        "href": "ipfs://bafybeifm7bbrss2scf2qks7z37ubqo5qfjdc424akqaovctr6giuihepzq",
         "roles": [
           "data"
         ],
@@ -4569,8 +4609,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-11-19T08:24:11.000Z",
-      "end_datetime": "2024-11-19T15:54:10.710Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -4637,11 +4675,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-11-19T12:09:10.855Z",
+      "start_datetime": "2024-11-19T08:24:11.000Z",
+      "end_datetime": "2024-11-19T15:54:10.710Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmPp5epYTitvEYfB4h64M3viKTXPWnWhGS3t4uAfF8CbaA",
+        "href": "ipfs://bafybeiav4kjielgyg3se3jizt2eavdtdldk226tmr7pvtha5howp56dkgm",
         "roles": [
           "data"
         ],
@@ -4656,8 +4697,6 @@
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "start_datetime": "2024-08-09T09:03:59.000Z",
-      "end_datetime": "2024-11-19T15:54:10.710Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -4724,11 +4763,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-29T12:29:04.855Z",
+      "start_datetime": "2024-08-09T09:03:59.000Z",
+      "end_datetime": "2024-11-19T15:54:10.710Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmPcEqDcWiP4VvTjKCBthPK21muEC819ze5SZY5LdTdF5J",
+        "href": "ipfs://bafybeias3h5uxtt4ky4d4gn6l6gxjqfkzbde5jlunya6g3umnkvn7xoyoe",
         "roles": [
           "data"
         ],
@@ -4747,8 +4789,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE, DAM_Underway",
       "processing:lineage": "2024-11-21T06:34:03Z: initial saving of data in NetCDF format; 2025-01-30T13:13:28Z: converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
-      "start_datetime": "2024-08-20T00:00:00.000Z",
-      "end_datetime": "2024-09-23T00:00:00.000Z",
       "cube:dimensions": {
         "DEPTH": {
           "type": "spatial",
@@ -4937,11 +4977,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-06T00:00:00.000Z",
+      "start_datetime": "2024-08-20T00:00:00.000Z",
+      "end_datetime": "2024-09-23T00:00:00.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmXiL1DBihoVRbomunkrH5yWbz9hH6JekjvcPDQujnkgoa",
+        "href": "ipfs://bafybeieli3hwulxcvqqan2f62lfajswqzbbbhmueenjaubc6zfxukjc2ke",
         "roles": [
           "data"
         ],
@@ -4960,8 +5003,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE, DAM_Underway",
       "processing:lineage": "2024-11-21T13:50:02Z: initial saving of data in NetCDF format; 2025-01-30T13:13:33Z: converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
-      "start_datetime": "2024-08-20T00:00:00.000Z",
-      "end_datetime": "2024-09-24T00:00:00.000Z",
       "cube:dimensions": {
         "DEPTH": {
           "type": "spatial",
@@ -5150,11 +5191,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-06T12:00:00.000Z",
+      "start_datetime": "2024-08-20T00:00:00.000Z",
+      "end_datetime": "2024-09-24T00:00:00.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmQFoiSsoTTq3q23EBX7wCPBLnSncpuwYVZf7J7hi7U59H",
+        "href": "ipfs://bafybeia4pgtryncxt4pexfs2gyvgxn4cob43mfijkdo2alwcxgorpfn3va",
         "roles": [
           "data"
         ],
@@ -5172,8 +5216,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE",
       "processing:lineage": "created during CTD processing; {now}: converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
-      "start_datetime": "2024-08-18T01:17:48.071Z",
-      "end_datetime": "2024-09-22T14:24:12.000Z",
       "cube:dimensions": {
         "PRES": {
           "type": "spatial",
@@ -5366,11 +5408,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-04T19:51:00.035Z",
+      "start_datetime": "2024-08-18T01:17:48.071Z",
+      "end_datetime": "2024-09-22T14:24:12.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmeNTnoRcQ6bjs7XnT6eD1thazv4ct8GnECF57zn4fq2RZ",
+        "href": "ipfs://bafybeihoghhgi655g7arw2ubtpudbq4c4hpwjlrwghcex3snu7f36imjgq",
         "roles": [
           "data"
         ],
@@ -5385,8 +5430,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE",
       "processing:lineage": "Converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
-      "start_datetime": "2024-08-14T00:00:00.000Z",
-      "end_datetime": "2024-09-23T22:59:00.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -5733,11 +5776,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-03T11:29:30.000Z",
+      "start_datetime": "2024-08-14T00:00:00.000Z",
+      "end_datetime": "2024-09-23T22:59:00.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmSSrT1UdtocfQS5yWSHFEJwJjqcNXjq2F1QfvNgLuEqSN",
+        "href": "ipfs://bafybeib5awa3le6nxi4rgepn2mwxj733aazpkmgtcpa3uc2744gxv7op44",
         "roles": [
           "data"
         ],
@@ -5757,8 +5803,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE",
       "processing:lineage": "Created on 20241216_120643; 2025-01-30T13:14:56Z: converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
-      "start_datetime": "2024-08-13T00:00:12.000Z",
-      "end_datetime": "2024-09-23T19:52:42.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -5826,11 +5870,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-02T21:56:27.000Z",
+      "start_datetime": "2024-08-13T00:00:12.000Z",
+      "end_datetime": "2024-09-23T19:52:42.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmZ8qAy5TAideiPua2Ri2DwU1rRfZjiGLJkbSzJDN2bfxA",
+        "href": "ipfs://bafybeifanfvmxia7nfeuros7gl3ouv3qb5cmg4dczl6ekkjuk7gv66w424",
         "roles": [
           "data"
         ],
@@ -5845,8 +5892,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE",
       "processing:lineage": "created by Ilya Serikov (ilya.serikov@mpimet.mpg.de) on 2024-12-09; 2025-01-30T13:18:04Z: converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
-      "start_datetime": "2024-08-15T00:02:00.000Z",
-      "end_datetime": "2024-09-24T00:00:00.000Z",
       "cube:dimensions": {
         "alt": {
           "type": "spatial",
@@ -6013,11 +6058,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-04T00:01:00.000Z",
+      "start_datetime": "2024-08-15T00:02:00.000Z",
+      "end_datetime": "2024-09-24T00:00:00.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmVJU8nqwBTB7dxbHvs7SL5v4LjdiD3792n4e1p1dBrtyQ",
+        "href": "ipfs://bafybeidhokylvrnu447th4z3npevzflfmtjsva2icf7gbyp7mmsyyeknhm",
         "roles": [
           "data"
         ],
@@ -6032,8 +6080,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE",
       "processing:lineage": "created by Ilya Serikov (ilya.serikov@mpimet.mpg.de) on 2024-12-09; 2025-01-30T13:22:56Z: converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
-      "start_datetime": "2024-08-15T00:02:00.000Z",
-      "end_datetime": "2024-09-24T00:00:00.000Z",
       "cube:dimensions": {
         "alt": {
           "type": "spatial",
@@ -6282,11 +6328,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-04T00:01:00.000Z",
+      "start_datetime": "2024-08-15T00:02:00.000Z",
+      "end_datetime": "2024-09-24T00:00:00.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmZ6y4t1UQ4JgrNtcpnSTdX2uxeN2hsfodDDfJQETAdBzB",
+        "href": "ipfs://bafybeie754xlrs75yw2vnqrneuh23vsalzagfputvjnbqnsi4fvyjjtfrq",
         "roles": [
           "data"
         ],
@@ -6298,8 +6347,6 @@
     "properties": {
       "title": "ORCESTRA level 2 sounding data",
       "processing:lineage": "created with pysonde (0.0) on Mon Nov  4 18:05:52 2024",
-      "start_datetime": "1732-05-05T20:03:42.508Z",
-      "end_datetime": "2024-09-24T04:07:47.168Z",
       "cube:dimensions": {},
       "cube:variables": {
         "N_gps": {
@@ -6499,11 +6546,14 @@
           "unit": "m/s",
           "description": "wind speed"
         }
-      }
+      },
+      "datetime": "1878-07-16T00:05:44.838Z",
+      "start_datetime": "1732-05-05T20:03:42.508Z",
+      "end_datetime": "2024-09-24T04:07:47.168Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmbQe6ZfnyG6yf1A56XiqFLTd4M6ixKqEVP3q6krRV1oCt",
+        "href": "ipfs://bafybeigcfwhxkf43evbnuakotji6erd5jpgj6lwayr7hgknm3hpk2kpgve",
         "roles": [
           "data"
         ],
@@ -6521,8 +6571,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE, AERONET",
       "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "start_datetime": "2024-08-19T13:08:01.000Z",
-      "end_datetime": "2024-09-21T20:00:04.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -6671,11 +6719,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-05T04:34:02.500Z",
+      "start_datetime": "2024-08-19T13:08:01.000Z",
+      "end_datetime": "2024-09-21T20:00:04.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmSZ1DjTtoD8mnPYzK2cVQ1D83Rkwba2vM5ZYF5v8TWvKd",
+        "href": "ipfs://bafybeib6tduloxx5ubl2u64qjhxbrfnir4secnbu2huyslmlexge27ehoq",
         "roles": [
           "data"
         ],
@@ -6693,8 +6744,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE, AERONET",
       "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "start_datetime": "2024-08-19T13:09:02.000Z",
-      "end_datetime": "2024-09-21T19:59:36.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -6843,11 +6892,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-05T04:34:19.000Z",
+      "start_datetime": "2024-08-19T13:09:02.000Z",
+      "end_datetime": "2024-09-21T19:59:36.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://Qme1e3zbvvs2XPAUUex57jpg9wsPfQVuZ2dfAkgyBDFRMU",
+        "href": "ipfs://bafybeihi3q3gfz65yigz47z5gfa4nru6z46unkmjmydmzqqr6uqqsr6xwm",
         "roles": [
           "data"
         ],
@@ -6865,8 +6917,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE, AERONET",
       "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "start_datetime": "2024-08-19T15:04:47.000Z",
-      "end_datetime": "2024-09-21T19:59:36.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -7015,11 +7065,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-05T05:32:11.500Z",
+      "start_datetime": "2024-08-19T15:04:47.000Z",
+      "end_datetime": "2024-09-21T19:59:36.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmNzGjuCo3JvPW8ZnnGNUDQJwg8kvL5ZYEYyyfunpXmGov",
+        "href": "ipfs://bafybeiajum5pcrb43tnwsseh2zaysryjutlal7ozcucqcxc4fduks46idu",
         "roles": [
           "data"
         ],
@@ -7037,8 +7090,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE, AERONET",
       "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "start_datetime": "2024-08-19T14:56:33.000Z",
-      "end_datetime": "2024-09-21T16:43:56.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -7264,11 +7315,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-05T03:50:14.500Z",
+      "start_datetime": "2024-08-19T14:56:33.000Z",
+      "end_datetime": "2024-09-21T16:43:56.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://Qmdt1DXDf68gSSycN6U6s99zUuAxzmQbV63e1qWSBiJvQD",
+        "href": "ipfs://bafybeihg457ruqnu5kazguctvhg677kzijnuh46dk5zerdlo2jji4xr25y",
         "roles": [
           "data"
         ],
@@ -7286,8 +7340,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE, AERONET",
       "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "start_datetime": "2024-08-19T16:03:51.000Z",
-      "end_datetime": "2024-09-21T16:43:56.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -7513,11 +7565,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-05T04:23:53.500Z",
+      "start_datetime": "2024-08-19T16:03:51.000Z",
+      "end_datetime": "2024-09-21T16:43:56.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmNbkuZgCYf2NJDAhKKi7QQYN6jLqZ9r8U6UFr6DM6js3C",
+        "href": "ipfs://bafybeiad324d7kwbxtrtw6iopuv5lepjkhj4hmmcylso3o2k57dddurom4",
         "roles": [
           "data"
         ],
@@ -7535,8 +7590,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE, AERONET",
       "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "start_datetime": "2024-08-19T13:08:58.000Z",
-      "end_datetime": "2024-09-21T19:59:30.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -7762,11 +7815,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-05T04:34:14.000Z",
+      "start_datetime": "2024-08-19T13:08:58.000Z",
+      "end_datetime": "2024-09-21T19:59:30.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmTHAbgJuzTom5eNPFnytLyKwHpiiVKe3A73nBCwNSVSPn",
+        "href": "ipfs://bafybeicjmxud3bs73c4rwr5xjzxnp3mckesr2i4pgwxu4fhdtubq2i27xu",
         "roles": [
           "data"
         ],
@@ -7784,8 +7840,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE, AERONET",
       "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "start_datetime": "2024-08-19T15:05:10.000Z",
-      "end_datetime": "2024-09-21T19:59:30.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -8011,11 +8065,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-05T05:32:20.000Z",
+      "start_datetime": "2024-08-19T15:05:10.000Z",
+      "end_datetime": "2024-09-21T19:59:30.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmNRhkWA5auEcxptBWvvqYNH1h7LjAABWHcdkreDauAijY",
+        "href": "ipfs://bafybeiabjnl4olrtxl2672hn4lvuxgiexn3zu4px4yw5meht73lxcjlhf4",
         "roles": [
           "data"
         ],
@@ -8033,8 +8090,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE, AERONET",
       "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "start_datetime": "2024-08-19T13:08:01.000Z",
-      "end_datetime": "2024-09-21T20:00:04.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -8253,11 +8308,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-05T04:34:02.500Z",
+      "start_datetime": "2024-08-19T13:08:01.000Z",
+      "end_datetime": "2024-09-21T20:00:04.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmbXuKhzdhhJPyUJv1YXzfRzwdzMnZK1iybCWxwHau1KeM",
+        "href": "ipfs://bafybeigebhl4hmdqpj4i3cs4pnb2pmoedhq2zbph2wyrfktlie25ii2f3y",
         "roles": [
           "data"
         ],
@@ -8275,8 +8333,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE, AERONET",
       "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "start_datetime": "2024-08-19T13:09:02.000Z",
-      "end_datetime": "2024-09-21T19:59:36.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -8495,11 +8551,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-05T04:34:19.000Z",
+      "start_datetime": "2024-08-19T13:09:02.000Z",
+      "end_datetime": "2024-09-21T19:59:36.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmbtzZRAFeAADGzw7BhucrWg1gVNcLHnfRC1rQgNKKyMnM",
+        "href": "ipfs://bafybeigjod26u4ei2gtipqcxchbw3gdjtqwrpvk47vnxvvz7b64risg76y",
         "roles": [
           "data"
         ],
@@ -8517,8 +8576,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE, AERONET",
       "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "start_datetime": "2024-08-19T15:04:47.000Z",
-      "end_datetime": "2024-09-21T19:59:36.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -8737,11 +8794,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-05T05:32:11.500Z",
+      "start_datetime": "2024-08-19T15:04:47.000Z",
+      "end_datetime": "2024-09-21T19:59:36.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmRRoZ9fwhPUezyJihYZKGhVkxEk1t79ykRCJMgSr9VLcy",
+        "href": "ipfs://bafybeibn4t3xahjmeihfhz6sxdtscqq2v5sgocsrw2u3mw7kxaeboepkci",
         "roles": [
           "data"
         ],
@@ -8759,8 +8819,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE, AERONET",
       "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "start_datetime": "2024-08-19T14:56:33.000Z",
-      "end_datetime": "2024-09-21T16:43:56.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -9098,11 +9156,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-05T03:50:14.500Z",
+      "start_datetime": "2024-08-19T14:56:33.000Z",
+      "end_datetime": "2024-09-21T16:43:56.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmQw35GtUYJ54oTx61qcVKAZfgw9gbgifiTPZFxCwNK9u3",
+        "href": "ipfs://bafybeibgqzunlkw2535ovklrbzpauqkwj3anne77angwixtniflbahi2bi",
         "roles": [
           "data"
         ],
@@ -9120,8 +9181,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE, AERONET",
       "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "start_datetime": "2024-08-19T16:03:51.000Z",
-      "end_datetime": "2024-09-21T16:43:56.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -9459,11 +9518,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-05T04:23:53.500Z",
+      "start_datetime": "2024-08-19T16:03:51.000Z",
+      "end_datetime": "2024-09-21T16:43:56.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://Qmegat5VkA44FVfost5Z8v3zCydJ5TdgjJqfaGCRz678Wu",
+        "href": "ipfs://bafybeihs2zdvcy4de7yjuxatqciztdy6or7kfdwocbnnx7csrmbpngemei",
         "roles": [
           "data"
         ],
@@ -9481,8 +9543,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE, AERONET",
       "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "start_datetime": "2024-08-19T13:08:58.000Z",
-      "end_datetime": "2024-09-21T19:59:30.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -9820,11 +9880,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-05T04:34:14.000Z",
+      "start_datetime": "2024-08-19T13:08:58.000Z",
+      "end_datetime": "2024-09-21T19:59:30.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmSrWbRqaQo73povikga1UXWMm3PNmDP7SdMTb7u9w9M3b",
+        "href": "ipfs://bafybeicdct7qj7qelajf6cftkph66jnjvibpsa35m22gkd3qy7cmnowray",
         "roles": [
           "data"
         ],
@@ -9842,8 +9905,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE, AERONET",
       "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "start_datetime": "2024-08-19T15:05:10.000Z",
-      "end_datetime": "2024-09-21T19:59:30.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -10181,11 +10242,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-05T05:32:20.000Z",
+      "start_datetime": "2024-08-19T15:05:10.000Z",
+      "end_datetime": "2024-09-21T19:59:30.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmYftvziDbrhezpEHZbckFzzFiaXdS5xdrhJNqby7Se5ep",
+        "href": "ipfs://bafybeiezql6fvp3dn4pv6elsqocqgpu7stajh6heoahniazndch2nsjwhe",
         "roles": [
           "data"
         ],
@@ -10200,8 +10264,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE",
       "processing:lineage": "2025-01-30T13:27:29Z: converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
-      "start_datetime": "2024-08-15T21:12:23.720Z",
-      "end_datetime": "2024-09-23T20:22:38.133Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -10239,11 +10301,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-04T08:47:30.926Z",
+      "start_datetime": "2024-08-15T21:12:23.720Z",
+      "end_datetime": "2024-09-23T20:22:38.133Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmQxJLMAuwd7hCAJPkFAufULo9fqWaPv1DyNLDsKVNB7wv",
+        "href": "ipfs://bafybeibg3e7kodnqrgjs5576soeq7gwcqjzdity56zlmz2bw27ucrip4fe",
         "roles": [
           "data"
         ],
@@ -10258,8 +10323,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE",
       "processing:lineage": "2025-01-30T13:26:10Z: converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
-      "start_datetime": "2024-08-18T00:00:00.433Z",
-      "end_datetime": "2024-09-23T20:22:38.133Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -10297,11 +10360,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-05T10:11:19.283Z",
+      "start_datetime": "2024-08-18T00:00:00.433Z",
+      "end_datetime": "2024-09-23T20:22:38.133Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://Qmbnt4feM7NF2zrWfTNkmpyiFBErCDseyi1TsiG2EeEP2r",
+        "href": "ipfs://bafybeigh4aqyy3zmhqteq4y53zknarkmy7rwe6sctcwcskuyw4paap6kxm",
         "roles": [
           "data"
         ],
@@ -10316,8 +10382,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE",
       "processing:lineage": "2025-01-30T13:29:01Z: converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
-      "start_datetime": "2024-08-16T00:00:00.417Z",
-      "end_datetime": "2024-09-23T20:22:38.133Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -10355,11 +10419,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-04T10:11:19.275Z",
+      "start_datetime": "2024-08-16T00:00:00.417Z",
+      "end_datetime": "2024-09-23T20:22:38.133Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmPJuf78jNiMfmLxhM38ygbYu3kNWSXpHwNPsi8YiTn6wA",
+        "href": "ipfs://bafybeiaonfwwrbianryo4nejd4fyfqjcrofo6wciz62aeuzpeplcqu6zqe",
         "roles": [
           "data"
         ],
@@ -10374,8 +10441,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE",
       "processing:lineage": "2025-01-30T13:11:54Z: converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
-      "start_datetime": "2024-08-08T00:00:04.000Z",
-      "end_datetime": "2024-09-23T23:59:55.000Z",
       "cube:dimensions": {
         "range": {
           "type": "spatial",
@@ -10727,11 +10792,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-08-31T11:59:59.500Z",
+      "start_datetime": "2024-08-08T00:00:04.000Z",
+      "end_datetime": "2024-09-23T23:59:55.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmaAiM55c9dB2zWBuoUsrb2DPycznFFEKZrVZvDt2uuuEJ",
+        "href": "ipfs://bafybeifpycgdtmphy2kbvo7a2tchelswunmyiqhrc7qiqevubjon7bbfcm",
         "roles": [
           "data"
         ],
@@ -10762,8 +10830,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA,BOW-TIE,PICCOLO",
       "processing:lineage": "converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
-      "start_datetime": "2024-08-16T00:00:00.000Z",
-      "end_datetime": "2024-09-23T23:59:00.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -11239,11 +11305,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-04T11:59:30.000Z",
+      "start_datetime": "2024-08-16T00:00:00.000Z",
+      "end_datetime": "2024-09-23T23:59:00.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmTpyBWDospfcLFdFqWg5FLeSH6cLZwxxoq6vk2wMDKUqt",
+        "href": "ipfs://bafybeicrrokylncpyjgs52c6526otqbqxcxhmkt6mkqovya2xvt2n3yo54",
         "roles": [
           "data"
         ],
@@ -11274,8 +11343,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA,BOW-TIE,PICCOLO",
       "processing:lineage": "converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
-      "start_datetime": "2024-08-16T00:00:00.000Z",
-      "end_datetime": "2024-09-23T23:59:00.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -11751,11 +11818,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-04T11:59:30.000Z",
+      "start_datetime": "2024-08-16T00:00:00.000Z",
+      "end_datetime": "2024-09-23T23:59:00.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmNUpGrBgQa4mpLmbKZwH71u9suxub3tnv99cEZ5pJBNUQ",
+        "href": "ipfs://bafybeiacc53awulhrttttkdwd6uktvb3bfbsyac5g4ww7rkujigkalmkfe",
         "roles": [
           "data"
         ],
@@ -11786,8 +11856,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA,BOW-TIE,PICCOLO",
       "processing:lineage": "converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
-      "start_datetime": "2024-08-16T00:00:00.000Z",
-      "end_datetime": "2024-09-23T23:59:00.000Z",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
@@ -12171,11 +12239,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-04T11:59:30.000Z",
+      "start_datetime": "2024-08-16T00:00:00.000Z",
+      "end_datetime": "2024-09-23T23:59:00.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://Qme2WqrMLvY6gtuBgrfoymNgVAinKqmJzENrbcGA5zFax9",
+        "href": "ipfs://bafybeihjcwsecgpmsjxoo5peqafnuqfnalu3ya3vtibwl7qkm76izsnuei",
         "roles": [
           "data"
         ],
@@ -12190,8 +12261,6 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE",
       "processing:lineage": "Converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
-      "start_datetime": "2024-08-16T02:53:00.000Z",
-      "end_datetime": "2024-09-24T07:59:00.000Z",
       "cube:dimensions": {
         "TIME": {
           "type": "temporal",
@@ -12291,11 +12360,14 @@
             }
           ]
         }
-      ]
+      ],
+      "datetime": "2024-09-04T17:26:00.000Z",
+      "start_datetime": "2024-08-16T02:53:00.000Z",
+      "end_datetime": "2024-09-24T07:59:00.000Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmPi8b2LnBCiLhC19ec9uCN8YyKmHp2r1HP4T23HFsZ8xP",
+        "href": "ipfs://bafybeiaulrt5ddwk4z4axi7ilzuux47aqzqf7glbtsi7igijio4kiysdna",
         "roles": [
           "data"
         ],
@@ -12307,8 +12379,6 @@
     "properties": {
       "title": "ORCESTRA level 2 sounding data",
       "processing:lineage": "created with pysonde (0.0) on Mon Nov  4 18:05:52 2024",
-      "start_datetime": "1732-04-30T18:00:38.146Z",
-      "end_datetime": "2024-09-10T23:47:42.500Z",
       "cube:dimensions": {},
       "cube:variables": {
         "N_gps": {
@@ -12508,11 +12578,14 @@
           "unit": "m/s",
           "description": "wind speed"
         }
-      }
+      },
+      "datetime": "1878-07-06T20:54:10.323Z",
+      "start_datetime": "1732-04-30T18:00:38.146Z",
+      "end_datetime": "2024-09-10T23:47:42.500Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://QmP968RrntvFvQVUVHTDBJk2SsQNHtj7DiGnUSriZj6WLn",
+        "href": "ipfs://bafybeial4v2x7ckdzbxyw6kyzetiymualkq3tgntabsb65kjvpfkdkesw4",
         "roles": [
           "data"
         ],
