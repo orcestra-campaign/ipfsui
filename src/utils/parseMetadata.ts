@@ -265,7 +265,7 @@ async function getSpatialBoundsTrajectory(
     console.warn(
       "dataset",
       ds.src,
-      "is a trajaectory, but it was not possible to figure out the coordinates",
+      "is a trajectory, but it was not possible to figure out the coordinates",
     );
     return getSpatialBoundsDefault(ds);
   }
