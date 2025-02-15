@@ -5887,6 +5887,284 @@
   },
   {
     "properties": {
+      "title": "ISAR L2 SST product",
+      "description": "ISRN in-situ skin SST data, collected for the validation of SLSTR SST products",
+      "keywords": [
+        "Oceans",
+        "Ocean Temperature",
+        "Sea Surface Temperature"
+      ],
+      "license": "CC-BY-SA-4.0",
+      "references": [
+        "http://www.shipborne-radiometer.org"
+      ],
+      "platform": "RV METEOR",
+      "mission": "ORCESTRA, BOW-TIE, International Shipborne Radiometer Network",
+      "processing:lineage": "ISAR sst processor v5.8, ISAR sst write v5.8, fCalFactor:   0.8, PreCalMean: 0.465834, PreCalDate: 20240711T145714Z, PostCalMean: 0.431720, PostCalDate: 20241112T174607Z, CASOTS: 0.050 ",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "seconds since 1981-01-01T00:00:00+00:00",
+          "description": "measurement time"
+        }
+      },
+      "cube:variables": {
+        "ambient_blackbody_temperature": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "kelvin",
+          "description": "temperature of the ambinet black body"
+        },
+        "course_over_ground": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "angular_degree",
+          "description": "platform course over ground"
+        },
+        "lat": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "latitude"
+        },
+        "lon": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "longitude"
+        },
+        "platform_azimuth_angle": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "angular_degree",
+          "description": "platform azimuth angle"
+        },
+        "platform_azimuth_angle_stdev": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "angular_degree",
+          "description": "platform azimuth angle standard deviation "
+        },
+        "platform_id": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "description": "platform id"
+        },
+        "platform_name": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "description": "platform name"
+        },
+        "platform_pitch_angle": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "angular_degree",
+          "description": "platform pitch angle"
+        },
+        "platform_pitch_angle_stdev": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "angular_degree",
+          "description": "platform pitch angle standard deviation "
+        },
+        "platform_roll_angle": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "angular_degree",
+          "description": "platform roll angle"
+        },
+        "platform_roll_angle_stdev": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "angular_degree",
+          "description": "platform roll angle standard deviation "
+        },
+        "quality_level": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "description": "measurement quality value"
+        },
+        "sea_surface_temperature": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "kelvin",
+          "description": "sea surface skin temperature"
+        },
+        "sky_brightness_temperature": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "kelvin",
+          "description": "brightness temperature of the sky"
+        },
+        "sky_nadir_angle": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "angular_degree",
+          "description": "instrument sky view angle from nadir"
+        },
+        "solar_azimuth_angle": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "angular_degree",
+          "description": "solar azimuth angle wrt north"
+        },
+        "solar_azimuth_angle_isar": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "angular_degree",
+          "description": "solar azimuth angle wrt instrument orientation"
+        },
+        "solar_zenith_angle": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "angular_degree",
+          "description": "solar zenith angle"
+        },
+        "speed_over_ground": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "knots",
+          "description": "platform speed over ground"
+        },
+        "sst_flags": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "description": "sea surface skin temperature flags"
+        },
+        "sst_instrument_uncertainty": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "kelvin",
+          "description": "sea surface temperature instrument uncertainty"
+        },
+        "sst_measurement_uncertainty": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "kelvin",
+          "description": "sea surface temperature measurement uncertainty"
+        },
+        "sst_random_uncertainty": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "kelvin",
+          "description": "sea surface temperature random uncertainty"
+        },
+        "sst_systematic_uncertainty": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "kelvin",
+          "description": "sea surface temperature systematic uncertainty"
+        },
+        "sst_total_uncertainty": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "kelvin",
+          "description": "sea surface temperature total uncertainty"
+        },
+        "surface_brightness_temperature": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "kelvin",
+          "description": "brightness temperature of the sea surface"
+        },
+        "view_azimuth_angle": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "angular_degree",
+          "description": "instrument view azimuthal orientation"
+        },
+        "view_nadir_angle": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "angular_degree",
+          "description": "instrument viewing angle from nadir"
+        }
+      },
+      "contacts": [
+        {
+          "name": "UoS",
+          "emails": [
+            {
+              "value": "w.wimmer@soton.ac.uk",
+              "roles": []
+            }
+          ]
+        }
+      ],
+      "datetime": "2024-09-04T05:51:57.000Z",
+      "start_datetime": "2024-08-16T00:06:12.000Z",
+      "end_datetime": "2024-09-23T11:37:42.000Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeibei32rn7fcyrrhhx3gfsdz2yonze6rpqvvyih2avpxb74qqlqss4",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
       "title": "Raman LiDAR LICHT fast product (2min smoothing) during METEOR cruise M203",
       "license": "CC-BY-4.0",
       "platform": "RV METEOR",
