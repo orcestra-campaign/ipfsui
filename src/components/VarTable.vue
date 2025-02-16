@@ -25,7 +25,6 @@ const {item} = defineProps<{ item: StacItem }>();
 .vartable {
   display: flex;
   flex-direction: column;
-  margin-bottom: 5px;
 }
 
 .row {
