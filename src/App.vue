@@ -21,6 +21,10 @@ const ds_url = ref("http://127.0.0.1:8080/ipns/latest.orcestra-campaign.org/prod
   font-weight: 500;
   font-size: 40px;
   color: var(--orcestra-blue-dark);
+  display: block;
+  line-height: 1;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 @media (prefers-color-scheme: dark) {
