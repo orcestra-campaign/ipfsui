@@ -14,6 +14,18 @@ const code = computed(() => `import xarray as xr
 
 xr.open_dataset("${ item?.assets?.data?.href }", engine="zarr")`)
 
+function generateHTMLReferences(references: string[]): string[] {
+  return references.map(reference => {
+    if (reference.match('^https?://')) {
+      return `<a href="${reference}">${reference}</a>`;
+    } else if (reference.match(/^10\.\d+\//)) {
+      return `<a href="https://doi.org/${reference}">${reference}</a>`;
+    }
+    return `<p>${reference}</p>`;
+  });
+}
+const htmlReferences = computed(() => generateHTMLReferences(item.properties?.references ?? []));
+
 </script>
 
 <template>
@@ -51,7 +63,7 @@ xr.open_dataset("${ item?.assets?.data?.href }", engine="zarr")`)
 
     <div v-if="item?.properties?.references">
         <h2>References:</h2>
-        <div class="references"><ul><li v-for="ref in item.properties?.references">{{ ref }}</li></ul></div>
+        <div class="references"><ul><li v-for="ref in htmlReferences"><div v-html="ref"></div></li></ul></div>
     </div>
 
 </template>
