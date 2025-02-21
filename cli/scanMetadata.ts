@@ -221,9 +221,6 @@ const fs = unixfs(helia);
 const blacklist = [
   "/HALO/dropsondes/Level_1",
   "/HALO/dropsondes/Level_2",
-  "/HALO/iwv",
-  "/HALO/radar",
-  "/HALO/radiometer",
 ];
 
 const datasetLocations = await collectDatasets(root_cid, "", blacklist);
