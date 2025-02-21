@@ -70,6 +70,7 @@ xr.open_dataset("${ item?.assets?.data?.href }", engine="zarr")`)
   font-size: 42px;
   line-height: 1.1;
   letter-spacing: -0.25px;
+  margin: 0.5em 0;
 }
 
 .authors ul {
