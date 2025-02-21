@@ -1567,6 +1567,881 @@
   },
   {
     "properties": {
+      "title": "Integrated Water Vapor Retrieval from the K-Band and W-Band Microwave Radiometers",
+      "description": "This dataset contains retrievals of integrated water vapor (IWV) from the KV-band microwave radiometer onboard the HALO aircraft during the ORCESTRA campaign. The retrieval is based on a linear regression model and should not be used for quantitative analysis. The purpose of this data was to provide an estimate of IWV during the flights. The processing includes formatting the data, adding georeference information, filtering for altitudes above 4800 m and adding a land-sea mask.",
+      "keywords": [
+        "Radiometer",
+        "Microwave",
+        "Integrated Water Vapor",
+        "Retrieval",
+        "HALO",
+        "ORCESTRA",
+        "PERCUSION",
+        "Tropical Atlantic"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "10.5194/amt-7-4539-2014"
+      ],
+      "platform": "HALO",
+      "mission": "ORCESTRA, PERCUSION",
+      "processing:lineage": "The processing software is available at https://github.com/orcestra-campaign/hamp_processing",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "milliseconds since 2024-08-09T05:23:29"
+        }
+      },
+      "cube:variables": {
+        "AziAng": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "DEG (0 DEG - 360 DEG)",
+          "description": "Azimuth Viewing Angle"
+        },
+        "ElAng": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degrees (-90 - 180)",
+          "description": "Elevation Viewing Angle"
+        },
+        "IWV": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "kg / m^2",
+          "description": "IWV Data"
+        },
+        "RF": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "description": "Rain Flag"
+        },
+        "lat": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "WGS84 Datum/Latitude"
+        },
+        "lon": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "WGS84 Datum/Longitude"
+        },
+        "mask_sea_land": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "description": "Mask for sea and land."
+        },
+        "plane_altitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "WGS84 Datum/Elliptical Height"
+        },
+        "plane_pitch": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Attitude/Pitch"
+        },
+        "plane_roll": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Attitude/Roll"
+        },
+        "retrieval": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "description": "LV2 retrieval type"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Jakob Deutloff",
+          "emails": [
+            {
+              "value": "jakob.deutloff@uni-hamburg.de",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Lukas Kluft",
+          "emails": [
+            {
+              "value": "lukas.kluft@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Clara Bayley",
+          "emails": [
+            {
+              "value": "clara.bayley@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
+        }
+      ],
+      "datetime": "2024-09-29T10:36:56.375Z",
+      "start_datetime": "2024-08-09T05:23:29.000Z",
+      "end_datetime": "2024-11-19T15:50:23.750Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeicahqvp4lovuqpu63euo5kbc22sdq4jp5p6h6wib373x72ki34tiu",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "MIRA Cloud Radar Moments from the HALO Microwave Package (Level 3)",
+      "description": "This dataset contains measurements from the MIRA cloud radar onboard the HALO aircraft during the ORCESTRA campaign. The measurements are processed and quality controlled. The processing includes formatting the data, adding georeference information, filtering for noise, clutter and valid radar states, and adding masks for calibration, ground reflections, and roll segments.",
+      "keywords": [
+        "Cloud Radar",
+        "HALO",
+        "ORCESTRA",
+        "PERCUSION",
+        "Tropical Atlantic"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "10.5194/amt-12-1815-2019",
+        "10.5194/essd-13-5545-2021"
+      ],
+      "platform": "HALO",
+      "mission": "ORCESTRA, PERCUSION",
+      "processing:lineage": "The processing software is available at https://github.com/orcestra-campaign/hamp_processing",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "microseconds since 2024-08-09T09:52:05.097473"
+        }
+      },
+      "cube:variables": {
+        "DPS": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "deg",
+          "description": "Differential Phase"
+        },
+        "DetuneFine": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "kHz",
+          "description": "Detuning of the Local Oscillator Detected from Txn Footprint"
+        },
+        "HSDco": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "DSP",
+          "description": "Co-Channel HSdiv Noise Level"
+        },
+        "HSDcx": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "DSP",
+          "description": "Cross-Channel HSdiv Noise Level"
+        },
+        "ISDRco": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": " ",
+          "description": "In Spectrum Dynamic Range Co-Channel"
+        },
+        "ISDRcx": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": " ",
+          "description": "In Spectrum Dynamic Range Cross-Channel"
+        },
+        "LDRg": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": " ",
+          "description": "Linear De-Polarization Ratio LDRg"
+        },
+        "LDRgc": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": " ",
+          "description": "Linear De-Polarization Ratio LDRgc"
+        },
+        "LDRnormal": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": " ",
+          "description": "LDR calculated by weigting both channels withe the SNR of the more powerful channel"
+        },
+        "LO_Frequency": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "MHz",
+          "description": "Transmit Frequency"
+        },
+        "MRMco": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": " ",
+          "description": "Radiometer Signal Co"
+        },
+        "MRMcx": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": " ",
+          "description": "Radiometer Signal Cx"
+        },
+        "NPKg": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": " ",
+          "description": "Number of Peaksg"
+        },
+        "NPKgc": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": " ",
+          "description": "Number of Peaksgc"
+        },
+        "NyquistVelocity": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Speed of Light  * Pulse Repetition Frequency / (4 * Frequency)"
+        },
+        "RHO": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": " ",
+          "description": "Co-Cross Channel Correlation"
+        },
+        "RHOwav": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": " ",
+          "description": "Cross Channel Correlation Peak weighted"
+        },
+        "RMSg": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "Peak Width RMSg"
+        },
+        "RMSgc": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "Peak Width RMSgc"
+        },
+        "RadarConst": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Z",
+          "description": "Radar Constant related to 5 km Height, and 200 ns pulses. Z = SNR * RadarConst * (range/5 km)^2 * SNRCorFaCo. It changes slightly in time due to the measured transmit power"
+        },
+        "SKWg": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": " ",
+          "description": "Skewness"
+        },
+        "SNRCorFaCo": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": " ",
+          "description": "Factor to correct Co-channel SNR based on Receiver calibration measurement by Noisecom source"
+        },
+        "SNRCorFaCx": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "-",
+          "description": "Factor to correct Cx-channel SNR based on Receiver calibration measurement by Noisecom source. LDR = SNRcx/SNRco * SnrCorFaCx/SnrCorFaCo"
+        },
+        "SNRcx": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": " ",
+          "description": "Reflectivity SNR Cx-Channel"
+        },
+        "SNRg": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": " ",
+          "description": "Reflectivity SNRg"
+        },
+        "SNRgc": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": " ",
+          "description": "Reflectivity SNRgc"
+        },
+        "VELg": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "Doppler Velocity VELg"
+        },
+        "VELgc": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "Doppler Velocity VELgc"
+        },
+        "Ze": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "Z",
+          "description": "Equivalent Radar Reflectivity Factor Ze of Hydrometeors"
+        },
+        "Zg": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "Z",
+          "description": "Equivalent Radar Reflectivity Factor Ze of all Targets"
+        },
+        "azi": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "deg",
+          "description": "Azimut Angle, if > 370 azi-720 represents the middle of the averaging interval, if azi < 370 then azi represents the position of the end of the next data block."
+        },
+        "aziv": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "deg/s",
+          "description": "Azimut Angle Velocity"
+        },
+        "cpw1": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Ratio",
+          "description": "SNR of Calibration Signal Co-Channel"
+        },
+        "cpw2": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Ratio",
+          "description": "SNR of Calibration Signal Cross-Channel"
+        },
+        "dBZe": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "dBZe",
+          "description": "Decadal logarithm of equivalent radar reflectivity of hydrometeors (Ze)"
+        },
+        "dBZg": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "dBZg",
+          "description": "Decadal logarithm of equivalent radar reflectivity of all targets (Zg)"
+        },
+        "drg": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "description": "Range Resolution"
+        },
+        "elv": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "deg",
+          "description": "Elevation Angle, if > 370 elv-720 represents the middle of the averaging interval, if elv < 370 then elv represents the position of the end of the next data block."
+        },
+        "elvv": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "deg/s",
+          "description": "Elevation Angle Velocity"
+        },
+        "grst": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Enumerate",
+          "description": "General Radar State"
+        },
+        "lambda": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Wave Length"
+        },
+        "lat": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "WGS84 Datum/Latitude"
+        },
+        "lon": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "WGS84 Datum/Longitude"
+        },
+        "mask_calibration": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "description": "Mask for radar calibration segments"
+        },
+        "mask_ground_return": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "description": "Mask for ground reflections"
+        },
+        "mask_roll": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "description": "Mask for roll segments"
+        },
+        "nave": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "count",
+          "description": "Number of Spectral Avreages"
+        },
+        "nfft": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "count",
+          "description": "Number of FFT Points"
+        },
+        "northangle": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "deg",
+          "description": "North Angle"
+        },
+        "npw1": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Sum over the Spectrum in DSP units",
+          "description": "Noise Power Co-Channel"
+        },
+        "npw2": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Sum over the Spectrum in DSP units",
+          "description": "Noise Power Cross-Channel"
+        },
+        "plane_altitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "WGS84 Datum/Elliptical Height"
+        },
+        "plane_pitch": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Attitude/Pitch"
+        },
+        "plane_roll": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Attitude/Roll"
+        },
+        "prf": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Hz",
+          "description": "Pulse Repetition Frequency"
+        },
+        "rg0": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "count",
+          "description": "Number of Lowest Range Gates"
+        },
+        "tpow": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "W",
+          "description": "Average Transmit Power"
+        },
+        "zrg": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "count",
+          "description": "Number of Range Gates"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Jakob Deutloff",
+          "emails": [
+            {
+              "value": "jakob.deutloff@uni-hamburg.de",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Lukas Kluft",
+          "emails": [
+            {
+              "value": "lukas.kluft@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Clara Bayley",
+          "emails": [
+            {
+              "value": "clara.bayley@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
+        }
+      ],
+      "datetime": "2024-09-29T12:41:48.870Z",
+      "start_datetime": "2024-08-09T09:52:05.097Z",
+      "end_datetime": "2024-11-19T15:31:32.643Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeigmd3dovwm45ylfqxnn2jphsrdjl2jt3dfytv7grkyhleaq42jthe",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "Radiometer Data from the Halo Microwave Package (Level 2)",
+      "description": "This dataset contains measurements from the radiometers onboard the HALO aircraft during the ORCESTRA campaign. The measurements are processed and quality controlled. The processing includes formatting the data, adding georeference information, and filtering for altitudes above 4800 m and adding a land-sea mask.",
+      "keywords": [
+        "Radiometer",
+        "Microwave",
+        "HALO",
+        "ORCESTRA",
+        "PERCUSION",
+        "Tropical Atlantic"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "10.5194/amt-12-1815-2019",
+        "10.5194/essd-13-5545-2021"
+      ],
+      "platform": "HALO",
+      "mission": "ORCESTRA, PERCUSION",
+      "processing:lineage": "The processing software is available at https://github.com/orcestra-campaign/hamp_processing",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "milliseconds since 2024-08-09T05:03:25"
+        }
+      },
+      "cube:variables": {
+        "AziAng": {
+          "dimensions": [
+            "time",
+            "frequency"
+          ],
+          "type": "data",
+          "unit": "DEG (0 DEG - 360 DEG)",
+          "description": "Azimuth Viewing Angle"
+        },
+        "ElAng": {
+          "dimensions": [
+            "time",
+            "frequency"
+          ],
+          "type": "data",
+          "unit": "degrees (-90 - 180)",
+          "description": "Elevation Viewing Angle"
+        },
+        "RF": {
+          "dimensions": [
+            "time",
+            "frequency"
+          ],
+          "type": "data",
+          "description": "Rain Flag"
+        },
+        "TBs": {
+          "dimensions": [
+            "time",
+            "frequency"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "TB Map"
+        },
+        "lat": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "WGS84 Datum/Latitude"
+        },
+        "lon": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "WGS84 Datum/Longitude"
+        },
+        "mask_amplifier_fault": {
+          "dimensions": [
+            "time",
+            "frequency"
+          ],
+          "type": "data",
+          "description": "Mask for amplifier faults"
+        },
+        "mask_sea_land": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "description": "Mask for sea and land."
+        },
+        "plane_altitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "WGS84 Datum/Elliptical Height"
+        },
+        "plane_pitch": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Attitude/Pitch"
+        },
+        "plane_roll": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Attitude/Roll"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Jakob Deutloff",
+          "emails": [
+            {
+              "value": "jakob.deutloff@uni-hamburg.de",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Lukas Kluft",
+          "emails": [
+            {
+              "value": "lukas.kluft@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Clara Bayley",
+          "emails": [
+            {
+              "value": "clara.bayley@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
+        }
+      ],
+      "datetime": "2024-09-29T10:26:55.375Z",
+      "start_datetime": "2024-08-09T05:03:25.000Z",
+      "end_datetime": "2024-11-19T15:50:25.750Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeicbj76n3hi52pxtcyzu5in7efk36fk7lavauishclybrsbvlrpq3e",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
       "title": "Dropsonde data from the ORCESTRA field campaign 2024 Level 3",
       "license": "CC-BY-4.0",
       "references": [
@@ -1867,2822 +2742,6 @@
     "assets": {
       "data": {
         "href": "ipfs://bafybeifzbqr3asxyr3kunogbxjqq3glofv2sfiydmrvwcp3fdfemzpkv4a",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240809b",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-08-09 09:03:59"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-08-09T12:38:58.810Z",
-      "start_datetime": "2024-08-09T09:03:59.000Z",
-      "end_datetime": "2024-08-09T16:13:58.620Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeibsnoulepkq3hbogmcqhimkg4h6rwfjmgxprp3he5d5qggkixzg3u",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240811a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-08-11 11:07:03"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-08-11T15:57:33.190Z",
-      "start_datetime": "2024-08-11T11:07:03.000Z",
-      "end_datetime": "2024-08-11T20:48:03.380Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeigqvn23zyorwmig2fuocfmrostq5c2zppt6ceoai3lz7qv3uei7j4",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240813a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-08-13 12:46:34"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-08-13T18:02:21.165Z",
-      "start_datetime": "2024-08-13T12:46:34.000Z",
-      "end_datetime": "2024-08-13T23:18:08.330Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeicfzl7kghvvegacnbadwswkuepbp3euexmgor5u2jrv7fy4rnfuci",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240816a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-08-16 10:16:09"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-08-16T15:15:39.040Z",
-      "start_datetime": "2024-08-16T10:16:09.000Z",
-      "end_datetime": "2024-08-16T20:15:09.080Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeibccinvpafmygfewyv5jdr34cuu26psafbgratdelxdhely7fgpea",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240818a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-08-18 09:31:25"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-08-18T14:22:25.505Z",
-      "start_datetime": "2024-08-18T09:31:25.000Z",
-      "end_datetime": "2024-08-18T19:13:26.010Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeiekewpmhvekq2h37hkvksc72iyhgvptoabnffblj2sxeu4nrtdaj4",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240821a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-08-21 11:32:11"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-08-21T15:47:11.070Z",
-      "start_datetime": "2024-08-21T11:32:11.000Z",
-      "end_datetime": "2024-08-21T20:02:11.140Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeigiwzgg47nuiepjwkhz3kqg4ateq6n6t6imb6toj5jy7otk7zw6pm",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240822a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-08-22 10:13:28"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-08-22T15:01:58.740Z",
-      "start_datetime": "2024-08-22T10:13:28.000Z",
-      "end_datetime": "2024-08-22T19:50:29.480Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeierare3fewfi3g4q3ngbocxe5vf3zhdz6yeswtgm73fk4yq75qfze",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240825a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-08-25 08:09:48"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-08-25T13:39:48.865Z",
-      "start_datetime": "2024-08-25T08:09:48.000Z",
-      "end_datetime": "2024-08-25T19:09:49.730Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeigrx7y25q3c5vaxblai7htemqswzwwgsnyeuonangavmuehep4nsu",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240828a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-08-27 08:48:23"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-08-27T13:58:20.950Z",
-      "start_datetime": "2024-08-27T08:48:23.000Z",
-      "end_datetime": "2024-08-27T19:08:18.900Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeianprcowpfg6mvb35nnrizfhmlf3oudikwplfpfnekoahzq2242he",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240829a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-08-29 11:24:01.150000"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-08-29T16:02:31.695Z",
-      "start_datetime": "2024-08-29T11:24:01.150Z",
-      "end_datetime": "2024-08-29T20:41:02.240Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeigw5kv5b7ysrjbuwokhxdvgzn6fzi54bncjrkd5sl7jxk36bj7e6q",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240831a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-08-31 07:38:45.150000"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-08-31T12:44:45.030Z",
-      "start_datetime": "2024-08-31T07:38:45.150Z",
-      "end_datetime": "2024-08-31T17:50:44.910Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeid7ycm2wzkbf33i2lwobez2gec4plzp35k4p3wmbw4bnrngc2e6i4",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240903a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-09-03 10:22:45"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-03T15:29:45.095Z",
-      "start_datetime": "2024-09-03T10:22:45.000Z",
-      "end_datetime": "2024-09-03T20:36:45.190Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeiescxpkahpxg6aejrlngh5fbn3rira244lriuexgrxgtidcbizwvq",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240906a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-09-06 10:12:03"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-06T14:13:33.740Z",
-      "start_datetime": "2024-09-06T10:12:03.000Z",
-      "end_datetime": "2024-09-06T18:15:04.480Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeidmai4ylqhynropihrij5qiu2cumot56degueukyfclswvyoiovva",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240907a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-09-07 11:10:43"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-07T16:04:13.070Z",
-      "start_datetime": "2024-09-07T11:10:43.000Z",
-      "end_datetime": "2024-09-07T20:57:43.140Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeiesxxqg2gcyng7xlpav6jk4m3r3ts7hr3g3yxhaocv5pidgwjukhu",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240909a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-09-09 10:48:32"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-09T15:52:01.900Z",
-      "start_datetime": "2024-09-09T10:48:32.000Z",
-      "end_datetime": "2024-09-09T20:55:31.800Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeibnnhait7ka4rwrmtctxyyachtld6pteaxp3cn3p4u6lhb37aemom",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240912a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-09-12 10:41:09"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-12T15:41:38.830Z",
-      "start_datetime": "2024-09-12T10:41:09.000Z",
-      "end_datetime": "2024-09-12T20:42:08.660Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeifkaexysjva7fhilsvdqs7msy7ek3ad35hnnzbt3mduxqp3ilftca",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240914a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-09-14 10:40:02"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-14T15:25:01.825Z",
-      "start_datetime": "2024-09-14T10:40:02.000Z",
-      "end_datetime": "2024-09-14T20:10:01.650Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeiawe5nih67ympn6e5yj6jbseql5aimepoqdiklqqt6l7cji2ldauq",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240916a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-09-16 10:52:39"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-16T16:00:38.785Z",
-      "start_datetime": "2024-09-16T10:52:39.000Z",
-      "end_datetime": "2024-09-16T21:08:38.570Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeiaytou3zfwgdkw55ywh7oasqcfaiajg6f62cr7hyqaxppygdkyele",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240919a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-09-19 10:06:17"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-19T15:04:46.775Z",
-      "start_datetime": "2024-09-19T10:06:17.000Z",
-      "end_datetime": "2024-09-19T20:03:16.550Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeif76oebyt52kujc4qae4y7uxtz62noygqncykijfpz4wqa54eusuu",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240921a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-09-21 10:30:58"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-21T15:23:27.985Z",
-      "start_datetime": "2024-09-21T10:30:58.000Z",
-      "end_datetime": "2024-09-21T20:15:57.970Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeidh7yrgnkb2t6l66yonhhhrlpa2leyy56p2ozqcv2yajjjidklzry",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240923a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-09-23 10:21:59"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-23T15:18:28.855Z",
-      "start_datetime": "2024-09-23T10:21:59.000Z",
-      "end_datetime": "2024-09-23T20:14:58.710Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeifwapw2d7zoxvil3qfa4mj4nbfnltkvoaa2mwzj4sah5kssb3pynu",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240924a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-09-24 15:00:47"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-24T18:26:47.370Z",
-      "start_datetime": "2024-09-24T15:00:47.000Z",
-      "end_datetime": "2024-09-24T21:52:47.740Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeia3ghcbnsdocxw4mjrlopxu6ox3t35u6b445fr3xhxgsdwvl2tolq",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240926a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-09-26 10:59:10"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-26T15:45:40.285Z",
-      "start_datetime": "2024-09-26T10:59:10.000Z",
-      "end_datetime": "2024-09-26T20:32:10.570Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeietck2rc54u5ma2w4ukkc2bi2jsklrkt374pjtrpl6wiqwtscuix4",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240928a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-09-28 10:24:16"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-28T15:17:15.765Z",
-      "start_datetime": "2024-09-28T10:24:16.000Z",
-      "end_datetime": "2024-09-28T20:10:15.530Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeicpge6wghsjo3hfubg34rvw6yuxqbza3b7ykdjq5pizjm66x4riwi",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20240929a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-09-29 21:01:04"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-30T02:10:33.819Z",
-      "start_datetime": "2024-09-29T21:01:04.000Z",
-      "end_datetime": "2024-09-30T07:20:03.639Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeiapbd63wx3ssxsixvduszzn2x3qluzjw42oaq2hsfhje6djznct3i",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20241105a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-11-05 10:20:07"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-11-05T14:34:36.955Z",
-      "start_datetime": "2024-11-05T10:20:07.000Z",
-      "end_datetime": "2024-11-05T18:49:06.910Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeibx3vxnynypxgjpwutd6wdgdytviwlbgykkqtuwf4kg3gp5cby4vi",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20241107a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-11-07 09:52:28"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-11-07T14:32:58.205Z",
-      "start_datetime": "2024-11-07T09:52:28.000Z",
-      "end_datetime": "2024-11-07T19:13:28.410Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeie7j6isrprsxidi26bil3jiahq2xhwxrs5hjqxv5nocfl4ebiy3uy",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20241110a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-11-10 08:52:09"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-11-10T12:18:08.900Z",
-      "start_datetime": "2024-11-10T08:52:09.000Z",
-      "end_datetime": "2024-11-10T15:44:08.800Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeihil5f6uvtqilcj3r3xl7zeycpup7ossr6xfpai2j4yse5de7vvvy",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20241112b",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-11-12 09:29:36"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-11-12T14:24:05.775Z",
-      "start_datetime": "2024-11-12T09:29:36.000Z",
-      "end_datetime": "2024-11-12T19:18:35.550Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeibtkjbtphbondh6udu6urvgcm6oe2lto3ana4fnchfpohfgc3sakm",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20241114b",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-11-14 09:16:05"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-11-14T14:02:05.525Z",
-      "start_datetime": "2024-11-14T09:16:05.000Z",
-      "end_datetime": "2024-11-14T18:48:06.050Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeifeiuoengnp4yfsfkfmtjzdwib624df7jhcsbqpjjue6dg7ua25jy",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20241116a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-11-16 09:31:32"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-11-16T14:07:32.210Z",
-      "start_datetime": "2024-11-16T09:31:32.000Z",
-      "end_datetime": "2024-11-16T18:43:32.420Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeifm7bbrss2scf2qks7z37ubqo5qfjdc424akqaovctr6giuihepzq",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "HALO position and attitude data for flight HALO-20241119a",
-      "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. The data is collected from the IGI system (see `source` attribute).",
-      "license": "CC0-1.0",
-      "platform": "HALO",
-      "mission": "ORCESTRA, PERCUSION",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "nanoseconds since 2024-11-19 08:24:11"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "heading": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Yaw"
-        },
-        "lat": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "lon": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Pitch"
-        },
-        "roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Attitude/Roll"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-11-19T12:09:10.855Z",
-      "start_datetime": "2024-11-19T08:24:11.000Z",
-      "end_datetime": "2024-11-19T15:54:10.710Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeiav4kjielgyg3se3jizt2eavdtdldk226tmr7pvtha5howp56dkgm",
         "roles": [
           "data"
         ],
