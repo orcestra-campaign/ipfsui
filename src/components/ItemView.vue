@@ -95,11 +95,25 @@ xr.open_dataset("${ item?.assets?.data?.href }", engine="zarr")`)
 }
 
 .keywords li {
+    background-color: var(--orcestra-blue-faint);
+    border: 1px solid var(--orcestra-blue-dark);
+    border-radius: 2em;
+    color: var(--orcestra-blue-dark);
     display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 22px;
     margin: 3px;
-    padding: 3px 5px;
-    border-radius: 3px;
-    background-color: lightgreen;
+    padding: 0 10px;
+    white-space: nowrap;
+}
+
+@media (prefers-color-scheme: dark) {
+    .keywords li {
+        background-color: transparent;
+        border: 1px solid var(--orcestra-yellow);
+        color: var(--orcestra-yellow);
+    }
 }
 
 .description {
