@@ -14,17 +14,17 @@ const code = computed(() => `import xarray as xr
 
 xr.open_dataset("${ item?.assets?.data?.href }", engine="zarr")`)
 
-function generateHTMLReferences(references: string[]): string[] {
+function parseReferences(references: string[]): object[] {
   return references.map(reference => {
     if (reference.match('^https?://')) {
-      return `<a href="${reference}">${reference}</a>`;
+      return {"text": reference, "url": reference};
     } else if (reference.match(/^10\.\d+\//)) {
-      return `<a href="https://doi.org/${reference}">${reference}</a>`;
+      return {"text": reference, "url": `https://doi.org/${reference}`};
     }
-    return `<p>${reference}</p>`;
+    return {"text": reference, "url": undefined};
   });
 }
-const htmlReferences = computed(() => generateHTMLReferences(item.properties?.references ?? []));
+const references = computed(() => parseReferences(item.properties?.references ?? []));
 
 </script>
 
@@ -63,7 +63,14 @@ const htmlReferences = computed(() => generateHTMLReferences(item.properties?.re
 
     <div v-if="item?.properties?.references">
         <h2>References:</h2>
-        <div class="references"><ul><li v-for="ref in htmlReferences"><div v-html="ref"></div></li></ul></div>
+        <div class="references">
+            <ul>
+                <li v-for="({text, url}) in references">
+                    <a v-if="url" :href=url>{{ text }}</a>
+                    <div v-else>{{ text }}</div>
+                </li>
+            </ul>
+        </div>
     </div>
 
 </template>
