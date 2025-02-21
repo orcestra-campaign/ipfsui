@@ -14,14 +14,14 @@ const code = computed(() => `import xarray as xr
 
 xr.open_dataset("${ item?.assets?.data?.href }", engine="zarr")`)
 
-function parseReferences(references: string[]): object[] {
-  return references.map(reference => {
-    if (reference.match('^https?://')) {
-      return {"text": reference, "url": reference};
-    } else if (reference.match(/^10\.\d+\//)) {
-      return {"text": reference, "url": `https://doi.org/${reference}`};
+function parseReferences(references: string[]): {text: string, url?: string}[] {
+  return references.map(text => {
+    if (text.match('^https?://')) {
+      return {text, url: text};
+    } else if (text.match(/^10\.\d+\//)) {
+      return {text, url: `https://doi.org/${text}`};
     }
-    return {"text": reference, "url": undefined};
+    return {text};
   });
 }
 const references = computed(() => parseReferences(item.properties?.references ?? []));
@@ -66,7 +66,7 @@ const references = computed(() => parseReferences(item.properties?.references ??
         <div class="references">
             <ul>
                 <li v-for="({text, url}) in references">
-                    <a v-if="url" :href=url>{{ text }}</a>
+                    <a v-if="url" :href="url">{{ text }}</a>
                     <div v-else>{{ text }}</div>
                 </li>
             </ul>
