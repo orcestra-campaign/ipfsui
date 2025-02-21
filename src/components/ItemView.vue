@@ -65,6 +65,13 @@ xr.open_dataset("${ item?.assets?.data?.href }", engine="zarr")`)
     margin: 0;
 }
 
+.title {
+  font-family: "Roboto Slab";
+  font-size: 42px;
+  line-height: 1.1;
+  letter-spacing: -0.25px;
+}
+
 .authors ul {
     list-style: none;
     margin: 0;
