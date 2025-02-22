@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { VMarkdownView } from 'vue3-markdown'
 import 'vue3-markdown/dist/style.css'
+import dayjs from "dayjs";
 
 import License from './License.vue';
 import VarTable from './VarTable.vue';
@@ -9,6 +10,17 @@ import type { StacItem } from '../utils/stac';
 import StacMap from './StacMap.vue';
 
 const {item} = defineProps<{ item: StacItem }>();
+
+function formatDatestring(iso?: string | null): { iso: string, fmt: string } | null {
+    if (!iso) {
+        return null;
+    } else {
+        return { iso, fmt: dayjs(iso).utc().format('YYYY-MM-DDTHH:mm:ss[Z]') };
+    }
+}
+const start_datetime = computed(() => formatDatestring(item?.properties?.start_datetime));
+const end_datetime = computed(() => formatDatestring(item?.properties?.end_datetime));
+const datetime = computed(() => formatDatestring(item?.properties?.datetime));
 
 const code = computed(() => `import xarray as xr
 
@@ -34,8 +46,13 @@ const references = computed(() => parseReferences(item.properties?.references ??
         <div class="aux">
             <div class="col">
                 <div class="authors"><ul><li v-for="contact in item.properties?.contacts">{{ contact.name ?? contact.organization }}</li></ul></div>
-                <div class="time" v-if="item?.properties?.start_datetime && item?.properties?.end_datetime">{{ item.properties.start_datetime }} - {{ item.properties.end_datetime }}</div>
-                <div class="time" v-else-if="item?.properties?.datetime">{{ item.properties.datetime }}</div>
+                <div class="time" v-if="start_datetime && end_datetime">
+                    <time :datetime="start_datetime.iso">{{ start_datetime.fmt }}</time> to
+                    <time :datetime="end_datetime.iso">{{ end_datetime.fmt }}</time>
+                </div>
+                <div class="time" v-else-if="datetime">
+                    <time :datetime="datetime.iso">{{ datetime.fmt }}</time>
+                </div>
                 <div class="keywords" v-if="item?.properties?.keywords"><ul><li v-for="kw in item.properties.keywords">{{ kw }}</li></ul></div>
             </div>
             <div class="col"><License :spdx="item?.properties?.license" /></div>
