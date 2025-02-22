@@ -19,7 +19,8 @@ const props = defineProps<{ src: {} }>();
 
 const pythonExampleCode = computed(() =>
 `import xarray as xr
-ds = xr.open_dataset("${props.src}")
+
+ds = xr.open_dataset("${props.src}", engine="zarr")
 `)
 </script>
 
