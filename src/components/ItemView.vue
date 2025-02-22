@@ -8,6 +8,7 @@ import License from './License.vue';
 import VarTable from './VarTable.vue';
 import type { StacItem } from '../utils/stac';
 import StacMap from './StacMap.vue';
+import CodeExampleXarray from './CodeExampleXarray.vue';
 
 const {item} = defineProps<{ item: StacItem }>();
 
@@ -21,10 +22,6 @@ function formatDatestring(iso?: string | null): { iso: string, fmt: string } | n
 const start_datetime = computed(() => formatDatestring(item?.properties?.start_datetime));
 const end_datetime = computed(() => formatDatestring(item?.properties?.end_datetime));
 const datetime = computed(() => formatDatestring(item?.properties?.datetime));
-
-const code = computed(() => `import xarray as xr
-
-xr.open_dataset("${ item?.assets?.data?.href }", engine="zarr")`)
 
 function parseReferences(references: string[]): {text: string, url?: string}[] {
   return references.map(text => {
@@ -70,7 +67,7 @@ const references = computed(() => parseReferences(item.properties?.references ??
     </div>
 
     <div>
-        <highlightjs language='python' :code="code" />
+        <CodeExampleXarray :src="item?.assets?.data?.href" />
     </div>
 
     <h2>Parameter(s)</h2>

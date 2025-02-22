@@ -15,11 +15,12 @@ export default {
 <script setup lang="ts">
 import { computed } from 'vue';
 
-const props = defineProps<{ src: {} }>();
+const props = defineProps<{ src: string }>();
 
 const pythonExampleCode = computed(() =>
 `import xarray as xr
-ds = xr.open_dataset("${props.src}")
+
+ds = xr.open_dataset("${props.src}", engine="zarr")
 `)
 </script>
 
@@ -32,17 +33,11 @@ ds = xr.open_dataset("${props.src}")
 </template>
 
 <style>
-.codeexample {
-    border: solid;
-    border-width: 1px;
-    margin: 5px;
-    padding: 5px;
+@import url("highlight.js/styles/stackoverflow-light.min.css") (prefers-color-scheme: light);
+@import url("highlight.js/styles/stackoverflow-dark.min.css") (prefers-color-scheme: dark);
+
+.hljs {
+    border: 1px solid var(--highlight-bg-color);
     border-radius: 5px;
-}
-.hljs-keyword {
-    color: blue;
-}
-.hljs-string {
-    color: darkred;
 }
 </style>
