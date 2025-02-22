@@ -33,17 +33,8 @@ ds = xr.open_dataset("${props.src}", engine="zarr")
 </template>
 
 <style>
-.codeexample {
-    border: solid;
-    border-width: 1px;
-    margin: 5px;
-    padding: 5px;
+.hljs {
+    border: 1px solid var(--highlight-bg-color);
     border-radius: 5px;
-}
-.hljs-keyword {
-    color: blue;
-}
-.hljs-string {
-    color: darkred;
 }
 </style>
