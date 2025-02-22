@@ -8,7 +8,7 @@ import License from './License.vue';
 import VarTable from './VarTable.vue';
 import type { StacItem } from '../utils/stac';
 import StacMap from './StacMap.vue';
-import OpenWithXArrayTip from './OpenWithXArrayTip.vue';
+import CodeExampleXarray from './CodeExampleXarray.vue';
 
 const {item} = defineProps<{ item: StacItem }>();
 
@@ -67,7 +67,7 @@ const references = computed(() => parseReferences(item.properties?.references ??
     </div>
 
     <div>
-        <OpenWithXArrayTip :src="item?.assets?.data?.href" />
+        <CodeExampleXarray :src="item?.assets?.data?.href" />
     </div>
 
     <h2>Parameter(s)</h2>
