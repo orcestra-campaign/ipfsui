@@ -33,6 +33,9 @@ ds = xr.open_dataset("${props.src}", engine="zarr")
 </template>
 
 <style>
+@import url("highlight.js/styles/stackoverflow-light.min.css") (prefers-color-scheme: light);
+@import url("highlight.js/styles/stackoverflow-dark.min.css") (prefers-color-scheme: dark);
+
 .hljs {
     border: 1px solid var(--highlight-bg-color);
     border-radius: 5px;
