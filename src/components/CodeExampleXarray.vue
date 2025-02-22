@@ -15,7 +15,7 @@ export default {
 <script setup lang="ts">
 import { computed } from 'vue';
 
-const props = defineProps<{ src: {} }>();
+const props = defineProps<{ src: string }>();
 
 const pythonExampleCode = computed(() =>
 `import xarray as xr
