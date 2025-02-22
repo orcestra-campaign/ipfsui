@@ -11,9 +11,9 @@ import StacMap from './StacMap.vue';
 
 const {item} = defineProps<{ item: StacItem }>();
 
-function formatDatestring(iso: string | null): { iso: string | null, fmt: string } {
+function formatDatestring(iso?: string | null): { iso: string, fmt: string } | null {
     if (!iso) {
-        return { iso: null, fmt: '' };
+        return null;
     } else {
         return { iso, fmt: dayjs(iso).utc().format('YYYY-MM-DDTHH:mm:ss[Z]') };
     }
@@ -46,11 +46,11 @@ const references = computed(() => parseReferences(item.properties?.references ??
         <div class="aux">
             <div class="col">
                 <div class="authors"><ul><li v-for="contact in item.properties?.contacts">{{ contact.name ?? contact.organization }}</li></ul></div>
-                <div class="time" v-if="start_datetime.iso && end_datetime.iso">
+                <div class="time" v-if="start_datetime && end_datetime">
                     <time :datetime="start_datetime.iso">{{ start_datetime.fmt }}</time> to
                     <time :datetime="end_datetime.iso">{{ end_datetime.fmt }}</time>
                 </div>
-                <div class="time" v-else-if="datetime.iso">
+                <div class="time" v-else-if="datetime">
                     <time :datetime="datetime.iso">{{ datetime.fmt }}</time>
                 </div>
                 <div class="keywords" v-if="item?.properties?.keywords"><ul><li v-for="kw in item.properties.keywords">{{ kw }}</li></ul></div>
