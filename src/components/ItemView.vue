@@ -144,7 +144,7 @@ const references = computed(() => parseReferences(item.properties?.references ??
     font-size: 12px;
     font-weight: 500;
     line-height: 22px;
-    margin: 3px;
+    margin: 3px 6px 3px 0;
     padding: 0 10px;
     white-space: nowrap;
 }
