@@ -168,7 +168,6 @@ const references = computed(() => parseReferences(item.properties?.references ??
 
 .map {
     max-width: 100%;
-    /*width: 400px;*/
     height: 300px;
     flex: 1 1 400px;
     margin: 5px 0;
