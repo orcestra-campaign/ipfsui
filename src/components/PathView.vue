@@ -21,7 +21,7 @@ const {src, item_cid} = defineProps<{ src: string, item_cid?: CID }>();
     border-radius: 5px;
     border-color: var(--highlight-bg-color);
     padding: 3px 5px;
-    overflow: hidden;
+    overflow: scroll;
 }
 
 .pathView:has(+ .head) {
@@ -34,5 +34,23 @@ div.srcPath {
 }
 div.CID{
     font-family: 'Courier New', Courier, monospace;
+}
+
+@keyframes scrollHint {
+    0% {
+        transform: translateX(0);
+    }
+    65% {
+        transform: translateX(-5vw);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@media (width <= 800px) {
+    div.CID, div.srcPath {
+        animation: scrollHint 1.5s ease-out;
+    }
 }
 </style>
