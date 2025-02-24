@@ -162,12 +162,6 @@ const references = computed(() => parseReferences(item.properties?.references ??
     gap: 5px;
 }
 
-@media (width <= 800px) {
-    .description {
-        flex-direction: column;
-    }
-}
-
 .summary {
     flex: 10 10 auto;
 }
@@ -178,5 +172,15 @@ const references = computed(() => parseReferences(item.properties?.references ??
     height: 300px;
     flex: 1 1 400px;
     margin: 5px 0;
+}
+
+@media (width <= 800px) {
+    .description {
+        flex-direction: column;
+    }
+
+    .map {
+        flex: 1 1 300px;
+    }
 }
 </style>
