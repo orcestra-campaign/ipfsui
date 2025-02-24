@@ -35,4 +35,22 @@ div.srcPath {
 div.CID{
     font-family: 'Courier New', Courier, monospace;
 }
+
+@keyframes scrollHint {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@media (width <= 585px) {
+    div.CID, div.srcPath {
+        animation: scrollHint .4s;
+    }
+}
 </style>
