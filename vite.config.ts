@@ -6,6 +6,6 @@ import svgLoader from "vite-svg-loader";
 export default defineConfig(({ mode }) => {
   return {
     plugins: [vue(), svgLoader()],
-    base: mode == "production" ? "/ipfsui/" : "/",
+    base: mode == "production" ? "/" : "/",
   };
 });
