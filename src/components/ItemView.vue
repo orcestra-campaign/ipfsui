@@ -144,7 +144,7 @@ const references = computed(() => parseReferences(item.properties?.references ??
     font-size: 12px;
     font-weight: 500;
     line-height: 22px;
-    margin: 3px;
+    margin: 3px 6px 3px 0;
     padding: 0 10px;
     white-space: nowrap;
 }
@@ -162,21 +162,24 @@ const references = computed(() => parseReferences(item.properties?.references ??
     gap: 5px;
 }
 
-@media (width <= 800px) {
-    .description {
-        flex-direction: column;
-    }
-}
-
 .summary {
     flex: 10 10 auto;
 }
 
 .map {
     max-width: 100%;
-    /*width: 400px;*/
     height: 300px;
     flex: 1 1 400px;
     margin: 5px 0;
+}
+
+@media (width <= 800px) {
+    .description {
+        flex-direction: column;
+    }
+
+    .map {
+        flex: 1 1 300px;
+    }
 }
 </style>
