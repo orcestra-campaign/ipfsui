@@ -1567,6 +1567,436 @@
   },
   {
     "properties": {
+      "title": "Basic Halo Measurement and Sensor System (BAHAMAS) quick look (QL) data",
+      "description": "Basic meteorological and avionic data of HALO.",
+      "keywords": [
+        "HALO",
+        "BAHAMAS",
+        "aircraft",
+        "quick look",
+        "position",
+        "attitude",
+        "altitude"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "https://halo-db.pa.op.dlr.de/mission/141"
+      ],
+      "platform": "HALO",
+      "mission": "ORCESTRA, PERCUSION",
+      "processing:lineage": "Converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
+      "cube:dimensions": {
+        "TIME": {
+          "type": "temporal",
+          "unit": "milliseconds since 2024-08-09 09:41:13",
+          "description": "time in seconds since 1970-1-1 (UTC)"
+        }
+      },
+      "cube:variables": {
+        "ABSHUM": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "g/m^3",
+          "description": "Absolute Humidity"
+        },
+        "ALPHA": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "deg",
+          "description": "Angle of Attack"
+        },
+        "BETA": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "deg",
+          "description": "Angle of Sideslip"
+        },
+        "H": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "m"
+        },
+        "HP": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Pressure Altitude"
+        },
+        "IGI_RMSX": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "IGI RMS value for position x"
+        },
+        "IGI_RMSY": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "IGI RMS value for position y"
+        },
+        "IGI_RMSZ": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "IGI RMS value for position z"
+        },
+        "IRS_ALT": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "IGI height above WGS84 ellipsoid"
+        },
+        "IRS_ATA": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "deg+",
+          "description": "IGI actual track angle"
+        },
+        "IRS_AXB": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "m/s^2",
+          "description": "IGI body  x-axis acceleration"
+        },
+        "IRS_AYB": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "m/s^2",
+          "description": "IGI body  y-axis acceleration"
+        },
+        "IRS_AZB": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "m/s^2",
+          "description": "IGI body  z-axis acceleration"
+        },
+        "IRS_AZG": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "m/s^2",
+          "description": "IGI vertical acceleration"
+        },
+        "IRS_EWV": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "IGI east west velocity"
+        },
+        "IRS_GS": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "IGI ground speed"
+        },
+        "IRS_HDG": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "deg+"
+        },
+        "IRS_LAT": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "IGI latitude position above WGS84"
+        },
+        "IRS_LON": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "IGI longitude position above WGS84"
+        },
+        "IRS_NSV": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "IGI north south velocity"
+        },
+        "IRS_P": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "deg/s",
+          "description": "IGI body roll rate"
+        },
+        "IRS_PHI": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "deg",
+          "description": "IGI roll angle"
+        },
+        "IRS_Q": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "deg/s",
+          "description": "IGI body pitch rate"
+        },
+        "IRS_R": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "deg/s",
+          "description": "IGI body yaw rate"
+        },
+        "IRS_THE": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "deg",
+          "description": "IGI pitch angle"
+        },
+        "IRS_VV": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "IGI vertical velocity"
+        },
+        "MC": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "Ma",
+          "description": "Machnumber"
+        },
+        "MIXRATIO": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "g/kg",
+          "description": "H2O Mass Mixing Ratio"
+        },
+        "MIXRATIOV": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "micromol/mol",
+          "description": "H2O Volume Mixing Ratio"
+        },
+        "PS": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "hPa",
+          "description": "Static Pressure (from NB_PSIA)"
+        },
+        "QC": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "hPa",
+          "description": "Dynamic Pressure"
+        },
+        "RELHUM": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "%",
+          "description": "Relative Humidity with Respect to Water"
+        },
+        "SOURCE": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": " ",
+          "description": "Humidity Data Source (1:Vaisala/2:SHARC_longpath/3:SHARC_shortpath)"
+        },
+        "TAS": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "Calculated True Airspeed"
+        },
+        "TAT": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Total Air Temperature (from BDY-TTQ, anti-ice-corrected)"
+        },
+        "TD": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Dewpoint Temperature"
+        },
+        "THETA": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Potential Temperature"
+        },
+        "THETA_V": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Virtual Potential Temperature"
+        },
+        "TS": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Static Air Temperature (from BDY-TTQ, anti-ice-corrected)"
+        },
+        "TV": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Virtual Temperature"
+        },
+        "U": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "Wind Vector East Component"
+        },
+        "V": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "Wind Vector North Component"
+        },
+        "W": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "Wind Vector Vertical Component"
+        },
+        "WA": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "deg+",
+          "description": "Horizontal Wind Direction"
+        },
+        "WS": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "Horizontal Windspeed"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Christian Mallaun",
+          "emails": [
+            {
+              "value": "Christian.Mallaun@DLR.DE",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Dominika Pasternak",
+          "emails": [
+            {
+              "value": "Dominika.Pasternak@DLR.DE",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Lisa Eirenschmalz",
+          "emails": [
+            {
+              "value": "Lisa.Eirenschmalz@DLR.DE",
+              "roles": []
+            }
+          ]
+        }
+      ],
+      "datetime": "2024-09-29T12:44:55.450Z",
+      "start_datetime": "2024-08-09T09:41:13.000Z",
+      "end_datetime": "2024-11-19T15:48:37.900Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeiadmnra665v3yflqz7ekjq3sgzt2bpb2ytz4dsu34ggf3gxd2nn5m",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
       "title": "Integrated Water Vapor Retrieval from the K-Band and W-Band Microwave Radiometers",
       "description": "This dataset contains retrievals of integrated water vapor (IWV) from the KV-band microwave radiometer onboard the HALO aircraft during the ORCESTRA campaign. The retrieval is based on a linear regression model and should not be used for quantitative analysis. The purpose of this data was to provide an estimate of IWV during the flights. The processing includes formatting the data, adding georeference information, filtering for altitudes above 4800 m and adding a land-sea mask.",
       "keywords": [
