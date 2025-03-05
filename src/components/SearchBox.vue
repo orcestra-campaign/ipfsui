@@ -1,5 +1,5 @@
 <script setup>
-import { defineModel, useId } from "vue";
+import { useId } from "vue";
 
 const model = defineModel({type: String});
 const id = useId();
