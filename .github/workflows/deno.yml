@@ -10,11 +10,6 @@ name: Deno
 
 on: ["push", "pull_request"]
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -31,44 +26,3 @@ jobs:
         run: deno fmt --check src/
       - name: Run linter
         run: deno lint
-
-      # - name: Run tests
-      #   run: deno test -A
-
-  build:
-    needs: test
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Setup repo
-        uses: actions/checkout@v4
-      - name: Setup Deno
-        uses: denoland/setup-deno@v2
-        #uses: denoland/setup-deno@61fe2df320078202e33d7d5ad347e7dcfa0e8f31  # v1.1.2
-        with:
-          deno-version: v2.x
-      - name: Install dependencies
-        run: deno install
-      - name: Build page
-        run: deno run build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-
-  deploy:
-    needs: build
-    if: "success() && github.repository_owner == 'orcestra-campaign' && (github.event_name == 'schedule' || (github.event_name == 'push' && github.ref == 'refs/heads/main'))"
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    concurrency:
-      group: "pages"
-      cancel-in-progress: false
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
