@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import "leaflet/dist/leaflet.css";
-import { type Map, point, latLngBounds } from "leaflet"
+import { type Map } from "leaflet"
 import { LGeoJson, LMap, LTileLayer } from "@vue-leaflet/vue-leaflet";
 import { computed, ref, onMounted, onUnmounted } from "vue";
 import type { StacItem } from "../utils/stac.ts"
@@ -12,11 +12,11 @@ const style = { color: "var(--line-color)" };
 
 const mapBounds = computed(() => {
   if (item?.bbox === undefined) return undefined;
-  return latLngBounds([item.bbox[1], item.bbox[0]], [item.bbox[3], item.bbox[2]]);
+  return [[item.bbox[1], item.bbox[0]], [item.bbox[3], item.bbox[2]]] as [number, number][];
 });
 const mapCenter = computed(() => {
   if (item?.bbox === undefined) return undefined;
-  return point((item.bbox[1] + item.bbox[3]) / 2, (item.bbox[0] + item.bbox[2]) / 2);
+  return [(item.bbox[1] + item.bbox[3]) / 2, (item.bbox[0] + item.bbox[2]) / 2] as [number, number];
 });
 
 const map = ref();
