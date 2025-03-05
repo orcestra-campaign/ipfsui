@@ -17,8 +17,13 @@
     "npm:@multiformats/dns@^1.0.6": "1.0.9",
     "npm:@types/command-line-args@^5.2.3": "5.2.3",
     "npm:@types/command-line-usage@^5.0.4": "5.0.4",
+<<<<<<< HEAD
     "npm:@types/node@*": "24.2.0",
     "npm:@vitejs/plugin-vue@^5.2.1": "5.2.4_vite@6.3.6__picomatch@4.0.3_vue@3.5.21__typescript@5.6.3_typescript@5.6.3_@types+node@24.2.0",
+=======
+    "npm:@types/leaflet@^1.9.16": "1.9.16",
+    "npm:@vitejs/plugin-vue@^5.2.1": "5.2.1_vite@6.0.10_vue@3.5.13__typescript@5.6.3_typescript@5.6.3",
+>>>>>>> c283f93 (fixing types for node compatibility)
     "npm:@vue-leaflet/vue-leaflet@~0.10.1": "0.10.1_leaflet@1.9.4_typescript@5.6.3",
     "npm:@vue/tsconfig@0.7": "0.7.0_typescript@5.6.3_vue@3.5.21__typescript@5.6.3",
     "npm:blockstore-fs@^2.0.2": "2.0.5",
@@ -1906,6 +1911,9 @@
     "@types/estree@1.0.8": {
       "integrity": "sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w=="
     },
+    "@types/geojson@7946.0.16": {
+      "integrity": "sha512-6C8nqWur3j98U6+lXDfTUWIfgvZU+EumvpHKcYjujKH7woYyLj2sUmff0tRhrqM7BohUw7Pz3ZB1jj2gW9Fvmg=="
+    },
     "@types/graceful-fs@4.1.9": {
       "integrity": "sha512-olP3sd1qOEe5dXTSaFvQG+02VdRXcdytWLAZsAq1PecU8uqQAhkrnbli7DagjtXKW/Bl7YJbUsa8MPcuc8LHEQ==",
       "dependencies": [
@@ -1929,6 +1937,12 @@
     },
     "@types/katex@0.16.7": {
       "integrity": "sha512-HMwFiRujE5PjrgwHQ25+bsLJgowjGjm5Z8FVSf0N6PwgJrwxH0QxzHYDcKsTfV3wva0vzrpqMTJS2jXPr5BMEQ=="
+    },
+    "@types/leaflet@1.9.16": {
+      "integrity": "sha512-wzZoyySUxkgMZ0ihJ7IaUIblG8Rdc8AbbZKLneyn+QjYsj5q1QU7TEKYqwTr10BGSzY5LI7tJk9Ifo+mEjdFRw==",
+      "dependencies": [
+        "@types/geojson"
+      ]
     },
     "@types/ms@2.1.0": {
       "integrity": "sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA=="
@@ -5407,6 +5421,7 @@
         "npm:@multiformats/dns@^1.0.6",
         "npm:@types/command-line-args@^5.2.3",
         "npm:@types/command-line-usage@^5.0.4",
+        "npm:@types/leaflet@^1.9.16",
         "npm:@vitejs/plugin-vue@^5.2.1",
         "npm:@vue-leaflet/vue-leaflet@~0.10.1",
         "npm:@vue/tsconfig@0.7",

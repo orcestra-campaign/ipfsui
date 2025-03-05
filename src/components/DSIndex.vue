@@ -3,6 +3,7 @@ import { computed, ref, watchEffect } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import indexData from "./data/products_short.json" with {type: "json"};
 import SearchBox from "./SearchBox.vue";
+import type { ReducedStacItem } from "../utils/stac.ts"
 import Nav from "./Nav.vue"
 
 const route = useRoute();
@@ -24,16 +25,16 @@ function nestedSome(o: unknown, f: (_: string) => Boolean): Boolean {
     }
 }
 
-const filteredIndex = computed(() => {
+const filteredIndex = computed((): ReducedStacItem[] => {
     if( filter.value.length > 0 ) {
         const queries = filter.value.toLowerCase().split(" ").map(e => e.trim());
         return indexData.filter(e => {
             return queries.every(q => {
                 return nestedSome(e.properties, x => x.toLowerCase().includes(q));
             });
-        });
+        }) as unknown as ReducedStacItem[];
     } else {
-        return indexData;
+        return indexData as unknown as ReducedStacItem[];
     }
 });
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, unref, shallowRef, watch, onBeforeMount, inject, type Ref } from 'vue'
+import { shallowRef, watch, onBeforeMount, type ShallowRef } from 'vue'
 
 import PlaneAnimation from './PlaneAnimation.vue';
 import ShipAnimation from './ShipAnimation.vue';
@@ -25,7 +25,7 @@ const props = defineProps<{ src: string }>();
 
 const heliaProvider = useHelia();
 
-const metadata: Ref<DatasetMetadata | undefined> = shallowRef();
+const metadata: ShallowRef<DatasetMetadata | undefined> = shallowRef();
 
 const stac_item = shallowRef();
 
@@ -36,7 +36,7 @@ const update = async () => {
 
     const attrs = extractLoose(dsMeta.attrs);
     const variables = dsMeta.variables;
-    
+
     metadata.value = {src: props.src, attrs, variables};
 
     console.log(metadata.value);
@@ -51,8 +51,10 @@ const update = async () => {
         console.log("IPNS resolve", props.src, item_cid?.toString());
     }
     console.log(metadata.value);
-    for await (const item of parseMetadata(unref(metadata))) {
-        stac_item.value = item;
+    if (metadata.value) {
+        for await (const item of parseMetadata(metadata.value)) {
+            stac_item.value = item;
+        }
     }
 };
 

@@ -100,7 +100,7 @@ const citation = computed(() => createCitation(item));
                 </div>
                 <div class="keywords" v-if="item?.properties?.keywords"><ul><li v-for="kw in item.properties.keywords"><RouterLink class="hidden-link" :to="'/?s=' + kw">{{ kw }}</RouterLink></li></ul></div>
             </div>
-            <div class="col"><License :spdx="item?.properties?.license" /></div>
+            <div class="col"><License v-if="item?.properties?.license" :spdx="item.properties.license" /></div>
         </div>
     </div>
 

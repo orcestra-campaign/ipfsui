@@ -13,6 +13,6 @@ export function isListableStore(
 }
 
 export interface Dataset {
-  attrs: { [key: string]: unknown };
-  variables: { [key: string]: SomeArray };
+  attrs: Record<string, string>;
+  variables: Record<string, SomeArray>;
 }

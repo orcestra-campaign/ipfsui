@@ -1,20 +1,28 @@
 <script setup lang="ts">
 
 import "leaflet/dist/leaflet.css";
+import { type Map, point, latLngBounds } from "leaflet"
 import { LGeoJson, LMap, LTileLayer } from "@vue-leaflet/vue-leaflet";
 import { computed, ref, onMounted, onUnmounted } from "vue";
+import type { StacItem } from "../utils/stac.ts"
 
 const { item } = defineProps<{ item: StacItem }>();
 
 const style = { color: "var(--line-color)" };
 
-const mapBounds = computed(() => [[item?.bbox[1], item?.bbox[0]], [item?.bbox[3], item?.bbox[2]]]);
-const mapCenter = computed(() => [(item?.bbox[1] + item?.bbox[3]) / 2, (item?.bbox[0] + item?.bbox[2]) / 2]);
+const mapBounds = computed(() => {
+  if (item?.bbox === undefined) return undefined;
+  return latLngBounds([item.bbox[1], item.bbox[0]], [item.bbox[3], item.bbox[2]]);
+});
+const mapCenter = computed(() => {
+  if (item?.bbox === undefined) return undefined;
+  return point((item.bbox[1] + item.bbox[3]) / 2, (item.bbox[0] + item.bbox[2]) / 2);
+});
 
 const map = ref();
 
-const onMapReady = (mapObject) => {
-  if (mapObject) {
+const onMapReady = (mapObject: Map) => {
+  if (mapObject && mapBounds.value !== undefined) {
     // When the map is ready, fit its bounds to item bounds
     mapObject.fitBounds(mapBounds.value);
   }
@@ -23,7 +31,7 @@ const onMapReady = (mapObject) => {
 const mediaQuery = window.matchMedia('(prefers-color-scheme : dark)');
 const isDarkMode = ref(mediaQuery.matches);
 
-const update = (event) => (isDarkMode.value = event.matches);
+const update = (event: MediaQueryListEvent) => (isDarkMode.value = event.matches);
 onMounted(() => mediaQuery.addEventListener("change", update));
 onUnmounted(() => mediaQuery.removeEventListener("change", update));
 
