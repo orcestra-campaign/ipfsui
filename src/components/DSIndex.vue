@@ -2,6 +2,7 @@
 import { computed, ref } from "vue";
 import indexData from "./data/products_short.json" with {type: "json"};
 import SearchBox from "./SearchBox.vue";
+import type { ReducedStacItem } from "../utils/stac.ts"
 
 indexData.sort((a, b) => (!a.properties?.title ? 1 : (!b.properties?.title ? -1 : a.properties.title.localeCompare(b.properties.title))))
 
@@ -17,16 +18,16 @@ function nestedSome(o: unknown, f: (_: string) => Boolean): Boolean {
     }
 }
 
-const filteredIndex = computed(() => {
+const filteredIndex = computed((): ReducedStacItem[] => {
     if( filter.value.length > 0 ) {
         const queries = filter.value.toLowerCase().split(" ").map(e => e.trim());
         return indexData.filter(e => {
             return queries.every(q => {
                 return nestedSome(e.properties, x => x.toLowerCase().includes(q));
             });
-        });
+        }) as unknown as ReducedStacItem[];
     } else {
-        return indexData;
+        return indexData as unknown as ReducedStacItem[];
     }
 });
 </script>

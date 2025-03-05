@@ -26,5 +26,12 @@ export async function readDataset(
     variables[path.slice(1)] = await open(group.resolve(path), { kind });
   }
 
-  return { attrs: group.attrs, variables };
+  return {
+    attrs: Object.fromEntries(
+      Object.entries(group.attrs).filter(([k, v]) =>
+        typeof k === "string" && typeof v === "string"
+      ),
+    ) as Record<string, string>,
+    variables,
+  };
 }

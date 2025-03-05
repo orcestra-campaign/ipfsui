@@ -52,7 +52,7 @@ const references = computed(() => parseReferences(item.properties?.references ??
                 </div>
                 <div class="keywords" v-if="item?.properties?.keywords"><ul><li v-for="kw in item.properties.keywords">{{ kw }}</li></ul></div>
             </div>
-            <div class="col"><License :spdx="item?.properties?.license" /></div>
+            <div class="col"><License v-if="item?.properties?.license" :spdx="item.properties.license" /></div>
         </div>
     </div>
 

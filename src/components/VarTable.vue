@@ -12,10 +12,10 @@ const {item} = defineProps<{ item: StacItem }>();
         <div class="col unit">Unit</div>
         <div class="col description">Description</div>
     </div>
-    <div class="row dim" v-for="[k, v] of Object.entries(item?.properties['cube:dimensions'])">
+    <div class="row dim" v-if="item?.properties['cube:dimensions']" v-for="[k, v] of Object.entries(item.properties['cube:dimensions'])">
       <div class="col name">{{ k }}</div><div class="col unit">{{ v.unit }}</div><div class="col description">{{ v.description }}</div>
     </div>
-    <div class="row var" v-for="[k, v] of Object.entries(item?.properties['cube:variables'])">
+    <div class="row var" v-if="item?.properties['cube:variables']" v-for="[k, v] of Object.entries(item.properties['cube:variables'])">
       <div class="col name">{{ k }} <span class="dimensions">(<span class="dimension" v-for="d of v.dimensions">{{ d }}</span>)</span></div><div class="col unit">{{ v.unit }}</div><div class="col description">{{ v.description }}</div>
     </div>
   </div>

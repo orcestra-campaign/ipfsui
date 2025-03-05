@@ -1,6 +1,5 @@
 <script setup lang="ts">
 
-import { computed } from "vue";
 import ccByNcSaLogo from '../images/by-nc-sa.svg';
 import ccByNcLogo from '../images/by-nc.svg';
 import ccBySaLogo from '../images/by-sa.svg';

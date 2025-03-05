@@ -1,5 +1,6 @@
 import type {
   BBox,
+  Contact,
   Dimension,
   Geometry,
   Properties,
@@ -454,7 +455,7 @@ export default async function* parseMetadata(
   const emails = ds.attrs.creator_email?.split(",").map((n: string) =>
     n.trim()
   );
-  const contacts = [];
+  const contacts: Contact[] = [];
 
   if (names !== undefined) {
     for (const [i, name] of names.entries()) {

@@ -63,8 +63,8 @@ export interface Properties {
   mission?: string;
   "processing:lineage"?: string;
   "sci:citation"?: string;
-  "cube:dimensions"?: { [key: string]: Dimension };
-  "cube:variables"?: { [key: string]: Variable };
+  "cube:dimensions"?: Record<string, Dimension>;
+  "cube:variables"?: Record<string, Variable>;
 }
 
 export interface Link {
@@ -87,15 +87,17 @@ export interface Asset {
 
 export type BBox = [number, number, number, number];
 
-export interface StacItem {
-  type: string;
+export interface ReducedStacItem {
+  properties: Properties;
+  assets: { [key: string]: Asset };
+}
+export interface StacItem extends ReducedStacItem {
+  type: "Feature";
   stac_version: string;
   stac_extensions?: string[];
   id: string;
   geometry?: Geometry;
   bbox?: BBox;
-  properties: Properties;
   links: Link[];
-  assets: { [key: string]: Asset };
   collection?: string;
 }
