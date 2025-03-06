@@ -42,7 +42,14 @@ const references = computed(() => parseReferences(item.properties?.references ??
         <h1 class="title">{{ item.properties?.title }}</h1>
         <div class="aux">
             <div class="col">
-                <div class="authors"><ul><li v-for="contact in item.properties?.contacts">{{ contact.name ?? contact.organization }}</li></ul></div>
+                <div class="authors"><ul><li v-for="contact in item.properties?.contacts">
+                    <a v-if="contact?.emails[0]?.value" :href="'mailto:' + contact.emails[0].value + '?subject=' + item.properties?.title">
+                        {{ contact.name ?? contact.organization }}
+                    </a>
+                    <span v-else>
+                        {{ contact.name ?? contact.organization }}
+                    </span>
+                </li></ul></div>
                 <div class="time" v-if="start_datetime && end_datetime">
                     <time :datetime="start_datetime.iso">{{ start_datetime.fmt }}</time> to
                     <time :datetime="end_datetime.iso">{{ end_datetime.fmt }}</time>
