@@ -43,7 +43,7 @@ const references = computed(() => parseReferences(item.properties?.references ??
         <div class="aux">
             <div class="col">
                 <div class="authors"><ul><li v-for="contact in item.properties?.contacts">
-                    <a v-if="contact?.emails[0]?.value" :href="'mailto:' + contact.emails[0].value + '?subject=' + item.properties?.title">
+                    <a v-if="contact?.emails[0]?.value" class="hidden-link" :href="'mailto:' + contact.emails[0].value + '?subject=' + item.properties?.title">
                         {{ contact.name ?? contact.organization }}
                     </a>
                     <span v-else>
