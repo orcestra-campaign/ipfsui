@@ -143,6 +143,16 @@ a:hover {
   color: var(--orcestra-blue-medium);
 }
 
+.hidden-link, .hidden-link:hover {
+  color: inherit;
+  font-weight: inherit;
+}
+
+.hidden-link:hover {
+  text-decoration: underline;
+  text-decoration-style: dashed;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --fg-color: rgba(255, 255, 255, 0.87);
