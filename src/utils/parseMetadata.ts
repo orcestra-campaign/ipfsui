@@ -14,6 +14,7 @@ import {
   hasUnits,
   isLatitudeVariable,
   isLongitudeVariable,
+  isProfile,
   isTimeVariable,
   isTrajectory,
 } from "./cf/index.ts";
@@ -297,6 +298,54 @@ async function getSpatialBoundsTrajectory(
   };
 }
 
+async function getSpatialBoundsProfile(
+  ds: DatasetMetadata,
+): Promise<
+  { bbox: BBox; geometry: Geometry } | undefined
+> {
+  let lats: LikeAnArray<number> | undefined = undefined;
+  let lons: LikeAnArray<number> | undefined = undefined;
+  for (const [varname, variable] of Object.entries(ds.variables)) {
+    if (
+      isLatitudeVariable(varname, variable.attrs) &&
+      [0, 1].includes(variable.shape.length)
+    ) {
+      if (lats !== undefined) console.warn("more than one latitude variable");
+      lats = applyOffsetAndScale((await get(variable)).data, variable.attrs);
+    }
+    if (
+      isLongitudeVariable(varname, variable.attrs) && variable.shape.length == 1
+    ) {
+      if (lons !== undefined) console.warn("more than one longitude variable");
+      lons = applyOffsetAndScale((await get(variable)).data, variable.attrs);
+    }
+  }
+  if (lats === undefined || lons === undefined) {
+    console.warn(
+      "dataset",
+      ds.src,
+      "is a profile, but it was not possible to figure out the coordinates",
+    );
+    return getSpatialBoundsDefault(ds);
+  }
+
+  const [lat0, lat1] = nanMinMax(lats);
+  const [lon0, lon1] = nanMinMax(lons);
+
+  const coordinates = Array.from(lons).map((lon, i) => [lon, lats[i]]) as [
+    number,
+    number,
+  ][];
+
+  return {
+    bbox: [lon0, lat0, lon1, lat1],
+    geometry: {
+      type: "MultiPoint",
+      coordinates,
+    },
+  };
+}
+
 function getSpatialBounds(
   ds: DatasetMetadata,
 ): Promise<
@@ -304,6 +353,8 @@ function getSpatialBounds(
 > {
   if (isTrajectory(ds)) {
     return getSpatialBoundsTrajectory(ds);
+  } else if (isProfile(ds)) {
+    return getSpatialBoundsProfile(ds);
   } else {
     return getSpatialBoundsDefault(ds);
   }

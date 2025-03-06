@@ -91,6 +91,11 @@ export function isLongitudeVariable(name: string, attrs: unknown) {
     name == "lon" || name == "longitude";
 }
 
+export function isProfile(ds: DatasetMetadata) {
+  if (ds.attrs?.featureType === undefined) return false;
+  return ds.attrs?.featureType === "profile";
+}
+
 export function isTrajectory(ds: DatasetMetadata) {
   if (ds.attrs?.featureType === undefined) return false;
   return ["trajectory", "trajectoryProfile"].includes(ds.attrs?.featureType);
