@@ -45,8 +45,11 @@ async function getFirstAndLast(variable: SomeArray): Promise<[number, number]> {
 function applyOffsetAndScale(data, attrs) {
   const scale = attrs?.scale_factor ?? 1.;
   const offset = attrs?.add_offset ?? 0.;
-  if (scale === 1. && offset === 0.) return data;
-  const out = Float64Array.from(data).map((v) => v * scale + offset);
+  const missing_value = attrs?.missing_value;
+  if (scale === 1. && offset === 0. && missing_value === undefined) return data;
+  const out = Float64Array.from(data).map((v) =>
+    v === missing_value ? NaN : v * scale + offset
+  );
   return out;
 }
 
@@ -75,9 +78,14 @@ async function getMinMax(variable: SomeArray): Promise<[number, number]> {
     let hi = BigInt(-Number.MAX_SAFE_INTEGER);
     let lo = BigInt(Number.MAX_SAFE_INTEGER);
     const { data } = await get(variable);
+    const valid_min = BigInt(-Number.MAX_SAFE_INTEGER);
+    const valid_max = BigInt(Number.MAX_SAFE_INTEGER);
+    const is_valid = (v: bigint) => (v >= valid_min) && (v <= valid_max); // numbers outside this range may be valid, but they are unlikely, but may frequently be used to mark fill values.
     for (const v of data) {
-      hi = hi > v ? hi : v;
-      lo = lo < v ? lo : v;
+      if (is_valid(v)) {
+        hi = hi > v ? hi : v;
+        lo = lo < v ? lo : v;
+      }
     }
     return [Number(hi), Number(lo)];
   } else {
