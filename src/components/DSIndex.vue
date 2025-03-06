@@ -1,11 +1,17 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref, watchEffect } from "vue";
+import { useRoute, useRouter } from "vue-router";
 import indexData from "./data/products_short.json" with {type: "json"};
 import SearchBox from "./SearchBox.vue";
 
+const route = useRoute();
+const router = useRouter();
+
+console.log("route", route.query);
+
 indexData.sort((a, b) => (!a.properties?.title ? 1 : (!b.properties?.title ? -1 : a.properties.title.localeCompare(b.properties.title))))
 
-const filter = ref("");
+const filter = ref(route.query.s || "");
 
 function nestedSome(o: unknown, f: (_: string) => Boolean): Boolean {
     if ( typeof o === "string" ) {
@@ -28,6 +34,14 @@ const filteredIndex = computed(() => {
     } else {
         return indexData;
     }
+});
+
+watchEffect(() => {
+    router.replace({ query: { s: filter.value }});
+});
+
+watchEffect(() => {
+    filter.value = route.query.s || "";
 });
 </script>
 
