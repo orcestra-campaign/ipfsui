@@ -45,8 +45,11 @@ async function getFirstAndLast(variable: SomeArray): Promise<[number, number]> {
 function applyOffsetAndScale(data, attrs) {
   const scale = attrs?.scale_factor ?? 1.;
   const offset = attrs?.add_offset ?? 0.;
-  if (scale === 1. && offset === 0.) return data;
-  const out = Float64Array.from(data).map((v) => v * scale + offset);
+  const missing_value = attrs?.missing_value;
+  if (scale === 1. && offset === 0. && missing_value === undefined) return data;
+  const out = Float64Array.from(data).map((v) =>
+    v === missing_value ? NaN : v * scale + offset
+  );
   return out;
 }
 
