@@ -57,7 +57,7 @@ const references = computed(() => parseReferences(item.properties?.references ??
                 <div class="time" v-else-if="datetime">
                     <time :datetime="datetime.iso">{{ datetime.fmt }}</time>
                 </div>
-                <div class="keywords" v-if="item?.properties?.keywords"><ul><li v-for="kw in item.properties.keywords"><RouterLink :to="'/?s=' + kw">{{ kw }}</RouterLink></li></ul></div>
+                <div class="keywords" v-if="item?.properties?.keywords"><ul><li v-for="kw in item.properties.keywords"><RouterLink class="hidden-link" :to="'/?s=' + kw">{{ kw }}</RouterLink></li></ul></div>
             </div>
             <div class="col"><License :spdx="item?.properties?.license" /></div>
         </div>
