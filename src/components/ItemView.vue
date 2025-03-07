@@ -156,18 +156,21 @@ const references = computed(() => parseReferences(item.properties?.references ??
     white-space: nowrap;
 }
 
+.keywords li:hover {
+    background-color: var(--orcestra-blue-dark);
+    color: white;
+}
+
 @media (prefers-color-scheme: dark) {
     .keywords li {
         background-color: transparent;
         border: 1px solid var(--orcestra-yellow);
-    }
-
-    .keywords a {
         color: var(--orcestra-yellow);
     }
 
     .keywords li:hover {
-        background-color: color-mix(in hsl, var(--bg-color), var(--fg-color) 10%);
+        background-color: var(--orcestra-yellow);
+        color: var(--highlight-bg-color);
     }
 }
 
