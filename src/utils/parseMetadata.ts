@@ -486,6 +486,10 @@ async function* asCompleted<T>(promises: Array<Promise<T>>): AsyncGenerator<T> {
   }
 }
 
+export function metadataToStacId(ds: { item_cid?: CID; src: string }): string {
+  return (ds?.item_cid?.toString() ?? ds.src) + "-stac_item";
+}
+
 export default async function* parseMetadata(
   ds: DatasetMetadata,
 ): AsyncGenerator<StacItem> {
@@ -530,7 +534,7 @@ export default async function* parseMetadata(
     type: "Feature",
     stac_version: "1.1.0",
     stac_extensions: [],
-    id: (ds?.item_cid?.toString() ?? ds.src) + "-stac_item",
+    id: metadataToStacId(ds),
     properties,
     links: [],
     assets: {

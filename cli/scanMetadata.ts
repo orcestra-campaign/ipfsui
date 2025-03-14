@@ -21,6 +21,7 @@ import { getStore } from "../src/utils/store.ts";
 import { readDataset } from "../src/utils/ds/index.ts";
 import { extractLoose } from "../src/utils/dsAttrConvention.ts";
 import parseMetadata from "../src/utils/parseMetadata.ts";
+import { metadataToStacId } from "../src/utils/parseMetadata.ts";
 
 import commandLineArgs from "command-line-args";
 import commandLineUsage from "command-line-usage";
@@ -47,6 +48,11 @@ function isDataset(directoryListing: Array<UnixFSEntry>) {
 interface CIDPath {
   cid: CID;
   path: string;
+}
+
+interface ItemCIDCache {
+  getItem(root: CID): Promise<Array<CIDPath> | null>;
+  putItem(root: CID, items: Array<CIDPath>): Promise<void>;
 }
 
 async function collectDatasets(
@@ -80,6 +86,21 @@ async function collectDatasets(
     console.log("finished path", path);
     return out;
   }
+}
+
+async function collectDatasetsWithCache(
+  cid: CID,
+  path: string = "",
+  blacklist: string[] = [],
+  cache: ItemCIDCache,
+): Promise<Array<CIDPath>> {
+  const cachedItems = await cache.getItem(cid);
+  if (cachedItems !== null) {
+    return cachedItems;
+  }
+  const items = await collectDatasets(cid, path, blacklist);
+  await cache.putItem(cid, items);
+  return items;
 }
 
 async function getGatewayFromFile(
@@ -173,6 +194,107 @@ async function configureHelia() {
   }
 }
 
+class NoItemCIDCache implements ItemCIDCache {
+  getItem(_root: CID): Promise<Array<CIDPath> | null> {
+    return Promise.resolve(null);
+  }
+  putItem(_root: CID, _items: Array<CIDPath>): Promise<void> {
+    return Promise.resolve();
+  }
+}
+
+class FileItemCIDCache implements ItemCIDCache {
+  root: string;
+  constructor(root: string) {
+    this.root = root;
+  }
+  filename(root_cid: CID): string {
+    return path.format({
+      root: "/",
+      dir: this.root,
+      ext: ".cid_items.json",
+      name: root_cid.toString(),
+    });
+  }
+  async getItem(root: CID): Promise<Array<CIDPath> | null> {
+    try {
+      const content = await Deno.readTextFile(this.filename(root));
+      if (content !== undefined) {
+        return JSON.parse(content).map(
+          ({ cid, path }: { cid: string; path: string }) => {
+            return {
+              cid: CID.parse(cid),
+              path,
+            };
+          },
+        );
+      }
+    } catch {
+      // continue if no cache item found
+    }
+    return null;
+  }
+  async putItem(root: CID, items: Array<CIDPath>): Promise<void> {
+    await Deno.mkdir(this.root, { recursive: true });
+    return await Deno.writeTextFile(
+      this.filename(root),
+      JSON.stringify(items.map(({ cid, path }: { cid: CID; path: string }) => {
+        return {
+          cid: cid.toString(),
+          path,
+        };
+      })),
+    );
+  }
+}
+
+interface StacCache {
+  getItem(id: string): Promise<StacItem | null>;
+  putItem(item: StacItem): Promise<void>;
+}
+
+class NoCache implements StacCache {
+  getItem(_id: string): Promise<StacItem | null> {
+    return Promise.resolve(null);
+  }
+  putItem(_item: StacItem): Promise<void> {
+    return Promise.resolve();
+  }
+}
+
+class FileCache implements StacCache {
+  root: string;
+  constructor(root: string) {
+    this.root = root;
+  }
+  filename(id: string): string {
+    return path.format({
+      root: "/",
+      dir: this.root,
+      ext: ".json",
+      name: id,
+    });
+  }
+  async getItem(id: string): Promise<StacItem | null> {
+    try {
+      const content = await Deno.readTextFile(this.filename(id));
+      if (content !== undefined) {
+        return JSON.parse(content);
+      }
+    } catch {
+      // continue if no cache item found
+    }
+    return null;
+  }
+  async putItem(item: StacItem): Promise<void> {
+    await Deno.mkdir(this.root, { recursive: true });
+    return await Deno.writeTextFile(
+      this.filename(item.id),
+      JSON.stringify(item),
+    );
+  }
+}
+
 const options = [
   { name: "help", alias: "h", type: Boolean, description: "show this help" },
   {
@@ -187,6 +309,13 @@ const options = [
     type: String,
     typeLabel: "{underline items.json}",
     description: "output file (containing stac items)",
+  },
+  {
+    name: "cachedir",
+    alias: "C",
+    type: String,
+    typeLabel: "{underline some/folder}",
+    description: "cache directory",
   },
 ];
 
@@ -223,24 +352,47 @@ const blacklist = [
   "/HALO/dropsondes/Level_2",
 ];
 
-const datasetLocations = await collectDatasets(root_cid, "", blacklist);
+let itemCIDCache: ItemCIDCache;
+let stacCache: StacCache;
+if (args?.cachedir) {
+  itemCIDCache = new FileItemCIDCache(path.join(args.cachedir, "cidlist"));
+  stacCache = new FileCache(path.join(args.cachedir, "items"));
+} else {
+  itemCIDCache = new NoItemCIDCache();
+  stacCache = new NoCache();
+}
+
+const datasetLocations = await collectDatasetsWithCache(
+  root_cid,
+  "",
+  blacklist,
+  itemCIDCache,
+);
 
 console.log("all datasets collected, extracting metadata");
 
 const stacItems = await Promise.all(
   datasetLocations.map(async ({ cid, path }) => {
+    const src = "ipfs://" + root_cid.toString() + path;
+    const baseMetadata = {
+      src,
+      item_cid: cid,
+    };
+    const stacId = metadataToStacId(baseMetadata);
+    const cachedItem = await stacCache.getItem(stacId);
+    if (cachedItem !== null) {
+      return cachedItem;
+    }
     const store = getStore("ipfs://" + cid.toString(), { helia });
     const timeout = setTimeout(() => {
       console.log(cid.toString(), "takes longer than expected");
     }, 50000);
     const dsMeta = await readDataset(store);
-    const src = "ipfs://" + root_cid.toString() + path;
     const metadata = {
-      src,
+      ...baseMetadata,
       attrs: extractLoose(dsMeta.attrs),
       variables: dsMeta.variables,
       root_cid,
-      item_cid: cid,
     };
 
     let stacItem;
@@ -249,6 +401,9 @@ const stacItems = await Promise.all(
     }
     console.log(stacItem?.properties?.title);
     clearTimeout(timeout);
+    if (stacItem !== undefined) {
+      stacCache.putItem(stacItem);
+    }
     return stacItem as StacItem;
   }),
 );
