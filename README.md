@@ -27,8 +27,10 @@ Which returns `/ipfs/<CID>`. Using only the `<CID>` part, you can now build an
 index like so:
 
 ```
-deno run -A cli/scanMetadata.ts --cid <CID> -o products.json
+deno run -A cli/scanMetadata.ts --cid <CID> -o products.json -C cache
 ```
+
+(`-C` is optional and specifies a directory for caching items)
 
 **NOTE:** the tool will try to figure out if you have an IPFS gateway configured
 loally an will use it if present. In case it doesn't find the gateway, it will
