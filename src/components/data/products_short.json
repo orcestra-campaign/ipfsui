@@ -10723,12 +10723,18 @@
       ],
       "platform": "INMG, RV Meteor, BCO",
       "mission": "ORCESTRA, PERCUSION, BOW-TIE, PICCOLO, SCORE, MAESTRO",
-      "processing:lineage": "Meteomodem Eoscan Software (2.1.241218); Vaisala Sounding System MW41 (2.21.0.7); Quality control with pysonde (0.0.7); Level 1 processing with pysonde (0.0.7); Level 2 processing with pysonde (0.0.7) on Sat Mar  1 00:02:49 2025.",
-      "cube:dimensions": {},
+      "processing:lineage": "Meteomodem Eoscan Software (2.1.241218); Vaisala Sounding System MW41 (2.21.0.7) (2.21.0.7); Quality control with pysonde (0.0.7); Level 1 processing with pysonde (0.0.7); Level 2 processing with pysonde (0.0.7) on Thu Mar  6 21:10:47 2025.",
+      "cube:dimensions": {
+        "launch_time": {
+          "type": "temporal",
+          "unit": "seconds since 2020-01-01",
+          "description": "time at which the sounding started"
+        }
+      },
       "cube:variables": {
         "N_gps": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "alt"
           ],
           "type": "data",
@@ -10736,7 +10742,7 @@
         },
         "N_ptu": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "alt"
           ],
           "type": "data",
@@ -10751,14 +10757,14 @@
         },
         "ascent_flag": {
           "dimensions": [
-            "sounding"
+            "launch_time"
           ],
           "type": "data",
           "description": "indicator of vertical flight direction"
         },
         "dp": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "alt"
           ],
           "type": "data",
@@ -10767,7 +10773,7 @@
         },
         "dz": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "alt"
           ],
           "type": "data",
@@ -10776,7 +10782,7 @@
         },
         "flight_lat": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "alt"
           ],
           "type": "data",
@@ -10785,7 +10791,7 @@
         },
         "flight_lon": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "alt"
           ],
           "type": "data",
@@ -10794,7 +10800,7 @@
         },
         "flight_time": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "alt"
           ],
           "type": "data",
@@ -10803,7 +10809,7 @@
         },
         "launch_lat": {
           "dimensions": [
-            "sounding"
+            "launch_time"
           ],
           "type": "data",
           "unit": "degrees_north",
@@ -10811,23 +10817,15 @@
         },
         "launch_lon": {
           "dimensions": [
-            "sounding"
+            "launch_time"
           ],
           "type": "data",
           "unit": "degrees_east",
           "description": "longitude"
         },
-        "launch_time": {
-          "dimensions": [
-            "sounding"
-          ],
-          "type": "data",
-          "unit": "nanoseconds since 2024-08-09 17:47:55",
-          "description": "time at which the sounding started"
-        },
         "m_gps": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "alt"
           ],
           "type": "data",
@@ -10835,7 +10833,7 @@
         },
         "m_ptu": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "alt"
           ],
           "type": "data",
@@ -10843,7 +10841,7 @@
         },
         "mr": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "alt"
           ],
           "type": "data",
@@ -10852,7 +10850,7 @@
         },
         "p": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "alt"
           ],
           "type": "data",
@@ -10861,14 +10859,14 @@
         },
         "platform": {
           "dimensions": [
-            "sounding"
+            "launch_time"
           ],
           "type": "data",
           "description": "Launching platform"
         },
         "q": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "alt"
           ],
           "type": "data",
@@ -10877,16 +10875,23 @@
         },
         "rh": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "alt"
           ],
           "type": "data",
           "unit": "1",
           "description": "relative humidity"
         },
+        "sounding": {
+          "dimensions": [
+            "launch_time"
+          ],
+          "type": "data",
+          "description": "sounding identifier"
+        },
         "ta": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "alt"
           ],
           "type": "data",
@@ -10895,7 +10900,7 @@
         },
         "theta": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "alt"
           ],
           "type": "data",
@@ -10904,7 +10909,7 @@
         },
         "u": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "alt"
           ],
           "type": "data",
@@ -10913,7 +10918,7 @@
         },
         "v": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "alt"
           ],
           "type": "data",
@@ -10922,7 +10927,7 @@
         },
         "wdir": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "alt"
           ],
           "type": "data",
@@ -10931,7 +10936,7 @@
         },
         "wspd": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "alt"
           ],
           "type": "data",
@@ -10965,7 +10970,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeiagdk7myhuxgiwrdmo4tp7oineybs2sjzdx5lleozauk6tthjgdtm",
+        "href": "ipfs://bafybeiev2r5tu4olubrolohybezkztqm43qb4rfdm3dhcz3zhcpkcldhem",
         "roles": [
           "data"
         ],
@@ -10975,7 +10980,7 @@
   },
   {
     "properties": {
-      "title": "Oscialltin radiosonde measurements during ORCESTRA (Level 1)",
+      "title": "Oscillating radiosonde measurements during ORCESTRA (Level 1)",
       "description": "Vertical atmospheric profile, retrieved from atmospheric sounding attached to a helium-filled balloon.",
       "keywords": [
         "ORCESTRA",
@@ -10988,12 +10993,18 @@
       ],
       "platform": "RV Meteor",
       "mission": "ORCESTRA, BOW-TIE, PICCOLO",
-      "processing:lineage": "Vaisala Sounding System MW41; Quality control with pysonde (0.0.7); Level 1 processing with pysonde (0.0.7)",
-      "cube:dimensions": {},
+      "processing:lineage": "Vaisala Sounding System MW41 (2.21.0.7); Quality control with pysonde (0.0.7); Level 1 processing with pysonde (0.0.7) on Thu Mar 6 21:10:47 2025.",
+      "cube:dimensions": {
+        "launch_time": {
+          "type": "temporal",
+          "unit": "seconds since 2020-01-01",
+          "description": "time at which the sounding started"
+        }
+      },
       "cube:variables": {
         "alt": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "level"
           ],
           "type": "data",
@@ -11002,7 +11013,7 @@
         },
         "alt_WGS84": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "level"
           ],
           "type": "data",
@@ -11010,7 +11021,7 @@
         },
         "dp": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "level"
           ],
           "type": "data",
@@ -11019,7 +11030,7 @@
         },
         "dz": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "level"
           ],
           "type": "data",
@@ -11028,7 +11039,7 @@
         },
         "flight_lat": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "level"
           ],
           "type": "data",
@@ -11037,7 +11048,7 @@
         },
         "flight_lon": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "level"
           ],
           "type": "data",
@@ -11046,16 +11057,16 @@
         },
         "flight_time": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "level"
           ],
           "type": "data",
-          "unit": "seconds since 2020-01-01",
+          "unit": "nanoseconds since 1970-01-01",
           "description": "time at pressure level"
         },
         "launch_lat": {
           "dimensions": [
-            "sounding"
+            "launch_time"
           ],
           "type": "data",
           "unit": "degrees_north",
@@ -11063,23 +11074,15 @@
         },
         "launch_lon": {
           "dimensions": [
-            "sounding"
+            "launch_time"
           ],
           "type": "data",
           "unit": "degrees_east",
           "description": "longitude"
         },
-        "launch_time": {
-          "dimensions": [
-            "sounding"
-          ],
-          "type": "data",
-          "unit": "seconds since 2020-01-01",
-          "description": "time at which the sounding started"
-        },
         "mr": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "level"
           ],
           "type": "data",
@@ -11088,7 +11091,7 @@
         },
         "p": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "level"
           ],
           "type": "data",
@@ -11097,16 +11100,22 @@
         },
         "rh": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "level"
           ],
           "type": "data",
           "unit": "1",
           "description": "relative humidity"
         },
+        "sounding": {
+          "dimensions": [
+            "launch_time"
+          ],
+          "type": "data"
+        },
         "ta": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "level"
           ],
           "type": "data",
@@ -11115,7 +11124,7 @@
         },
         "wdir": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "level"
           ],
           "type": "data",
@@ -11124,7 +11133,7 @@
         },
         "wspd": {
           "dimensions": [
-            "sounding",
+            "launch_time",
             "level"
           ],
           "type": "data",
@@ -11152,13 +11161,13 @@
           ]
         }
       ],
-      "datetime": "2024-08-30T07:44:22.177Z",
-      "start_datetime": "2024-08-18T01:50:43.654Z",
-      "end_datetime": "2024-09-11T13:38:00.700Z"
+      "datetime": "1997-03-16T12:55:10.722Z",
+      "start_datetime": "1969-09-18T18:00:00.746Z",
+      "end_datetime": "2024-09-11T07:50:20.699Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeic4dqjrqxbjvevilnns3q7vsalt2kqwmydwk3x5brbkpft45ewdre",
+        "href": "ipfs://bafybeidp3dufmqzt75oavx6dzc6quaqdzmltw2kpcyjlrt6u525dchzoeu",
         "roles": [
           "data"
         ],
