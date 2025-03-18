@@ -76,11 +76,11 @@ async function getMinMax(variable: SomeArray): Promise<[number, number]> {
     );
     return nanMinMax(data);
   } else if (variable.is("bigint")) {
-    let hi = BigInt(-Number.MAX_SAFE_INTEGER);
-    let lo = BigInt(Number.MAX_SAFE_INTEGER);
+    let hi = -(2n ** 64n);
+    let lo = -hi;
     const { data } = await get(variable);
-    const valid_min = BigInt(-Number.MAX_SAFE_INTEGER);
-    const valid_max = BigInt(Number.MAX_SAFE_INTEGER);
+    const valid_min = -(2n ** 63n - 2n);
+    const valid_max = 2n ** 63n - 2n;
     const is_valid = (v: bigint) => (v >= valid_min) && (v <= valid_max); // numbers outside this range may be valid, but they are unlikely, but may frequently be used to mark fill values.
     for (const v of data) {
       if (is_valid(v)) {
@@ -88,7 +88,7 @@ async function getMinMax(variable: SomeArray): Promise<[number, number]> {
         lo = lo < v ? lo : v;
       }
     }
-    return [Number(hi), Number(lo)];
+    return [Number(lo), Number(hi)];
   } else {
     return [NaN, NaN];
   }
