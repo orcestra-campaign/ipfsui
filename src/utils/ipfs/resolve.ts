@@ -41,7 +41,7 @@ export default async function resolve(helia: Helia, url: string) {
   const name = ipns(helia);
   console.log("helia", helia);
   console.log("name", name);
-  const srcUrl = URL.parse(url);
+  const srcUrl = new URL(url);
   console.log(srcUrl);
   if (srcUrl !== undefined) {
     let root_cid;
