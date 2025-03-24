@@ -24,6 +24,17 @@ const metadata: ShallowRef<DatasetMetadata | undefined> = shallowRef();
 
 const stac_item = shallowRef();
 
+async function resolve_cids(helia, src): {root_cid?: CID, item_cid?: CID} {
+    if (!helia) {
+        return {};
+    }
+    const resolveResult = await resolve(helia, src);
+    const root_cid = resolveResult?.cids.at(0)?.cid.toV1();
+    const item_cid = resolveResult?.cids.at(-1)?.cid.toV1();
+
+    return {root_cid, item_cid};
+}
+
 const update = async () => {
     if (heliaProvider.loading.value) return;
     const store = getStore(props.src, {helia: heliaProvider.helia.value});
@@ -36,15 +47,7 @@ const update = async () => {
 
     console.log(metadata.value);
 
-    if (heliaProvider.helia.value) {
-        const helia = heliaProvider.helia.value;
-        const resolveResult = await resolve(helia, props.src);
-        const root_cid = resolveResult?.cids.at(0)?.cid.toV1();
-        const item_cid = resolveResult?.cids.at(-1)?.cid.toV1();
-
-        metadata.value = {src: props.src, attrs, variables, root_cid, item_cid};
-        console.log("IPNS resolve", props.src, item_cid?.toString());
-    }
+    metadata.value = {...metadata.value, ...resolve_cids(heliaProvider.helia.value, props.src)};
     console.log(metadata.value);
     if (metadata.value) {
         for await (const item of parseMetadata(metadata.value)) {
