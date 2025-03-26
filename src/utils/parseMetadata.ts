@@ -490,6 +490,23 @@ export function metadataToStacId(ds: { item_cid?: CID; src: string }): string {
   return (ds?.item_cid?.toString() ?? ds.src) + "-stac_item";
 }
 
+function parseCommaList(cs_list: string | undefined): string[] | undefined {
+  if (!cs_list) {
+    return undefined;
+  }
+
+  // Replace commas within quotes with a placeholder
+  cs_list = cs_list.replace(/"[^"]*"|'[^']*'/g, (match) => {
+    return match.replace(/,/g, "__COMMA_PLACEHOLDER__");
+  });
+
+  // Split the string at the remaining commas
+  const list = cs_list.split(",").map((n: string) => n.trim());
+
+  // Replace the placeholders back with commas
+  return list.map((item) => item.replace(/__COMMA_PLACEHOLDER__/g, ","));
+}
+
 export default async function* parseMetadata(
   ds: DatasetMetadata,
 ): AsyncGenerator<StacItem> {
@@ -502,18 +519,16 @@ export default async function* parseMetadata(
   const properties: Properties = {
     title: ds.attrs?.title,
     description: ds.attrs?.summary,
-    keywords: ds.attrs?.keywords?.split(",").map((n: string) => n.trim()),
+    keywords: parseCommaList(ds.attrs?.keywords),
     license: ds.attrs?.license,
-    references: ds.attrs?.references?.split(",").map((n: string) => n.trim()),
+    references: parseCommaList(ds.attrs?.references),
     platform: ds.attrs?.platform,
     mission: ds.attrs?.project,
     "processing:lineage": ds.attrs?.history,
     ...getDatacubeProperties(ds),
   };
 
-  const names = (ds.attrs.creator_name ?? ds.attrs.authors)?.split(",").map((
-    n: string,
-  ) => n.trim());
+  const names = parseCommaList(ds.attrs.creator_name ?? ds.attrs.authors);
   const emails = ds.attrs.creator_email?.split(",").map((n: string) =>
     n.trim()
   );
