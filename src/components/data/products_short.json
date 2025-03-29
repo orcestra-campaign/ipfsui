@@ -113,9 +113,6 @@
               "value": "data@safire.fr",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -274,9 +271,6 @@
               "value": "data@safire.fr",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -673,9 +667,6 @@
               "value": "data@safire.fr",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -794,9 +785,6 @@
               "value": "data@safire.fr",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -904,9 +892,6 @@
               "value": "data@safire.fr",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -1116,9 +1101,6 @@
               "value": "data@safire.fr",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -1348,9 +1330,6 @@
               "value": "data@safire.fr",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -1763,9 +1742,6 @@
               "value": "Christian.Mallaun@DLR.DE",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -1775,9 +1751,6 @@
               "value": "Dominika.Pasternak@DLR.DE",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -1787,9 +1760,6 @@
               "value": "Lisa.Eirenschmalz@DLR.DE",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -1929,9 +1899,6 @@
               "value": "jakob.deutloff@uni-hamburg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -1941,9 +1908,6 @@
               "value": "lukas.kluft@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -1953,9 +1917,6 @@
               "value": "clara.bayley@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -2495,9 +2456,6 @@
               "value": "jakob.deutloff@uni-hamburg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -2507,9 +2465,6 @@
               "value": "lukas.kluft@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -2519,9 +2474,6 @@
               "value": "clara.bayley@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -2665,9 +2617,6 @@
               "value": "jakob.deutloff@uni-hamburg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -2677,9 +2626,6 @@
               "value": "lukas.kluft@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -2689,9 +2635,6 @@
               "value": "clara.bayley@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -2986,9 +2929,9 @@
           ]
         }
       ],
-      "datetime": "1999-12-31T23:59:59.999Z",
-      "start_datetime": "1999-09-18T18:00:00.745Z",
-      "end_datetime": "2000-04-14T05:59:59.254Z"
+      "datetime": "2024-09-03T16:59:07.937Z",
+      "start_datetime": "2024-08-09T14:27:28.000Z",
+      "end_datetime": "2024-09-28T19:30:47.874Z"
     },
     "assets": {
       "data": {
@@ -3295,9 +3238,9 @@
           ]
         }
       ],
-      "datetime": "1999-12-31T23:59:59.999Z",
-      "start_datetime": "1999-09-18T18:00:00.745Z",
-      "end_datetime": "2000-04-14T05:59:59.254Z"
+      "datetime": "2024-09-03T16:51:10.000Z",
+      "start_datetime": "2024-08-09T14:27:28.000Z",
+      "end_datetime": "2024-09-28T19:14:52.000Z"
     },
     "assets": {
       "data": {
@@ -3850,9 +3793,9 @@
           ]
         }
       ],
-      "datetime": "1999-12-31T23:59:59.999Z",
-      "start_datetime": "1999-09-18T18:00:00.745Z",
-      "end_datetime": "2000-04-14T05:59:59.254Z"
+      "datetime": "2024-09-04T16:45:56.500Z",
+      "start_datetime": "2024-08-11T14:17:01.000Z",
+      "end_datetime": "2024-09-28T19:14:52.000Z"
     },
     "assets": {
       "data": {
@@ -3935,9 +3878,6 @@
               "value": "lukas.kluft@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -4134,9 +4074,6 @@
               "value": "daniel.klocke@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -4146,9 +4083,6 @@
               "value": "mdengler@geomar.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -4158,9 +4092,6 @@
               "value": "robert.kopte@ifg.uni-kiel.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -4357,9 +4288,6 @@
               "value": "daniel.klocke@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -4369,9 +4297,6 @@
               "value": "mdengler@geomar.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -4381,9 +4306,6 @@
               "value": "robert.kopte@ifg.uni-kiel.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -4601,9 +4523,6 @@
               "value": "mdengler@geomar.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -4972,9 +4891,6 @@
               "value": "hans.segura@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -5069,9 +4985,6 @@
               "value": "pierre.bosser@ensta-bretagne.fr",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -5350,9 +5263,6 @@
               "value": "w.wimmer@soton.ac.uk",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -5541,9 +5451,6 @@
               "value": "ilya.serikov@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -5814,9 +5721,6 @@
               "value": "ilya.serikov@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -5827,6 +5731,111 @@
     "assets": {
       "data": {
         "href": "ipfs://bafybeie754xlrs75yw2vnqrneuh23vsalzagfputvjnbqnsi4fvyjjtfrq",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "Continuous subskin sea surface temperature data along RV METEOR M203 cruise track",
+      "description": "During R/V Meteor cruise M203 (Bowtie) from August 10 to September 23, \n2024, underway subskin sea surface temperature data was collected using a \nSeaSnake (~ 5 cm depth). The data were taken in the framework of the \nORCESTRA campaign (https://orcestra-campaign.org/)\n",
+      "keywords": [
+        "Sea Surface Temperature",
+        "subskin SST",
+        "Sea Snake",
+        "tropical Atlantic",
+        "ITCZ"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "'de Szoeke, S. P.(2021) Fast Floating Temperature Sensor Measures SST, Not Wet-Bulb Temperature. J. Atmos. Oceanic Technol., 38, 995–1000,  https://doi.org/10.1175/JTECH-D-20-0193.1.'"
+      ],
+      "platform": "RV METEOR",
+      "mission": "BOW-TIE, ORCESTRA",
+      "processing:lineage": "Version 1",
+      "cube:dimensions": {},
+      "cube:variables": {
+        "DEPTH": {
+          "dimensions": [
+            "Depth"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "depth below sea surface"
+        },
+        "DEPTH_QC": {
+          "dimensions": [
+            "Depth"
+          ],
+          "type": "data",
+          "description": "quality flag for DEPTH"
+        },
+        "LATITUDE": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "latitude"
+        },
+        "LATITUDE_QC": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "description": "quality flag for LATITUDE"
+        },
+        "LONGITUDE": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "longitude"
+        },
+        "LONGITUDE_QC": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "description": "quality flag for LONGITUDE"
+        },
+        "TEMP": {
+          "dimensions": [
+            "Depth",
+            "TIME"
+          ],
+          "type": "data",
+          "unit": "degC",
+          "description": "in situ temperature"
+        },
+        "TEMP_QC": {
+          "dimensions": [
+            "Depth",
+            "TIME"
+          ],
+          "type": "data",
+          "description": "quality flag for TEMP"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Marcus Dengler",
+          "emails": [
+            {
+              "value": "mdengler@geomar.de",
+              "roles": []
+            }
+          ]
+        }
+      ]
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeieoosfm33u47expejxhccectau4oxrp2jg4efzrqn743af6tzxide",
         "roles": [
           "data"
         ],
@@ -5972,9 +5981,6 @@
               "value": "elena.lind@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -5984,9 +5990,6 @@
               "value": "pawan.gupta@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -5996,9 +5999,6 @@
               "value": "daniel.klocke@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -6154,9 +6154,6 @@
               "value": "elena.lind@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -6166,9 +6163,6 @@
               "value": "pawan.gupta@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -6178,9 +6172,6 @@
               "value": "daniel.klocke@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -6336,9 +6327,6 @@
               "value": "elena.lind@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -6348,9 +6336,6 @@
               "value": "pawan.gupta@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -6360,9 +6345,6 @@
               "value": "daniel.klocke@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -6595,9 +6577,6 @@
               "value": "elena.lind@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -6607,9 +6586,6 @@
               "value": "pawan.gupta@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -6619,9 +6595,6 @@
               "value": "daniel.klocke@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -6854,9 +6827,6 @@
               "value": "elena.lind@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -6866,9 +6836,6 @@
               "value": "pawan.gupta@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -6878,9 +6845,6 @@
               "value": "daniel.klocke@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -7113,9 +7077,6 @@
               "value": "elena.lind@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -7125,9 +7086,6 @@
               "value": "pawan.gupta@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -7137,9 +7095,6 @@
               "value": "daniel.klocke@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -7372,9 +7327,6 @@
               "value": "elena.lind@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -7384,9 +7336,6 @@
               "value": "pawan.gupta@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -7396,9 +7345,6 @@
               "value": "daniel.klocke@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -7624,9 +7570,6 @@
               "value": "elena.lind@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -7636,9 +7579,6 @@
               "value": "pawan.gupta@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -7648,9 +7588,6 @@
               "value": "daniel.klocke@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -7876,9 +7813,6 @@
               "value": "elena.lind@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -7888,9 +7822,6 @@
               "value": "pawan.gupta@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -7900,9 +7831,6 @@
               "value": "daniel.klocke@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -8128,9 +8056,6 @@
               "value": "elena.lind@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -8140,9 +8065,6 @@
               "value": "pawan.gupta@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -8152,9 +8074,6 @@
               "value": "daniel.klocke@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -8499,9 +8418,6 @@
               "value": "elena.lind@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -8511,9 +8427,6 @@
               "value": "pawan.gupta@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -8523,9 +8436,6 @@
               "value": "daniel.klocke@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -8870,9 +8780,6 @@
               "value": "elena.lind@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -8882,9 +8789,6 @@
               "value": "pawan.gupta@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -8894,9 +8798,6 @@
               "value": "daniel.klocke@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -9241,9 +9142,6 @@
               "value": "elena.lind@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -9253,9 +9151,6 @@
               "value": "pawan.gupta@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -9265,9 +9160,6 @@
               "value": "daniel.klocke@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -9612,9 +9504,6 @@
               "value": "elena.lind@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -9624,9 +9513,6 @@
               "value": "pawan.gupta@nasa.gov",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -9636,9 +9522,6 @@
               "value": "daniel.klocke@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -9698,9 +9581,6 @@
               "value": "ilya.serikov@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -9760,9 +9640,6 @@
               "value": "ilya.serikov@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -9822,9 +9699,6 @@
               "value": "ilya.serikov@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -10198,9 +10072,6 @@
               "value": "friedhelm.jansen@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -10714,9 +10585,6 @@
               "value": "delianb@colostate.edu",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -11230,9 +11098,6 @@
               "value": "delianb@colostate.edu",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -11654,9 +11519,6 @@
               "value": "delianb@colostate.edu",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -11676,11 +11538,22 @@
   },
   {
     "properties": {
-      "title": "Continuous thermosalinograph oceanography along RV METEOR cruise track M203",
+      "title": "Continuous thermosalinograph salinity and temperature data along RV METEOR M203 cruise track",
+      "description": "During R/V Meteor cruise M203 (BOW-TIE) from August 10 to September 23, 2024, \nunderway sea surface temperature and sea surface salinity data were taken at \nat 5m depth using a thermosalinograph. The data were collected in the framework\nof the ORCESTRA campaign (https://orcestra-campaign.org/)",
+      "keywords": [
+        "Sea Surface Temperature",
+        "Sea Surface Salinity",
+        "Thermosalinograph",
+        "tropical Atlantic",
+        "ITCZ"
+      ],
       "license": "CC-BY-4.0",
+      "references": [
+        "'Schlundt, M; Klocke, D; Dengler, M (2025): Continuous thermosalinograph oceanography along RV METEOR cruise track M203 [dataset], PANGAEA,  https://doi.pangaea.de/10.1594/PANGAEA.977775'"
+      ],
       "platform": "RV METEOR",
-      "mission": "ORCESTRA, BOW-TIE",
-      "processing:lineage": "Converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
+      "mission": "BOW-TIE, ORCESTRA",
+      "processing:lineage": "Version 1",
       "cube:dimensions": {
         "TIME": {
           "type": "temporal",
@@ -11688,13 +11561,20 @@
         }
       },
       "cube:variables": {
-        "COND": {
+        "DEPTH": {
           "dimensions": [
-            "TIME"
+            "Depth"
           ],
           "type": "data",
-          "unit": "S/m",
-          "description": "in situ conductivity"
+          "unit": "m",
+          "description": "depth below sea surface"
+        },
+        "DEPTH_QC": {
+          "dimensions": [
+            "Depth"
+          ],
+          "type": "data",
+          "description": "quality flag for DEPTH"
         },
         "LATITUDE": {
           "dimensions": [
@@ -11702,7 +11582,14 @@
           ],
           "type": "data",
           "unit": "degrees_north",
-          "description": "representative latitude"
+          "description": "latitude"
+        },
+        "LATITUDE_QC": {
+          "dimensions": [
+            "TIME"
+          ],
+          "type": "data",
+          "description": "quality flag for LATITUDE"
         },
         "LONGITUDE": {
           "dimensions": [
@@ -11710,26 +11597,27 @@
           ],
           "type": "data",
           "unit": "degrees_east",
-          "description": "representative longitude"
+          "description": "longitude"
         },
-        "MC": {
+        "LONGITUDE_QC": {
           "dimensions": [
             "TIME"
           ],
           "type": "data",
-          "description": "used measurement container or used TSG"
+          "description": "quality flag for LONGITUDE"
         },
         "PSAL": {
           "dimensions": [
-            "TIME",
-            "NO_OF_SALINITIES"
+            "Depth",
+            "TIME"
           ],
           "type": "data",
-          "unit": " ",
-          "description": "salinity PSS-78"
+          "unit": "1",
+          "description": "practical salinity PSS-78"
         },
         "PSAL_QC": {
           "dimensions": [
+            "Depth",
             "TIME"
           ],
           "type": "data",
@@ -11737,15 +11625,16 @@
         },
         "TEMP": {
           "dimensions": [
-            "TIME",
-            "NO_OF_TEMPERATURES"
+            "Depth",
+            "TIME"
           ],
           "type": "data",
-          "unit": "degrees Celsius",
+          "unit": "degC",
           "description": "in situ temperature"
         },
         "TEMP_QC": {
           "dimensions": [
+            "Depth",
             "TIME"
           ],
           "type": "data",
@@ -11754,39 +11643,12 @@
       },
       "contacts": [
         {
-          "name": "Daniel Klocke",
-          "emails": [
-            {
-              "value": "daniel.klocke@mpimet.mpg.de",
-              "roles": []
-            }
-          ],
-          "roles": [
-            "creator"
-          ]
-        },
-        {
-          "name": "Marcus Dengler",
-          "emails": [
-            {
-              "value": "mdengler@geomar.de",
-              "roles": []
-            }
-          ],
-          "roles": [
-            "creator"
-          ]
-        },
-        {
           "name": "Michael Schlundt",
           "emails": [
             {
               "value": "mschlundt@geomar.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -11796,7 +11658,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeiaulrt5ddwk4z4axi7ilzuux47aqzqf7glbtsi7igijio4kiysdna",
+        "href": "ipfs://bafybeife55jwmknrq7heen6mu3vayxxl3m2xuqb6ekofm5pw7whpsxh4mq",
         "roles": [
           "data"
         ],
@@ -12050,9 +11912,6 @@
               "value": "marius.winkler@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -12062,9 +11921,6 @@
               "value": "marius.rixen@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
@@ -12253,9 +12109,6 @@
               "value": "marius.winkler@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         },
         {
@@ -12265,9 +12118,6 @@
               "value": "marius.rixen@mpimet.mpg.de",
               "roles": []
             }
-          ],
-          "roles": [
-            "creator"
           ]
         }
       ],
