@@ -133,12 +133,12 @@ useHead({
         <StacMap :item="item" />
     </div>
 
-    <div>
-        <CodeExampleXarray :src="item?.assets?.data?.href" />
+    <div v-if="item?.assets?.data?.href">
+        <CodeExampleXarray :src="item.assets.data.href" />
     </div>
 
-    <h2>Parameter(s)</h2>
-    <div>
+    <div v-if="item?.properties['cube:dimensions'] || item?.properties['cube:variables']">
+        <h2>Parameter(s)</h2>
         <VarTable :item="item" />
     </div>
 

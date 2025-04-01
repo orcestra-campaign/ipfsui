@@ -38,20 +38,24 @@ async function resolve_cids(helia, src): {root_cid?: CID, item_cid?: CID} {
 const update = async () => {
     if (heliaProvider.loading.value) return;
     const store = getStore(props.src, {helia: heliaProvider.helia.value});
-    const dsMeta = await readDataset(store);
+    const raw_stac_item = await store.get("/stac_item.json");
+    if ( raw_stac_item ) {
+        stac_item.value = JSON.parse(new TextDecoder().decode(raw_stac_item));
+        metadata.value = {src: props.src, ...resolve_cids(heliaProvider.helia.value, props.src)};
+    } else {
+        const dsMeta = await readDataset(store);
 
-    const attrs = extractLoose(dsMeta.attrs);
-    const variables = dsMeta.variables;
+        const attrs = extractLoose(dsMeta.attrs);
+        const variables = dsMeta.variables;
 
-    metadata.value = {src: props.src, attrs, variables};
-
-    console.log(metadata.value);
-
-    metadata.value = {...metadata.value, ...resolve_cids(heliaProvider.helia.value, props.src)};
-    console.log(metadata.value);
-    if (metadata.value) {
-        for await (const item of parseMetadata(metadata.value)) {
-            stac_item.value = item;
+        metadata.value = {src: props.src, attrs, variables};
+        console.log(metadata.value);
+        metadata.value = {...metadata.value, ...resolve_cids(heliaProvider.helia.value, props.src)};
+        console.log(metadata.value);
+        if (metadata.value) {
+            for await (const item of parseMetadata(unref(metadata))) {
+                stac_item.value = item;
+            }
         }
     }
 };
