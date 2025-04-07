@@ -25,7 +25,7 @@ export default {
   install: (app: App) => {
     const error = shallowRef("");
     const helia = shallowRef();
-    const inBrowser = ref(true);
+    const inBrowser = ref(false);
 
     const load = async (opts: SetupHeliaOpts) => {
       try {
