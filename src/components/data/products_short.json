@@ -11671,6 +11671,7 @@
       "description": "Vertical atmospheric profile, retrieved from atmospheric sounding attached to a helium-filled balloon.",
       "keywords": [
         "ORCESTRA",
+        "RAPSODI",
         "Radiosonde Profiles",
         "Sounding",
         "INMG",
@@ -11683,7 +11684,7 @@
       ],
       "platform": "INMG, RV Meteor, BCO",
       "mission": "ORCESTRA, PERCUSION, BOW-TIE, PICCOLO, SCORE, MAESTRO",
-      "processing:lineage": "Meteomodem Eoscan Software (2.1.241218) Software (2.1.241218); Vaisala Sounding System MW41 (2.21.0.7) (2.21.0.7); Quality control with pysonde (0.0.7); Level 1 processing with pysonde (0.0.7); Level 2 processing with pysonde (0.0.7) on Wed Apr  2 23:18:28 2025.",
+      "processing:lineage": "Meteomodem Eoscan Software (2.1.241218); Vaisala Sounding System MW41 (2.21.0.7); Quality control with pysonde (0.0.7); Level 1 processing with pysonde (0.0.7); Level 2 processing with pysonde (0.0.7) on Tue Apr  8 15:35:11 2025.",
       "cube:dimensions": {
         "launch_time": {
           "type": "temporal",
@@ -11930,7 +11931,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeihcg5h7dgobnlj7d4kvermaqchtswxuwpockgwsvy3dnshqlaxwfu",
+        "href": "ipfs://bafybeigensqyqxfyaxgyjhwn6ytdpi3i4sxbtffd4oc27zbimyro4hygjq",
         "roles": [
           "data"
         ],
@@ -11944,6 +11945,7 @@
       "description": "Vertical atmospheric profile, retrieved from atmospheric sounding attached to a helium-filled balloon.",
       "keywords": [
         "ORCESTRA",
+        "RAPSODI",
         "Radiosonde Profiles",
         "Sounding",
         "RV Meteor"
@@ -12128,7 +12130,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeigljqocoo5t47sxwho4bd7i3xho3r7wc7qvq3x56xngglssdwghgm",
+        "href": "ipfs://bafybeiblbuhg5bctggjxtmsfhere2wurlxqxsrheyfcjskl3qngkc6tlsu",
         "roles": [
           "data"
         ],
