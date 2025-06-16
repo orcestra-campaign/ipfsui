@@ -2973,7 +2973,7 @@
       ],
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION, MAESTRO",
-      "processing:lineage": "Level 1 ASPEN processing with Aspen V4.0.2 \nLevel 2 quality control with pydropsonde 0.1.0.post6.dev0+9df510e \nLevel 3 processing with pydropsonde 0.1.0.post6.dev0+9df510e \nLevel 3 concatenation with pydropsonde 0.1.0.post6.dev0+9df510e \n",
+      "processing:lineage": "Level 1 ASPEN processing with Aspen V4.0.4 \nLevel 2 quality control with pydropsonde 0.2.2.post119.dev0+c1b65ff \nLevel 3 processing with pydropsonde 0.2.2.post119.dev0+c1b65ff \nLevel 3 concatenation with pydropsonde 0.2.2.post119.dev0+c1b65ff \n",
       "cube:dimensions": {
         "altitude": {
           "type": "spatial",
@@ -3039,6 +3039,14 @@
           "type": "data",
           "unit": "degrees_north",
           "description": "latitude"
+        },
+        "launch_time": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 2000-01-01",
+          "description": "dropsonde launch time"
         },
         "lon": {
           "dimensions": [
@@ -3111,14 +3119,6 @@
           "type": "data",
           "description": "aggregated quality flag for sonde"
         },
-        "sonde_time": {
-          "dimensions": [
-            "sonde"
-          ],
-          "type": "data",
-          "unit": "nanoseconds since 2000-01-01",
-          "description": "dropsonde launch time"
-        },
         "ta": {
           "dimensions": [
             "sonde",
@@ -3183,7 +3183,7 @@
           "type": "data",
           "description": "vaisala serial identifier"
         },
-        "w_dir": {
+        "wdir": {
           "dimensions": [
             "sonde",
             "altitude"
@@ -3192,7 +3192,7 @@
           "unit": "degree",
           "description": "wind direction"
         },
-        "w_spd": {
+        "wspd": {
           "dimensions": [
             "sonde",
             "altitude"
@@ -3237,7 +3237,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeicb33v6ohezyhgq5rumq4g7ejnfqxzcpuzd4i2fxnlos5d7ebmi3m",
+        "href": "ipfs://bafybeigimcxh5lpb6llnxcmxh56jzhxkpkxsgwj4cltqq2ajd3qyvplpee",
         "roles": [
           "data"
         ],
@@ -3265,7 +3265,7 @@
       ],
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION, MAESTRO",
-      "processing:lineage": "Level 1 ASPEN processing with Aspen V4.0.2 \nLevel 2 quality control with pydropsonde 0.1.0.post6.dev0+9df510e \nLevel 3 processing with pydropsonde 0.1.0.post6.dev0+9df510e \n",
+      "processing:lineage": "Level 1 ASPEN processing with Aspen V4.0.4 \nLevel 2 quality control with pydropsonde 0.2.2.post119.dev0+c1b65ff \nLevel 3 processing with pydropsonde 0.2.2.post119.dev0+c1b65ff \n",
       "cube:dimensions": {
         "altitude": {
           "type": "spatial",
@@ -3330,6 +3330,14 @@
           "type": "data",
           "unit": "1",
           "description": "Number of values per bin for lat"
+        },
+        "launch_time": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 2000-01-01",
+          "description": "dropsonde launch time"
         },
         "p_N_qc": {
           "dimensions": [
@@ -3412,14 +3420,6 @@
           "type": "data",
           "unit": "1",
           "description": "value for qc  rh sfc physics val"
-        },
-        "sonde_time": {
-          "dimensions": [
-            "sonde"
-          ],
-          "type": "data",
-          "unit": "nanoseconds since 2000-01-01",
-          "description": "dropsonde launch time"
         },
         "ta_near_surface_count": {
           "dimensions": [
@@ -3546,7 +3546,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeihv2qgqmk72tuvv3iewz2tda2fcgazpz2nmawxfodg7i4yjm572am",
+        "href": "ipfs://bafybeiclohogcuwxzl4kbpedrthxewfckiccsh3wnrta3n4gonah2np6ua",
         "roles": [
           "data"
         ],
@@ -3573,7 +3573,7 @@
       ],
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION, MAESTRO",
-      "processing:lineage": "Level 1 ASPEN processing with Aspen V4.0.2 \nLevel 2 quality control with pydropsonde 0.1.0.post6.dev0+9df510e \nLevel 3 processing with pydropsonde 0.1.0.post6.dev0+9df510e \nLevel 3 concatenation with pydropsonde 0.1.0.post6.dev0+9df510e \nLevel 4 computation with pydropsonde 0.1.0.post6.dev0+9df510e \n",
+      "processing:lineage": "Level 1 ASPEN processing with Aspen V4.0.4 \nLevel 2 quality control with pydropsonde 0.2.2.post119.dev0+c1b65ff \nLevel 3 processing with pydropsonde 0.2.2.post119.dev0+c1b65ff \nLevel 3 concatenation with pydropsonde 0.2.2.post119.dev0+c1b65ff \nLevel 4 computation with pydropsonde 0.2.2.post119.dev0+c1b65ff \n",
       "cube:dimensions": {
         "altitude": {
           "type": "spatial",
@@ -3700,6 +3700,14 @@
           ],
           "type": "data"
         },
+        "launch_time": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 2000-01-01",
+          "description": "dropsonde launch time"
+        },
         "omega": {
           "dimensions": [
             "circle",
@@ -3734,6 +3742,40 @@
           "unit": "Pa",
           "description": "atmospheric pressure"
         },
+        "p_dpdx": {
+          "dimensions": [
+            "circle",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "Pa m-1",
+          "description": "zonal gradient of atmospheric pressure"
+        },
+        "p_dpdx_std_error": {
+          "dimensions": [
+            "circle",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "Pa m-1"
+        },
+        "p_dpdy": {
+          "dimensions": [
+            "circle",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "Pa m-1",
+          "description": "meridional gradient of atmospheric pressure"
+        },
+        "p_dpdy_std_error": {
+          "dimensions": [
+            "circle",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "Pa m-1"
+        },
         "p_mean": {
           "dimensions": [
             "circle",
@@ -3759,6 +3801,40 @@
           "unit": "1",
           "description": "specific humidity"
         },
+        "q_dqdx": {
+          "dimensions": [
+            "circle",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "1 m-1",
+          "description": "zonal gradient of specific humidity"
+        },
+        "q_dqdx_std_error": {
+          "dimensions": [
+            "circle",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "1 m-1"
+        },
+        "q_dqdy": {
+          "dimensions": [
+            "circle",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "1 m-1",
+          "description": "meridional gradient of specific humidity"
+        },
+        "q_dqdy_std_error": {
+          "dimensions": [
+            "circle",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "1 m-1"
+        },
         "q_mean": {
           "dimensions": [
             "circle",
@@ -3776,6 +3852,40 @@
           "type": "data",
           "unit": "1",
           "description": "relative humidity"
+        },
+        "rh_drhdx": {
+          "dimensions": [
+            "circle",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "1 m-1",
+          "description": "zonal gradient of relative humidity"
+        },
+        "rh_drhdx_std_error": {
+          "dimensions": [
+            "circle",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "1 m-1"
+        },
+        "rh_drhdy": {
+          "dimensions": [
+            "circle",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "1 m-1",
+          "description": "meridional gradient of relative humidity"
+        },
+        "rh_drhdy_std_error": {
+          "dimensions": [
+            "circle",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "1 m-1"
         },
         "rh_mean": {
           "dimensions": [
@@ -3800,14 +3910,6 @@
           "type": "data",
           "description": "aggregated quality flag for sonde"
         },
-        "sonde_time": {
-          "dimensions": [
-            "sonde"
-          ],
-          "type": "data",
-          "unit": "nanoseconds since 2000-01-01",
-          "description": "dropsonde launch time"
-        },
         "sondes_per_circle": {
           "dimensions": [
             "circle"
@@ -3822,6 +3924,40 @@
           "type": "data",
           "unit": "K",
           "description": "air temperature"
+        },
+        "ta_dtadx": {
+          "dimensions": [
+            "circle",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "K m-1",
+          "description": "zonal gradient of air temperature"
+        },
+        "ta_dtadx_std_error": {
+          "dimensions": [
+            "circle",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "K m-1"
+        },
+        "ta_dtady": {
+          "dimensions": [
+            "circle",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "K m-1",
+          "description": "meridional gradient of air temperature"
+        },
+        "ta_dtady_std_error": {
+          "dimensions": [
+            "circle",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "K m-1"
         },
         "ta_mean": {
           "dimensions": [
@@ -3840,6 +3976,40 @@
           "type": "data",
           "unit": "kelvin",
           "description": "dry potential temperature"
+        },
+        "theta_dthetadx": {
+          "dimensions": [
+            "circle",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "kelvin m-1",
+          "description": "zonal gradient of dry potential temperature"
+        },
+        "theta_dthetadx_std_error": {
+          "dimensions": [
+            "circle",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "kelvin m-1"
+        },
+        "theta_dthetady": {
+          "dimensions": [
+            "circle",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "kelvin m-1",
+          "description": "meridional gradient of dry potential temperature"
+        },
+        "theta_dthetady_std_error": {
+          "dimensions": [
+            "circle",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "kelvin m-1"
         },
         "theta_mean": {
           "dimensions": [
@@ -3986,7 +4156,7 @@
           "type": "data",
           "unit": "s-1"
         },
-        "w_dir": {
+        "wdir": {
           "dimensions": [
             "sonde",
             "altitude"
@@ -3995,7 +4165,7 @@
           "unit": "degree",
           "description": "wind direction"
         },
-        "w_dir_mean": {
+        "wdir_mean": {
           "dimensions": [
             "circle",
             "altitude"
@@ -4004,7 +4174,7 @@
           "unit": "degree",
           "description": "circle mean of wind direction"
         },
-        "w_spd": {
+        "wspd": {
           "dimensions": [
             "sonde",
             "altitude"
@@ -4013,7 +4183,7 @@
           "unit": "m s-1",
           "description": "wind speed"
         },
-        "w_spd_mean": {
+        "wspd_mean": {
           "dimensions": [
             "circle",
             "altitude"
@@ -4101,7 +4271,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeihvzqi34wxneqsqz3hygmfvdqvnhi6cghy5ktcs6dhsls5zp4e3wu",
+        "href": "ipfs://bafybeifr5jfsv4g4ee6q7ml4bqrjt3mrxi27hwp7h4fzw6prbzm63fzali",
         "roles": [
           "data"
         ],
