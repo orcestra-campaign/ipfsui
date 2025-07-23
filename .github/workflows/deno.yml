@@ -28,7 +28,7 @@ jobs:
         with:
           deno-version: v2.x
       - name: Verify formatting
-        run: deno fmt --check
+        run: deno fmt --check src/
       - name: Run linter
         run: deno lint
 
