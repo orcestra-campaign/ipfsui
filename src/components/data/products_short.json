@@ -5475,28 +5475,377 @@
   },
   {
     "properties": {
-      "title": "Microwave radiometer (HATPRO) single-pointing measurements during METEOR cruise M203",
+      "title": "MWR multiple-pointing from RV Meteor (Part 1)",
+      "description": "Flag for rain occurence retrieved from the Micro Rain Radar measurement. Therefore, the observed reflectivity in secondlowest radar range gate (120m)?",
       "keywords": [
-        "microwave",
-        "radiometer",
-        "water vapor"
+        "HATPRO",
+        "Radiometer",
+        "Microwave"
       ],
       "license": "CC-BY-4.0",
       "references": [
-        "https://cloudnet.fmi.fi/collection/accaa493-1cab-44d1-b4ee-daf727dc5e84",
-        "https://hdl.handle.net/21.12132/3.3e013ad163c5451d"
+        "10.21105/joss.06733"
       ],
       "platform": "RV METEOR",
-      "mission": "ORCESTRA, BOW-TIE",
-      "processing:lineage": "Converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
+      "mission": "BOW-TIE",
+      "processing:lineage": "2025-05-16 07:30:00 +00:00 - HATPRO postprocessing - Adding global attributes according to IPFS\n2025-05-14 11:41:00 +00:00 - MWR multiple-pointing file created \n2025-05-14 11:40:41 +00:00 - mwr-l1c file created",
       "cube:dimensions": {
         "time": {
           "type": "temporal",
-          "unit": "nanoseconds since 2024-08-22 00:00:37.999998405",
+          "unit": "nanoseconds since 2024-08-17 00:09:01.999983787",
           "description": "Time UTC"
         }
       },
       "cube:variables": {
+        "azimuth_angle": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Azimuth angle"
+        },
+        "equivalent_potential_temperature": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Equivalent potential temperature"
+        },
+        "temperature_quality_flag": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Temperature quality flag"
+        },
+        "longitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_east",
+          "description": "Longitude of site"
+        },
+        "temperature_quality_flag_status": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Temperature quality flag status"
+        },
+        "altitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Altitude of site"
+        },
+        "potential_temperature": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Potential temperature"
+        },
+        "temperature": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Temperature"
+        },
+        "relative_humidity": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Relative humidity"
+        },
+        "elevation_angle": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Sensor elevation angle"
+        },
+        "latitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_north",
+          "description": "Latitude of site"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Andreas Foth",
+          "emails": [
+            {
+              "value": "andreas.foth@uni-leipzig.de",
+              "roles": []
+            }
+          ]
+        }
+      ],
+      "datetime": "2024-08-19T12:01:47.498Z",
+      "start_datetime": "2024-08-17T00:09:01.999Z",
+      "end_datetime": "2024-08-21T23:54:32.997Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeifcudukqkq2ouqvimnpuch6altzx3nmascyhoamurnqjiejhq2vam",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "MWR multiple-pointing from RV Meteor (Part 2)",
+      "description": "Flag for rain occurence retrieved from the Micro Rain Radar measurement. Therefore, the observed reflectivity in secondlowest radar range gate (120m)?",
+      "keywords": [
+        "HATPRO",
+        "Radiometer",
+        "Microwave"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "10.21105/joss.06733"
+      ],
+      "platform": "RV METEOR",
+      "mission": "BOW-TIE",
+      "processing:lineage": "2025-05-16 07:30:00 +00:00 - HATPRO postprocessing - Adding global attributes according to IPFS\n2025-04-10 12:37:57 +00:00 - MWR multiple-pointing file created \n2025-04-10 11:42:31 +00:00 - mwr-l1c file created",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "nanoseconds since 2024-08-22 00:09:32.999989986",
+          "description": "Time UTC"
+        }
+      },
+      "cube:variables": {
+        "azimuth_angle": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Azimuth angle"
+        },
+        "temperature_quality_flag_status": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Temperature quality flag status"
+        },
+        "temperature_quality_flag": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Temperature quality flag"
+        },
+        "equivalent_potential_temperature": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Equivalent potential temperature"
+        },
+        "longitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_east",
+          "description": "Longitude of site"
+        },
+        "altitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Altitude of site"
+        },
+        "potential_temperature": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Potential temperature"
+        },
+        "elevation_angle": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Sensor elevation angle"
+        },
+        "temperature": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Temperature"
+        },
+        "latitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_north",
+          "description": "Latitude of site"
+        },
+        "relative_humidity": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Relative humidity"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Andreas Foth",
+          "emails": [
+            {
+              "value": "andreas.foth@uni-leipzig.de",
+              "roles": []
+            }
+          ]
+        }
+      ],
+      "datetime": "2024-09-06T23:59:41.000Z",
+      "start_datetime": "2024-08-22T00:09:32.999Z",
+      "end_datetime": "2024-09-22T23:49:49.001Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeibgca7snctv7dwzmdnvfrgmcv2j57orhv6fdopnkdov23hmtsuhnu",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "MWR single-pointing from RV Meteor (Part 1)",
+      "description": "Flag for rain occurence retrieved from the Micro Rain Radar measurement. Therefore, the observed reflectivity in secondlowest radar range gate (120m)?",
+      "keywords": [
+        "HATPRO",
+        "Radiometer",
+        "Microwave"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "10.21105/joss.06733"
+      ],
+      "platform": "RV METEOR",
+      "mission": "BOW-TIE",
+      "processing:lineage": "2025-05-16 07:30:00 +00:00 - HATPRO postprocessing - Adding global attributes according to IPFS\n2025-05-14 11:41:12 +00:00 - MWR single-pointing file created \n2025-05-14 11:40:41 +00:00 - mwr-l1c file created",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "nanoseconds since 2024-08-17 00:01:11.999998390",
+          "description": "Time UTC"
+        }
+      },
+      "cube:variables": {
+        "lwp": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "kg m-2",
+          "description": "Liquid water path"
+        },
+        "temperature_quality_flag": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Temperature quality flag"
+        },
+        "lwp_offset": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "kg m-2",
+          "description": "Subtracted offset correction of liquid water path"
+        },
+        "absolute_humidity_quality_flag_status": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Absolute humidity quality flag status"
+        },
+        "azimuth_angle": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Azimuth angle"
+        },
+        "temperature_quality_flag_status": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Temperature quality flag status"
+        },
+        "iwv_quality_flag_status": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Integrated water vapour quality flag status"
+        },
+        "equivalent_potential_temperature": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Equivalent potential temperature"
+        },
         "absolute_humidity": {
           "dimensions": [
             "time",
@@ -5514,13 +5863,13 @@
           "unit": "1",
           "description": "Absolute humidity quality flag"
         },
-        "absolute_humidity_quality_flag_status": {
+        "longitude": {
           "dimensions": [
             "time"
           ],
           "type": "data",
-          "unit": "1",
-          "description": "Absolute humidity quality flag status"
+          "unit": "degree_east",
+          "description": "Longitude of site"
         },
         "altitude": {
           "dimensions": [
@@ -5530,95 +5879,6 @@
           "unit": "m",
           "description": "Altitude of site"
         },
-        "azimuth_angle": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Azimuth angle"
-        },
-        "elevation_angle": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Sensor elevation angle"
-        },
-        "equivalent_potential_temperature": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "K",
-          "description": "Equivalent potential temperature"
-        },
-        "iwv": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "kg m-2",
-          "description": "Integrated water vapour"
-        },
-        "iwv_quality_flag": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "Integrated water vapour quality flag"
-        },
-        "iwv_quality_flag_status": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "Integrated water vapour quality flag status"
-        },
-        "latitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree_north",
-          "description": "Latitude of site"
-        },
-        "longitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree_east",
-          "description": "Longitude of site"
-        },
-        "lwp": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "kg m-2",
-          "description": "Liquid water path"
-        },
-        "lwp_offset": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "kg m-2",
-          "description": "Subtracted offset correction of liquid water path"
-        },
-        "lwp_quality_flag": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "Liquid water path quality flag"
-        },
         "lwp_quality_flag_status": {
           "dimensions": [
             "time"
@@ -5626,15 +5886,6 @@
           "type": "data",
           "unit": "1",
           "description": "Liquid water path quality flag status"
-        },
-        "potential_temperature": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "K",
-          "description": "Potential temperature"
         },
         "relative_humidity": {
           "dimensions": [
@@ -5654,6 +5905,129 @@
           "unit": "K",
           "description": "Temperature"
         },
+        "iwv": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "kg m-2",
+          "description": "Integrated water vapour"
+        },
+        "lwp_quality_flag": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Liquid water path quality flag"
+        },
+        "iwv_quality_flag": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Integrated water vapour quality flag"
+        },
+        "latitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_north",
+          "description": "Latitude of site"
+        },
+        "potential_temperature": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Potential temperature"
+        },
+        "elevation_angle": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Sensor elevation angle"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Andreas Foth",
+          "emails": [
+            {
+              "value": "andreas.foth@uni-leipzig.de",
+              "roles": []
+            }
+          ]
+        }
+      ],
+      "datetime": "2024-08-19T12:00:35.497Z",
+      "start_datetime": "2024-08-17T00:01:11.999Z",
+      "end_datetime": "2024-08-21T23:59:58.996Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeibeiu7gokewtdc64owqezoj66vj3rgzfmjkuu344d56jrg2tjbqru",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "MWR single-pointing from RV Meteor (Part 2)",
+      "description": "Flag for rain occurence retrieved from the Micro Rain Radar measurement. Therefore, the observed reflectivity in secondlowest radar range gate (120m)?",
+      "keywords": [
+        "HATPRO",
+        "Radiometer",
+        "Microwave"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "10.21105/joss.06733"
+      ],
+      "platform": "RV METEOR",
+      "mission": "BOW-TIE",
+      "processing:lineage": "2025-05-16 07:30:00 +00:00 - HATPRO postprocessing - Adding global attributes according to IPFS\n2025-04-10 12:38:12 +00:00 - MWR single-pointing file created \n2025-04-10 11:42:31 +00:00 - mwr-l1c file created",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "nanoseconds since 2024-08-22 00:00:37.999998405",
+          "description": "Time UTC"
+        }
+      },
+      "cube:variables": {
+        "azimuth_angle": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Azimuth angle"
+        },
+        "absolute_humidity_quality_flag_status": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Absolute humidity quality flag status"
+        },
+        "lwp": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "kg m-2",
+          "description": "Liquid water path"
+        },
         "temperature_quality_flag": {
           "dimensions": [
             "time"
@@ -5662,6 +6036,22 @@
           "unit": "1",
           "description": "Temperature quality flag"
         },
+        "lwp_offset": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "kg m-2",
+          "description": "Subtracted offset correction of liquid water path"
+        },
+        "iwv_quality_flag_status": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Integrated water vapour quality flag status"
+        },
         "temperature_quality_flag_status": {
           "dimensions": [
             "time"
@@ -5669,15 +6059,143 @@
           "type": "data",
           "unit": "1",
           "description": "Temperature quality flag status"
+        },
+        "absolute_humidity": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "kg m-3",
+          "description": "Absolute humidity"
+        },
+        "equivalent_potential_temperature": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Equivalent potential temperature"
+        },
+        "lwp_quality_flag_status": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Liquid water path quality flag status"
+        },
+        "longitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_east",
+          "description": "Longitude of site"
+        },
+        "iwv_quality_flag": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Integrated water vapour quality flag"
+        },
+        "iwv": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "kg m-2",
+          "description": "Integrated water vapour"
+        },
+        "altitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Altitude of site"
+        },
+        "absolute_humidity_quality_flag": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Absolute humidity quality flag"
+        },
+        "potential_temperature": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Potential temperature"
+        },
+        "temperature": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Temperature"
+        },
+        "relative_humidity": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Relative humidity"
+        },
+        "elevation_angle": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Sensor elevation angle"
+        },
+        "lwp_quality_flag": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Liquid water path quality flag"
+        },
+        "latitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_north",
+          "description": "Latitude of site"
         }
       },
+      "contacts": [
+        {
+          "name": "Andreas Foth",
+          "emails": [
+            {
+              "value": "andreas.foth@uni-leipzig.de",
+              "roles": []
+            }
+          ]
+        }
+      ],
       "datetime": "2024-09-07T00:00:18.497Z",
       "start_datetime": "2024-08-22T00:00:37.999Z",
       "end_datetime": "2024-09-22T23:59:58.996Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeibsxj6eko56qguvp34kjprntty4xsxbcwb3z4ijhjztd63rngipqy",
+        "href": "ipfs://bafybeic3g42clghbcwkdqifsuprlivnxhcnd2rj6ppxpuvzlkduehar6cu",
         "roles": [
           "data"
         ],
@@ -10774,6 +11292,528 @@
   },
   {
     "properties": {
+      "title": "Cloudnet droplet effective radius on RV Meteor during BOWTIE",
+      "description": "Cloudnet target classification data ",
+      "keywords": [
+        "Cloudnet",
+        "effective radius",
+        "droplet"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "https://doi.org/10.21105/joss.02123",
+        "https://doi.org/10.1175/1520-0426(2002)019<0835:TROSCD>2.0.CO;2"
+      ],
+      "platform": "RV METEOR",
+      "mission": "BOW-TIE",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "seconds since 2024-08-17 00:00:15"
+        }
+      },
+      "cube:variables": {
+        "lwc": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "kg m-3",
+          "description": "Liquid water content"
+        },
+        "iwc_error": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Random error in ice water content"
+        },
+        "beta": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "sr-1 m-1",
+          "description": "Attenuated backscatter coefficient"
+        },
+        "cloud_base_height_amsl": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Height of cloud base above mean sea level"
+        },
+        "lwp": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "kg m-2",
+          "description": "Liquid water path"
+        },
+        "cloud_base_height_agl": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Height of cloud base above ground level"
+        },
+        "rainfall_rate": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Rainfall rate"
+        },
+        "lwp_error": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "kg m-2",
+          "description": "Error in liquid water path"
+        },
+        "width": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Spectral width"
+        },
+        "radar_gas_atten": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Two-way radar attenuation due to atmospheric gases"
+        },
+        "der": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Droplet effective radius"
+        },
+        "Z_error": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Error in radar reflectivity factor"
+        },
+        "quality_bits": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Data quality bits"
+        },
+        "rain_detected": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Rain detected"
+        },
+        "ghost_echo_flag2": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "%",
+          "description": "Flag for Ghost echoes based on spectra"
+        },
+        "der_error": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Absolute error in droplet effective radius"
+        },
+        "ldr": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Linear depolarisation ratio"
+        },
+        "iwc_bias": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Possible bias in ice water content"
+        },
+        "radar_frequency": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "GHz",
+          "description": "Radar transmit frequency"
+        },
+        "der_scaled_error": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Absolute error in droplet effective radius (scaled to LWP)"
+        },
+        "beta_bias": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Bias in attenuated backscatter coefficient"
+        },
+        "der_retrieval_status": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Droplet effective radius retrieval status"
+        },
+        "ier": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Ice effective radius"
+        },
+        "Z": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "dBZ",
+          "description": "Radar reflectivity factor"
+        },
+        "Tw": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Wet-bulb temperature"
+        },
+        "ier_retrieval_status": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Ice effective radius retrieval status"
+        },
+        "detection_status": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Radar and lidar detection status"
+        },
+        "iwc_sensitivity": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "kg m-3",
+          "description": "Minimum detectable ice water content"
+        },
+        "beta_error": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Error in attenuated backscatter coefficient"
+        },
+        "lidar_wavelength": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "nm",
+          "description": "Laser wavelength"
+        },
+        "longitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_east",
+          "description": "Longitude of site"
+        },
+        "radar_liquid_atten": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Two-way radar attenuation due to liquid water"
+        },
+        "cloud_top_height_agl": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Height of cloud top above ground level"
+        },
+        "cloud_top_height_amsl": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Height of cloud top above mean sea level"
+        },
+        "v_sigma": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Standard deviation of mean Doppler velocity"
+        },
+        "ier_error": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Random error in ice effective radius"
+        },
+        "target_classification": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Target classification"
+        },
+        "radar_rain_atten": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Two-way radar attenuation due to rain"
+        },
+        "der_scaled": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Droplet effective radius (scaled to LWP)"
+        },
+        "Z_sensitivity": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "dBZ",
+          "description": "Minimum detectable radar reflectivity"
+        },
+        "ghost_echo_flag1": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "%",
+          "description": "Flag for Ghost echoes based on spectra"
+        },
+        "lwc_retrieval_status": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Liquid water content retrieval status"
+        },
+        "N_scaled": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Cloud droplet number concentration"
+        },
+        "rain_attenuation_flag": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data"
+        },
+        "nyquist_velocity": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Nyquist velocity"
+        },
+        "altitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Altitude of site"
+        },
+        "iwc": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "kg m-3",
+          "description": "Ice water content"
+        },
+        "category_bits": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Target categorization bits"
+        },
+        "insect_prob": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Insect probability"
+        },
+        "iwc_retrieval_status": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Ice water content retrieval status"
+        },
+        "lwc_error": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Random error in liquid water content, one standard deviation"
+        },
+        "radar_melting_atten": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Two-way radar attenuation due to melting ice"
+        },
+        "v": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Doppler velocity"
+        },
+        "latitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_north",
+          "description": "Latitude of site"
+        },
+        "Z_bias": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Bias in radar reflectivity factor"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Andreas Foth",
+          "emails": [
+            {
+              "value": "andreas.foth@uni-leipzig.de",
+              "roles": []
+            }
+          ]
+        }
+      ],
+      "datetime": "2024-09-04T10:30:00.000Z",
+      "start_datetime": "2024-08-17T00:00:15.000Z",
+      "end_datetime": "2024-09-22T20:59:45.000Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeiceihwds4qy6nqxfpp7qqot7xjlpjrtv5yq3t6uwnupk3bawhnbte",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
       "title": "METEOR1 PARSIVEL Disdrometer QCed data",
       "description": "This dataset corresponds to one of two PARSIVEL disdrometers aboard\nthe RV Meteor. This version underwent a QC process and data products\nfor research were added.\n\n*QC process:\nA quality control method developed by the Central Weather Administration of Taiwan\nwas implemented. QC follows the work of Lu et al. (2020) and Friedrich et al. (2013)\nand the procedure only processes liquid rain. No hail or graupel remains after QC.\n\n*Research variables:\nIn addition to the variables provided by the raw parsivel data,\nthis version also includes data products for microphysical\nand radar analysis. These include drop-size distribution moments\nand simulated dual-polarization radar quantities at different\nwavelengths.\n\nMore information on the data, QC process and postprocessed products\ncan be found in the README file.\n\n",
       "keywords": [
@@ -12212,6 +13252,60 @@
     "assets": {
       "data": {
         "href": "ipfs://bafybeihjcwsecgpmsjxoo5peqafnuqfnalu3ya3vtibwl7qkm76izsnuei",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "surface rain flag from Micro Rain Radar",
+      "description": "Flag for rain occurence retrieved from the Micro Rain Radar measurement. Therefore, the observed reflectivity in secondlowest radar range gate (120m)?",
+      "license": "CC-BY-4.0",
+      "platform": "RV METEOR",
+      "mission": "BOW-TIE",
+      "processing:lineage": "",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "nanoseconds since 2024-08-18 06:00:00.007000832",
+          "description": "time_in_seconds_since_volume_start"
+        }
+      },
+      "cube:variables": {
+        "range": {
+          "dimensions": [],
+          "type": "data",
+          "unit": "meters",
+          "description": "range_to_measurement_volume"
+        },
+        "rain_flag": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Andreas Foth",
+          "emails": [
+            {
+              "value": "andreas.foth@uni-leipzig.de",
+              "roles": []
+            }
+          ]
+        }
+      ],
+      "datetime": "2024-09-04T20:59:55.012Z",
+      "start_datetime": "2024-08-18T06:00:00.007Z",
+      "end_datetime": "2024-09-22T11:59:50.017Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeie2zhy2rkepcqh6tc5lk75blv372rvpfnnrhsyl6efscdgmugld4a",
         "roles": [
           "data"
         ],
