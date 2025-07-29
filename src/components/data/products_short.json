@@ -13594,6 +13594,121 @@
   },
   {
     "properties": {
+      "title": "Clear-air vertical velocity during ORCESTRA retrieved from Meteosat water vapor brightness temperatures",
+      "description": "This dataset contains clear air vertical velocity retrievals over the tropical Atlantic during the ORCESTRA field campaign.\nThe retrievals are based on the methodology described in Poujol and Bony (2024)\nVertical velocity is inferred from brightness temperature in the water vapor absorption band.\nTwo channels are used: the channel at 6.2µm that sounds the upper troposphere, and the channel at 7.3µm that sounds the mid-troposphere.\nThe dataset is provided with hourly time resolution and on the native satellite grid (about 3 km horizontal resolution). Two levels are provided for the two channels.\nFor each level, the vertical pressure velocity and its standard error are provided. Also, an estimate of emission level temperature is provided and corresponds to the vertical coordinate.\nNote that emission level temperature varies in space and time.\nAn estimate of the emission level pressure is also provided but is based on interpolation with respect to a moist adiabatic temperature profile.\nTherefore, emission level temperature should be used preferentially as a vertical coordinate.\nFor further details on the retrieval method, its biases and uncertainties, refer to Poujol and Bony (2024).\n",
+      "license": "CC-BY-4.0",
+      "references": [
+        "\"Poujol and Bony (2024). Measuring Clear-Air vertical Motions from Space, AGU Advances. https://doi.org/10.1029/2024AV001267\""
+      ],
+      "platform": "MSG",
+      "mission": "ORCESTRA",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "hours since 2024-08-10 00:00:00"
+        }
+      },
+      "cube:variables": {
+        "crs": {
+          "dimensions": [],
+          "type": "data"
+        },
+        "T_em": {
+          "dimensions": [
+            "channel",
+            "time",
+            "y",
+            "x"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Air temperature at the emission level"
+        },
+        "omega": {
+          "dimensions": [
+            "channel",
+            "time",
+            "y",
+            "x"
+          ],
+          "type": "data",
+          "unit": "hPa/hr",
+          "description": "vertical velocity at the emission level"
+        },
+        "lambda": {
+          "dimensions": [
+            "channel"
+          ],
+          "type": "data",
+          "unit": "µm",
+          "description": "channel_wavelength"
+        },
+        "err_omega": {
+          "dimensions": [
+            "channel",
+            "time",
+            "y",
+            "x"
+          ],
+          "type": "data",
+          "unit": "hPa/hr",
+          "description": "Standard error on the vertical velocity at the emission level"
+        },
+        "lons": {
+          "dimensions": [
+            "y",
+            "x"
+          ],
+          "type": "data",
+          "unit": "degrees_east"
+        },
+        "p_em": {
+          "dimensions": [
+            "channel",
+            "time",
+            "y",
+            "x"
+          ],
+          "type": "data",
+          "unit": "hPa",
+          "description": "Pressure at the emission level"
+        },
+        "lats": {
+          "dimensions": [
+            "y",
+            "x"
+          ],
+          "type": "data",
+          "unit": "degrees_north"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Basile Poujol",
+          "emails": [
+            {
+              "value": "basile.poujol@lmd.ipsl.fr",
+              "roles": []
+            }
+          ]
+        }
+      ],
+      "datetime": "2024-09-04T11:30:00.000Z",
+      "start_datetime": "2024-08-10T00:00:00.000Z",
+      "end_datetime": "2024-09-29T23:00:00.000Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeiajdc7collejyzstl27bpggm5swmel5py6fl3ycefz6f55fxtskza",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
       "title": "RAPSODI Radiosonde Measurements during ORCESTRA (Level 2)",
       "description": "Vertical atmospheric profile, retrieved from atmospheric sounding attached to a helium-filled balloon.",
       "keywords": [
