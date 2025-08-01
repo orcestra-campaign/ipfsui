@@ -33,12 +33,18 @@ interface _Contact { // see: https://github.com/stac-extensions/contacts?tab=rea
 
 export type Contact = RequireAtLeastOne<_Contact, "name" | "organization">;
 
-export interface Dimension {
-  type: string;
-  axis?: "x" | "y" | "z";
-  description?: string;
-  unit?: string;
-}
+export type Dimension =
+  | {
+    type: "spatial";
+    axis: "x" | "y" | "z";
+    description?: string;
+    unit?: string;
+  }
+  | {
+    type: Exclude<string, "spatial">;
+    description?: string;
+    unit?: string;
+  };
 
 export interface Variable {
   dimensions: string[];

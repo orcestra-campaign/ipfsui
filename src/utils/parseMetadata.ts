@@ -404,17 +404,14 @@ function getDatacubeProperties(
     if (varDimensions !== undefined) {
       const attrs = variable.attrs;
       if (varDimensions.length == 1 && varDimensions[0] == varname) {
-        if (hasUnits(attrs)) {
-          if (isTimeVariable(varname, attrs)) {
-            dimensions[varname] = {
-              type: "temporal",
-              unit: attrs.units,
-              ...(hasLongName(attrs) && { description: attrs.long_name }),
-            };
-            continue;
-          }
-        }
-        if (hasAxis(attrs)) {
+        if (hasUnits(attrs) && isTimeVariable(varname, attrs)) {
+          dimensions[varname] = {
+            type: "temporal",
+            unit: attrs.units,
+            ...(hasLongName(attrs) && { description: attrs.long_name }),
+          };
+          continue;
+        } else if (hasAxis(attrs)) {
           const axis = attrs.axis.toLowerCase();
           if (["x", "y", "z"].includes(axis)) {
             dimensions[varname] = {
@@ -425,6 +422,13 @@ function getDatacubeProperties(
             };
             continue;
           }
+        } else {
+          dimensions[varname] = {
+            type: "unknown",
+            ...(hasUnits(attrs) && { unit: attrs.units }),
+            ...(hasLongName(attrs) && { description: attrs.long_name }),
+          };
+          continue;
         }
       } else {
         variables[varname] = {
