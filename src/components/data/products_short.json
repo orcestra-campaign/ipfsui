@@ -3387,6 +3387,162 @@
   },
   {
     "properties": {
+      "title": "Calibrated SMART upward irradiance at selected wavelength bands",
+      "license": "CC-BY-4.0",
+      "platform": "HALO",
+      "mission": "ORCESTRA, PERCUSION",
+      "processing:lineage": "Converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
+      "cube:dimensions": {
+        "wavelength": {
+          "type": "unknown",
+          "unit": "nm"
+        },
+        "time": {
+          "type": "temporal",
+          "unit": "seconds since 2024-08-11 11:59:34"
+        }
+      },
+      "cube:variables": {
+        "Fdw_sim": {
+          "dimensions": [
+            "wavelength",
+            "time"
+          ],
+          "type": "data",
+          "unit": "W m-2 nm-1",
+          "description": "Simulated downward Irradiance"
+        },
+        "Fup_meas": {
+          "dimensions": [
+            "wavelength",
+            "time"
+          ],
+          "type": "data",
+          "unit": "W m-2 nm-1",
+          "description": "Calibrated upward Irradiance"
+        },
+        "SZA": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Calculated solar zenith angle"
+        },
+        "SAA": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Calculated solar azimuth angle"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Kevin Wolf",
+          "emails": [
+            {
+              "value": "kevin.wolf@uni-leipzig.de",
+              "roles": []
+            }
+          ]
+        }
+      ],
+      "datetime": "2024-09-30T13:54:05.500Z",
+      "start_datetime": "2024-08-11T11:59:34.000Z",
+      "end_datetime": "2024-11-19T15:48:37.000Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeia4winn7xzqchcss3ilgoyxj2rakdzrv3eswcbol5rsqgcku34zzu",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "Calibrated SMART upward radiance at selected wavelength bands",
+      "license": "CC-BY-4.0",
+      "platform": "HALO",
+      "mission": "ORCESTRA, PERCUSION",
+      "processing:lineage": "Converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
+      "cube:dimensions": {
+        "wavelength": {
+          "type": "unknown",
+          "unit": "nm"
+        },
+        "time": {
+          "type": "temporal",
+          "unit": "seconds since 2024-08-11 11:59:34"
+        }
+      },
+      "cube:variables": {
+        "Fdw_sim": {
+          "dimensions": [
+            "wavelength",
+            "time"
+          ],
+          "type": "data",
+          "unit": "W m-2 nm-1",
+          "description": "Simulated downward Irradiance"
+        },
+        "SZA": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Calculated solar zenith angle"
+        },
+        "SAA": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Calculated solar azimuth angle"
+        },
+        "Iup_meas": {
+          "dimensions": [
+            "wavelength",
+            "time"
+          ],
+          "type": "data",
+          "unit": "W m-2 nm-1 sr-1",
+          "description": "Calibrated upward Radiance"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Kevin Wolf",
+          "emails": [
+            {
+              "value": "kevin.wolf@uni-leipzig.de",
+              "roles": []
+            }
+          ]
+        }
+      ],
+      "datetime": "2024-09-30T13:54:05.500Z",
+      "start_datetime": "2024-08-11T11:59:34.000Z",
+      "end_datetime": "2024-11-19T15:48:37.000Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeig34sqju7y3vp7qeughc2bhr6lnjd3rcr7xm7az5duj74qybozlr4",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
       "title": "BEACH dropsonde dataset (Level 3)",
       "description": "This dataset is the Level 3 BEACH dataset. It contains quality controlled dropsonde data from the ORCESTRA field campaign with a common altitude dimension. All thermodynamic and dynamic variables are (re-)calculated consistently within the dataset and integrated quantities such as integrated water vapour are added. As such, the Level 3 dataset is the core dataset of BEACH and should be the default for any analysis. It is based on BEACH Level 2 datasets of single sonde profiles. Aggregated QC information can be found in the `sonde_qc` variables and further details are stored in the separate Level_3_QC dataset or respective Level 2 datasets. For analyses using the time, refer to the BEACH Level 2. Circle products, like mesoscale divergence and vertical velocity can be found in BEACH Level 4.",
       "keywords": [
