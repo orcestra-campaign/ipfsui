@@ -8,6 +8,29 @@ to learn more.
 Learn more about the recommended Project Setup and IDE Support in the
 [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
 
+## local development
+
+We use [deno](https://docs.deno.com/) as JavaScript runtime.
+
+Run the following command to install all the required dependencies:
+```bash
+deno install --allow-scripts
+```
+
+You can then run your own local development server:
+```bash
+deno run dev
+```
+
+Before opening a pull request, make sure that your code changes pass the Deno format check:
+```bash
+deno fmt --check src/
+```
+
+and that the project can be build:
+```bash
+deno run build
+```
 ## indexing
 
 In order to display the main page quickly, we have to generate an index of the
