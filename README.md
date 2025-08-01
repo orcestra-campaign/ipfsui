@@ -26,6 +26,7 @@ Before opening a pull request, make sure that your code changes pass the Deno fo
 ```bash
 deno fmt --check src/
 ```
+_You can run `deno fmt src/` to auto-format the whole code base._
 
 and that the project can be build:
 ```bash
