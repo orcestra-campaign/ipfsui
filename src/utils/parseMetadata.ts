@@ -413,8 +413,7 @@ function getDatacubeProperties(
             };
             continue;
           }
-        }
-        if (hasAxis(attrs)) {
+        } else if (hasAxis(attrs)) {
           const axis = attrs.axis.toLowerCase();
           if (["x", "y", "z"].includes(axis)) {
             dimensions[varname] = {
