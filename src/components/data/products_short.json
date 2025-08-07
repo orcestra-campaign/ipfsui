@@ -2512,6 +2512,308 @@
   },
   {
     "properties": {
+      "title": "MIRA Cloud Radar Moments from the HALO Microwave Package (Level 2)",
+      "description": "Gridded, calibrated radar reflectivity and platform-motion-corrected doppler velocity.",
+      "keywords": [
+        "Cloud Radar",
+        "HALO",
+        "ORCESTRA",
+        "PERCUSION",
+        "Tropical Atlantic",
+        "EarthCARE"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "10.5194/amt-12-1815-2019",
+        "10.5194/essd-13-5545-2021"
+      ],
+      "platform": "HALO",
+      "mission": "PERCUSION",
+      "processing:lineage": "2025-07-16T19:13:48Z: processed from raw data by mira_to_L2a.py (pyCARE package), 2025-07-18T20:38:01Z: converted to Zarr by Florian Ewald (florian.ewald@dlr.de)",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "seconds since 1970-01-01T00:00:00+00:00",
+          "description": "Time"
+        },
+        "altitude": {
+          "type": "unknown",
+          "unit": "m",
+          "description": "Altitude"
+        }
+      },
+      "cube:variables": {
+        "time_original": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01",
+          "description": "Time"
+        },
+        "latitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_north",
+          "description": "Latitude"
+        },
+        "longitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_east",
+          "description": "Longitude"
+        },
+        "platform_altitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Altitude"
+        },
+        "platform_roll": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "radian",
+          "description": "Roll angle"
+        },
+        "platform_pitch": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "radian",
+          "description": "Pitch angle"
+        },
+        "platform_yaw": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "radian",
+          "description": "Yaw angle"
+        },
+        "radar_off_nadir_angle": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Angle of incidence"
+        },
+        "radar_constant": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "mm6 m-3",
+          "description": "Radar constant"
+        },
+        "radar_constant_correction_factor": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "",
+          "description": "Radar constant correction factor "
+        },
+        "radar_signal_to_noise": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "",
+          "description": "Radar signal to noise ratio as determined with the Hildebrand and Sekhorn method"
+        },
+        "radar_instrument_mask": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "",
+          "description": "Radar instrument mask"
+        },
+        "radar_reflectivity": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "mm6 m-3",
+          "description": "Equivalent reflectivity factor"
+        },
+        "radar_linear_depolarization_ratio": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "",
+          "description": "Linear depolarization ratio"
+        },
+        "radar_cross_correlation": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "",
+          "description": "Cross-correlation coefficient"
+        },
+        "radar_differential_phase": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "radian",
+          "description": "Differential phase"
+        },
+        "radar_gaseous_attenuation": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "",
+          "description": "Path integrated gaseous attenuation (PIA)"
+        },
+        "radar_doppler_velocity": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Doppler velocity (uncorrected)"
+        },
+        "radar_doppler_velocity_width": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Doppler velocity width"
+        },
+        "radar_doppler_velocity_skewness": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "",
+          "description": "Doppler velocity skewness"
+        },
+        "radar_doppler_velocity_peaks": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "",
+          "description": "Doppler velocity peaks"
+        },
+        "radar_doppler_velocity_corrected_no_wind": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Doppler velocity (corrected, no h-wind)"
+        },
+        "radar_doppler_velocity_corrected": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Doppler velocity (corrected)"
+        },
+        "model_wind_u": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Eastward wind component"
+        },
+        "model_wind_v": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Northward wind component"
+        },
+        "model_wind_w": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Upward air velocity"
+        },
+        "model_air_pressure": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "Pa",
+          "description": "Air pressure"
+        },
+        "model_air_temperature": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Air temperature"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Florian Ewald",
+          "emails": [
+            {
+              "value": "florian.ewald@dlr.de",
+              "roles": []
+            }
+          ]
+        }
+      ],
+      "datetime": "2024-09-29T12:41:48.870Z",
+      "start_datetime": "2024-08-09T09:52:05.097Z",
+      "end_datetime": "2024-11-19T15:31:32.644Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeifviubhn63dcbl3xdfghzc22k62qpgob6yuhccrtgemas2ghep74a",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
       "title": "Integrated Water Vapor Retrieval from the K-Band and W-Band Microwave Radiometers",
       "description": "This dataset contains retrievals of integrated water vapor (IWV) from the KV-band microwave radiometer onboard the HALO aircraft during the ORCESTRA campaign. The retrieval is based on a linear regression model and should not be used for quantitative analysis. The purpose of this data was to provide an estimate of IWV during the flights. The processing includes formatting the data, adding georeference information, filtering for altitudes above 4800 m and adding a land-sea mask.",
       "keywords": [
