@@ -14598,6 +14598,192 @@
   },
   {
     "properties": {
+      "title": "RAPSODI Oscillating Radiosonde Measurements during ORCESTRA (Level 1)",
+      "description": "Radiosondes launched from R/V Meteor during intense rain exhibited repeated ascent–descent cycles near the freezing level (~5000 m) before ultimately reaching burst altitude. One case began above the freezing level. A plausible explanation is temporary icing on a moistened balloon that melts during descent, though a strong stable layer could also contribute. Similar oscillatory behavior has been reported previously.",
+      "keywords": [
+        "ORCESTRA",
+        "RAPSODI",
+        "Radiosonde Profiles",
+        "Sounding",
+        "RV Meteor"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "https://github.com/mariuswinkler/Winkler_et_al_RAPSODI_Data_paper_2025.git"
+      ],
+      "platform": "RV Meteor",
+      "mission": "ORCESTRA; BOW-TIE; PICCOLO",
+      "processing:lineage": "Processed from Vaisala .mwx files using 00_Process_Oscillating_mwx_files.py; aligned with functions from pysonde",
+      "cube:dimensions": {
+        "sample": {
+          "type": "unknown",
+          "description": "Individual sounding level"
+        },
+        "sounding": {
+          "type": "unknown"
+        }
+      },
+      "cube:variables": {
+        "alt": {
+          "dimensions": [
+            "sounding",
+            "sample"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "ellipsoidal height (WGS84, from GPS)"
+        },
+        "dp": {
+          "dimensions": [
+            "sounding",
+            "sample"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "dew point temperature"
+        },
+        "dz": {
+          "dimensions": [
+            "sounding",
+            "sample"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "ascent/descent rate of measuring device"
+        },
+        "flight_time": {
+          "dimensions": [
+            "sounding",
+            "sample"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 2024-08-18 01:51:12.216480600",
+          "description": "time at sample level"
+        },
+        "lat": {
+          "dimensions": [
+            "sounding",
+            "sample"
+          ],
+          "type": "data",
+          "unit": "degree_north",
+          "description": "latitude"
+        },
+        "launch_lat": {
+          "dimensions": [
+            "sounding"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "latitude"
+        },
+        "launch_lon": {
+          "dimensions": [
+            "sounding"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "longitude"
+        },
+        "lon": {
+          "dimensions": [
+            "sounding",
+            "sample"
+          ],
+          "type": "data",
+          "unit": "degree_east",
+          "description": "longitude"
+        },
+        "mr": {
+          "dimensions": [
+            "sounding",
+            "sample"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "water vapor mixing ratio"
+        },
+        "p": {
+          "dimensions": [
+            "sounding",
+            "sample"
+          ],
+          "type": "data",
+          "unit": "Pa",
+          "description": "pressure"
+        },
+        "release_time": {
+          "dimensions": [
+            "sounding"
+          ],
+          "type": "data",
+          "unit": "milliseconds since 2024-08-18 01:50:36.700000",
+          "description": "time at which the radiosonde was released"
+        },
+        "rh": {
+          "dimensions": [
+            "sounding",
+            "sample"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "relative humidity"
+        },
+        "ta": {
+          "dimensions": [
+            "sounding",
+            "sample"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "air temperature"
+        },
+        "wdir": {
+          "dimensions": [
+            "sounding",
+            "sample"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "wind direction"
+        },
+        "wspd": {
+          "dimensions": [
+            "sounding",
+            "sample"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "wind speed"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Marius Winkler",
+          "emails": [
+            {
+              "value": "marius.winkler@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
+        }
+      ],
+      "datetime": "2024-08-30T07:44:18.848Z",
+      "start_datetime": "2024-08-18T01:50:36.700Z",
+      "end_datetime": "2024-09-11T13:38:00.996Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeifnrhvk6vn4ha6pxunpvx7ftltdqjfp3iqcmytxug5apsx3emxo5y",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
       "title": "RAPSODI Radiosonde Measurements during ORCESTRA (Level 2)",
       "description": "Vertical atmospheric profile, retrieved from atmospheric sounding attached to a helium-filled balloon.",
       "keywords": [
@@ -14615,8 +14801,14 @@
       ],
       "platform": "INMG, RV Meteor, BCO",
       "mission": "ORCESTRA, PERCUSION, BOW-TIE, PICCOLO, SCORE, MAESTRO",
-      "processing:lineage": "Meteomodem Eoscan Software (2.1.241218); Vaisala Sounding System MW41 (2.21.0.7); Quality control with pysonde (0.0.7); Level 1 processing with pysonde (0.0.7); Level 2 processing with pysonde (0.0.7) on Tue Apr  8 15:35:11 2025.",
+      "processing:lineage": "Meteomodem Eoscan Software (2.1.241218); Vaisala Sounding System MW41 (2.21.0.7); Quality control with pysonde (0.0.7); Level 1 processing with pysonde (0.0.7); Level 2 processing with pysonde (0.0.7) on Sun Aug 17 14:01:20 2025.",
       "cube:dimensions": {
+        "alt": {
+          "type": "spatial",
+          "axis": "z",
+          "unit": "m",
+          "description": "altitude height above reference ellipsoid (WGS84)"
+        },
         "launch_time": {
           "type": "temporal",
           "unit": "seconds since 2020-01-01",
@@ -14640,19 +14832,20 @@
           "type": "data",
           "unit": "1"
         },
-        "alt_bnds": {
-          "dimensions": [
-            "alt",
-            "nv"
-          ],
-          "type": "data"
-        },
         "ascent_flag": {
           "dimensions": [
             "launch_time"
           ],
           "type": "data",
           "description": "indicator of vertical flight direction"
+        },
+        "bin_average_time": {
+          "dimensions": [
+            "launch_time",
+            "alt"
+          ],
+          "type": "data",
+          "description": "bin-average time"
         },
         "dp": {
           "dimensions": [
@@ -14672,47 +14865,39 @@
           "unit": "m/s",
           "description": "ascent/descent rate of measuring device"
         },
-        "flight_lat": {
+        "height_ptu": {
           "dimensions": [
             "launch_time",
             "alt"
           ],
           "type": "data",
-          "unit": "degrees_north",
-          "description": "latitude"
+          "unit": "m",
+          "description": "geopotential height from PTU (barometric)"
         },
-        "flight_lon": {
-          "dimensions": [
-            "launch_time",
-            "alt"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "longitude"
-        },
-        "flight_time": {
-          "dimensions": [
-            "launch_time",
-            "alt"
-          ],
-          "type": "data",
-          "unit": "nanoseconds since 2024-08-09 17:47:55",
-          "description": "time at pressure level"
-        },
-        "launch_lat": {
+        "iwv": {
           "dimensions": [
             "launch_time"
           ],
           "type": "data",
-          "unit": "degrees_north",
-          "description": "latitude"
+          "unit": "kg m-2",
+          "description": "Integrated water vapor"
         },
-        "launch_lon": {
+        "lat": {
           "dimensions": [
-            "launch_time"
+            "launch_time",
+            "alt"
           ],
           "type": "data",
-          "unit": "degrees_east",
+          "unit": "degree_north",
+          "description": "latitude"
+        },
+        "lon": {
+          "dimensions": [
+            "launch_time",
+            "alt"
+          ],
+          "type": "data",
+          "unit": "degree_east",
           "description": "longitude"
         },
         "m_gps": {
@@ -14737,7 +14922,7 @@
             "alt"
           ],
           "type": "data",
-          "unit": "kg/kg",
+          "unit": "1",
           "description": "water vapor mixing ratio"
         },
         "p": {
@@ -14762,7 +14947,7 @@
             "alt"
           ],
           "type": "data",
-          "unit": "kg/kg",
+          "unit": "1",
           "description": "specific humidity"
         },
         "rh": {
@@ -14788,7 +14973,7 @@
           ],
           "type": "data",
           "unit": "K",
-          "description": "dry bulb temperature"
+          "description": "air temperature"
         },
         "theta": {
           "dimensions": [
@@ -14856,212 +15041,13 @@
           ]
         }
       ],
-      "datetime": "2024-09-03T22:38:27.772Z",
+      "datetime": "2024-09-03T22:25:17.522Z",
       "start_datetime": "2024-08-09T17:47:55.000Z",
-      "end_datetime": "2024-09-29T03:29:00.544Z"
+      "end_datetime": "2024-09-29T03:02:40.044Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeigensqyqxfyaxgyjhwn6ytdpi3i4sxbtffd4oc27zbimyro4hygjq",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "RAPSODI Oscillating Radiosonde Measurements during ORCESTRA (Level 1)",
-      "description": "Vertical atmospheric profile, retrieved from atmospheric sounding attached to a helium-filled balloon.",
-      "keywords": [
-        "ORCESTRA",
-        "RAPSODI",
-        "Radiosonde Profiles",
-        "Sounding",
-        "RV Meteor"
-      ],
-      "license": "CC-BY-4.0",
-      "references": [
-        "https://github.com/observingClouds/pysonde"
-      ],
-      "platform": "RV Meteor",
-      "mission": "ORCESTRA, BOW-TIE, PICCOLO",
-      "processing:lineage": "Vaisala Sounding System MW41 (2.21.0.7); Quality control with pysonde (0.0.7); Level 1 processing with pysonde (0.0.7) on Wed Apr 2 23:18:28 2025.",
-      "cube:dimensions": {
-        "launch_time": {
-          "type": "temporal",
-          "unit": "seconds since 2020-01-01",
-          "description": "time at which the sounding started"
-        }
-      },
-      "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "launch_time",
-            "level"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "geopotential height retrieved from PTU"
-        },
-        "alt_WGS84": {
-          "dimensions": [
-            "launch_time",
-            "level"
-          ],
-          "type": "data",
-          "unit": "m"
-        },
-        "dp": {
-          "dimensions": [
-            "launch_time",
-            "level"
-          ],
-          "type": "data",
-          "unit": "K",
-          "description": "dew point temperature"
-        },
-        "dz": {
-          "dimensions": [
-            "launch_time",
-            "level"
-          ],
-          "type": "data",
-          "unit": "m/s",
-          "description": "ascent/descent rate of measuring device"
-        },
-        "flight_lat": {
-          "dimensions": [
-            "launch_time",
-            "level"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "latitude"
-        },
-        "flight_lon": {
-          "dimensions": [
-            "launch_time",
-            "level"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "longitude"
-        },
-        "flight_time": {
-          "dimensions": [
-            "launch_time",
-            "level"
-          ],
-          "type": "data",
-          "unit": "nanoseconds since 1970-01-01",
-          "description": "time at pressure level"
-        },
-        "launch_lat": {
-          "dimensions": [
-            "launch_time"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "latitude"
-        },
-        "launch_lon": {
-          "dimensions": [
-            "launch_time"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "longitude"
-        },
-        "mr": {
-          "dimensions": [
-            "launch_time",
-            "level"
-          ],
-          "type": "data",
-          "unit": "kg/kg",
-          "description": "water vapor mixing ratio"
-        },
-        "p": {
-          "dimensions": [
-            "launch_time",
-            "level"
-          ],
-          "type": "data",
-          "unit": "Pa",
-          "description": "pressure"
-        },
-        "rh": {
-          "dimensions": [
-            "launch_time",
-            "level"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "relative humidity"
-        },
-        "sounding": {
-          "dimensions": [
-            "launch_time"
-          ],
-          "type": "data"
-        },
-        "ta": {
-          "dimensions": [
-            "launch_time",
-            "level"
-          ],
-          "type": "data",
-          "unit": "K",
-          "description": "dry bulb temperature"
-        },
-        "wdir": {
-          "dimensions": [
-            "launch_time",
-            "level"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "wind direction"
-        },
-        "wspd": {
-          "dimensions": [
-            "launch_time",
-            "level"
-          ],
-          "type": "data",
-          "unit": "knots",
-          "description": "wind speed"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Marius Winkler",
-          "emails": [
-            {
-              "value": "marius.winkler@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Marius Rixen",
-          "emails": [
-            {
-              "value": "marius.rixen@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-08-30T07:44:22.177Z",
-      "start_datetime": "2024-08-18T01:50:43.654Z",
-      "end_datetime": "2024-09-11T13:38:00.700Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeiblbuhg5bctggjxtmsfhere2wurlxqxsrheyfcjskl3qngkc6tlsu",
+        "href": "ipfs://bafybeiepiitmxcsvggk3gyd2az3vsr7u2rb2rtcikoy3kwksxpfj5krzs4",
         "roles": [
           "data"
         ],
