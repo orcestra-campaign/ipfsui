@@ -14620,7 +14620,8 @@
           "description": "Individual sounding level"
         },
         "sounding": {
-          "type": "unknown"
+          "type": "unknown",
+          "description": "sounding identifier"
         }
       },
       "cube:variables": {
@@ -14631,7 +14632,7 @@
           ],
           "type": "data",
           "unit": "m",
-          "description": "ellipsoidal height (WGS84, from GPS)"
+          "description": "ellipsoidal vertical position (WGS84, from GPS)"
         },
         "dp": {
           "dimensions": [
@@ -14648,7 +14649,7 @@
             "sample"
           ],
           "type": "data",
-          "unit": "m/s",
+          "unit": "m s-1",
           "description": "ascent/descent rate of measuring device"
         },
         "flight_time": {
@@ -14674,16 +14675,16 @@
             "sounding"
           ],
           "type": "data",
-          "unit": "degrees_north",
-          "description": "latitude"
+          "unit": "degree_north",
+          "description": "launch latitude"
         },
         "launch_lon": {
           "dimensions": [
             "sounding"
           ],
           "type": "data",
-          "unit": "degrees_east",
-          "description": "longitude"
+          "unit": "degree_east",
+          "description": "launch longitude"
         },
         "lon": {
           "dimensions": [
@@ -14710,7 +14711,7 @@
           ],
           "type": "data",
           "unit": "Pa",
-          "description": "pressure"
+          "description": "air pressure"
         },
         "release_time": {
           "dimensions": [
@@ -14745,7 +14746,7 @@
           ],
           "type": "data",
           "unit": "degree",
-          "description": "wind direction"
+          "description": "wind from direction"
         },
         "wspd": {
           "dimensions": [
@@ -14753,7 +14754,7 @@
             "sample"
           ],
           "type": "data",
-          "unit": "m/s",
+          "unit": "m s-1",
           "description": "wind speed"
         }
       },
@@ -14766,6 +14767,24 @@
               "roles": []
             }
           ]
+        },
+        {
+          "name": "Karl-Hermann Wieners",
+          "emails": [
+            {
+              "value": "karl-hermann.wieners@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Marius Rixen",
+          "emails": [
+            {
+              "value": "marius.rixen@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
         }
       ],
       "datetime": "2024-08-30T07:44:18.848Z",
@@ -14774,7 +14793,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeifnrhvk6vn4ha6pxunpvx7ftltdqjfp3iqcmytxug5apsx3emxo5y",
+        "href": "ipfs://bafybeiad2hzz36nrc5lnmlscb6zpaq5wqufoemzinjeub2pgkjq63eqr7m",
         "roles": [
           "data"
         ],
@@ -14822,7 +14841,8 @@
             "alt"
           ],
           "type": "data",
-          "unit": "1"
+          "unit": "1",
+          "description": "number of observations (GPS)"
         },
         "N_ptu": {
           "dimensions": [
@@ -14830,7 +14850,8 @@
             "alt"
           ],
           "type": "data",
-          "unit": "1"
+          "unit": "1",
+          "description": "number of observations (PTU)"
         },
         "ascent_flag": {
           "dimensions": [
@@ -14845,6 +14866,7 @@
             "alt"
           ],
           "type": "data",
+          "unit": "s",
           "description": "bin-average time"
         },
         "dp": {
@@ -14891,6 +14913,22 @@
           "unit": "degree_north",
           "description": "latitude"
         },
+        "launch_lat": {
+          "dimensions": [
+            "launch_time"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "launch latitude"
+        },
+        "launch_lon": {
+          "dimensions": [
+            "launch_time"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "launch longitude"
+        },
         "lon": {
           "dimensions": [
             "launch_time",
@@ -14906,6 +14944,7 @@
             "alt"
           ],
           "type": "data",
+          "unit": "1",
           "description": "bin method"
         },
         "m_ptu": {
@@ -14914,6 +14953,7 @@
             "alt"
           ],
           "type": "data",
+          "unit": "1",
           "description": "bin method"
         },
         "mr": {
@@ -15047,7 +15087,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeiepiitmxcsvggk3gyd2az3vsr7u2rb2rtcikoy3kwksxpfj5krzs4",
+        "href": "ipfs://bafybeihd6kyscsf7vzjnlivdtdd4fh5epuqqfqk7ldj6d2k634fuse2lay",
         "roles": [
           "data"
         ],
