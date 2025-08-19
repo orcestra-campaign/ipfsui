@@ -10,7 +10,6 @@ import type { LooseGlobalAttrs } from "./dsAttrConvention.ts";
 import {
   decodeTime,
   hasAxis,
-  hasLongName,
   hasUnits,
   isLatitudeVariable,
   isLongitudeVariable,
@@ -391,6 +390,14 @@ async function getTimeBounds(
   }
 }
 
+// @ts-expect-error too lazy to think of types
+function getDescription(attrs): string | undefined {
+  const name = attrs?.long_name ?? attrs?.standard_name;
+  const desc = attrs?.description;
+
+  return (name && desc) ? `${name}; ${desc}` : name ?? desc;
+}
+
 function getDatacubeProperties(
   ds: DatasetMetadata,
 ): {
@@ -408,7 +415,8 @@ function getDatacubeProperties(
           dimensions[varname] = {
             type: "temporal",
             unit: attrs.units,
-            ...(hasLongName(attrs) && { description: attrs.long_name }),
+            ...(getDescription(attrs) &&
+              { description: getDescription(attrs)! }),
           };
           continue;
         } else if (hasAxis(attrs)) {
@@ -418,7 +426,8 @@ function getDatacubeProperties(
               type: "spatial",
               axis: axis as "x" | "y" | "z",
               ...(hasUnits(attrs) && { unit: attrs.units }),
-              ...(hasLongName(attrs) && { description: attrs.long_name }),
+              ...(getDescription(attrs) &&
+                { description: getDescription(attrs)! }),
             };
             continue;
           }
@@ -426,7 +435,8 @@ function getDatacubeProperties(
           dimensions[varname] = {
             type: "unknown",
             ...(hasUnits(attrs) && { unit: attrs.units }),
-            ...(hasLongName(attrs) && { description: attrs.long_name }),
+            ...(getDescription(attrs) &&
+              { description: getDescription(attrs)! }),
           };
           continue;
         }
@@ -435,7 +445,7 @@ function getDatacubeProperties(
           dimensions: varDimensions,
           type: "data",
           ...(hasUnits(attrs) && { unit: attrs.units }),
-          ...(hasLongName(attrs) && { description: attrs.long_name }),
+          ...(getDescription(attrs) && { description: getDescription(attrs)! }),
         };
         continue;
       }
