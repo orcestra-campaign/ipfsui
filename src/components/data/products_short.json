@@ -3862,7 +3862,7 @@
       ],
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION, MAESTRO",
-      "processing:lineage": "Level 1 ASPEN processing with Aspen V4.0.4 \nLevel 2 quality control with pydropsonde 0.2.2.post119.dev0+c1b65ff \nLevel 3 processing with pydropsonde 0.2.2.post119.dev0+c1b65ff \nLevel 3 concatenation with pydropsonde 0.2.2.post119.dev0+c1b65ff \n",
+      "processing:lineage": "Level 1 ASPEN processing with Aspen V4.0.4 \nLevel 2 quality control with pydropsonde 0.4.0.post22.dev0+494112a \nLevel 3 processing with pydropsonde 0.4.0.post22.dev0+494112a \nLevel 3 concatenation with pydropsonde 0.4.0.post22.dev0+494112a \n",
       "cube:dimensions": {
         "altitude": {
           "type": "spatial",
@@ -3872,37 +3872,13 @@
         }
       },
       "cube:variables": {
-        "aircraft_latitude": {
-          "dimensions": [
-            "sonde"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "aircraft latitude at launch"
-        },
-        "aircraft_longitude": {
-          "dimensions": [
-            "sonde"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "aircraft longitude at launch"
-        },
-        "aircraft_msl_altitude": {
-          "dimensions": [
-            "sonde"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "aircraft altitude at launch"
-        },
         "bin_average_time": {
           "dimensions": [
             "sonde",
             "altitude"
           ],
           "type": "data",
-          "unit": "nanoseconds since 2000-01-01",
+          "unit": "microseconds since 2024-08-09T14:27:28.259998+00:00",
           "description": "time after binning in altitude"
         },
         "flight_id": {
@@ -3929,12 +3905,36 @@
           "unit": "degrees_north",
           "description": "latitude"
         },
+        "launch_altitude": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "aircraft altitude at launch"
+        },
+        "launch_lat": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "aircraft latitude at launch"
+        },
+        "launch_lon": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "aircraft longitude at launch"
+        },
         "launch_time": {
           "dimensions": [
             "sonde"
           ],
           "type": "data",
-          "unit": "nanoseconds since 2000-01-01",
+          "unit": "microseconds since 2024-08-09T14:27:28+00:00",
           "description": "dropsonde launch time"
         },
         "lon": {
@@ -4126,7 +4126,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeigimcxh5lpb6llnxcmxh56jzhxkpkxsgwj4cltqq2ajd3qyvplpee",
+        "href": "ipfs://bafybeiciow4gshd4wsgbtoaqwg7xbnn4w5xbiphlkggt6deyewxkd2zemi",
         "roles": [
           "data"
         ],
@@ -4154,7 +4154,7 @@
       ],
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION, MAESTRO",
-      "processing:lineage": "Level 1 ASPEN processing with Aspen V4.0.4 \nLevel 2 quality control with pydropsonde 0.2.2.post119.dev0+c1b65ff \nLevel 3 processing with pydropsonde 0.2.2.post119.dev0+c1b65ff \n",
+      "processing:lineage": "Level 1 ASPEN processing with Aspen V4.0.4 \nLevel 2 quality control with pydropsonde 0.4.0.post22.dev0+494112a \nLevel 3 processing with pydropsonde 0.4.0.post22.dev0+494112a \n",
       "cube:dimensions": {
         "altitude": {
           "type": "spatial",
@@ -4164,30 +4164,6 @@
         }
       },
       "cube:variables": {
-        "aircraft_latitude": {
-          "dimensions": [
-            "sonde"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "aircraft latitude at launch"
-        },
-        "aircraft_longitude": {
-          "dimensions": [
-            "sonde"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "aircraft longitude at launch"
-        },
-        "aircraft_msl_altitude": {
-          "dimensions": [
-            "sonde"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "aircraft altitude at launch"
-        },
         "altitude_below_aircraft": {
           "dimensions": [
             "sonde"
@@ -4220,12 +4196,36 @@
           "unit": "1",
           "description": "Number of values per bin for lat"
         },
+        "launch_altitude": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "aircraft altitude at launch"
+        },
+        "launch_lat": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "aircraft latitude at launch"
+        },
+        "launch_lon": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "aircraft longitude at launch"
+        },
         "launch_time": {
           "dimensions": [
             "sonde"
           ],
           "type": "data",
-          "unit": "nanoseconds since 2000-01-01",
+          "unit": "microseconds since 2024-08-09T14:27:28+00:00",
           "description": "dropsonde launch time"
         },
         "p_N_qc": {
@@ -4435,7 +4435,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeiclohogcuwxzl4kbpedrthxewfckiccsh3wnrta3n4gonah2np6ua",
+        "href": "ipfs://bafybeicxaa5fsrglog3qrc7xp64zgutfqjiin7l7pjx5yl7wmlyrqofclq",
         "roles": [
           "data"
         ],
@@ -4462,7 +4462,7 @@
       ],
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION, MAESTRO",
-      "processing:lineage": "Level 1 ASPEN processing with Aspen V4.0.4 \nLevel 2 quality control with pydropsonde 0.2.2.post119.dev0+c1b65ff \nLevel 3 processing with pydropsonde 0.2.2.post119.dev0+c1b65ff \nLevel 3 concatenation with pydropsonde 0.2.2.post119.dev0+c1b65ff \nLevel 4 computation with pydropsonde 0.2.2.post119.dev0+c1b65ff \n",
+      "processing:lineage": "Level 1 ASPEN processing with Aspen V4.0.4 \nLevel 2 quality control with pydropsonde 0.4.0.post22.dev0+494112a \nLevel 3 processing with pydropsonde 0.4.0.post22.dev0+494112a \nLevel 3 concatenation with pydropsonde 0.4.0.post22.dev0+494112a \nLevel 4 computation with pydropsonde 0.4.0.post22.dev0+494112a \n",
       "cube:dimensions": {
         "altitude": {
           "type": "spatial",
@@ -4472,30 +4472,6 @@
         }
       },
       "cube:variables": {
-        "aircraft_latitude": {
-          "dimensions": [
-            "sonde"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "aircraft latitude at launch"
-        },
-        "aircraft_longitude": {
-          "dimensions": [
-            "sonde"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "aircraft longitude at launch"
-        },
-        "aircraft_msl_altitude": {
-          "dimensions": [
-            "sonde"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "aircraft altitude at launch"
-        },
         "circle_altitude": {
           "dimensions": [
             "circle"
@@ -4540,7 +4516,7 @@
             "circle"
           ],
           "type": "data",
-          "unit": "nanoseconds since 2000-01-01",
+          "unit": "microseconds since 2024-08-11T14:45:42.500000+00:00",
           "description": "circle_time"
         },
         "div": {
@@ -4589,12 +4565,36 @@
           ],
           "type": "data"
         },
+        "launch_altitude": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "aircraft altitude at launch"
+        },
+        "launch_lat": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "aircraft latitude at launch"
+        },
+        "launch_lon": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "aircraft longitude at launch"
+        },
         "launch_time": {
           "dimensions": [
             "sonde"
           ],
           "type": "data",
-          "unit": "nanoseconds since 2000-01-01",
+          "unit": "microseconds since 2024-08-11T14:17:01+00:00",
           "description": "dropsonde launch time"
         },
         "omega": {
@@ -5160,7 +5160,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeifr5jfsv4g4ee6q7ml4bqrjt3mrxi27hwp7h4fzw6prbzm63fzali",
+        "href": "ipfs://bafybeiadtte5suphtlfq7r6vq5acuhz2n2ov3uaxjdbc7qw2n2m7nu4ktu",
         "roles": [
           "data"
         ],
@@ -7821,6 +7821,136 @@
     "assets": {
       "data": {
         "href": "ipfs://bafybeie754xlrs75yw2vnqrneuh23vsalzagfputvjnbqnsi4fvyjjtfrq",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "X-band Radar surface derived currents M203",
+      "description": "Radar derived surface currents, based in linear waves dispersion relation properties. The retrieved currents  are based on the frequency shifts observed by the radar within the wave field observations.A Helmholtz-Zentrum Hereon marine X-band radar was installed in RV Meteorfrom August 10th 2024 to March 17th 2025. An external GPS was also installed to geolocate the radar backscatter-Intensity data. The radar was equipped with a 7.5' (2.3 m) wide antenna with vertical polarization in transmit and receive (VV) and operated in short pulse mode with a pulse duration of 50 to 70 ns, a pulse repetition frequency of 2000 Hz, and a nominal transmitted peak power of 12 kW. These settings yield a nominal resolution at the -3 dB level of 7.5 to 10.5 m and about 1° in range and azimuth, respectively. The recieved signal was digitized at 40 MHz with 1504 sampled range cells yielding a spatial sampling distance of 3.75 m, and a maximum range of roughly 5640 km. The radar was scheduled to continuously record data in the standard scanning mode, that is at an antenna rotation period of roughly 2 seconds. The radar was operated as needed, based on the Meteor crew's requirements. During the first two weeks, some data was lost due to hard drive storage failures. That issue was resolved, and the remaining data gaps are due to intentional shutdowns requested by the crew.",
+      "license": "CC-BY-4.0",
+      "platform": "RV METEOR",
+      "mission": "ORCESTRA, BOW-TIE",
+      "processing:lineage": "Original dataset created by Ruben Carrasco (ruben.carrasco@hereon.de) on 20250903T155103Z; Converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
+      "cube:dimensions": {},
+      "cube:variables": {
+        "crs": {
+          "dimensions": [],
+          "type": "data"
+        },
+        "eastward_sea_water_velocity": {
+          "dimensions": [
+            "measurement"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "eastward component of the near surface current velocity"
+        },
+        "latitude": {
+          "dimensions": [
+            "measurement"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "latitude_of_surface_currents_measurement"
+        },
+        "longitude": {
+          "dimensions": [
+            "measurement"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "longitude_of_surface_currents_measurement"
+        },
+        "measurement_quality": {
+          "dimensions": [
+            "measurement"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "measurement_quality"
+        },
+        "n_measurment": {
+          "dimensions": [
+            "measurement"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "n_measurements"
+        },
+        "n_radar_file": {
+          "dimensions": [
+            "measurement"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "n_radar_file"
+        },
+        "northward_sea_water_velocity": {
+          "dimensions": [
+            "measurement"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "northward component of the near surface current velocity"
+        },
+        "signal_to_noise_ratio_density": {
+          "dimensions": [
+            "measurement"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "signal_to_noise_ratio_density"
+        },
+        "time": {
+          "dimensions": [
+            "measurement"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01",
+          "description": "number of seconds"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Jan Boedewadt",
+          "emails": [
+            {
+              "value": "",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Ruben Carrasco",
+          "emails": [
+            {
+              "value": "ruben.carrasco@hereon.de",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Jochen Horstmann",
+          "emails": [
+            {
+              "value": "",
+              "roles": []
+            }
+          ]
+        }
+      ],
+      "datetime": "2024-09-04T18:05:52.000Z",
+      "start_datetime": "2024-08-16T19:35:28.000Z",
+      "end_datetime": "2024-09-23T16:36:16.000Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeig3znybjnw6tzr5ek6acavwmkvd6rl7bo6mpbbfhkhweq5oexs3ja",
         "roles": [
           "data"
         ],
