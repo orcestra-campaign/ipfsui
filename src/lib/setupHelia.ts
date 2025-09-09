@@ -20,7 +20,7 @@ async function configureLocalHelia(gateway: string): Promise<Helia> {
     ],
     routers: [
       httpGatewayRouting({
-        gateways: [gateway],
+        gateways: [gateway, "https://latest.orcestra-campaign.org"],
       }),
       delegatedHTTPRouting("https://delegated-ipfs.dev"),
       httpGatewayRouting({
