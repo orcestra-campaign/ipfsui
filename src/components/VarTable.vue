@@ -83,6 +83,9 @@ const {item} = defineProps<{ item: StacItem }>();
 
   .col.description {
     flex: 1;
+    line-height: 0.5em;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 }
 
