@@ -2,6 +2,7 @@
 
 import { type StacItem } from "../utils/stac.ts"
 import { VMarkdownView } from 'vue3-markdown'
+import 'vue3-markdown/dist/vue3-markdown.css'
 
 const {item} = defineProps<{ item: StacItem }>();
 </script>
