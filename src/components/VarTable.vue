@@ -81,7 +81,7 @@ const {item} = defineProps<{ item: StacItem }>();
     flex: 0 0 10em;
   }
 
-  col.description {
+  .col.description {
     flex: 1;
   }
 }
