@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
 import { type StacItem } from "../utils/stac.ts"
+import { VMarkdownView } from 'vue3-markdown'
 
 const {item} = defineProps<{ item: StacItem }>();
 </script>
@@ -13,10 +14,14 @@ const {item} = defineProps<{ item: StacItem }>();
         <div class="col description">Description</div>
     </div>
     <div class="row dim" v-for="[k, v] of Object.entries(item?.properties['cube:dimensions'])">
-      <div class="col name">{{ k }}</div><div class="col unit">{{ v.unit }}</div><div class="col description">{{ v.description }}</div>
+      <div class="col name">{{ k }}</div>
+      <div class="col unit">{{ v.unit }}</div>
+      <div class="col description"><VMarkdownView mode="view" :content="v.description" ></VMarkdownView> </div>
     </div>
     <div class="row var" v-for="[k, v] of Object.entries(item?.properties['cube:variables'])">
-      <div class="col name">{{ k }} <span class="dimensions">(<span class="dimension" v-for="d of v.dimensions">{{ d }}</span>)</span></div><div class="col unit">{{ v.unit }}</div><div class="col description">{{ v.description }}</div>
+      <div class="col name">{{ k }} <span class="dimensions">(<span class="dimension" v-for="d of v.dimensions">{{ d }}</span>)</span></div>
+      <div class="col unit">{{ v.unit }}</div>
+      <div class="col description"><VMarkdownView mode="view" :content="v.description" ></VMarkdownView> </div>
     </div>
   </div>
 </template>
