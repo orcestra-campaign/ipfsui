@@ -1,5 +1,6 @@
 {
   "imports": {
+    "@std/path": "jsr:@std/path@^1.1.2",
     "@zarrita/zarrita": "jsr:@zarrita/zarrita@^0.4.0-next.19"
   },
   "fmt": {

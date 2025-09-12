@@ -4,11 +4,11 @@ import { unixfs } from "@helia/unixfs";
 import { createHelia } from "helia";
 import { CID } from "multiformats";
 
-import * as path from "jsr:@std/path";
+import * as path from "@std/path";
 
-import { createHeliaHTTP } from "npm:@helia/http";
-import { trustlessGateway } from "npm:@helia/block-brokers";
-import { httpGatewayRouting } from "npm:@helia/routers";
+import { createHeliaHTTP } from "@helia/http";
+import { trustlessGateway } from "@helia/block-brokers";
+import { httpGatewayRouting } from "@helia/routers";
 
 import { dns } from "@multiformats/dns";
 import { dnsJsonOverHttps } from "@multiformats/dns/resolvers";
