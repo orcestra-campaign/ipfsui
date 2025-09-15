@@ -3,6 +3,7 @@ import { computed, ref, watchEffect } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import indexData from "./data/products_short.json" with {type: "json"};
 import SearchBox from "./SearchBox.vue";
+import Nav from "./Nav.vue"
 
 const route = useRoute();
 const router = useRouter();
@@ -46,7 +47,10 @@ watchEffect(() => {
 </script>
 
 <template>
-    <SearchBox v-model="filter" />
+    <div>
+        <Nav />
+        <SearchBox v-model="filter" />
+    </div>
     <div class="search_results">
         <ul class="stac_listing">
             <li v-for="item of filteredIndex">

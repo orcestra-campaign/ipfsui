@@ -8,6 +8,7 @@ import SondeAnimation from './SondeAnimation.vue';
 const animations = [PlaneAnimation, ShipAnimation, SondeAnimation];
 const Animation = animations[Math.floor(Math.random() * animations.length)];
 
+import Nav from './Nav.vue';
 import ItemView from './ItemView.vue';
 import parseMetadata from '../utils/parseMetadata';
 import { type DatasetMetadata } from '../utils/parseMetadata';
@@ -60,6 +61,7 @@ watch([() => props.src, heliaProvider?.loading], update);
 </script>
 
 <template>
+    <Nav />
     <PathView v-if="metadata?.src" :src="metadata?.src as string" :item_cid="metadata?.item_cid" />
     <ItemView v-if="stac_item" :item="stac_item" />
     <Animation v-else />
