@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { VMarkdownView } from 'vue3-markdown'
-import 'vue3-markdown/dist/style.css'
+import 'vue3-markdown/dist/vue3-markdown.css'
 import dayjs from "dayjs";
 
 import License from './License.vue';

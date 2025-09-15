@@ -10,7 +10,6 @@ import type { LooseGlobalAttrs } from "./dsAttrConvention.ts";
 import {
   decodeTime,
   hasAxis,
-  hasLongName,
   hasUnits,
   isLatitudeVariable,
   isLongitudeVariable,
@@ -391,6 +390,27 @@ async function getTimeBounds(
   }
 }
 
+// @ts-expect-error too lazy to think of types
+function getDescription(attrs): string | undefined {
+  if (!attrs) return undefined;
+
+  const parts: string[] = [];
+
+  if (attrs?.long_name) {
+    parts.push(attrs.long_name);
+  }
+
+  if (attrs?.standard_name !== undefined) {
+    parts.push(`\`(${attrs.standard_name})\``);
+  }
+
+  if (attrs?.description) {
+    parts.push(`\n\n${attrs.description}`);
+  }
+
+  return parts.length > 0 ? parts.join(" ") : undefined;
+}
+
 function getDatacubeProperties(
   ds: DatasetMetadata,
 ): {
@@ -408,7 +428,8 @@ function getDatacubeProperties(
           dimensions[varname] = {
             type: "temporal",
             unit: attrs.units,
-            ...(hasLongName(attrs) && { description: attrs.long_name }),
+            ...(getDescription(attrs) &&
+              { description: getDescription(attrs)! }),
           };
           continue;
         } else if (hasAxis(attrs)) {
@@ -418,7 +439,8 @@ function getDatacubeProperties(
               type: "spatial",
               axis: axis as "x" | "y" | "z",
               ...(hasUnits(attrs) && { unit: attrs.units }),
-              ...(hasLongName(attrs) && { description: attrs.long_name }),
+              ...(getDescription(attrs) &&
+                { description: getDescription(attrs)! }),
             };
             continue;
           }
@@ -426,7 +448,8 @@ function getDatacubeProperties(
           dimensions[varname] = {
             type: "unknown",
             ...(hasUnits(attrs) && { unit: attrs.units }),
-            ...(hasLongName(attrs) && { description: attrs.long_name }),
+            ...(getDescription(attrs) &&
+              { description: getDescription(attrs)! }),
           };
           continue;
         }
@@ -435,7 +458,7 @@ function getDatacubeProperties(
           dimensions: varDimensions,
           type: "data",
           ...(hasUnits(attrs) && { unit: attrs.units }),
-          ...(hasLongName(attrs) && { description: attrs.long_name }),
+          ...(getDescription(attrs) && { description: getDescription(attrs)! }),
         };
         continue;
       }
