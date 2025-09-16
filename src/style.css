@@ -170,3 +170,10 @@ a:hover {
     color: var(--orcestra-blue-light);
   }
 }
+
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-color);
+  z-index: 10000;
+}

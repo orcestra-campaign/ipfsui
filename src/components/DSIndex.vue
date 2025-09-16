@@ -47,7 +47,7 @@ watchEffect(() => {
 </script>
 
 <template>
-    <div>
+    <div class="navbar">
         <Nav />
         <SearchBox v-model="filter" />
     </div>
