@@ -4,7 +4,9 @@ import Nav from './Nav.vue';
 
 <template>
     <div class="navbar">
-        <Nav />
+        <div class="navbar-content">
+            <Nav />
+        </div>
     </div>
     <h1>Page Not Found</h1>
     If you intended to inspect a dataset, try navigating to <code>#/ds/&lt;your dataset url&gt;</code>
