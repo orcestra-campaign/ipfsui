@@ -170,3 +170,21 @@ a:hover {
     color: var(--orcestra-blue-light);
   }
 }
+
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-color);
+  z-index: 10000;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  box-shadow: 0 1px 5px gray;
+  width: 100vw;
+  margin-left: calc((100% - 100vw) / 2);
+}
+
+.navbar-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 5px;
+}

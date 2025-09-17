@@ -47,9 +47,11 @@ watchEffect(() => {
 </script>
 
 <template>
-    <div>
-        <Nav />
-        <SearchBox v-model="filter" />
+    <div class="navbar">
+        <div class="navbar-content">
+            <Nav />
+            <SearchBox v-model="filter" />
+        </div>
     </div>
     <div class="search_results">
         <ul class="stac_listing">
@@ -65,10 +67,6 @@ watchEffect(() => {
 
 a {
     font-weight: 700;
-}
-
-div.search_results {
-    margin-top: 20px;
 }
 
 ul {
