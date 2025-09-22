@@ -67,7 +67,7 @@ a {
 }
 
 body {
-  margin: 0 5px 5px 5px;
+  margin: 0 5px 0 5px;
   display: flex;
   /*place-items: center;*/
   min-width: 320px;
