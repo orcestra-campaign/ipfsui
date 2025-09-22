@@ -4,6 +4,7 @@ import { useRoute, useRouter } from "vue-router";
 import indexData from "./data/products_short.json" with {type: "json"};
 import SearchBox from "./SearchBox.vue";
 import Nav from "./Nav.vue"
+import Footer from './Footer.vue';
 
 const route = useRoute();
 const router = useRouter();
@@ -61,6 +62,7 @@ watchEffect(() => {
             </li>
         </ul>
     </div>
+    <Footer />
 </template>
 
 <style scoped>
