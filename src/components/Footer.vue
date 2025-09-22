@@ -17,6 +17,7 @@ import MaxPlanckLogo from '../images/mpg-minerva.svg';
   width: 100vw;
   margin-left: calc((100% - 100vw) / 2);
   border-top: solid 1px gray;
+  margin-top: 10px;
 }
 
 .footer-content {
