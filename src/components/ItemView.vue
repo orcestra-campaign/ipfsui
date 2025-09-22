@@ -35,9 +35,37 @@ function parseReferences(references: string[]): {text: string, url?: string}[] {
 }
 const references = computed(() => parseReferences(item.properties?.references ?? []));
 
+function abbreviateName(name: string): string {
+  // Trim and normalize whitespace
+  const cleanName = name.trim().replace(/\s+/g, " ");
+
+  let firstName = "";
+  let lastName = "";
+
+  if (cleanName.includes(",")) {
+    // Case: "Doe, John"
+    const parts = cleanName.split(",").map(p => p.trim());
+    lastName = parts[0];
+    firstName = parts[1]?.split(" ")[0] || "";
+  } else {
+    // Case: "John Doe"
+    const parts = cleanName.split(" ");
+    firstName = parts[0];
+    lastName = parts[parts.length - 1];
+  }
+
+  if (!firstName || !lastName) {
+    return name; // fallback if input is malformed
+  }
+
+  // Format name as `Doe, J.`
+  return `${lastName}, ${firstName[0]}.`;
+}
+
+
 function createCitation(item: StacItem): string {
   const authors: string = item.properties.contacts
-    ?.map((c: { name: string }) => c.name)
+    ?.map((c: { name: string }) => abbreviateName(c.name))
     .join(", ") ?? "Unknown author";
 
   const year: string = "2025"; // TODO: extract from DOI/attributes
