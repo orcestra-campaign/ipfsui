@@ -95,6 +95,9 @@ const citation = computed(() => createCitation(item));
         <VarTable :item="item" />
     </div>
 
+    <h2>Cite as</h2>
+    <div class="citation">{{ citation }}</div>
+
     <div v-if="item?.properties?.references">
         <h2>References:</h2>
         <div class="references">
@@ -194,6 +197,11 @@ const citation = computed(() => createCitation(item));
 
 .summary {
     flex: 10 10 auto;
+}
+
+.citation {
+  border-left: 3px solid var(--orcestra-yellow);
+  padding: 0.5rem 1rem;
 }
 
 .map {
