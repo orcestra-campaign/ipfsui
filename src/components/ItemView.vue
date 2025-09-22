@@ -35,6 +35,19 @@ function parseReferences(references: string[]): {text: string, url?: string}[] {
 }
 const references = computed(() => parseReferences(item.properties?.references ?? []));
 
+function createCitation(item: StacItem): string {
+  const authors: string = item.properties.contacts
+    ?.map((c: { name: string }) => c.name)
+    .join(", ") ?? "Unknown author";
+
+  const year: string = "2025"; // TODO: extract from DOI/attributes
+  const title: string = item.properties.title ?? "Untitled";
+  const url: string = item.assets.data.href; // TODO: replace with DOI if available
+
+  return `${authors}. (${year}). ${title}. ${url}`;
+}
+const citation = computed(() => createCitation(item));
+
 </script>
 
 <template>
