@@ -35,6 +35,47 @@ function parseReferences(references: string[]): {text: string, url?: string}[] {
 }
 const references = computed(() => parseReferences(item.properties?.references ?? []));
 
+function abbreviateName(name: string): string {
+  // Trim and normalize whitespace
+  const cleanName = name.trim().replace(/\s+/g, " ");
+
+  let firstName = "";
+  let lastName = "";
+
+  if (cleanName.includes(",")) {
+    // Case: "Doe, John"
+    const parts = cleanName.split(",").map(p => p.trim());
+    lastName = parts[0];
+    firstName = parts[1]?.split(" ")[0] || "";
+  } else {
+    // Case: "John Doe"
+    const parts = cleanName.split(" ");
+    firstName = parts[0];
+    lastName = parts[parts.length - 1];
+  }
+
+  if (!firstName || !lastName) {
+    return name; // fallback if input is malformed
+  }
+
+  // Format name as `Doe, J.`
+  return `${lastName}, ${firstName[0]}.`;
+}
+
+
+function createCitation(item: StacItem): string {
+  const authors: string = item.properties.contacts
+    ?.map((c: { name: string }) => abbreviateName(c.name))
+    .join(", ") ?? "Unknown author";
+
+  const year: string = "2025"; // TODO: extract from DOI/attributes
+  const title: string = item.properties.title ?? "Untitled";
+  const url: string = item.assets.data.href; // TODO: replace with DOI if available
+
+  return `${authors}. (${year}). ${title}. ${url}`;
+}
+const citation = computed(() => createCitation(item));
+
 </script>
 
 <template>
@@ -81,6 +122,9 @@ const references = computed(() => parseReferences(item.properties?.references ??
     <div>
         <VarTable :item="item" />
     </div>
+
+    <h2>Cite as</h2>
+    <div class="citation">{{ citation }}</div>
 
     <div v-if="item?.properties?.references">
         <h2>References:</h2>
@@ -181,6 +225,11 @@ const references = computed(() => parseReferences(item.properties?.references ??
 
 .summary {
     flex: 10 10 auto;
+}
+
+.citation {
+  border-left: 3px solid var(--orcestra-yellow);
+  padding: 0.5rem 1rem;
 }
 
 .map {
