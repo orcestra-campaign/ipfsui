@@ -50,6 +50,14 @@ const url = computed(() => `https://tiles.stadiamaps.com/tiles/alidade_smooth${i
   --line-color: var(--orcestra-blue-dark);
 }
 
+.leaflet-container a {
+  color: var(--orcestra-blue-dark);
+}
+
+.leaflet-container a:hover {
+  color: var(--orcestra-blue-medium);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --line-color: var(--orcestra-yellow);
