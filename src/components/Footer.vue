@@ -31,6 +31,7 @@ footer {
 .logo {
   margin: 12px;
   height: 72px;
+  width: 72px;
 }
 
 .left {
