@@ -2,7 +2,6 @@
   "version": "5",
   "specifiers": {
     "jsr:@std/internal@^1.0.10": "1.0.10",
-    "jsr:@std/path@*": "1.0.8",
     "jsr:@std/path@^1.1.2": "1.1.2",
     "jsr:@zarrita/storage@0.1": "0.1.2",
     "jsr:@zarrita/zarrita@~0.4.0-next.19": "0.4.0",
@@ -18,7 +17,8 @@
     "npm:@multiformats/dns@^1.0.6": "1.0.9",
     "npm:@types/command-line-args@^5.2.3": "5.2.3",
     "npm:@types/command-line-usage@^5.0.4": "5.0.4",
-    "npm:@vitejs/plugin-vue@^5.2.1": "5.2.4_vite@6.3.6__picomatch@4.0.3_vue@3.5.21__typescript@5.6.3_typescript@5.6.3",
+    "npm:@types/node@*": "24.2.0",
+    "npm:@vitejs/plugin-vue@^5.2.1": "5.2.4_vite@6.3.6__picomatch@4.0.3_vue@3.5.21__typescript@5.6.3_typescript@5.6.3_@types+node@24.2.0",
     "npm:@vue-leaflet/vue-leaflet@~0.10.1": "0.10.1_leaflet@1.9.4_typescript@5.6.3",
     "npm:@vue/tsconfig@0.7": "0.7.0_typescript@5.6.3_vue@3.5.21__typescript@5.6.3",
     "npm:blockstore-fs@^2.0.2": "2.0.5",
@@ -27,16 +27,19 @@
     "npm:command-line-usage@^7.0.3": "7.0.3",
     "npm:datastore-fs@^10.0.2": "10.0.6",
     "npm:datastore-idb@^3.0.1": "3.0.4",
-    "npm:dayjs@^1.11.13": "1.11.13",
+    "npm:dayjs@^1.11.13": "1.11.18",
     "npm:helia@^5.2.0": "5.5.1",
     "npm:highlight.js@^11.11.1": "11.11.1",
     "npm:ipfs-unixfs-exporter@^13.6.1": "13.7.3",
     "npm:leaflet@^1.9.4": "1.9.4",
+    "npm:lucide-vue-next@0.544": "0.544.0_vue@3.5.21__typescript@5.6.3_typescript@5.6.3",
     "npm:multiformats@^13.3.1": "13.4.0",
     "npm:numcodecs@~0.3.2": "0.3.2",
+    "npm:reference-spec-reader@0.2": "0.2.0",
     "npm:typescript@~5.6.2": "5.6.3",
+    "npm:unzipit@^1.4.3": "1.4.3",
     "npm:vite-svg-loader@^5.1.0": "5.1.0_vue@3.5.21__typescript@5.6.3_typescript@5.6.3",
-    "npm:vite@^6.0.5": "6.3.6_picomatch@4.0.3",
+    "npm:vite@^6.0.5": "6.3.6_picomatch@4.0.3_@types+node@24.2.0",
     "npm:vue-json-viewer@^3.0.4": "3.0.4_vue@3.5.21__typescript@5.6.3_typescript@5.6.3",
     "npm:vue-router@^4.5.0": "4.5.1_vue@3.5.21__typescript@5.6.3_typescript@5.6.3",
     "npm:vue-tsc@^2.2.0": "2.2.12_typescript@5.6.3",
@@ -48,9 +51,6 @@
     "@std/internal@1.0.10": {
       "integrity": "e3be62ce42cab0e177c27698e5d9800122f67b766a0bea6ca4867886cbde8cf7"
     },
-    "@std/path@1.0.8": {
-      "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
-    },
     "@std/path@1.1.2": {
       "integrity": "c0b13b97dfe06546d5e16bf3966b1cadf92e1cc83e56ba5476ad8b498d9e3038",
       "dependencies": [
@@ -58,7 +58,11 @@
       ]
     },
     "@zarrita/storage@0.1.2": {
-      "integrity": "fa79400ff0586e466db1319374136b7657f47ab1c7961bb9e54958e7d324e16f"
+      "integrity": "fa79400ff0586e466db1319374136b7657f47ab1c7961bb9e54958e7d324e16f",
+      "dependencies": [
+        "npm:reference-spec-reader",
+        "npm:unzipit"
+      ]
     },
     "@zarrita/zarrita@0.4.0": {
       "integrity": "506f1e5479d5d63034e76528623b310c608c151234e1dde9dbcdadbf0440b1f7",
@@ -1978,7 +1982,14 @@
     "@vitejs/plugin-vue@5.2.4_vite@6.3.6__picomatch@4.0.3_vue@3.5.21__typescript@5.6.3_typescript@5.6.3": {
       "integrity": "sha512-7Yx/SXSOcQq5HiiV3orevHUFn+pmMB4cgbEkDYgnkUWb0WfeQ/wa2yFv6D5ICiCQOVpjA7vYDXrC7AGO8yjDHA==",
       "dependencies": [
-        "vite",
+        "vite@6.3.6_picomatch@4.0.3",
+        "vue"
+      ]
+    },
+    "@vitejs/plugin-vue@5.2.4_vite@6.3.6__picomatch@4.0.3_vue@3.5.21__typescript@5.6.3_typescript@5.6.3_@types+node@24.2.0": {
+      "integrity": "sha512-7Yx/SXSOcQq5HiiV3orevHUFn+pmMB4cgbEkDYgnkUWb0WfeQ/wa2yFv6D5ICiCQOVpjA7vYDXrC7AGO8yjDHA==",
+      "dependencies": [
+        "vite@6.3.6_picomatch@4.0.3_@types+node@24.2.0",
         "vue"
       ]
     },
@@ -2650,8 +2661,8 @@
         "race-signal@2.0.0"
       ]
     },
-    "dayjs@1.11.13": {
-      "integrity": "sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg=="
+    "dayjs@1.11.18": {
+      "integrity": "sha512-zFBQ7WFRvVRhKcWoUh+ZA1g2HVgUbsZm9sbddh8EC5iv93sui8DVVz1Npvz+r6meo9VKfa8NyLWBsQK1VvIKPA=="
     },
     "de-indent@1.0.2": {
       "integrity": "sha512-e/1zu3xH5MQryN2zdVaF0OrdNLUbvWxzMbi+iNA6Bky7l1RoP8a2fIbRocyHclXt/arDrrR6lL3TqFD9pMQTsg=="
@@ -3778,6 +3789,12 @@
       "integrity": "sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==",
       "dependencies": [
         "yallist"
+      ]
+    },
+    "lucide-vue-next@0.544.0_vue@3.5.21__typescript@5.6.3_typescript@5.6.3": {
+      "integrity": "sha512-mDp/AdGOPIDkpFHnFiTWgQgCST9aBXHVaiobZfOMIvv7nrOukzF/TP+7KoOwrngdWRaH9TMiepMBIX1vsgKJ3g==",
+      "dependencies": [
+        "vue"
       ]
     },
     "magic-string@0.30.19": {
@@ -5184,6 +5201,25 @@
       ],
       "bin": true
     },
+    "vite@6.3.6_picomatch@4.0.3_@types+node@24.2.0": {
+      "integrity": "sha512-0msEVHJEScQbhkbVTb/4iHZdJ6SXp/AvxL2sjwYQFfBqleHtnCqv1J3sa9zbWz/6kW1m9Tfzn92vW+kZ1WV6QA==",
+      "dependencies": [
+        "@types/node",
+        "esbuild",
+        "fdir",
+        "picomatch@4.0.3",
+        "postcss",
+        "rollup",
+        "tinyglobby"
+      ],
+      "optionalDependencies": [
+        "fsevents"
+      ],
+      "optionalPeers": [
+        "@types/node"
+      ],
+      "bin": true
+    },
     "vlq@1.0.1": {
       "integrity": "sha512-gQpnTgkubC6hQgdIcRdYGDSDc+SaujOdyesZQMv6JlfQee/9Mp0Qhnys6WxDWvQnL5WZdT7o2Ul187aSt0Rq+w=="
     },
@@ -5385,6 +5421,7 @@
         "npm:highlight.js@^11.11.1",
         "npm:ipfs-unixfs-exporter@^13.6.1",
         "npm:leaflet@^1.9.4",
+        "npm:lucide-vue-next@0.544",
         "npm:multiformats@^13.3.1",
         "npm:typescript@~5.6.2",
         "npm:vite-svg-loader@^5.1.0",
