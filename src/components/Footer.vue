@@ -3,20 +3,21 @@ import MaxPlanckLogo from '../images/mpg-minerva.svg';
 </script>
 
 <template>
-    <div class="footer">
+    <footer>
         <div class="footer-content">
             <div class="left"></div>
             <div class="center"></div>
             <div class="right"><MaxPlanckLogo class="logo"/></div>
         </div>
-    </div>
+    </footer>
 </template>
 
 <style scoped>
-.footer {
+footer {
   width: 100vw;
   margin-left: calc((100% - 100vw) / 2);
   border-top: solid 1px gray;
+  margin-top: 10px;
 }
 
 .footer-content {
@@ -30,6 +31,7 @@ import MaxPlanckLogo from '../images/mpg-minerva.svg';
 .logo {
   margin: 12px;
   height: 72px;
+  width: 72px;
 }
 
 .left {
