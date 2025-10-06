@@ -14926,38 +14926,28 @@
       ],
       "platform": "INMG, RV Meteor, BCO",
       "mission": "ORCESTRA, PERCUSION, BOW-TIE, PICCOLO, SCORE, MAESTRO",
-      "processing:lineage": "Meteomodem Eoscan Software (2.1.241218); Vaisala Sounding System MW41 (2.21.0.7); Quality control with pysonde (0.0.7); Level 1 processing with pysonde (0.0.7); Level 2 processing with pysonde (0.0.7) on Sun Aug 17 14:01:20 2025.",
+      "processing:lineage": "Meteomodem Eoscan Software (2.1.241218); Vaisala Sounding System MW41 (2.21.0.7); Quality control with pysonde (0.0.7); Level 1 processing with pysonde (0.0.7); Level 2 processing with pysonde (0.0.7) on Fri Oct  3 00:07:58 2025.",
       "cube:dimensions": {
-        "alt": {
-          "type": "spatial",
-          "axis": "z",
-          "unit": "m",
-          "description": "altitude height above reference ellipsoid (WGS84)"
+        "height": {
+          "type": "unknown",
+          "unit": "meter",
+          "description": "geopotential height from PTU (barometric) `(geopotential_height)`"
         },
         "launch_time": {
           "type": "temporal",
           "unit": "seconds since 2020-01-01",
-          "description": "time at which the sounding started"
+          "description": "time at which the sounding started `(time)`"
         }
       },
       "cube:variables": {
-        "N_gps": {
+        "alt": {
           "dimensions": [
             "launch_time",
-            "alt"
+            "height"
           ],
           "type": "data",
-          "unit": "1",
-          "description": "number of observations (GPS)"
-        },
-        "N_ptu": {
-          "dimensions": [
-            "launch_time",
-            "alt"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "number of observations (PTU)"
+          "unit": "m",
+          "description": "altitude height above reference ellipsoid (WGS84) `(altitude)`"
         },
         "ascent_flag": {
           "dimensions": [
@@ -14966,41 +14956,32 @@
           "type": "data",
           "description": "indicator of vertical flight direction"
         },
-        "bin_average_time": {
-          "dimensions": [
-            "launch_time",
-            "alt"
-          ],
-          "type": "data",
-          "unit": "s",
-          "description": "bin-average time"
-        },
         "dp": {
           "dimensions": [
             "launch_time",
-            "alt"
+            "height"
           ],
           "type": "data",
           "unit": "K",
-          "description": "dew point temperature"
+          "description": "dew point temperature `(dew_point_temperature)`"
         },
         "dz": {
           "dimensions": [
             "launch_time",
-            "alt"
+            "height"
           ],
           "type": "data",
           "unit": "m/s",
-          "description": "ascent/descent rate of measuring device"
+          "description": "ascent/descent rate of measuring device `(platform_vertical_velocity)` \n\ncalculated from interpolated geopotential height changes (artifical rate)"
         },
-        "height_ptu": {
+        "interpolated_time": {
           "dimensions": [
             "launch_time",
-            "alt"
+            "height"
           ],
           "type": "data",
-          "unit": "m",
-          "description": "geopotential height from PTU (barometric)"
+          "unit": "nanoseconds since 2024-08-09 17:47:47.218503424",
+          "description": "time of recorded measurement `(time)`"
         },
         "iwv": {
           "dimensions": [
@@ -15008,16 +14989,16 @@
           ],
           "type": "data",
           "unit": "kg m-2",
-          "description": "Integrated water vapor"
+          "description": "Integrated water vapor `(atmosphere_mass_content_of_water_vapor)`"
         },
         "lat": {
           "dimensions": [
             "launch_time",
-            "alt"
+            "height"
           ],
           "type": "data",
           "unit": "degree_north",
-          "description": "latitude"
+          "description": "latitude `(latitude)` \n\nLatitudinal position during flight"
         },
         "launch_lat": {
           "dimensions": [
@@ -15025,7 +15006,7 @@
           ],
           "type": "data",
           "unit": "degrees_north",
-          "description": "launch latitude"
+          "description": "launch latitude `(latitude)`"
         },
         "launch_lon": {
           "dimensions": [
@@ -15033,52 +15014,34 @@
           ],
           "type": "data",
           "unit": "degrees_east",
-          "description": "launch longitude"
+          "description": "launch longitude `(longitude)`"
         },
         "lon": {
           "dimensions": [
             "launch_time",
-            "alt"
+            "height"
           ],
           "type": "data",
           "unit": "degree_east",
-          "description": "longitude"
-        },
-        "m_gps": {
-          "dimensions": [
-            "launch_time",
-            "alt"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "bin method"
-        },
-        "m_ptu": {
-          "dimensions": [
-            "launch_time",
-            "alt"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "bin method"
+          "description": "longitude `(longitude)` \n\nLongitudinal position during flight"
         },
         "mr": {
           "dimensions": [
             "launch_time",
-            "alt"
+            "height"
           ],
           "type": "data",
           "unit": "1",
-          "description": "water vapor mixing ratio"
+          "description": "water vapor mixing ratio `(humidity_mixing_ratio)`"
         },
         "p": {
           "dimensions": [
             "launch_time",
-            "alt"
+            "height"
           ],
           "type": "data",
           "unit": "Pa",
-          "description": "pressure"
+          "description": "pressure `(air_pressure)` \n\nAir Pressure during flight"
         },
         "platform": {
           "dimensions": [
@@ -15090,81 +15053,81 @@
         "q": {
           "dimensions": [
             "launch_time",
-            "alt"
+            "height"
           ],
           "type": "data",
           "unit": "1",
-          "description": "specific humidity"
+          "description": "specific humidity `(specific_humidity)`"
         },
         "rh": {
           "dimensions": [
             "launch_time",
-            "alt"
+            "height"
           ],
           "type": "data",
           "unit": "1",
-          "description": "relative humidity"
+          "description": "relative humidity `(relative_humidity)`"
         },
-        "sounding": {
+        "sonde_id": {
           "dimensions": [
             "launch_time"
           ],
           "type": "data",
-          "description": "sounding identifier"
+          "description": "sonde identifier \n\nUnique string describing the sounding's origin (PLATFORM_DIRECTION_TIME)"
         },
         "ta": {
           "dimensions": [
             "launch_time",
-            "alt"
+            "height"
           ],
           "type": "data",
           "unit": "K",
-          "description": "air temperature"
+          "description": "air temperature `(air_temperature)`"
         },
         "theta": {
           "dimensions": [
             "launch_time",
-            "alt"
+            "height"
           ],
           "type": "data",
           "unit": "K",
-          "description": "potential temperature"
+          "description": "potential temperature `(air_potential_temperature)`"
         },
         "u": {
           "dimensions": [
             "launch_time",
-            "alt"
+            "height"
           ],
           "type": "data",
           "unit": "m/s",
-          "description": "u-component of the wind"
+          "description": "u-component of the wind `(eastward_wind)`"
         },
         "v": {
           "dimensions": [
             "launch_time",
-            "alt"
+            "height"
           ],
           "type": "data",
           "unit": "m/s",
-          "description": "v-component of the wind"
+          "description": "v-component of the wind `(northward_wind)`"
         },
         "wdir": {
           "dimensions": [
             "launch_time",
-            "alt"
+            "height"
           ],
           "type": "data",
           "unit": "degree",
-          "description": "wind direction"
+          "description": "wind direction `(wind_from_direction)`"
         },
         "wspd": {
           "dimensions": [
             "launch_time",
-            "alt"
+            "height"
           ],
           "type": "data",
           "unit": "m/s",
-          "description": "wind speed"
+          "description": "wind speed `(wind_speed)`"
         }
       },
       "contacts": [
@@ -15187,13 +15150,13 @@
           ]
         }
       ],
-      "datetime": "2024-09-03T22:25:17.522Z",
-      "start_datetime": "2024-08-09T17:47:55.000Z",
-      "end_datetime": "2024-09-29T03:02:40.044Z"
+      "datetime": "2024-09-03T23:39:07.466Z",
+      "start_datetime": "2024-08-09T17:47:47.218Z",
+      "end_datetime": "2024-09-29T05:30:27.715Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeihd6kyscsf7vzjnlivdtdd4fh5epuqqfqk7ldj6d2k634fuse2lay",
+        "href": "ipfs://bafybeics676fgy4uxmpqz36uuf4zmkx6g7bxsi73qcs5o5l2t2mo2cfgwe",
         "roles": [
           "data"
         ],
