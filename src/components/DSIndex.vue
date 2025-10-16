@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, watchEffect } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute, useRouter, type LocationQueryValue} from "vue-router";
 import indexData from "./data/products_short.json" with {type: "json"};
 import SearchBox from "./SearchBox.vue";
 import type { ReducedStacItem } from "../utils/stac.ts"
@@ -13,7 +13,15 @@ console.log("route", route.query);
 
 indexData.sort((a, b) => (!a.properties?.title ? 1 : (!b.properties?.title ? -1 : a.properties.title.localeCompare(b.properties.title))))
 
-const filter = ref(route.query.s || "");
+function normalizeQueryParameter(q: LocationQueryValue | LocationQueryValue[]): string {
+    if (!q) return "";
+    if (Array.isArray(q)) {
+        return q.join(" ");
+    }
+    return q;
+}
+
+const filter = ref(normalizeQueryParameter(route.query.s));
 
 function nestedSome(o: unknown, f: (_: string) => Boolean): Boolean {
     if ( typeof o === "string" ) {
@@ -43,7 +51,7 @@ watchEffect(() => {
 });
 
 watchEffect(() => {
-    filter.value = route.query.s || "";
+    filter.value = normalizeQueryParameter(route.query.s);
 });
 </script>
 
