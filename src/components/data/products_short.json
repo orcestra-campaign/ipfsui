@@ -14909,6 +14909,218 @@
   },
   {
     "properties": {
+      "title": "RAPSODI Radiosonde Measurements during ORCESTRA (Level 1) (merged, padded to common vertical levels)",
+      "description": "Vertical atmospheric profile, retrieved from atmospheric sounding attached to a helium filled ballon.",
+      "keywords": [
+        "ORCESTRA",
+        "Radiosonde Profil",
+        "Sounding",
+        "BCO"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "https://github.com/observingClouds/pysonde"
+      ],
+      "platform": "INMG, RV Meteor, BCO",
+      "mission": "ORCESTRA, PERCUSION, BOW-TIE, PICCOLO, SCORE, MAESTRO",
+      "processing:lineage": "Vaisala Sounding System MW41 (2.21.0.7); Quality control with pysonde (0.0.7); Level 1 processing with pysonde (0.0.7) on Wed Oct  1 14:34:39 2025.\nMerged & padded to level=12037",
+      "cube:dimensions": {
+        "level": {
+          "type": "unknown",
+          "unit": "1",
+          "description": "sounding height"
+        },
+        "sonde_id": {
+          "type": "unknown",
+          "description": "sonde identifier \n\nUnique string describing the sounding's origin (PLATFORM_DIRECTION_TIME)"
+        }
+      },
+      "cube:variables": {
+        "alt": {
+          "dimensions": [
+            "sonde_id",
+            "level"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "altitude height above reference ellipsoid (WGS84) `(altitude)`"
+        },
+        "dp": {
+          "dimensions": [
+            "sonde_id",
+            "level"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "dew point temperature `(dew_point_temperature)`"
+        },
+        "dz": {
+          "dimensions": [
+            "sonde_id",
+            "level"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "ascent/descent rate of measuring device `(platform_vertical_velocity)` \n\nascent rate is positive/ decent rate is negative"
+        },
+        "flight_time": {
+          "dimensions": [
+            "sonde_id",
+            "level"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 2024-08-09 17:47:55",
+          "description": "time of recorded measurement `(time)`"
+        },
+        "height": {
+          "dimensions": [
+            "sonde_id",
+            "level"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "geopotential height retrieved from PTU `(geopotential_height)`"
+        },
+        "lat": {
+          "dimensions": [
+            "sonde_id",
+            "level"
+          ],
+          "type": "data",
+          "unit": "degree_north",
+          "description": "latitude `(latitude)`"
+        },
+        "launch_lat": {
+          "dimensions": [
+            "sonde_id"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "launch latitude `(latitude)`"
+        },
+        "launch_lon": {
+          "dimensions": [
+            "sonde_id"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "launch longitude `(longitude)`"
+        },
+        "launch_time": {
+          "dimensions": [
+            "sonde_id"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 2024-08-09 17:47:55",
+          "description": "time at which the radiosonde was launched `(time)`"
+        },
+        "lon": {
+          "dimensions": [
+            "sonde_id",
+            "level"
+          ],
+          "type": "data",
+          "unit": "degree_east",
+          "description": "longitude `(longitude)`"
+        },
+        "mr": {
+          "dimensions": [
+            "sonde_id",
+            "level"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "water vapor mixing ratio `(humidity_mixing_ratio)`"
+        },
+        "p": {
+          "dimensions": [
+            "sonde_id",
+            "level"
+          ],
+          "type": "data",
+          "unit": "Pa",
+          "description": "pressure `(air_pressure)`"
+        },
+        "platform": {
+          "dimensions": [
+            "sonde_id"
+          ],
+          "type": "data",
+          "description": "Launching platform"
+        },
+        "rh": {
+          "dimensions": [
+            "sonde_id",
+            "level"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "relative humidity `(relative_humidity)`"
+        },
+        "ta": {
+          "dimensions": [
+            "sonde_id",
+            "level"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "air temperature `(air_temperature)`"
+        },
+        "wdir": {
+          "dimensions": [
+            "sonde_id",
+            "level"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "wind direction `(wind_from_direction)`"
+        },
+        "wspd": {
+          "dimensions": [
+            "sonde_id",
+            "level"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "wind speed `(wind_speed)`"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Marius Winkler",
+          "emails": [
+            {
+              "value": "marius.winkler@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Marius Rixen",
+          "emails": [
+            {
+              "value": "marius.rixen@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
+        }
+      ],
+      "datetime": "2024-09-03T22:38:28.522Z",
+      "start_datetime": "2024-08-09T17:47:55.000Z",
+      "end_datetime": "2024-09-29T03:29:02.044Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeiaiskbaszgfosogz647iuubhuqlglmh7cshyknq3gawdjjvdo5ncy",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
       "title": "RAPSODI Radiosonde Measurements during ORCESTRA (Level 2)",
       "description": "Vertical atmospheric profile, retrieved from atmospheric sounding attached to a helium-filled balloon.",
       "keywords": [
@@ -14940,15 +15152,6 @@
         }
       },
       "cube:variables": {
-        "alt": {
-          "dimensions": [
-            "launch_time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "altitude height above reference ellipsoid (WGS84) `(altitude)`"
-        },
         "ascent_flag": {
           "dimensions": [
             "launch_time"
@@ -15156,7 +15359,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeics676fgy4uxmpqz36uuf4zmkx6g7bxsi73qcs5o5l2t2mo2cfgwe",
+        "href": "ipfs://bafybeid7cnw62zmzfgxcvc6q6fa267a7ivk2wcchbmkoyk4kdi5z2yj2w4",
         "roles": [
           "data"
         ],
