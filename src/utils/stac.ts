@@ -1,9 +1,3 @@
-type RequireAtLeastOne<T, Keys extends keyof T = keyof T> =
-  & Pick<T, Exclude<keyof T, Keys>>
-  & {
-    [K in Keys]-?: Required<Pick<T, K>> & Partial<Pick<T, Exclude<Keys, K>>>;
-  }[Keys];
-
 interface Geom1 {
   type: "Point";
   coordinates: [number, number];
@@ -25,13 +19,11 @@ interface Geom4 {
 }
 export type Geometry = Geom1 | Geom2 | Geom3 | Geom4;
 
-interface _Contact { // see: https://github.com/stac-extensions/contacts?tab=readme-ov-file#contact-object, there's more
-  name?: string;
-  organization?: string;
+export interface Contact {
+  name: string;
+  //currently, we don't support organizational contacts
   emails?: { value: string; roles: string[] }[];
 }
-
-export type Contact = RequireAtLeastOne<_Contact, "name" | "organization">;
 
 export type Dimension =
   | {

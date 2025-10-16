@@ -66,7 +66,7 @@ watchEffect(() => {
         <ul class="stac_listing">
             <li v-for="item of filteredIndex">
                 <a :href="'#/ds/' + item.assets.data.href">{{ item.properties?.title ?? item.assets.data.href }}</a>
-                <ul class="authors"><li v-for="contact in item.properties?.contacts">{{ contact.name ?? contact.organization }}</li></ul>
+                <ul class="authors"><li v-for="contact in item.properties?.contacts">{{ contact.name }}</li></ul>
             </li>
         </ul>
     </div>

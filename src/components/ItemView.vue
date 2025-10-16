@@ -84,11 +84,11 @@ const citation = computed(() => createCitation(item));
         <div class="aux">
             <div class="col">
                 <div class="authors"><ul><li v-for="contact in item.properties?.contacts">
-                    <a v-if="contact?.emails[0]?.value" class="hidden-link" :href="'mailto:' + contact.emails[0].value + '?subject=' + item.properties?.title">
-                        {{ contact.name ?? contact.organization }}
+                    <a v-if="contact?.emails?.[0]?.value" class="hidden-link" :href="'mailto:' + contact.emails[0].value + '?subject=' + item.properties?.title">
+                        {{ contact.name }}
                     </a>
                     <span v-else>
-                        {{ contact.name ?? contact.organization }}
+                        {{ contact.name }}
                     </span>
                 </li></ul></div>
                 <div class="time" v-if="start_datetime && end_datetime">
