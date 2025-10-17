@@ -4,7 +4,8 @@ import { unixfs } from "@helia/unixfs";
 import { createHelia } from "helia";
 import { CID } from "multiformats";
 
-import * as path from "@std/path";
+import * as path from "node:path";
+import * as fs from "node:fs/promises";
 
 import { createHeliaHTTP } from "@helia/http";
 import { trustlessGateway } from "@helia/block-brokers";
@@ -108,30 +109,30 @@ async function getGatewayFromFile(
 ): Promise<string | undefined> {
   console.info("trying", filename);
   try {
-    return (await Deno.readTextFile(filename))?.split("\n")[0]?.trim();
+    return (await fs.readFile(filename, {encoding: "utf-8"}))?.split("\n")[0]?.trim();
   } catch {
     return undefined;
   }
 }
 
 async function getLocalGatewayConfiguration(): Promise<string | undefined> {
-  const IPFS_GATEWAY = Deno.env.get("IPFS_GATEWAY");
+  const IPFS_GATEWAY = process.env.IPFS_GATEWAY;
   if (IPFS_GATEWAY) {
     return IPFS_GATEWAY;
   }
-  const IPFS_PATH = Deno.env.get("IPFS_PATH");
+  const IPFS_PATH = process.env.IPFS_PATH;
   if (IPFS_PATH) {
     const GATEWAY = await getGatewayFromFile(path.join(IPFS_PATH, "gateway"));
     if (GATEWAY) return GATEWAY;
   }
-  const HOME = Deno.env.get("HOME");
+  const HOME = process.env.HOME;
   if (HOME) {
     const GATEWAY = await getGatewayFromFile(
       path.join(HOME, ".ipfs", "gateway"),
     );
     if (GATEWAY) return GATEWAY;
   }
-  const CONFIG_HOME = Deno.env.get("XDG_CONFIG_HOME");
+  const CONFIG_HOME = process.env.XDG_CONFIG_HOME;
   if (CONFIG_HOME) {
     const GATEWAY = await getGatewayFromFile(
       path.join(CONFIG_HOME, "ipfs", "gateway"),
@@ -218,7 +219,7 @@ class FileItemCIDCache implements ItemCIDCache {
   }
   async getItem(root: CID): Promise<Array<CIDPath> | null> {
     try {
-      const content = await Deno.readTextFile(this.filename(root));
+      const content = await fs.readFile(this.filename(root), {encoding: "utf-8"});
       if (content !== undefined) {
         return JSON.parse(content).map(
           ({ cid, path }: { cid: string; path: string }) => {
@@ -235,8 +236,8 @@ class FileItemCIDCache implements ItemCIDCache {
     return null;
   }
   async putItem(root: CID, items: Array<CIDPath>): Promise<void> {
-    await Deno.mkdir(this.root, { recursive: true });
-    return await Deno.writeTextFile(
+    await fs.mkdir(this.root, { recursive: true });
+    return await fs.writeFile(
       this.filename(root),
       JSON.stringify(items.map(({ cid, path }: { cid: CID; path: string }) => {
         return {
@@ -244,6 +245,7 @@ class FileItemCIDCache implements ItemCIDCache {
           path,
         };
       })),
+      {encoding: "utf-8"},
     );
   }
 }
@@ -277,7 +279,7 @@ class FileCache implements StacCache {
   }
   async getItem(id: string): Promise<StacItem | null> {
     try {
-      const content = await Deno.readTextFile(this.filename(id));
+      const content = await fs.readFile(this.filename(id), {encoding: "utf-8"});
       if (content !== undefined) {
         return JSON.parse(content);
       }
@@ -287,10 +289,11 @@ class FileCache implements StacCache {
     return null;
   }
   async putItem(item: StacItem): Promise<void> {
-    await Deno.mkdir(this.root, { recursive: true });
-    return await Deno.writeTextFile(
+    await fs.mkdir(this.root, { recursive: true });
+    return await fs.writeFile(
       this.filename(item.id),
       JSON.stringify(item),
+      {encoding: "utf-8"},
     );
   }
 }
@@ -409,6 +412,6 @@ const stacItems = await Promise.all(
 );
 
 if (args?.outfile !== undefined) {
-  await Deno.writeTextFile(args.outfile, JSON.stringify(stacItems));
+  await fs.writeFile(args.outfile, JSON.stringify(stacItems), {encoding: "utf-8"});
 }
 process.exit(0);
