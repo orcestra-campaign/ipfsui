@@ -1,6 +1,6 @@
 import { open, withConsolidated } from "zarrita";
-import type { SomeArray } from "./types.ts";
-import { type Dataset, isListableStore, type SomeStore } from "./types.ts";
+import type { SomeArray } from "./types";
+import { type Dataset, isListableStore, type SomeStore } from "./types";
 
 export { Array, get, slice } from "zarrita";
 

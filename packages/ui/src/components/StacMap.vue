@@ -4,7 +4,7 @@ import "leaflet/dist/leaflet.css";
 import { type Map } from "leaflet"
 import { LGeoJson, LMap, LTileLayer } from "@vue-leaflet/vue-leaflet";
 import { computed, ref, onMounted, onUnmounted } from "vue";
-import type { StacItem } from "../utils/stac.ts"
+import type { StacItem } from "@orcestra/utils"
 
 const { item } = defineProps<{ item: StacItem }>();
 

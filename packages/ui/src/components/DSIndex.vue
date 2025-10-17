@@ -3,7 +3,7 @@ import { computed, ref, watchEffect } from "vue";
 import { useRoute, useRouter, type LocationQueryValue} from "vue-router";
 import indexData from "./data/products_short.json" with {type: "json"};
 import SearchBox from "./SearchBox.vue";
-import type { ReducedStacItem } from "../utils/stac.ts"
+import type { ReducedStacItem } from "@orcestra/utils"
 import Nav from "./Nav.vue"
 
 const route = useRoute();

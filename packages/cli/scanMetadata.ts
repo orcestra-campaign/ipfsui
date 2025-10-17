@@ -18,18 +18,12 @@ import { FsDatastore } from "datastore-fs";
 import { FsBlockstore } from "blockstore-fs";
 import process from "node:process";
 import type { UnixFSEntry } from "ipfs-unixfs-exporter";
-import { getStore } from "../src/utils/store.ts";
-import { readDataset } from "../src/utils/ds/index.ts";
-import { extractLoose } from "../src/utils/dsAttrConvention.ts";
-import parseMetadata from "../src/utils/parseMetadata.ts";
-import { metadataToStacId } from "../src/utils/parseMetadata.ts";
+import { getStore, readDataset, extractLoose, parseMetadata, metadataToStacId, DeltaCodec, type StacItem } from "@orcestra/utils";
 
 import commandLineArgs from "command-line-args";
 import commandLineUsage from "command-line-usage";
 
 import { registry } from "zarrita";
-import { DeltaCodec } from "../src/utils/ds/codecs/delta.ts";
-import { StacItem } from "../src/utils/stac.ts";
 
 // @ts-expect-error DeltaCodec only handles numbers, but I didn't yet figure out how to check this properly
 registry.set("delta", () => DeltaCodec);

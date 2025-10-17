@@ -1,6 +1,6 @@
 import { type Helia } from "helia";
-import type { AbsolutePath, AsyncReadable, RangeQuery } from "./types.ts";
-import { fetch_range, merge_init } from "./utils.ts";
+import type { AbsolutePath, AsyncReadable, RangeQuery } from "./types";
+import { fetch_range, merge_init } from "./utils";
 import {
   createVerifiedFetch,
   type VerifiedFetch,

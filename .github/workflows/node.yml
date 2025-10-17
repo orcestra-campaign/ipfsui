@@ -27,16 +27,18 @@ jobs:
           node-version: 23
       - name: Install dependencies
         run: npm install
+      - name: Build utils
+        run: cd packages/utils && npm run build
       - name: Build page
-        run: npm run build
+        run: cd packages/ui && npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: packages/ui/dist
 
   deploy:
     needs: build
-    if: "success() && github.repository_owner == 'orcestra-campaign' && (github.event_name == 'schedule' || (github.event_name == 'push' && github.ref == 'refs/heads/main'))"
+    if: "github.repository_owner == 'orcestra-campaign' && (github.event_name == 'schedule' || (github.event_name == 'push' && github.ref == 'refs/heads/main'))"
     runs-on: ubuntu-latest
     environment:
       name: github-pages

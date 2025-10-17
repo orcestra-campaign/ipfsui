@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { type StacItem } from "../utils/stac.ts"
+import { type StacItem } from "@orcestra/utils"
 import { VMarkdownView } from 'vue3-markdown'
 import 'vue3-markdown/dist/vue3-markdown.css'
 

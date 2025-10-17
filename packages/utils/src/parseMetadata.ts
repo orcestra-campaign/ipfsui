@@ -17,9 +17,9 @@ import {
   isProfile,
   isTimeVariable,
   isTrajectory,
-} from "./cf/index.ts";
-import { get, getDimensions } from "./ds/index.ts";
-import type { SomeArray } from "./ds/types.ts";
+} from "./cf/index";
+import { get, getDimensions } from "./ds/index";
+import type { SomeArray } from "./ds/types";
 import dayjs from "dayjs";
 
 import { CID } from "multiformats";

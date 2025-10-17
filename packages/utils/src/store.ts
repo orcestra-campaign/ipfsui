@@ -1,5 +1,5 @@
 import { type Helia } from "helia";
-import IPFSFetchStore from "./ipfs/fetchStore.ts";
+import IPFSFetchStore from "./ipfs/fetchStore";
 import { FetchStore } from "zarrita";
 
 export function getStore(url: string | URL, options?: { helia?: Helia }) {

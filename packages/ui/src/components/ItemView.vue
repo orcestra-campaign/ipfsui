@@ -3,12 +3,15 @@ import { computed } from 'vue'
 import { VMarkdownView } from 'vue3-markdown'
 import 'vue3-markdown/dist/vue3-markdown.css'
 import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
 
 import License from './License.vue';
 import VarTable from './VarTable.vue';
-import type { StacItem } from '../utils/stac';
+import type { StacItem } from '@orcestra/utils';
 import StacMap from './StacMap.vue';
 import CodeExampleXarray from './CodeExampleXarray.vue';
+
+dayjs.extend(utc);
 
 const {item} = defineProps<{ item: StacItem }>();
 

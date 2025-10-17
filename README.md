@@ -1,42 +1,35 @@
-# Vue 3 + TypeScript + Vite
+# ORCESTRA data browser
 
-This template should help get you started developing with Vue 3 and TypeScript
-in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the
-[script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup)
-to learn more.
+This repository contains the [ORCESTRA data browser](https://browser.orcestra-campaign.org/).
 
-Learn more about the recommended Project Setup and IDE Support in the
-[Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+The project contains several `packages`.
+
+* `utils`: common utility functions
+* `cli`: command line tools, mainly for index handling
+* `ui`: the browser user interface as Vue 3 based web application
 
 ## local development
 
-We use [deno](https://docs.deno.com/) as JavaScript runtime.
-
-Run the following command to install all the required dependencies:
+We use node and npm. Use the following command to install all dependencies:
 
 ```bash
-deno install --allow-scripts
+npm install
 ```
 
-You can then run your own local development server:
+You might also want to (re-) build the `utils` package, as this is required for the others to work.
 
 ```bash
-deno run dev
+cd packages/utils
+npm run build
 ```
 
-Before opening a pull request, make sure that your code changes pass the Deno
-format check:
+## Web UI
+
+You can then run your own local development server for the UI using:
 
 ```bash
-deno fmt --check src/
-```
-
-_You can run `deno fmt src/` to auto-format the whole code base._
-
-and that the project can be build:
-
-```bash
-deno run build
+cd packages/ui
+npm run dev
 ```
 
 ## indexing
@@ -57,8 +50,9 @@ ipfs resolve /ipns/latest.orcestra-campaign.org/products
 Which returns `/ipfs/<CID>`. Using only the `<CID>` part, you can now build an
 index like so:
 
-```
-deno run -A cli/scanMetadata.ts --cid <CID> -o products.json -C cache
+```bash
+cd packages/cli
+npm run scan --cid <CID> -o products.json -C cache
 ```
 
 (`-C` is optional and specifies a directory for caching items)

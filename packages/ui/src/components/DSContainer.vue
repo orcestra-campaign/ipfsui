@@ -10,16 +10,11 @@ const Animation = animations[Math.floor(Math.random() * animations.length)];
 
 import Nav from './Nav.vue';
 import ItemView from './ItemView.vue';
-import parseMetadata from '../utils/parseMetadata';
-import { type DatasetMetadata } from '../utils/parseMetadata';
-
-import { getStore } from '../utils/store';
+import { parseMetadata, getStore, resolve, readDataset, extractLoose } from '@orcestra/utils';
+import type { DatasetMetadata } from '@orcestra/utils';
 
 import { useHelia } from '../plugins/HeliaProvider';
-import resolve from '../utils/ipfs/resolve';
 import PathView from './PathView.vue';
-import { readDataset } from '../utils/ds';
-import { extractLoose } from '../utils/dsAttrConvention';
 
 const props = defineProps<{ src: string }>();
 

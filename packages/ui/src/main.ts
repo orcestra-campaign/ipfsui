@@ -7,7 +7,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import HeliaProvider from "./plugins/HeliaProvider.ts";
 
 import { registry } from "zarrita";
-import { DeltaCodec } from "./utils/ds/codecs/delta.ts";
+import { DeltaCodec } from "@orcestra/utils";
 
 // @ts-expect-error DeltaCodec only handles numbers, but I didn't yet figure out how to check this properly
 registry.set("delta", () => DeltaCodec);
