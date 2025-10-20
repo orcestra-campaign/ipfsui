@@ -15,7 +15,7 @@ export default {
 <script setup lang="ts">
 import { computed } from 'vue';
 import { ref } from "vue";
-import { Copy, Check } from "lucide-vue-next";
+import { Copy, Check, Info } from "lucide-vue-next";
 
 
 const props = defineProps<{ src: string }>();
@@ -39,6 +39,11 @@ function copyCode() {
 <template>
   <div class="code-block">
     <div class="code-header">
+      <button class="copy-btn">
+        <a href="https://orcestra-campaign.org/ipfs.html#accessing-data-with-ipfs" target="_blank" class="icon-link">
+          <Info :size="14"/>
+        </a>
+      </button>
       <button class="copy-btn" @click="copyCode">
         <template v-if="!copied">
           <Copy :size="14"/>
@@ -75,6 +80,7 @@ function copyCode() {
     position: absolute;
     top: 0;
     right: 0;
+    display: flex;
 }
 
 .codeexample {
@@ -94,4 +100,9 @@ function copyCode() {
 .copy-btn:hover {
     border: 1px solid var(--fg-color);
 }
+
+.icon-link, .icon-link:hover {
+    color: inherit;
+}
+
 </style>
