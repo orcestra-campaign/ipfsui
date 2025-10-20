@@ -59,7 +59,7 @@ async function collectDatasets(
     console.log("skipping path", path);
     return [];
   }
-  const res = await Array.fromAsync(fs.ls(cid));
+  const res = await Array.fromAsync(ipfs_fs.ls(cid));
   if (isDataset(res)) {
     console.log("collected", path);
     return [{ cid: cid.toV1(), path }];
@@ -342,7 +342,7 @@ if (args?.cid === undefined) {
 const root_cid = CID.parse(args.cid);
 
 const helia = await configureHelia();
-const fs = unixfs(helia);
+const ipfs_fs = unixfs(helia);
 
 const blacklist = [
   "/HALO/dropsondes/Level_1",
