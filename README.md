@@ -52,7 +52,7 @@ index like so:
 
 ```bash
 cd packages/cli
-npm run scan --cid <CID> -o products.json -C cache
+npm run scan -- --cid <CID> -o products.json -C cache
 ```
 
 (`-C` is optional and specifies a directory for caching items)
