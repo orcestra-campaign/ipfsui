@@ -1,5 +1,5 @@
 <template>
-  <div>Redirecting to Max Planck Institute for Meteorology imprint...</div>
+  <div>Redirecting to <a href="https://www.mpimet.mpg.de/en/imprint">Max Planck Institute for Meteorology imprint</a>...</div>
 </template>
 
 <script setup>
