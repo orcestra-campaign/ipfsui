@@ -6,7 +6,7 @@ import MaxPlanckLogo from '../images/mpg-minerva.svg';
     <footer>
         <div class="footer-content">
             <div class="left"></div>
-            <div class="center"></div>
+            <div class="center"><router-link to="/privacy">Privacy</router-link> | <router-link to="/imprint">Imprint</router-link></div>
             <div class="right"><MaxPlanckLogo class="logo"/></div>
         </div>
     </footer>
@@ -44,5 +44,10 @@ footer {
 
 .right {
   text-align: right;
+}
+
+a {
+  color: inherit;
+  font-weight: normal;
 }
 </style>
