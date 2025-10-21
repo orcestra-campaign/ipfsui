@@ -45,4 +45,9 @@ footer {
 .right {
   text-align: right;
 }
+
+a {
+  color: inherit;
+  font-weight: normal;
+}
 </style>
