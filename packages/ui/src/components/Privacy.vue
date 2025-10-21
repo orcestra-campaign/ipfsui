@@ -14,6 +14,16 @@ import Nav from './Nav.vue';
     However, certain features rely on third-party services that may process limited technical information (such as your IP address) to function properly.
     </p>
 
+    <h2>Website Hosting</h2>
+    <p>
+    This website is hosted on <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>,
+    a service provided by <a href="https://github.com/" target="_blank" rel="noopener">GitHub, Inc.</a>.
+    When you access this website, your browser sends standard web request information
+    (such as your IP address, browser type, and time of access) to GitHub’s servers.
+    GitHub may process this data to operate and secure its hosting platform,
+    in accordance with the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a>.
+    </p>
+
     <h2>IPFS</h2>
     <p>
     The ORCESTRA Data Browser retrieves data via the <a href="https://ipfs.tech/" target="_blank" rel="noopener">InterPlanetary File System (IPFS)</a>,
