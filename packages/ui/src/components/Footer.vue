@@ -6,7 +6,7 @@ import MaxPlanckLogo from '../images/mpg-minerva.svg';
     <footer>
         <div class="footer-content">
             <div class="left"></div>
-            <div class="center"></div>
+            <div class="center"><router-link to="/privacy">Privacy</router-link></div>
             <div class="right"><MaxPlanckLogo class="logo"/></div>
         </div>
     </footer>
