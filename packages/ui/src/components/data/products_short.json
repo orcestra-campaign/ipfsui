@@ -2546,26 +2546,18 @@
       "mission": "PERCUSION",
       "processing:lineage": "2025-07-16T19:13:48Z: processed from raw data by mira_to_L2a.py (pyCARE package), 2025-07-18T20:38:01Z: converted to Zarr by Florian Ewald (florian.ewald@dlr.de)",
       "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "seconds since 1970-01-01T00:00:00+00:00",
-          "description": "Time `(time)` \n\nSeconds since UTC epoch (WALES measurement time, mastergrid)"
-        },
         "altitude": {
           "type": "unknown",
           "unit": "m",
           "description": "Altitude `(altitude)` \n\nGeometric height above the geoid"
+        },
+        "time": {
+          "type": "temporal",
+          "unit": "nanoseconds since 2024-08-09 09:52:05.097473024",
+          "description": "Time `(time)` \n\nSeconds since UTC epoch (WALES measurement time, mastergrid)"
         }
       },
       "cube:variables": {
-        "time_original": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "nanoseconds since 1970-01-01",
-          "description": "Time `(time)` \n\nSeconds since UTC epoch (original measurement time)"
-        },
         "latitude": {
           "dimensions": [
             "time"
@@ -2582,179 +2574,23 @@
           "unit": "degree_east",
           "description": "Longitude `(longitude)` \n\nPlatform longitude coordinate"
         },
-        "platform_altitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "Altitude `(altitude)` \n\nPlatform geoid altitude coordinate"
-        },
-        "platform_roll": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "radian",
-          "description": "Roll angle `(platform_roll)` \n\nRoll angle of platform"
-        },
-        "platform_pitch": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "radian",
-          "description": "Pitch angle `(platform_pitch)` \n\nPitch angle of platform"
-        },
-        "platform_yaw": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "radian",
-          "description": "Yaw angle `(platform_yaw)` \n\nYaw angle of platform"
-        },
-        "radar_off_nadir_angle": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree",
-          "description": "Angle of incidence `(angle_of_incidence)` \n\nThe angle of incidence between the beam direction and the normal of the ground."
-        },
-        "radar_constant": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "mm6 m-3",
-          "description": "Radar constant \n\nRadar constant (at 5 km range) used during the in-flight calibration"
-        },
-        "radar_constant_correction_factor": {
+        "model_air_pressure": {
           "dimensions": [
             "time",
             "altitude"
           ],
           "type": "data",
-          "unit": "",
-          "description": "Radar constant correction factor  \n\nRadar constant correction factor (near field correction, noisecom calibration, original variable 'SNRCorFaCo') "
+          "unit": "Pa",
+          "description": "Air pressure `(air_pressure)` \n\nAir pressure (IFS OP 1h an/fcst)"
         },
-        "radar_signal_to_noise": {
+        "model_air_temperature": {
           "dimensions": [
             "time",
             "altitude"
           ],
           "type": "data",
-          "unit": "",
-          "description": "Radar signal to noise ratio as determined with the Hildebrand and Sekhorn method"
-        },
-        "radar_instrument_mask": {
-          "dimensions": [
-            "time",
-            "altitude"
-          ],
-          "type": "data",
-          "unit": "",
-          "description": "Radar instrument mask \n\n\n0=valid radar measurements / -1=below WGS84 geoid/ -2=ground clutter / -3=above platform / -4=radar non operational / -5=radar sensitivity suboptimal / -6=radar calibration / -7=platform in curve (roll lt 5) / -8=radar data not available / -9=below topography / -10=above LDR thresold (-10 dB)"
-        },
-        "radar_reflectivity": {
-          "dimensions": [
-            "time",
-            "altitude"
-          ],
-          "type": "data",
-          "unit": "mm6 m-3",
-          "description": "Equivalent reflectivity factor `(equivalent_reflectivity_factor)` \n\nThe factor is calculated from the measured radar return power assuming the target is composed of liquid water droplets (K^2=0.93) scattering in the Rayleigh regime"
-        },
-        "radar_linear_depolarization_ratio": {
-          "dimensions": [
-            "time",
-            "altitude"
-          ],
-          "type": "data",
-          "unit": "",
-          "description": "Linear depolarization ratio \n\nRatio between the radar reflectivities measured in the cross- and co-channel"
-        },
-        "radar_cross_correlation": {
-          "dimensions": [
-            "time",
-            "altitude"
-          ],
-          "type": "data",
-          "unit": "",
-          "description": "Cross-correlation coefficient \n\nCorrelation between the IQ signals measured in the cross- and co-channel"
-        },
-        "radar_differential_phase": {
-          "dimensions": [
-            "time",
-            "altitude"
-          ],
-          "type": "data",
-          "unit": "radian",
-          "description": "Differential phase \n\nDifferential phase of the backscattered signal measured between co- and cross-channel"
-        },
-        "radar_gaseous_attenuation": {
-          "dimensions": [
-            "time",
-            "altitude"
-          ],
-          "type": "data",
-          "unit": "",
-          "description": "Path integrated gaseous attenuation (PIA) \n\nPath integrated attenuation (2-way, linear) due to water vapour and oxygen"
-        },
-        "radar_doppler_velocity": {
-          "dimensions": [
-            "time",
-            "altitude"
-          ],
-          "type": "data",
-          "unit": "m s-1",
-          "description": "Doppler velocity (uncorrected) `(radial_velocity_of_scatterers_toward_instrument)` \n\nLine of sight doppler velocity (towards the instrument is positive)"
-        },
-        "radar_doppler_velocity_width": {
-          "dimensions": [
-            "time",
-            "altitude"
-          ],
-          "type": "data",
-          "unit": "m s-1",
-          "description": "Doppler velocity width \n\nLine of sight doppler velocity width (broadened by platform motion)"
-        },
-        "radar_doppler_velocity_skewness": {
-          "dimensions": [
-            "time",
-            "altitude"
-          ],
-          "type": "data",
-          "unit": "",
-          "description": "Doppler velocity skewness \n\nLine of sight doppler velocity skewness (influenced by platform motion)"
-        },
-        "radar_doppler_velocity_peaks": {
-          "dimensions": [
-            "time",
-            "altitude"
-          ],
-          "type": "data",
-          "unit": "",
-          "description": "Doppler velocity peaks \n\nNumber of line of sight doppler velocity peaks"
-        },
-        "radar_doppler_velocity_corrected_no_wind": {
-          "dimensions": [
-            "time",
-            "altitude"
-          ],
-          "type": "data",
-          "unit": "m s-1",
-          "description": "Doppler velocity (corrected, no h-wind) `(radial_velocity_of_scatterers_toward_instrument)` \n\nVertical doppler velocity (upward is positive, motion corrected)"
-        },
-        "radar_doppler_velocity_corrected": {
-          "dimensions": [
-            "time",
-            "altitude"
-          ],
-          "type": "data",
-          "unit": "m s-1",
-          "description": "Doppler velocity (corrected) `(radial_velocity_of_scatterers_toward_instrument)` \n\nVertical doppler velocity (upward is positive, motion corrected, horizontal wind corrected)"
+          "unit": "K",
+          "description": "Air temperature `(air_temperature)` \n\nAir temperature (IFS OP 1h an/fcst)"
         },
         "model_wind_u": {
           "dimensions": [
@@ -2783,23 +2619,187 @@
           "unit": "m s-1",
           "description": "Upward air velocity `(upward_air_velocity)` \n\nWind vector component which is positive when directed upward (negative downward)"
         },
-        "model_air_pressure": {
+        "platform_altitude": {
           "dimensions": [
-            "time",
-            "altitude"
+            "time"
           ],
           "type": "data",
-          "unit": "Pa",
-          "description": "Air pressure `(air_pressure)` \n\nAir pressure (IFS OP 1h an/fcst)"
+          "unit": "m",
+          "description": "Altitude `(altitude)` \n\nPlatform geoid altitude coordinate"
         },
-        "model_air_temperature": {
+        "platform_pitch": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "radian",
+          "description": "Pitch angle `(platform_pitch)` \n\nPitch angle of platform"
+        },
+        "platform_roll": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "radian",
+          "description": "Roll angle `(platform_roll)` \n\nRoll angle of platform"
+        },
+        "platform_yaw": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "radian",
+          "description": "Yaw angle `(platform_yaw)` \n\nYaw angle of platform"
+        },
+        "radar_constant": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "mm6 m-3",
+          "description": "Radar constant \n\nRadar constant (at 5 km range) used during the in-flight calibration"
+        },
+        "radar_constant_correction_factor": {
           "dimensions": [
             "time",
             "altitude"
           ],
           "type": "data",
-          "unit": "K",
-          "description": "Air temperature `(air_temperature)` \n\nAir temperature (IFS OP 1h an/fcst)"
+          "unit": "",
+          "description": "Radar constant correction factor  \n\nRadar constant correction factor (near field correction, noisecom calibration, original variable 'SNRCorFaCo') "
+        },
+        "radar_cross_correlation": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "",
+          "description": "Cross-correlation coefficient \n\nCorrelation between the IQ signals measured in the cross- and co-channel"
+        },
+        "radar_differential_phase": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "radian",
+          "description": "Differential phase \n\nDifferential phase of the backscattered signal measured between co- and cross-channel"
+        },
+        "radar_doppler_velocity": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Doppler velocity (uncorrected) `(radial_velocity_of_scatterers_toward_instrument)` \n\nLine of sight doppler velocity (towards the instrument is positive)"
+        },
+        "radar_doppler_velocity_corrected": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Doppler velocity (corrected) `(radial_velocity_of_scatterers_toward_instrument)` \n\nVertical doppler velocity (upward is positive, motion corrected, horizontal wind corrected)"
+        },
+        "radar_doppler_velocity_corrected_no_wind": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Doppler velocity (corrected, no h-wind) `(radial_velocity_of_scatterers_toward_instrument)` \n\nVertical doppler velocity (upward is positive, motion corrected)"
+        },
+        "radar_doppler_velocity_peaks": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "",
+          "description": "Doppler velocity peaks \n\nNumber of line of sight doppler velocity peaks"
+        },
+        "radar_doppler_velocity_skewness": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "",
+          "description": "Doppler velocity skewness \n\nLine of sight doppler velocity skewness (influenced by platform motion)"
+        },
+        "radar_doppler_velocity_width": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Doppler velocity width \n\nLine of sight doppler velocity width (broadened by platform motion)"
+        },
+        "radar_gaseous_attenuation": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "",
+          "description": "Path integrated gaseous attenuation (PIA) \n\nPath integrated attenuation (2-way, linear) due to water vapour and oxygen"
+        },
+        "radar_instrument_mask": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "",
+          "description": "Radar instrument mask \n\n\n0=valid radar measurements / -1=below WGS84 geoid/ -2=ground clutter / -3=above platform / -4=radar non operational / -5=radar sensitivity suboptimal / -6=radar calibration / -7=platform in curve (roll lt 5) / -8=radar data not available / -9=below topography / -10=above LDR thresold (-10 dB)"
+        },
+        "radar_linear_depolarization_ratio": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "",
+          "description": "Linear depolarization ratio \n\nRatio between the radar reflectivities measured in the cross- and co-channel"
+        },
+        "radar_off_nadir_angle": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Angle of incidence `(angle_of_incidence)` \n\nThe angle of incidence between the beam direction and the normal of the ground."
+        },
+        "radar_reflectivity": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "mm6 m-3",
+          "description": "Equivalent reflectivity factor `(equivalent_reflectivity_factor)` \n\nThe factor is calculated from the measured radar return power assuming the target is composed of liquid water droplets (K^2=0.93) scattering in the Rayleigh regime"
+        },
+        "radar_signal_to_noise": {
+          "dimensions": [
+            "time",
+            "altitude"
+          ],
+          "type": "data",
+          "unit": "",
+          "description": "Radar signal to noise ratio as determined with the Hildebrand and Sekhorn method"
+        },
+        "time_original": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01",
+          "description": "Time `(time)` \n\nSeconds since UTC epoch (original measurement time)"
         }
       },
       "contacts": [
@@ -2819,7 +2819,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeifviubhn63dcbl3xdfghzc22k62qpgob6yuhccrtgemas2ghep74a",
+        "href": "ipfs://bafybeifxtmq5mpn7vwiiwl4vlpoil7rgm2tnhmkeyqsyudleqegxzvwl3a",
         "roles": [
           "data"
         ],
