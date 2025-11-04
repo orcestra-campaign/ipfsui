@@ -67,7 +67,7 @@ watchEffect(() => {
             <li class="stac_listing">
                 <a :href="'#/ds/' + item.assets.data.href">
                 <div>
-                    {{ item.properties?.title ?? item.assets.data.href }}
+                    <div class="title">{{ item.properties?.title ?? item.assets.data.href }}</div>
                     <ul class="authors"><li v-for="contact in item.properties?.contacts">{{ contact.name }}</li></ul>
                 </div>
                 </a>
@@ -78,10 +78,6 @@ watchEffect(() => {
 
 <style scoped>
 
-a {
-    font-weight: 700;
-}
-
 ul {
   list-style-type: none;
   margin: 0;
@@ -90,19 +86,27 @@ ul {
 
 ul.stac_listing > li {
     display: block;
-
-    border-style: solid;
-    border-color: var(--fg-color);
-    border-width: 1px;
+    outline: 1px solid var(--fg-color);
+    outline-offset: -1px;
     border-radius: 5px;
     margin: 5px;
-    padding: 5px;
+    padding: 6px;
+}
+
+ul.stac_listing > li:hover {
+    outline: 2px solid var(--orcestra-yellow);
+}
+
+.title {
+    font-weight: 700;
 }
 
 ul.authors > li {
     display: inline-block;
     margin: 0 .1em;
     font-size: smaller;
+    font-weight: 400;
+    color: var(--fg-color);
 }
 
 ul.authors > li:nth-last-child(n + 3)::after  {
