@@ -4,6 +4,7 @@ import { VMarkdownView } from 'vue3-markdown'
 import 'vue3-markdown/dist/vue3-markdown.css'
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
+import { useHead } from '@unhead/vue';
 
 import License from './License.vue';
 import VarTable from './VarTable.vue';
@@ -78,6 +79,21 @@ function createCitation(item: StacItem): string {
   return `${authors}. (${year}). ${title}. ${url}`;
 }
 const citation = computed(() => createCitation(item));
+
+useHead({
+  link: [
+    {
+      rel: "schema.DC",
+      href: "http://purl.org/dc/elements/1.1/",
+    },
+  ],
+  meta: [
+    {
+      name: "DC.identifier",
+      content: item.assets.data.href, // TODO: replace with DOI if available
+    },
+  ],
+})
 
 </script>
 
