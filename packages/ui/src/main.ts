@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import "./style.css";
 import App from "./App.vue";
+import { createHead } from '@unhead/vue/client';
 
 import { routes } from "./routes.ts";
 import { createRouter, createWebHashHistory } from "vue-router";
@@ -17,4 +18,7 @@ const router = createRouter({
   routes,
 });
 
-createApp(App).use(HeliaProvider).use(router).mount("#app");
+
+const head = createHead();
+
+createApp(App).use(HeliaProvider).use(router).use(head).mount("#app");

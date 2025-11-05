@@ -4,5 +4,8 @@
   "private": true,
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "@unhead/vue": "^2.0.19"
+  }
 }
