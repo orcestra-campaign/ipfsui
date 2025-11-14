@@ -402,7 +402,10 @@ function getDescription(attrs): string | undefined {
   }
 
   if (attrs?.standard_name !== undefined) {
-    parts.push(`\`(${attrs.standard_name})\``);
+    if (attrs.standard_name.trim()) {
+      // Prevent empty strings or white-space only to be printed
+      parts.push(`\`(${attrs.standard_name})\``);
+    }
   }
 
   if (attrs?.description) {
