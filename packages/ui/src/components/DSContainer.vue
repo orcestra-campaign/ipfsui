@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { shallowRef, watch, onBeforeMount, type ShallowRef } from 'vue'
+import { shallowRef, unref, watch, onBeforeMount, type ShallowRef } from 'vue'
 
 import PlaneAnimation from './PlaneAnimation.vue';
 import ShipAnimation from './ShipAnimation.vue';
@@ -10,8 +10,9 @@ const Animation = animations[Math.floor(Math.random() * animations.length)];
 
 import Nav from './Nav.vue';
 import ItemView from './ItemView.vue';
-import { parseMetadata, getStore, resolve, readDataset, extractLoose } from '@orcestra/utils';
-import type { DatasetMetadata } from '@orcestra/utils';
+import { parseMetadata, getStore, resolve, readDataset, extractLoose, metadataToStacId, parseManualMetadata } from '@orcestra/utils';
+import type { DatasetMetadata, ManualMetadata } from '@orcestra/utils';
+import * as yaml from 'js-yaml';
 
 import { useHelia } from '../plugins/HeliaProvider';
 import PathView from './PathView.vue';
@@ -38,10 +39,21 @@ async function resolve_cids(helia, src): {root_cid?: CID, item_cid?: CID} {
 const update = async () => {
     if (heliaProvider.loading.value) return;
     const store = getStore(props.src, {helia: heliaProvider.helia.value});
+    const raw_metadata = await store.get("/dataset_meta.yaml");
+    console.log(raw_metadata);
+    if ( raw_metadata ) {
+        const dataset_meta = yaml.load(new TextDecoder().decode(raw_metadata));
+        console.log(dataset_meta);
+
+        metadata.value = {src: props.src, ...resolve_cids(heliaProvider.helia.value, props.src)};
+        stac_item.value = parseManualMetadata(dataset_meta, metadata.value);
+        return;
+    }
     const raw_stac_item = await store.get("/stac_item.json");
     if ( raw_stac_item ) {
         stac_item.value = JSON.parse(new TextDecoder().decode(raw_stac_item));
         metadata.value = {src: props.src, ...resolve_cids(heliaProvider.helia.value, props.src)};
+        return;
     } else {
         const dsMeta = await readDataset(store);
 

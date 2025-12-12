@@ -7,6 +7,7 @@ import type {
   StacItem,
   Variable,
 } from "./stac.ts";
+import type { ManualMetadata } from "./manual_meta";
 import type { LooseGlobalAttrs } from "./dsAttrConvention.ts";
 import {
   decodeTime,
@@ -536,6 +537,68 @@ function parseCommaList(cs_list: string | undefined): string[] | undefined {
 
   // Replace the placeholders back with commas
   return list.map((item) => item.replace(/__COMMA_PLACEHOLDER__/g, ","));
+}
+
+export function parseManualMetadata(
+  manual_metadata: ManualMetadata, srcinfo: {src: string, item_cid?: CID}
+): StacItem {
+  let stableSrc = srcinfo.src;
+
+  if (srcinfo.item_cid !== undefined) {
+    stableSrc = "ipfs://" + srcinfo.item_cid.toString();
+  }
+
+  const properties: Properties = {
+      title: manual_metadata.attributes?.title,
+      description: manual_metadata.attributes?.summary,
+      keywords: parseCommaList(manual_metadata.attributes?.keywords),
+      license: manual_metadata.attributes?.license,
+      references: parseCommaList(manual_metadata.attributes?.references),
+      platform: manual_metadata.attributes?.platform,
+      mission: manual_metadata.attributes?.project,
+      "processing:lineage": manual_metadata.attributes?.history,
+      "start_datetime": manual_metadata.extent?.temporal[0],
+      "end_datetime": manual_metadata.extent?.temporal[1],
+  };
+  const names = parseCommaList(manual_metadata.attributes.creator_name);
+  const emails = manual_metadata.attributes.creator_email?.split(",").map((n: string) =>
+    n.trim()
+  );
+  const contacts: Contact[] = [];
+
+  if (names !== undefined) {
+    for (const [i, name] of names.entries()) {
+      const es = [];
+      if (emails !== undefined && emails.length > i) {
+        es.push({ value: emails[i], roles: [] });
+      }
+      contacts.push({ name, emails: es });
+    }
+    properties.contacts = contacts;
+  }
+  const [lon0, lat0, lon1, lat1] = manual_metadata.extent.spatial;
+  return {
+      type: "Feature",
+      stac_version: "1.1.0",
+      stac_extensions: [],
+      id: metadataToStacId(srcinfo),
+      properties,
+      links: [],
+      assets: {
+        data: {
+          href: stableSrc,
+          roles: ["data"],
+        }
+      },
+      bbox: manual_metadata.extent.spatial,
+      geometry: {
+        type: "Polygon",
+        coordinates: [[[lon0, lat0], [lon1, lat0], [lon1, lat1], [lon0, lat1], [
+          lon0,
+          lat0,
+        ]]],
+      }
+};
 }
 
 export default async function* parseMetadata(
