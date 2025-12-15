@@ -133,7 +133,7 @@ useHead({
         <StacMap :item="item" />
     </div>
 
-    <div v-if="item?.assets?.data?.href">
+    <div v-if="item?.assets?.data?.href && item?.assets?.data?.type === 'application/vnd+zarr'">
         <CodeExampleXarray :src="item.assets.data.href" />
     </div>
 

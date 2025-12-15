@@ -40,11 +40,8 @@ const update = async () => {
     if (heliaProvider.loading.value) return;
     const store = getStore(props.src, {helia: heliaProvider.helia.value});
     const raw_metadata = await store.get("/dataset_meta.yaml");
-    console.log(raw_metadata);
     if ( raw_metadata ) {
         const dataset_meta = yaml.load(new TextDecoder().decode(raw_metadata));
-        console.log(dataset_meta);
-
         metadata.value = {src: props.src, ...resolve_cids(heliaProvider.helia.value, props.src)};
         stac_item.value = parseManualMetadata(dataset_meta, metadata.value);
         return;
