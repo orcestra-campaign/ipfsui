@@ -46,25 +46,18 @@ const update = async () => {
         stac_item.value = parseManualMetadata(dataset_meta, metadata.value);
         return;
     }
-    const raw_stac_item = await store.get("/stac_item.json");
-    if ( raw_stac_item ) {
-        stac_item.value = JSON.parse(new TextDecoder().decode(raw_stac_item));
-        metadata.value = {src: props.src, ...resolve_cids(heliaProvider.helia.value, props.src)};
-        return;
-    } else {
-        const dsMeta = await readDataset(store);
+    const dsMeta = await readDataset(store);
 
-        const attrs = extractLoose(dsMeta.attrs);
-        const variables = dsMeta.variables;
+    const attrs = extractLoose(dsMeta.attrs);
+    const variables = dsMeta.variables;
 
-        metadata.value = {src: props.src, attrs, variables};
-        console.log(metadata.value);
-        metadata.value = {...metadata.value, ...resolve_cids(heliaProvider.helia.value, props.src)};
-        console.log(metadata.value);
-        if (metadata.value) {
-            for await (const item of parseMetadata(unref(metadata))) {
-                stac_item.value = item;
-            }
+    metadata.value = {src: props.src, attrs, variables};
+    console.log(metadata.value);
+    metadata.value = {...metadata.value, ...resolve_cids(heliaProvider.helia.value, props.src)};
+    console.log(metadata.value);
+    if (metadata.value) {
+        for await (const item of parseMetadata(unref(metadata))) {
+            stac_item.value = item;
         }
     }
 };
