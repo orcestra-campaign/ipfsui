@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { shallowRef, watch, onBeforeMount, type ShallowRef } from 'vue'
+import { shallowRef, unref, watch, onBeforeMount, type ShallowRef } from 'vue'
 
 import PlaneAnimation from './PlaneAnimation.vue';
 import ShipAnimation from './ShipAnimation.vue';
@@ -10,44 +10,55 @@ const Animation = animations[Math.floor(Math.random() * animations.length)];
 
 import Nav from './Nav.vue';
 import ItemView from './ItemView.vue';
-import { parseMetadata, getStore, resolve, readDataset, extractLoose } from '@orcestra/utils';
-import type { DatasetMetadata } from '@orcestra/utils';
+import { parseMetadata, getStore, resolve, readDataset, extractLoose, parseManualMetadata } from '@orcestra/utils';
+import type { DatasetSrc, DatasetMetadata, ManualMetadata } from '@orcestra/utils';
+import * as yaml from 'js-yaml';
 
 import { useHelia } from '../plugins/HeliaProvider';
+import type { Helia } from 'helia';
+import type { CID } from 'multiformats';
 import PathView from './PathView.vue';
 
 const props = defineProps<{ src: string }>();
 
 const heliaProvider = useHelia();
 
-const metadata: ShallowRef<DatasetMetadata | undefined> = shallowRef();
+const metadata: ShallowRef<DatasetSrc | DatasetMetadata | undefined> = shallowRef();
 
 const stac_item = shallowRef();
+
+async function resolve_cids(helia: Helia, src: string): Promise<{root_cid?: CID, item_cid?: CID}> {
+    if (!helia) {
+        return {};
+    }
+    const resolveResult = await resolve(helia, src);
+    const root_cid = resolveResult?.cids.at(0)?.cid.toV1();
+    const item_cid = resolveResult?.cids.at(-1)?.cid.toV1();
+
+    return {root_cid, item_cid};
+}
 
 const update = async () => {
     if (heliaProvider.loading.value) return;
     const store = getStore(props.src, {helia: heliaProvider.helia.value});
+    const raw_metadata = await store.get("/dataset_meta.yaml");
+    if ( raw_metadata ) {
+        const dataset_meta = yaml.load(new TextDecoder().decode(raw_metadata)) as ManualMetadata; //TODO: verify correctness
+        metadata.value = {src: props.src, ...resolve_cids(heliaProvider.helia.value, props.src)};
+        stac_item.value = parseManualMetadata(dataset_meta, metadata.value);
+        return;
+    }
     const dsMeta = await readDataset(store);
 
     const attrs = extractLoose(dsMeta.attrs);
     const variables = dsMeta.variables;
 
     metadata.value = {src: props.src, attrs, variables};
-
     console.log(metadata.value);
-
-    if (heliaProvider.helia.value) {
-        const helia = heliaProvider.helia.value;
-        const resolveResult = await resolve(helia, props.src);
-        const root_cid = resolveResult?.cids.at(0)?.cid.toV1();
-        const item_cid = resolveResult?.cids.at(-1)?.cid.toV1();
-
-        metadata.value = {src: props.src, attrs, variables, root_cid, item_cid};
-        console.log("IPNS resolve", props.src, item_cid?.toString());
-    }
+    metadata.value = {...metadata.value, ...resolve_cids(heliaProvider.helia.value, props.src)};
     console.log(metadata.value);
     if (metadata.value) {
-        for await (const item of parseMetadata(metadata.value)) {
+        for await (const item of parseMetadata(unref(metadata.value))) {
             stac_item.value = item;
         }
     }

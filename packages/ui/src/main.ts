@@ -2,6 +2,8 @@ import { createApp } from "vue";
 import "./style.css";
 import App from "./App.vue";
 import { createHead } from '@unhead/vue/client';
+import PrimeVue from 'primevue/config';
+import Aura from '@primeuix/themes/aura';
 
 import { routes } from "./routes.ts";
 import { createRouter, createWebHashHistory } from "vue-router";
@@ -21,4 +23,16 @@ const router = createRouter({
 
 const head = createHead();
 
-createApp(App).use(HeliaProvider).use(router).use(head).mount("#app");
+const app = createApp(App);
+
+app.use(PrimeVue, {
+  theme: {
+    preset: Aura,
+  }
+});
+
+//app.use(PrimeVue, { unstyled: true });
+app.use(HeliaProvider);
+app.use(router);
+app.use(head);
+app.mount("#app");
