@@ -18,7 +18,7 @@ import { FsDatastore } from "datastore-fs";
 import { FsBlockstore } from "blockstore-fs";
 import process from "node:process";
 import type { UnixFSEntry } from "ipfs-unixfs-exporter";
-import { getStore, readDataset, extractLoose, parseMetadata, metadataToStacId, DeltaCodec, type StacItem } from "@orcestra/utils";
+import { getStore, stacFromStore, readDataset, extractLoose, parseMetadata, metadataToStacId, DeltaCodec, type StacItem } from "@orcestra/utils";
 
 import commandLineArgs from "command-line-args";
 import commandLineUsage from "command-line-usage";
@@ -31,7 +31,7 @@ registry.set("delta", () => DeltaCodec);
 function isDataset(directoryListing: Array<UnixFSEntry>) {
   for (const entry of directoryListing) {
     if (
-      entry.name == ".zgroup" &&
+      [".zgroup", "dataset_meta.yaml"].includes(entry.name) &&
       ["file", "raw", "identity"].includes(entry.type)
     ) {
       return true;
@@ -384,16 +384,13 @@ const stacItems = await Promise.all(
     const timeout = setTimeout(() => {
       console.log(cid.toString(), "takes longer than expected");
     }, 50000);
-    const dsMeta = await readDataset(store);
-    const metadata = {
+    const srcinfo = {
       ...baseMetadata,
-      attrs: extractLoose(dsMeta.attrs),
-      variables: dsMeta.variables,
       root_cid,
     };
 
     let stacItem;
-    for await (const item of parseMetadata(metadata)) {
+    for await (const item of stacFromStore(store, srcinfo)) {
       stacItem = item;
     }
     console.log(stacItem?.properties?.title);
