@@ -10,9 +10,8 @@ const Animation = animations[Math.floor(Math.random() * animations.length)];
 
 import Nav from './Nav.vue';
 import ItemView from './ItemView.vue';
-import { parseMetadata, getStore, resolve, readDataset, extractLoose, parseManualMetadata } from '@orcestra/utils';
-import type { DatasetSrc, DatasetMetadata, ManualMetadata } from '@orcestra/utils';
-import * as yaml from 'js-yaml';
+import { getStore, resolve, stacFromStore } from '@orcestra/utils';
+import type { DatasetSrc } from '@orcestra/utils';
 
 import { useHelia } from '../plugins/HeliaProvider';
 import type { Helia, Provider } from 'helia';
@@ -23,7 +22,7 @@ const props = defineProps<{ src: string }>();
 
 const heliaProvider = useHelia();
 
-const metadata: ShallowRef<DatasetSrc | DatasetMetadata | undefined> = shallowRef();
+const srcinfo: ShallowRef<DatasetSrc | undefined> = shallowRef();
 
 const stac_item = shallowRef();
 
@@ -73,8 +72,8 @@ function parseProvider(provider: Provider): string | undefined {
 }
 
 const updateProviders = async() => {
-  if (metadata.value?.item_cid) {
-    for await (const provider of heliaProvider.helia.value.routing.findProviders(metadata.value?.item_cid)) {
+  if (srcinfo.value?.item_cid) {
+    for await (const provider of heliaProvider.helia.value.routing.findProviders(srcinfo.value?.item_cid)) {
       // Exclude peers by multiaddr pattern
       const excludeAddrPatterns = [
         /127\.0\.0\.1/,
@@ -100,28 +99,11 @@ const update = async () => {
     providers.value = [];
     if (heliaProvider.loading.value) return;
     const store = getStore(props.src, {helia: heliaProvider.helia.value});
-    const raw_metadata = await store.get("/dataset_meta.yaml");
-    if ( raw_metadata ) {
-        const dataset_meta = yaml.load(new TextDecoder().decode(raw_metadata)) as ManualMetadata; //TODO: verify correctness
-        metadata.value = {src: props.src, ...await resolve_cids(heliaProvider.helia.value, props.src)};
-        stac_item.value = parseManualMetadata(dataset_meta, metadata.value);
-        return;
+    srcinfo.value = { src: props.src, ...await resolve_cids(heliaProvider.helia.value, props.src) };
+    for await (const item of stacFromStore(store, srcinfo.value)) {
+        stac_item.value = item;
     }
-    const dsMeta = await readDataset(store);
-
-    const attrs = extractLoose(dsMeta.attrs);
-    const variables = dsMeta.variables;
-
-    metadata.value = {src: props.src, attrs, variables};
-    console.log(metadata.value);
-    metadata.value = {...metadata.value, ...await resolve_cids(heliaProvider.helia.value, props.src)};
-    console.log(metadata.value);
     updateProviders();  // execute asynchronously
-    if (metadata.value) {
-        for await (const item of parseMetadata(unref(metadata.value))) {
-            stac_item.value = item;
-        }
-    }
 };
 
 onBeforeMount(update);
@@ -160,8 +142,8 @@ const providedBy = computed(() => {
             <Nav />
         </div>
     </div>
-    <PathView v-if="metadata?.src" :src="metadata?.src as string" :item_cid="metadata?.item_cid" />
+    <PathView v-if="srcinfo?.src" :src="srcinfo?.src as string" :item_cid="srcinfo?.item_cid" />
     <ItemView v-if="stac_item" :item="stac_item" />
     <Animation v-else />
-    <div v-if="metadata?.item_cid">Dataset is provided by {{ providedBy }}.</div>
+    <div v-if="srcinfo?.item_cid">Dataset is provided by {{ providedBy }}.</div>
 </template>

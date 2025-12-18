@@ -7,3 +7,4 @@ export type { DatasetSrc, DatasetMetadata } from "./parseMetadata";
 export { DeltaCodec } from "./ds/codecs/delta";
 export type { StacItem, ReducedStacItem } from "./stac";
 export type { ManualMetadata } from "./manual_meta";
+export { stacFromStore } from "./extractStac";
