@@ -10,22 +10,24 @@ const Animation = animations[Math.floor(Math.random() * animations.length)];
 
 import Nav from './Nav.vue';
 import ItemView from './ItemView.vue';
-import { parseMetadata, getStore, resolve, readDataset, extractLoose, metadataToStacId, parseManualMetadata } from '@orcestra/utils';
-import type { DatasetMetadata, ManualMetadata } from '@orcestra/utils';
+import { parseMetadata, getStore, resolve, readDataset, extractLoose, parseManualMetadata } from '@orcestra/utils';
+import type { DatasetSrc, DatasetMetadata, ManualMetadata } from '@orcestra/utils';
 import * as yaml from 'js-yaml';
 
 import { useHelia } from '../plugins/HeliaProvider';
+import type { Helia } from 'helia';
+import type { CID } from 'multiformats';
 import PathView from './PathView.vue';
 
 const props = defineProps<{ src: string }>();
 
 const heliaProvider = useHelia();
 
-const metadata: ShallowRef<DatasetMetadata | undefined> = shallowRef();
+const metadata: ShallowRef<DatasetSrc | DatasetMetadata | undefined> = shallowRef();
 
 const stac_item = shallowRef();
 
-async function resolve_cids(helia, src): {root_cid?: CID, item_cid?: CID} {
+async function resolve_cids(helia: Helia, src: string): Promise<{root_cid?: CID, item_cid?: CID}> {
     if (!helia) {
         return {};
     }
@@ -41,7 +43,7 @@ const update = async () => {
     const store = getStore(props.src, {helia: heliaProvider.helia.value});
     const raw_metadata = await store.get("/dataset_meta.yaml");
     if ( raw_metadata ) {
-        const dataset_meta = yaml.load(new TextDecoder().decode(raw_metadata));
+        const dataset_meta = yaml.load(new TextDecoder().decode(raw_metadata)) as ManualMetadata; //TODO: verify correctness
         metadata.value = {src: props.src, ...resolve_cids(heliaProvider.helia.value, props.src)};
         stac_item.value = parseManualMetadata(dataset_meta, metadata.value);
         return;
@@ -56,7 +58,7 @@ const update = async () => {
     metadata.value = {...metadata.value, ...resolve_cids(heliaProvider.helia.value, props.src)};
     console.log(metadata.value);
     if (metadata.value) {
-        for await (const item of parseMetadata(unref(metadata))) {
+        for await (const item of parseMetadata(unref(metadata.value))) {
             stac_item.value = item;
         }
     }

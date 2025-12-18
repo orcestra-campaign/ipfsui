@@ -37,7 +37,7 @@ console.log(item)
     <Tabs :value="default_tab">
         <TabList>
             <div class="p-tab">Access:</div>
-            <Tab value="zarr-python" v-if="is_zarr" pt>Python</Tab>
+            <Tab value="zarr-python" v-if="is_zarr">Python</Tab>
             <Tab value="ipfs" v-if="is_ipfs">IPFS</Tab>
             <Tab value="gateway" v-if="is_ipfs">HTTP Gateway</Tab>
             <Tab value="http" v-if="!is_ipfs">HTTP</Tab>

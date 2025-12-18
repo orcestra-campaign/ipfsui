@@ -25,14 +25,21 @@ import dayjs from "dayjs";
 
 import { CID } from "multiformats";
 
-export interface DatasetMetadata {
+export interface DatasetSrc {
   src: string;
-  attrs: LooseGlobalAttrs;
-  variables: {
-    [key: string]: SomeArray;
-  };
   item_cid?: CID;
   root_cid?: CID;
+}
+
+export interface DatasetMetadata extends DatasetSrc {
+    attrs: LooseGlobalAttrs;
+    variables: {
+        [key: string]: SomeArray;
+    };
+}
+
+function dsSrcToMeta(src: DatasetSrc): DatasetMetadata {
+  return { attrs: {}, variables: {}, ...src };
 }
 
 /*
@@ -540,7 +547,7 @@ function parseCommaList(cs_list: string | undefined): string[] | undefined {
 }
 
 export function parseManualMetadata(
-  manual_metadata: ManualMetadata, srcinfo: {src: string, item_cid?: CID}
+  manual_metadata: ManualMetadata, srcinfo: DatasetSrc
 ): StacItem {
   let stableSrc = srcinfo.src;
 
@@ -602,8 +609,9 @@ export function parseManualMetadata(
 }
 
 export default async function* parseMetadata(
-  ds: DatasetMetadata,
+  ds_: DatasetSrc,
 ): AsyncGenerator<StacItem> {
+  const ds = dsSrcToMeta(ds_);
   let stableSrc = ds.src;
 
   if (ds.item_cid !== undefined) {
