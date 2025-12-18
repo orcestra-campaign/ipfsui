@@ -1,0 +1,24 @@
+import type { StacItem } from "./stac";
+import type { DatasetMetadata, DatasetSrc } from "./parseMetadata";
+import type { ManualMetadata } from "./manual_meta";
+import { parseManualMetadata, default as parseMetadata } from "./parseMetadata";
+import { readDataset } from "./ds";
+import { extractLoose } from "./dsAttrConvention";
+import type IPFSFetchStore from "./ipfs/fetchStore";
+import type { FetchStore } from "zarrita";
+import * as yaml from 'js-yaml';
+
+export async function* stacFromStore(store: IPFSFetchStore | FetchStore, srcinfo: DatasetSrc): AsyncGenerator<StacItem> {
+  const raw_metadata = await store.get("/dataset_meta.yaml");
+  if ( raw_metadata ) {
+      const dataset_meta = yaml.load(new TextDecoder().decode(raw_metadata)) as ManualMetadata; //TODO: verify correctness
+      yield parseManualMetadata(dataset_meta, srcinfo);
+      return;
+  }
+  const dsMeta = await readDataset(store);
+
+  const attrs = extractLoose(dsMeta.attrs);
+  const variables = dsMeta.variables;
+  const metadata: DatasetMetadata = { ...srcinfo, attrs, variables };
+  yield* parseMetadata(metadata);
+}
