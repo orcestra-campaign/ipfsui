@@ -10,7 +10,8 @@ import License from './License.vue';
 import VarTable from './VarTable.vue';
 import type { StacItem } from '@orcestra/utils';
 import StacMap from './StacMap.vue';
-import CodeExampleXarray from './CodeExampleXarray.vue';
+
+import ItemAccess from './ItemAccess.vue';
 
 dayjs.extend(utc);
 
@@ -133,9 +134,7 @@ useHead({
         <StacMap :item="item" />
     </div>
 
-    <div v-if="item?.assets?.data?.href && item?.assets?.data?.type === 'application/vnd+zarr'">
-        <CodeExampleXarray :src="item.assets.data.href" />
-    </div>
+    <ItemAccess :item="item" />
 
     <div v-if="item?.properties['cube:dimensions'] || item?.properties['cube:variables']">
         <h2>Parameter(s)</h2>
