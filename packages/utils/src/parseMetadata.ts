@@ -24,6 +24,7 @@ import type { SomeArray } from "./ds/types";
 import dayjs from "dayjs";
 
 import { CID } from "multiformats";
+import { getLogger } from "./logging";
 
 export interface DatasetSrc {
   src: string;
@@ -262,24 +263,25 @@ async function getSpatialBoundsTrajectory(
 ): Promise<
   { bbox: BBox; geometry: Geometry } | undefined
 > {
+  const logger = getLogger();
   let lats: LikeAnArray<number> | undefined = undefined;
   let lons: LikeAnArray<number> | undefined = undefined;
   for (const [varname, variable] of Object.entries(ds.variables)) {
     if (
       isLatitudeVariable(varname, variable.attrs) && variable.shape.length == 1
     ) {
-      if (lats !== undefined) console.warn("more than one latitude variable");
+      if (lats !== undefined) logger.error("more than one latitude variable");
       lats = applyOffsetAndScale((await get(variable)).data, variable.attrs);
     }
     if (
       isLongitudeVariable(varname, variable.attrs) && variable.shape.length == 1
     ) {
-      if (lons !== undefined) console.warn("more than one longitude variable");
+      if (lons !== undefined) logger.warn("more than one longitude variable");
       lons = applyOffsetAndScale((await get(variable)).data, variable.attrs);
     }
   }
   if (lats === undefined || lons === undefined) {
-    console.warn(
+    logger.warn(
       "dataset",
       ds.src,
       "is a trajectory, but it was not possible to figure out the coordinates",
@@ -311,6 +313,7 @@ async function getSpatialBoundsProfile(
 ): Promise<
   { bbox: BBox; geometry: Geometry } | undefined
 > {
+  const logger = getLogger();
   let lats: LikeAnArray<number> | undefined = undefined;
   let lons: LikeAnArray<number> | undefined = undefined;
   for (const [varname, variable] of Object.entries(ds.variables)) {
@@ -318,18 +321,18 @@ async function getSpatialBoundsProfile(
       isLatitudeVariable(varname, variable.attrs) &&
       [0, 1].includes(variable.shape.length)
     ) {
-      if (lats !== undefined) console.warn("more than one latitude variable");
+      if (lats !== undefined) logger.error("more than one latitude variable");
       lats = applyOffsetAndScale((await get(variable)).data, variable.attrs);
     }
     if (
       isLongitudeVariable(varname, variable.attrs) && variable.shape.length == 1
     ) {
-      if (lons !== undefined) console.warn("more than one longitude variable");
+      if (lons !== undefined) logger.warn("more than one longitude variable");
       lons = applyOffsetAndScale((await get(variable)).data, variable.attrs);
     }
   }
   if (lats === undefined || lons === undefined) {
-    console.warn(
+    logger.warn(
       "dataset",
       ds.src,
       "is a profile, but it was not possible to figure out the coordinates",

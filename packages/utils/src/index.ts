@@ -8,3 +8,4 @@ export { DeltaCodec } from "./ds/codecs/delta";
 export type { StacItem, ReducedStacItem } from "./stac";
 export type { ManualMetadata } from "./manual_meta";
 export { stacFromStore, genStacFromStore } from "./extractStac";
+export { getLogger, setLogger, NullLogger, BrowserLogger, type Logger } from "./logging";
