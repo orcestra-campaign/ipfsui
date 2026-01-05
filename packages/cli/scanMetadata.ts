@@ -16,6 +16,7 @@ import pLimit from "p-limit";
 
 import { registry } from "zarrita";
 
+import { Monitor, ActiveMonitor } from "./scanMonitor";
 import configureHelia from "./configureHelia";
 
 // @ts-expect-error DeltaCodec only handles numbers, but I didn't yet figure out how to check this properly
@@ -49,26 +50,29 @@ async function collectDatasets(
   cid: CID,
   path: string = "",
   blacklist: string[] = [],
+  monitor: Monitor,
   cache: ItemCIDCache,
 ): Promise<Array<CIDPath>> {
   const cachedItems = await cache.getItem(cid);
   if (cachedItems !== null) {
     return cachedItems;
   }
+  monitor.enterPath(path);
   if (blacklist.includes(path)) {
     console.log("skipping path", path);
+    monitor.leavePath(path);
     return [];
   }
   try {
   const res = await crawlLimit(Array.fromAsync, ipfs_fs.ls(cid));
   if (isDataset(res)) {
     console.log("collected", path);
+    monitor.leavePath(path);
     return [{ cid: cid.toV1(), path }];
   } else {
-    console.log("entering path", path);
     const out = (await Promise.all(
       res.filter((e) => e.type === "directory").map((e) =>
-        collectDatasets(e.cid, path + "/" + e.name, blacklist, cache)
+        collectDatasets(e.cid, path + "/" + e.name, blacklist, monitor, cache)
       ),
     )).flat();
     /*
@@ -79,7 +83,7 @@ async function collectDatasets(
       }
     }
     */
-    console.log("finished path", path);
+    monitor.leavePath(path);
     await cache.putItem(cid, out);
     return out;
   }
@@ -258,14 +262,18 @@ if (args?.cachedir) {
   stacCache = new NoCache();
 }
 
+const monitor = new ActiveMonitor();
+
 const datasetLocations = await collectDatasets(
   root_cid,
   "",
   blacklist,
+  monitor,
   itemCIDCache,
 );
 
 console.log("all datasets collected, extracting metadata");
+
 
 const stacItems = await Promise.all(
   datasetLocations.map(async ({ cid, path }) => {
