@@ -390,4 +390,6 @@ const stacItems = await Promise.all(
 if (args?.outfile !== undefined) {
   await fs.writeFile(args.outfile, JSON.stringify(stacItems), {encoding: "utf-8"});
 }
+
+helia.stop();
 process.exit(0);
