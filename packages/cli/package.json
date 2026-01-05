@@ -7,13 +7,14 @@
     "scan": "tsx ./scanMetadata.ts"
   },
   "dependencies": {
-    "@orcestra/utils": "1.0.0",
-    "@helia/unixfs": "^4.0.2",
     "@helia/http": "^2.2.1",
-    "datastore-fs": "^10.0.2",
+    "@helia/unixfs": "^4.0.2",
+    "@orcestra/utils": "1.0.0",
     "blockstore-fs": "^2.0.2",
     "command-line-args": "^6.0.1",
-    "command-line-usage": "^7.0.3"
+    "command-line-usage": "^7.0.3",
+    "datastore-fs": "^10.0.2",
+    "p-limit": "^2.3.0"
   },
   "devDependencies": {
     "tsx": "^4.20.6"
