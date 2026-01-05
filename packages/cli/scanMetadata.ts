@@ -12,6 +12,8 @@ import { getStore, stacFromStore, srcinfoToStacId, DeltaCodec, type StacItem } f
 import commandLineArgs from "command-line-args";
 import commandLineUsage from "command-line-usage";
 
+import pLimit from "p-limit";
+
 import { registry } from "zarrita";
 
 import configureHelia from "./configureHelia";
@@ -41,6 +43,8 @@ interface ItemCIDCache {
   putItem(root: CID, items: Array<CIDPath>): Promise<void>;
 }
 
+const crawlLimit = pLimit(30);
+
 async function collectDatasets(
   cid: CID,
   path: string = "",
@@ -56,7 +60,7 @@ async function collectDatasets(
     return [];
   }
   try {
-  const res = await Array.fromAsync(ipfs_fs.ls(cid));
+  const res = await crawlLimit(Array.fromAsync, ipfs_fs.ls(cid));
   if (isDataset(res)) {
     console.log("collected", path);
     return [{ cid: cid.toV1(), path }];
@@ -281,7 +285,7 @@ const stacItems = await Promise.all(
       console.log(cid.toString(), "takes longer than expected");
     }, 50000);
 
-    const stacItem = stacFromStore(store, srcinfo);
+    const stacItem = crawlLimit(stacFromStore, store, srcinfo);
     console.log(stacItem?.properties?.title);
     clearTimeout(timeout);
     if (stacItem !== undefined) {
