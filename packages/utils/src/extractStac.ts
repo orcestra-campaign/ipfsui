@@ -8,7 +8,7 @@ import type IPFSFetchStore from "./ipfs/fetchStore";
 import type { FetchStore } from "zarrita";
 import * as yaml from 'js-yaml';
 
-export async function* stacFromStore(store: IPFSFetchStore | FetchStore, srcinfo: DatasetSrc): AsyncGenerator<StacItem> {
+export async function* genStacFromStore(store: IPFSFetchStore | FetchStore, srcinfo: DatasetSrc): AsyncGenerator<StacItem> {
   const raw_metadata = await store.get("/dataset_meta.yaml");
   if ( raw_metadata ) {
       const dataset_meta = yaml.load(new TextDecoder().decode(raw_metadata)) as ManualMetadata; //TODO: verify correctness
@@ -21,4 +21,12 @@ export async function* stacFromStore(store: IPFSFetchStore | FetchStore, srcinfo
   const variables = dsMeta.variables;
   const metadata: DatasetMetadata = { ...srcinfo, attrs, variables };
   yield* parseMetadata(metadata);
+}
+
+export async function stacFromStore(store: IPFSFetchStore | FetchStore, srcinfo: DatasetSrc): Promise<StacItem> {
+  let stacItem;
+  for await (const item of genStacFromStore(store, srcinfo)) {
+    stacItem = item;
+  }
+  return stacItem as StacItem;
 }

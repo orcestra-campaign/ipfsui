@@ -10,7 +10,7 @@ const Animation = animations[Math.floor(Math.random() * animations.length)];
 
 import Nav from './Nav.vue';
 import ItemView from './ItemView.vue';
-import { getStore, resolve, stacFromStore } from '@orcestra/utils';
+import { getStore, resolve, genStacFromStore } from '@orcestra/utils';
 import type { DatasetSrc } from '@orcestra/utils';
 
 import { useHelia } from '../plugins/HeliaProvider';
@@ -41,7 +41,7 @@ const update = async () => {
     if (heliaProvider.loading.value) return;
     const store = getStore(props.src, {helia: heliaProvider.helia.value});
     srcinfo.value = { src: props.src, ...await resolve_cids(heliaProvider.helia.value, props.src) };
-    for await (const item of stacFromStore(store, srcinfo.value)) {
+    for await (const item of genStacFromStore(store, srcinfo.value)) {
         stac_item.value = item;
     }
 };

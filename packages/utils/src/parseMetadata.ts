@@ -525,7 +525,7 @@ async function* asCompleted<T>(promises: Array<Promise<T>>): AsyncGenerator<T> {
   }
 }
 
-export function metadataToStacId(ds: { item_cid?: CID; src: string }): string {
+export function srcinfoToStacId(ds: { item_cid?: CID; src: string }): string {
   return (ds?.item_cid?.toString() ?? ds.src) + "-stac_item";
 }
 
@@ -588,7 +588,7 @@ export function parseManualMetadata(
       type: "Feature",
       stac_version: "1.1.0",
       stac_extensions: [],
-      id: metadataToStacId(srcinfo),
+      id: srcinfoToStacId(srcinfo),
       properties,
       links: [],
       assets: {
@@ -651,7 +651,7 @@ export default async function* parseMetadata(
     type: "Feature",
     stac_version: "1.1.0",
     stac_extensions: [],
-    id: metadataToStacId(ds),
+    id: srcinfoToStacId(ds),
     properties,
     links: [],
     assets: {

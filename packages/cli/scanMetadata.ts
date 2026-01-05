@@ -18,7 +18,7 @@ import { FsDatastore } from "datastore-fs";
 import { FsBlockstore } from "blockstore-fs";
 import process from "node:process";
 import type { UnixFSEntry } from "ipfs-unixfs-exporter";
-import { getStore, stacFromStore, readDataset, extractLoose, parseMetadata, metadataToStacId, DeltaCodec, type StacItem } from "@orcestra/utils";
+import { getStore, stacFromStore, srcinfoToStacId, DeltaCodec, type StacItem } from "@orcestra/utils";
 
 import commandLineArgs from "command-line-args";
 import commandLineUsage from "command-line-usage";
@@ -371,11 +371,12 @@ console.log("all datasets collected, extracting metadata");
 const stacItems = await Promise.all(
   datasetLocations.map(async ({ cid, path }) => {
     const src = "ipfs://" + root_cid.toString() + path;
-    const baseMetadata = {
+    const srcinfo = {
       src,
       item_cid: cid,
+      root_cid,
     };
-    const stacId = metadataToStacId(baseMetadata);
+    const stacId = srcinfoToStacId(srcinfo);
     const cachedItem = await stacCache.getItem(stacId);
     if (cachedItem !== null) {
       return cachedItem;
@@ -384,15 +385,8 @@ const stacItems = await Promise.all(
     const timeout = setTimeout(() => {
       console.log(cid.toString(), "takes longer than expected");
     }, 50000);
-    const srcinfo = {
-      ...baseMetadata,
-      root_cid,
-    };
 
-    let stacItem;
-    for await (const item of stacFromStore(store, srcinfo)) {
-      stacItem = item;
-    }
+    const stacItem = stacFromStore(store, srcinfo);
     console.log(stacItem?.properties?.title);
     clearTimeout(timeout);
     if (stacItem !== undefined) {
