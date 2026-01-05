@@ -1,21 +1,10 @@
-//import setupHelia from "../lib/setupHelia.ts";
 import { clearTimeout, setTimeout } from "node:timers";
 import { unixfs } from "@helia/unixfs";
-import { createHelia } from "helia";
 import { CID } from "multiformats";
 
 import * as path from "node:path";
 import * as fs from "node:fs/promises";
 
-import { createHeliaHTTP } from "@helia/http";
-import { trustlessGateway } from "@helia/block-brokers";
-import { httpGatewayRouting } from "@helia/routers";
-
-import { dns } from "@multiformats/dns";
-import { dnsJsonOverHttps } from "@multiformats/dns/resolvers";
-
-import { FsDatastore } from "datastore-fs";
-import { FsBlockstore } from "blockstore-fs";
 import process from "node:process";
 import type { UnixFSEntry } from "ipfs-unixfs-exporter";
 import { getStore, stacFromStore, srcinfoToStacId, DeltaCodec, type StacItem } from "@orcestra/utils";
@@ -24,6 +13,8 @@ import commandLineArgs from "command-line-args";
 import commandLineUsage from "command-line-usage";
 
 import { registry } from "zarrita";
+
+import configureHelia from "./configureHelia";
 
 // @ts-expect-error DeltaCodec only handles numbers, but I didn't yet figure out how to check this properly
 registry.set("delta", () => DeltaCodec);
