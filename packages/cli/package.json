@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "scan": "tsx ./scanMetadata.ts"
+    "scan": "tsx ./scanMetadata.ts",
+    "cid2stac": "tsx ./cid2Stac.ts"
   },
   "dependencies": {
     "@helia/http": "^2.2.1",
