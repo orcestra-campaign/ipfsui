@@ -45,11 +45,17 @@ async function collectDatasets(
   cid: CID,
   path: string = "",
   blacklist: string[] = [],
+  cache: ItemCIDCache,
 ): Promise<Array<CIDPath>> {
+  const cachedItems = await cache.getItem(cid);
+  if (cachedItems !== null) {
+    return cachedItems;
+  }
   if (blacklist.includes(path)) {
     console.log("skipping path", path);
     return [];
   }
+  try {
   const res = await Array.fromAsync(ipfs_fs.ls(cid));
   if (isDataset(res)) {
     console.log("collected", path);
@@ -58,7 +64,7 @@ async function collectDatasets(
     console.log("entering path", path);
     const out = (await Promise.all(
       res.filter((e) => e.type === "directory").map((e) =>
-        collectDatasets(e.cid, path + "/" + e.name, blacklist)
+        collectDatasets(e.cid, path + "/" + e.name, blacklist, cache)
       ),
     )).flat();
     /*
@@ -70,23 +76,12 @@ async function collectDatasets(
     }
     */
     console.log("finished path", path);
+    await cache.putItem(cid, out);
     return out;
   }
-}
-
-async function collectDatasetsWithCache(
-  cid: CID,
-  path: string = "",
-  blacklist: string[] = [],
-  cache: ItemCIDCache,
-): Promise<Array<CIDPath>> {
-  const cachedItems = await cache.getItem(cid);
-  if (cachedItems !== null) {
-    return cachedItems;
+  } catch (e) {
+    console.error(e);
   }
-  const items = await collectDatasets(cid, path, blacklist);
-  await cache.putItem(cid, items);
-  return items;
 }
 
 class NoItemCIDCache implements ItemCIDCache {
@@ -259,7 +254,7 @@ if (args?.cachedir) {
   stacCache = new NoCache();
 }
 
-const datasetLocations = await collectDatasetsWithCache(
+const datasetLocations = await collectDatasets(
   root_cid,
   "",
   blacklist,
