@@ -65,3 +65,14 @@ console.log(item)
         </TabPanels>
     </Tabs>
 </template>
+
+<style>
+:root {
+  --p-primary-color: var(--orcestra-yellow) !important;
+  --p-content-background: transparent !important;
+  --p-text-color: var(--fg-color) !important;
+  --p-text-muted-color: var(--fg-color) !important;
+  --p-tabs-tab-hover-color: var(--orcestra-yellow) !important;
+  --p-content-border-color: var(--highlight-bg-color) !important;
+}
+</style>
