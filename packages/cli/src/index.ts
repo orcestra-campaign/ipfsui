@@ -3,6 +3,7 @@
 import { Command } from "commander";
 import { setLogger, NullLogger } from "@orcestra/utils";
 import makeStacCommand from "./commands/stac.js";
+import makeDOICommand from "./commands/doi.js";
 import makeIndexCommand from "./commands/index.js";
 
 setLogger(new NullLogger());
@@ -16,5 +17,6 @@ main
 
 makeIndexCommand(main.command("index"));
 makeStacCommand(main.command("stac"));
+makeDOICommand(main.command("doi"));
 
 await main.parseAsync();
