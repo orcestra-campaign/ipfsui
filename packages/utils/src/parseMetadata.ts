@@ -78,6 +78,10 @@ function nanMinMax(array: Iterable<number>): [number, number] {
 }
 
 async function getMinMax(variable: SomeArray): Promise<[number, number]> {
+  if (variable.shape.length == 0) {
+    const v = Number(await get(variable));
+    return [v, v];
+  }
   if (variable.is("number")) {
     const data = applyOffsetAndScale(
       (await get(variable)).data,
