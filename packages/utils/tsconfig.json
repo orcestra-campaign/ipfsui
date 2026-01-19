@@ -3,6 +3,9 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "dist",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "strict": true,
     "paths": {
       "@orcestra/*": ["./packages/*"]
     },
@@ -10,8 +13,8 @@
     "skipLibCheck": true,
     "declaration": true,
 
-    /* Bundler mode */
-    "moduleResolution": "bundler",
+    /* prefer node, should be compatible with bundler as well */
+    "moduleResolution": "node",
     "isolatedModules": true,
     "moduleDetection": "force",
   },
