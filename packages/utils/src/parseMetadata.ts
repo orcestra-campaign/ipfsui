@@ -7,7 +7,7 @@ import type {
   StacItem,
   Variable,
 } from "./stac.ts";
-import type { ManualMetadata } from "./manual_meta";
+import type { ManualMetadata } from "./manual_meta.ts";
 import type { LooseGlobalAttrs } from "./dsAttrConvention.ts";
 import {
   decodeTime,
@@ -18,13 +18,13 @@ import {
   isProfile,
   isTimeVariable,
   isTrajectory,
-} from "./cf/index";
-import { get, getDimensions } from "./ds/index";
-import type { SomeArray } from "./ds/types";
+} from "./cf/index.js";
+import { get, getDimensions } from "./ds/index.js";
+import type { SomeArray } from "./ds/types.js";
 import dayjs from "dayjs";
 
 import { CID } from "multiformats";
-import { getLogger } from "./logging";
+import { getLogger } from "./logging.js";
 
 export interface DatasetSrc {
   src: string;

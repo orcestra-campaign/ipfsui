@@ -1,10 +1,10 @@
-import type { StacItem } from "./stac";
-import type { DatasetMetadata, DatasetSrc } from "./parseMetadata";
-import type { ManualMetadata } from "./manual_meta";
-import { parseManualMetadata, default as parseMetadata } from "./parseMetadata";
-import { readDataset } from "./ds";
-import { extractLoose } from "./dsAttrConvention";
-import type IPFSFetchStore from "./ipfs/fetchStore";
+import type { StacItem } from "./stac.js";
+import type { DatasetMetadata, DatasetSrc } from "./parseMetadata.js";
+import type { ManualMetadata } from "./manual_meta.js";
+import { parseManualMetadata, default as parseMetadata } from "./parseMetadata.js";
+import { readDataset } from "./ds/index.js";
+import { extractLoose } from "./dsAttrConvention.js";
+import type IPFSFetchStore from "./ipfs/fetchStore.js";
 import type { FetchStore } from "zarrita";
 import * as yaml from 'js-yaml';
 
