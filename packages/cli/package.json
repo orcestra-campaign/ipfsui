@@ -3,19 +3,23 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "bin": {
+    "dito": "./dist/index.js"
+  },
   "scripts": {
-    "scan": "tsx ./scanMetadata.ts",
-    "cid2stac": "tsx ./cid2Stac.ts"
+    "build": "tsc",
+    "start": "tsx ./src/index.ts"
   },
   "dependencies": {
     "@helia/http": "^2.2.1",
     "@helia/unixfs": "^4.0.2",
     "@orcestra/utils": "1.0.0",
+    "@types/p-limit": "^2.1.0",
     "blockstore-fs": "^2.0.2",
-    "command-line-args": "^6.0.1",
-    "command-line-usage": "^7.0.3",
+    "commander": "^12.1.0",
     "datastore-fs": "^10.0.2",
-    "p-limit": "^2.3.0"
+    "p-limit": "^7.2.0",
+    "zarrita": "^0.5.4"
   },
   "devDependencies": {
     "tsx": "^4.20.6"

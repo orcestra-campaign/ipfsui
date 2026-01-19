@@ -3,6 +3,11 @@ export interface Monitor {
   leavePath(path: string): void;
 }
 
+export class NoMonitor {
+  enterPath() { };
+  leavePath() { };
+}
+
 export class ActiveMonitor {
   active: Set<string>;
   constructor() {
