@@ -21,6 +21,6 @@
     "helia": "^5.2.0",
     "ipfs-unixfs-exporter": "^13.6.1",
     "js-yaml": "^4.1.1",
-    "zarrita": "^0.4.0-next.19"
+    "zarrita": "^0.5.4"
   }
 }

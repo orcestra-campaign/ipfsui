@@ -1,4 +1,4 @@
-import { createHelia } from "helia";
+import { createHelia, type Helia } from "helia";
 
 import { createHeliaHTTP } from "@helia/http";
 import { trustlessGateway } from "@helia/block-brokers";
@@ -56,7 +56,7 @@ async function getLocalGatewayConfiguration(): Promise<string | undefined> {
   }
 }
 
-async function configureStandaloneHelia() {
+async function configureStandaloneHelia(): Promise<Helia> {
   const datastore = new FsDatastore(".helia/datastore");
   const blockstore = new FsBlockstore(".helia/blockstore");
 
@@ -79,7 +79,7 @@ async function configureStandaloneHelia() {
   return helia;
 }
 
-async function configureLocalHelia(gateway: string) {
+async function configureLocalHelia(gateway: string): Promise<Helia> {
   const helia = await createHeliaHTTP({
     blockBrokers: [
       trustlessGateway({ allowInsecure: true, allowLocal: true }),
@@ -93,7 +93,7 @@ async function configureLocalHelia(gateway: string) {
   return helia;
 }
 
-export default async function configureHelia() {
+export default async function configureHelia(): Promise<Helia> {
   const gateway = await getLocalGatewayConfiguration();
   if (gateway) {
     //console.log("using local IPFS gateway configuration:", gateway);
@@ -101,5 +101,14 @@ export default async function configureHelia() {
   } else {
     //console.log("using standalone IPFS implementation");
     return await configureStandaloneHelia();
+  }
+}
+
+export async function withHelia(action: (helia: Helia) => Promise<void>): Promise<void> {
+  const helia = await configureHelia();
+  try {
+    await action(helia);
+  } finally {
+    await helia.stop();
   }
 }
