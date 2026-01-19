@@ -9,3 +9,5 @@ export type { StacItem, ReducedStacItem } from "./stac.js";
 export type { ManualMetadata } from "./manual_meta.js";
 export { stacFromStore, genStacFromStore } from "./extractStac.js";
 export { getLogger, setLogger, NullLogger, BrowserLogger, type Logger } from "./logging.js";
+export { stac2datacite } from "./stac2datacite.js"
+export type { DataCiteMetadata } from "./datacite.js"
