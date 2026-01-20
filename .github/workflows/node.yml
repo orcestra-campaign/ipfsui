@@ -29,8 +29,14 @@ jobs:
         run: npm install
       - name: Build utils
         run: cd packages/utils && npm run build
+      - name: Build cli
+        run: cd packages/cli && npm run build
+      - name: Install cli
+        run: cd packages/cli && npm link
       - name: Build page
         run: cd packages/ui && npm run build
+      - name: Run tests
+        run: npm test
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
