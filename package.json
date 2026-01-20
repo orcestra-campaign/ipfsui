@@ -7,5 +7,16 @@
   ],
   "dependencies": {
     "@unhead/vue": "^2.0.19"
+  },
+  "devDependencies": {
+    "@vitest/ui": "^4.0.17",
+    "vitest": "^4.0.17",
+    "prettier": "^3.8.0"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "coverage": "vitest run --coverage"
   }
 }

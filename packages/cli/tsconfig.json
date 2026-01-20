@@ -20,7 +20,9 @@
     "isolatedModules": true,
     "moduleDetection": "force",
     "allowSyntheticDefaultImports": true,
-    "strict": true
+    "strict": true,
+
+    "types": ["vitest/globals"]
   },
   "include": ["src/**/*.ts"],
 }
