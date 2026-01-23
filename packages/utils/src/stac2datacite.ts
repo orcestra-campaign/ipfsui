@@ -88,7 +88,7 @@ export function stac2datacite(stac: StacItem, base: DOIPublicationData): DataCit
       nameIdentifiers: [],  // TODO: have identifiers
       affiliation: [],  // TODO: have affiliation
     })),
-    dates: (base?.dates || []).concat(getStacDates(stac)),
+    dates: (base?.dates || []).concat(getStacDates(stac)),
     types: {
       resourceType: "Dataset",
       resourceTypeGeneral: "Dataset",
