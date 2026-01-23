@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { shallowRef, watch, onBeforeMount, type ShallowRef, useId } from 'vue'
+import { shallowRef, type ShallowRef, useId } from 'vue'
 
 import Nav from './Nav.vue';
 import ItemView from './ItemView.vue';
@@ -11,53 +11,62 @@ const dropId = useId();
 const srcinfo: ShallowRef<DatasetSrc | undefined> = shallowRef();
 
 const stac_item = shallowRef();
+const isDragging = shallowRef(false);
 
 class FSDESStore {
-  constructor(root) {
+  root: FileSystemDirectoryEntry;
+
+  constructor(root: FileSystemDirectoryEntry) {
     this.root = root;
   }
-  async get(key, options = {}) {
-    console.log("get", key);
+  async get(key: string) {
     const root = this.root;
-    console.log(root);
     try {
-      const res = await (new Promise((resolve, reject) => {
+      const res = (await (new Promise<FileSystemEntry>((resolve, reject) => {
         root.getFile(key.slice(1), {}, resolve, reject)
+      })));
+      if (!res.isFile) {
+        return undefined;
+      }
+      const file = await (new Promise<File>((resolve, reject) => {
+        (res as FileSystemFileEntry).file(resolve, reject)
       }));
-      const file = await (new Promise((resolve, reject) => {
-        res.file(resolve, reject)
-      }));
-      return await file.bytes();
+      return new Uint8Array(await file.arrayBuffer());
     } catch {
       return undefined;
     }
   }
 };
 
-const dragOver = (ev) => {
+const dragOver = (ev: DragEvent) => {
   ev.preventDefault();  // necessary to allow drop
 };
 
-const dragEnter = (ev) => {
-  if (event.target.classList.contains("dropzone")) {
-    event.target.classList.add("dragover");
-  }
+const dragEnter = () => {
+  isDragging.value = true;
 };
 
-const dragLeave = (ev) => {
-  if (event.target.classList.contains("dropzone")) {
-    event.target.classList.remove("dragover");
-  }
+const dragLeave = () => {
+  isDragging.value = false;
 };
 
-const drop = async (ev) => {
+const drop = async (ev: DragEvent) => {
   ev.preventDefault();
-  if (event.target.classList.contains("dropzone")) {
-    event.target.classList.remove("dragover");
+  isDragging.value = false;
+  const item = ev?.dataTransfer?.items[0];
+  if (item === null || item === undefined) {
+    srcinfo.value = undefined;
+    stac_item.value = undefined;
+    return;
   }
-  const item = ev.dataTransfer.items[0].webkitGetAsEntry();
-  const store = new FSDESStore(item);
-  srcinfo.value = {src: item.name};
+  const entry = item.webkitGetAsEntry();
+  if (entry === null || entry === undefined || !entry.isDirectory) {
+    srcinfo.value = undefined;
+    stac_item.value = undefined;
+    return;
+  }
+  const store = new FSDESStore(entry as FileSystemDirectoryEntry);
+  srcinfo.value = {src: entry.name};
   for await (const item of genStacFromStore(store, srcinfo.value)) {
       stac_item.value = item;
   }
@@ -71,7 +80,7 @@ const drop = async (ev) => {
             <Nav />
         </div>
     </div>
-    <div :id="dropId" class="dropzone" @dragover="dragOver" @dragenter="dragEnter" @dragleave="dragLeave" @drop="drop">drop datasets here</div>
+    <div :id="dropId" class="dropzone" :class="{dragover: isDragging}" @dragover="dragOver" @dragenter="dragEnter" @dragleave="dragLeave" @drop="drop">drop datasets here</div>
     <ItemView v-if="stac_item" :item="stac_item" />
 </template>
 

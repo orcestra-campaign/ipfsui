@@ -5,10 +5,10 @@ import { parseManualMetadata, default as parseMetadata } from "./parseMetadata.j
 import { readDataset } from "./ds/index.js";
 import { extractLoose } from "./dsAttrConvention.js";
 import type IPFSFetchStore from "./ipfs/fetchStore.js";
-import type { FetchStore } from "zarrita";
+import type { FetchStore, Readable } from "zarrita";
 import * as yaml from 'js-yaml';
 
-export async function* genStacFromStore(store: IPFSFetchStore | FetchStore, srcinfo: DatasetSrc): AsyncGenerator<StacItem> {
+export async function* genStacFromStore(store: Readable, srcinfo: DatasetSrc): AsyncGenerator<StacItem> {
   const raw_metadata = await store.get("/dataset_meta.yaml");
   if ( raw_metadata ) {
       const dataset_meta = yaml.load(new TextDecoder().decode(raw_metadata)) as ManualMetadata; //TODO: verify correctness
