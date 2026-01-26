@@ -1,0 +1,9 @@
+api: https://api.test.datacite.org
+prefix: "10.83509"
+meta:
+  publisher:
+    name: "Max Planck Institute for Meteorology"
+    lang: "en"
+    publisherIdentifier: "https://ror.org/05esem239"
+    publisherIdentifierScheme: "ROR"
+    schemeURI: "https://ror.org/"
