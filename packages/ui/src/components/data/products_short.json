@@ -11414,6 +11414,98 @@
   },
   {
     "properties": {
+      "title": "Horizontal wind profiles from shipborne scanning wind lidar",
+      "description": "During BOW-TIE (ORCESTRA) a scanning motion-stabilized wind lidar on the RV Meteor performed various scanning routines to look at profiles and cross sections of the horizontal wind components. This dataset presents the horizontal wind profiles over the lowest 1-2 kilometer of the atmosphere retrieved from the Doppler Beam Swinging (DBS) scanning mode. Each DBS sweep involves pointing the lidar beam at four azimuth angles (0,90,180,270 degrees) around a scanning circle at an elevation angle of 80 degrees followed by one vertically pointing beam. The DBS method assumes that the instantaneous velocity field is homogeneous across the scanning circle. During the final part of the cruise, as indicated by a flag, the stabilization platform was disabled. Motion stabilization is not critical for DBS wind profiles when averaged over longer time windows (10 min or longer); however, scrutiny is advised.",
+      "license": "CC-BY-4.0",
+      "references": [
+        "Ishwardat (2017)",
+        "https://resolver.tudelft.nl/uuid:a659654b-e76a-4513-a656-ecad761bdbc8; Dias Neto and Castelao (2023)",
+        "https://doi.org/10.21105/joss.04852"
+      ],
+      "platform": "RV METEOR",
+      "mission": "BOW-TIE",
+      "processing:lineage": "Created from original file WLS200s-180-2024-08-17-%H-%M-%S-dbs-1397-25m.nc on project drive Windcube at TU Delft",
+      "cube:dimensions": {
+        "height": {
+          "type": "unknown",
+          "unit": "m",
+          "description": "\n\nHeight above sea level"
+        },
+        "time": {
+          "type": "temporal",
+          "unit": "seconds since 1970-01-01T00:00:00+00:00"
+        }
+      },
+      "cube:variables": {
+        "latitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "north latitude"
+        },
+        "longitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "east longitude"
+        },
+        "motion_flag": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "description": "Status of motion stabilization \n\nFlag indicating the status of the motion stabilization platform"
+        },
+        "wind_from_direction": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Horizontal wind direction \n\nShip-heading- plus ship-speed-corrected meteorological wind direction"
+        },
+        "wind_speed": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Horizontal wind speed \n\nShip-heading- plus ship-speed-corrected wind speed"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Louise Nuijens",
+          "emails": [
+            {
+              "value": "louise.nuijens@tudelft.nl",
+              "roles": []
+            }
+          ]
+        }
+      ],
+      "datetime": "2024-09-03T21:27:17.500Z",
+      "start_datetime": "2024-08-17T19:00:29.000Z",
+      "end_datetime": "2024-09-20T23:54:06.000Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeieggj743jwgsahtv56hb7ier245mxnxey56zl5bdr3iltzmm4ik4a",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
       "title": "Wind LiDAR LiTra S raw data (ship motion present)",
       "license": "CC-BY-4.0",
       "platform": "RV METEOR",
