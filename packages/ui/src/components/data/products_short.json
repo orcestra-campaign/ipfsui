@@ -14461,7 +14461,7 @@
         },
         "sonde_id": {
           "type": "unknown",
-          "description": "sounding identifier `(sounding)` \n\nUnique string describing the soundings origin (PLATFORM_SND-DIRECTION_LAT_LON_TIME)"
+          "description": "sounding identifier \n\nUnique string describing the sounding's origin (PLATFORM_TIME)"
         }
       },
       "cube:variables": {
@@ -14633,7 +14633,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeidtfcyurvbw5obbhl5zlyfaoamnlhu6rrxyrmg2r2wwwidxq32oeq",
+        "href": "ipfs://bafybeihxrajojuqzyx65qso7ama6ngvreetkdw3hqzx3sdzfb7lcmg6vaq",
         "roles": [
           "data"
         ],
@@ -14666,10 +14666,6 @@
           "type": "unknown",
           "unit": "1",
           "description": "sounding height"
-        },
-        "sonde_id": {
-          "type": "unknown",
-          "description": "sonde identifier \n\nUnique string describing the sounding's origin (PLATFORM_DIRECTION_TIME)"
         }
       },
       "cube:variables": {
@@ -14748,7 +14744,7 @@
             "sonde_id"
           ],
           "type": "data",
-          "unit": "nanoseconds since 2024-08-09 17:47:55",
+          "unit": "seconds since 2020-01-01",
           "description": "time at which the radiosonde was launched `(time)`"
         },
         "lon": {
@@ -14793,6 +14789,13 @@
           "type": "data",
           "unit": "1",
           "description": "relative humidity `(relative_humidity)`"
+        },
+        "sonde_id": {
+          "dimensions": [
+            "launch_time"
+          ],
+          "type": "data",
+          "description": "sonde identifier \n\nUnique string describing the sounding's origin (PLATFORM_DIRECTION_TIME)"
         },
         "ta": {
           "dimensions": [
@@ -14848,7 +14851,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeibgnsogmdcmrf3msqhmzybmeys4ras3foja3jfnxpozqvfipex66i",
+        "href": "ipfs://bafybeieuvxmdmh3vmc676y6gyd3o4qin5gpzkmv3gbxefhyieste27nlgy",
         "roles": [
           "data"
         ],
