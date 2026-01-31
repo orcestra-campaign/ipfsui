@@ -102,6 +102,17 @@ async function getMinMax(variable: SomeArray): Promise<[number, number]> {
   }
 }
 
+/**
+ * Check if an array is small enough to fetch
+ */
+function shouldFetchArray(array: SomeArray): boolean {
+  if (array === undefined) return false
+
+  // TODO: Consider adding a --greedy option to force parsing of all posssible metadata
+  const MAX_ELEMENTS = 2 ** 24 // ~16M elements ≈ 64MB @ 32-bit
+  return array.shape.reduce((acc, curr) => acc * curr, 1) < MAX_ELEMENTS;
+}
+
 async function getSpatialBoundsDefault(
   ds: DatasetMetadata,
 ): Promise<
@@ -110,10 +121,10 @@ async function getSpatialBoundsDefault(
   const lats = [];
   const lons = [];
   for (const [varname, variable] of Object.entries(ds.variables)) {
-    if (isLatitudeVariable(varname, variable.attrs)) {
+    if (isLatitudeVariable(varname, variable.attrs) && shouldFetchArray(variable)) {
       lats.push(...await getMinMax(variable));
     }
-    if (isLongitudeVariable(varname, variable.attrs)) {
+    if (isLongitudeVariable(varname, variable.attrs) && shouldFetchArray(variable)) {
       lons.push(...await getMinMax(variable));
     }
   }
@@ -266,13 +277,13 @@ async function getSpatialBoundsTrajectory(
   let lons: LikeAnArray<number> | undefined = undefined;
   for (const [varname, variable] of Object.entries(ds.variables)) {
     if (
-      isLatitudeVariable(varname, variable.attrs) && variable.shape.length == 1
+      isLatitudeVariable(varname, variable.attrs) && variable.shape.length == 1 && shouldFetchArray(variable)
     ) {
       if (lats !== undefined) console.warn("more than one latitude variable");
       lats = applyOffsetAndScale((await get(variable)).data, variable.attrs);
     }
     if (
-      isLongitudeVariable(varname, variable.attrs) && variable.shape.length == 1
+      isLongitudeVariable(varname, variable.attrs) && variable.shape.length == 1 && shouldFetchArray(variable)
     ) {
       if (lons !== undefined) console.warn("more than one longitude variable");
       lons = applyOffsetAndScale((await get(variable)).data, variable.attrs);
@@ -377,7 +388,7 @@ async function getTimeBounds(
   for (const [varname, variable] of Object.entries(ds.variables)) {
     const attrs = variable.attrs;
     if (
-      hasUnits(attrs) && isTimeVariable(varname, attrs)
+      hasUnits(attrs) && isTimeVariable(varname, attrs) && shouldFetchArray(variable)
     ) {
       times.push(
         ...(await getMinMax(variable)).map((t) =>
