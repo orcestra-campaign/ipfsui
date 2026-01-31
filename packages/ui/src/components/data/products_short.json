@@ -1389,7 +1389,7 @@
           ],
           "type": "data",
           "unit": " ",
-          "description": "correction factor for direct shortwave radiation for dpitch= -2.3617284 deg, droll= 0.14252401 deg `( )`"
+          "description": "correction factor for direct shortwave radiation for dpitch= -2.3617284 deg, droll= 0.14252401 deg"
         },
         "FDL": {
           "dimensions": [
@@ -1397,15 +1397,14 @@
           ],
           "type": "data",
           "unit": "W m-2",
-          "description": "Longwave Radiation Flux on upward looking Pyrgeometer (thermal offset corrected) `( )`"
+          "description": "Longwave Radiation Flux on upward looking Pyrgeometer (thermal offset corrected)"
         },
         "FDSC": {
           "dimensions": [
             "TIME"
           ],
           "type": "data",
-          "unit": "W m-2",
-          "description": "`( )`"
+          "unit": "W m-2"
         },
         "FUL": {
           "dimensions": [
@@ -1413,15 +1412,14 @@
           ],
           "type": "data",
           "unit": "W m-2",
-          "description": "Longwave Radiation Flux on downward looking Pyrgeometer (thermal offset corrected) `( )`"
+          "description": "Longwave Radiation Flux on downward looking Pyrgeometer (thermal offset corrected)"
         },
         "FUS": {
           "dimensions": [
             "TIME"
           ],
           "type": "data",
-          "unit": "W m-2",
-          "description": "`( )`"
+          "unit": "W m-2"
         },
         "F_RBLTH": {
           "dimensions": [
@@ -1429,7 +1427,7 @@
           ],
           "type": "data",
           "unit": "W m-2",
-          "description": "Radiometer Bottom Long Wavelengths, Thermopile Signal (on E_R34) `( )`"
+          "description": "Radiometer Bottom Long Wavelengths, Thermopile Signal (on E_R34)"
         },
         "F_RBLTR": {
           "dimensions": [
@@ -1437,7 +1435,7 @@
           ],
           "type": "data",
           "unit": "K",
-          "description": "Radiometer Bottom Long Wavelengths, Sensor Reference Temperature (on E_R41) `( )`"
+          "description": "Radiometer Bottom Long Wavelengths, Sensor Reference Temperature (on E_R41)"
         },
         "F_RBSTB": {
           "dimensions": [
@@ -1445,7 +1443,7 @@
           ],
           "type": "data",
           "unit": "K",
-          "description": "Radiometer Bottom Short Wavelengths, Sensor Body Temperature (on E_R33) `( )`"
+          "description": "Radiometer Bottom Short Wavelengths, Sensor Body Temperature (on E_R33)"
         },
         "F_RBSTH": {
           "dimensions": [
@@ -1453,7 +1451,7 @@
           ],
           "type": "data",
           "unit": "W m-2",
-          "description": "Radiometer Bottom Short Wavelengths, Thermopile Signal (on E_R31) `( )`"
+          "description": "Radiometer Bottom Short Wavelengths, Thermopile Signal (on E_R31)"
         },
         "F_RBSTR": {
           "dimensions": [
@@ -1461,7 +1459,7 @@
           ],
           "type": "data",
           "unit": "K",
-          "description": "Radiometer Bottom Short Wavelengths, Sensor Reference Temperature (on E_R32) `( )`"
+          "description": "Radiometer Bottom Short Wavelengths, Sensor Reference Temperature (on E_R32)"
         },
         "F_RTLTH": {
           "dimensions": [
@@ -1469,7 +1467,7 @@
           ],
           "type": "data",
           "unit": "W m-2",
-          "description": "Radiometer Top Long Wavelengths, Thermopile Signal (on E_R14) `( )`"
+          "description": "Radiometer Top Long Wavelengths, Thermopile Signal (on E_R14)"
         },
         "F_RTLTR": {
           "dimensions": [
@@ -1477,7 +1475,7 @@
           ],
           "type": "data",
           "unit": "K",
-          "description": "Radiometer Top Long Wavelengths, Sensor Reference Temperature (on E_R21) `( )`"
+          "description": "Radiometer Top Long Wavelengths, Sensor Reference Temperature (on E_R21)"
         },
         "F_RTSTH": {
           "dimensions": [
@@ -1485,7 +1483,7 @@
           ],
           "type": "data",
           "unit": "W m-2",
-          "description": "Radiometer Top Short Wavelengths, Thermopile Signal (on E_R11) `( )`"
+          "description": "Radiometer Top Short Wavelengths, Thermopile Signal (on E_R11)"
         },
         "F_RTSTR": {
           "dimensions": [
@@ -1493,7 +1491,7 @@
           ],
           "type": "data",
           "unit": "K",
-          "description": "Radiometer Top Short Wavelengths, Sensor Reference Temperature (on E_R14) `( )`"
+          "description": "Radiometer Top Short Wavelengths, Sensor Reference Temperature (on E_R14)"
         },
         "HP": {
           "dimensions": [
@@ -1501,7 +1499,7 @@
           ],
           "type": "data",
           "unit": "m",
-          "description": "Pressure Altitude `( )`"
+          "description": "Pressure Altitude"
         },
         "IRS_ALT": {
           "dimensions": [
@@ -1509,7 +1507,7 @@
           ],
           "type": "data",
           "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height `( )`"
+          "description": "WGS84 Datum/Elliptical Height"
         },
         "IRS_ATA": {
           "dimensions": [
@@ -1517,7 +1515,7 @@
           ],
           "type": "data",
           "unit": "deg+",
-          "description": "IGI actual track angle `( )`"
+          "description": "IGI actual track angle"
         },
         "IRS_HDG": {
           "dimensions": [
@@ -1525,7 +1523,7 @@
           ],
           "type": "data",
           "unit": "deg+",
-          "description": "true heading `( )`"
+          "description": "true heading"
         },
         "IRS_LAT": {
           "dimensions": [
@@ -1533,7 +1531,7 @@
           ],
           "type": "data",
           "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude `( )`"
+          "description": "WGS84 Datum/Latitude"
         },
         "IRS_LON": {
           "dimensions": [
@@ -1541,7 +1539,7 @@
           ],
           "type": "data",
           "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude `( )`"
+          "description": "WGS84 Datum/Longitude"
         },
         "IRS_P": {
           "dimensions": [
@@ -1549,7 +1547,7 @@
           ],
           "type": "data",
           "unit": "deg s-1",
-          "description": "IGI body roll rate `( )`"
+          "description": "IGI body roll rate"
         },
         "IRS_PHI": {
           "dimensions": [
@@ -1557,7 +1555,7 @@
           ],
           "type": "data",
           "unit": "deg",
-          "description": "roll angle `( )`"
+          "description": "roll angle"
         },
         "IRS_Q": {
           "dimensions": [
@@ -1565,7 +1563,7 @@
           ],
           "type": "data",
           "unit": "deg s-1",
-          "description": "IGI body pitch rate `( )`"
+          "description": "IGI body pitch rate"
         },
         "IRS_R": {
           "dimensions": [
@@ -1573,7 +1571,7 @@
           ],
           "type": "data",
           "unit": "deg s-1",
-          "description": "IGI body yaw rate `( )`"
+          "description": "IGI body yaw rate"
         },
         "IRS_THE": {
           "dimensions": [
@@ -1581,7 +1579,7 @@
           ],
           "type": "data",
           "unit": "deg",
-          "description": "pitch angle `( )`"
+          "description": "pitch angle"
         },
         "PS": {
           "dimensions": [
@@ -1589,7 +1587,7 @@
           ],
           "type": "data",
           "unit": "hPa",
-          "description": "Static Pressure (from NB_PSIA) `( )`"
+          "description": "Static Pressure (from NB_PSIA)"
         },
         "SUN_ALT": {
           "dimensions": [
@@ -1597,7 +1595,7 @@
           ],
           "type": "data",
           "unit": "deg",
-          "description": "Solar Altitude along flight track `( )`"
+          "description": "Solar Altitude along flight track"
         },
         "SUN_AZI": {
           "dimensions": [
@@ -1605,7 +1603,7 @@
           ],
           "type": "data",
           "unit": "deg",
-          "description": "Sun Azimuth along flight track `( )`"
+          "description": "Sun Azimuth along flight track"
         },
         "TS": {
           "dimensions": [
@@ -1613,7 +1611,7 @@
           ],
           "type": "data",
           "unit": "K",
-          "description": "Static Air Temperature (from BDY-TTQ, anti-ice-corrected) `( )`"
+          "description": "Static Air Temperature (from BDY-TTQ, anti-ice-corrected)"
         }
       },
       "contacts": [
@@ -1685,7 +1683,7 @@
         "TIME": {
           "type": "temporal",
           "unit": "milliseconds since 2024-08-09 09:41:13",
-          "description": "time in seconds since 1970-1-1 (UTC) `( )`"
+          "description": "time in seconds since 1970-1-1 (UTC)"
         }
       },
       "cube:variables": {
@@ -1695,7 +1693,7 @@
           ],
           "type": "data",
           "unit": "deg",
-          "description": "Angle of Sideslip `( )`"
+          "description": "Angle of Sideslip"
         },
         "IRS_LON": {
           "dimensions": [
@@ -1703,7 +1701,7 @@
           ],
           "type": "data",
           "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude `( )`"
+          "description": "WGS84 Datum/Longitude"
         },
         "IRS_R": {
           "dimensions": [
@@ -1711,7 +1709,7 @@
           ],
           "type": "data",
           "unit": "deg/s",
-          "description": "IGI body yaw rate `( )`"
+          "description": "IGI body yaw rate"
         },
         "IRS_AZG": {
           "dimensions": [
@@ -1719,7 +1717,7 @@
           ],
           "type": "data",
           "unit": "m/s^2",
-          "description": "IGI vertical acceleration `( )`"
+          "description": "IGI vertical acceleration"
         },
         "IGI_RMSZ": {
           "dimensions": [
@@ -1727,7 +1725,7 @@
           ],
           "type": "data",
           "unit": "m",
-          "description": "RMS/Position Up `( )`"
+          "description": "RMS/Position Up"
         },
         "HP": {
           "dimensions": [
@@ -1735,7 +1733,7 @@
           ],
           "type": "data",
           "unit": "m",
-          "description": "Pressure Altitude `( )`"
+          "description": "Pressure Altitude"
         },
         "IRS_NSV": {
           "dimensions": [
@@ -1743,7 +1741,7 @@
           ],
           "type": "data",
           "unit": "m/s",
-          "description": "Velocity/North `( )`"
+          "description": "Velocity/North"
         },
         "IRS_GS": {
           "dimensions": [
@@ -1751,7 +1749,7 @@
           ],
           "type": "data",
           "unit": "m/s",
-          "description": "IRS Groundspeed from corrected IGI data `( )`"
+          "description": "IRS Groundspeed from corrected IGI data"
         },
         "IRS_PHI": {
           "dimensions": [
@@ -1759,7 +1757,7 @@
           ],
           "type": "data",
           "unit": "deg",
-          "description": "roll angle `( )`"
+          "description": "roll angle"
         },
         "IRS_ALT": {
           "dimensions": [
@@ -1767,7 +1765,7 @@
           ],
           "type": "data",
           "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height `( )`"
+          "description": "WGS84 Datum/Elliptical Height"
         },
         "SOURCE": {
           "dimensions": [
@@ -1775,7 +1773,7 @@
           ],
           "type": "data",
           "unit": " ",
-          "description": "Humidity Data Source (1:Vaisala/2:SHARC_longpath/3:SHARC_shortpath) `( )`"
+          "description": "Humidity Data Source (1:Vaisala/2:SHARC_longpath/3:SHARC_shortpath)"
         },
         "MIXRATIOV": {
           "dimensions": [
@@ -1783,7 +1781,7 @@
           ],
           "type": "data",
           "unit": "micromol/mol",
-          "description": "H2O Volume Mixing Ratio `( )`"
+          "description": "H2O Volume Mixing Ratio"
         },
         "IRS_LAT": {
           "dimensions": [
@@ -1791,7 +1789,7 @@
           ],
           "type": "data",
           "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude `( )`"
+          "description": "WGS84 Datum/Latitude"
         },
         "IRS_ATA": {
           "dimensions": [
@@ -1799,7 +1797,7 @@
           ],
           "type": "data",
           "unit": "deg+",
-          "description": "IGI actual track angle `( )`"
+          "description": "IGI actual track angle"
         },
         "IRS_AXB": {
           "dimensions": [
@@ -1807,7 +1805,7 @@
           ],
           "type": "data",
           "unit": "m/s^2",
-          "description": "IGI body  x-axis acceleration `( )`"
+          "description": "IGI body  x-axis acceleration"
         },
         "U": {
           "dimensions": [
@@ -1815,7 +1813,7 @@
           ],
           "type": "data",
           "unit": "m/s",
-          "description": "Wind Vector East Component `( )`"
+          "description": "Wind Vector East Component"
         },
         "TD": {
           "dimensions": [
@@ -1823,7 +1821,7 @@
           ],
           "type": "data",
           "unit": "K",
-          "description": "Dewpoint Temperature `( )`"
+          "description": "Dewpoint Temperature"
         },
         "TV": {
           "dimensions": [
@@ -1831,15 +1829,14 @@
           ],
           "type": "data",
           "unit": "K",
-          "description": "Virtual Temperature `( )`"
+          "description": "Virtual Temperature"
         },
         "H": {
           "dimensions": [
             "TIME"
           ],
           "type": "data",
-          "unit": "m",
-          "description": "`( )`"
+          "unit": "m"
         },
         "RELHUM": {
           "dimensions": [
@@ -1847,7 +1844,7 @@
           ],
           "type": "data",
           "unit": "%",
-          "description": "Relative Humidity with Respect to Water `( )`"
+          "description": "Relative Humidity with Respect to Water"
         },
         "IRS_AYB": {
           "dimensions": [
@@ -1855,7 +1852,7 @@
           ],
           "type": "data",
           "unit": "m/s^2",
-          "description": "IGI body  y-axis acceleration `( )`"
+          "description": "IGI body  y-axis acceleration"
         },
         "THETA_V": {
           "dimensions": [
@@ -1863,7 +1860,7 @@
           ],
           "type": "data",
           "unit": "K",
-          "description": "Virtual Potential Temperature `( )`"
+          "description": "Virtual Potential Temperature"
         },
         "IRS_Q": {
           "dimensions": [
@@ -1871,7 +1868,7 @@
           ],
           "type": "data",
           "unit": "deg/s",
-          "description": "IGI body pitch rate `( )`"
+          "description": "IGI body pitch rate"
         },
         "PS": {
           "dimensions": [
@@ -1879,7 +1876,7 @@
           ],
           "type": "data",
           "unit": "hPa",
-          "description": "Static Pressure (from NB_PSIA) `( )`"
+          "description": "Static Pressure (from NB_PSIA)"
         },
         "IGI_RMSY": {
           "dimensions": [
@@ -1887,7 +1884,7 @@
           ],
           "type": "data",
           "unit": "m",
-          "description": "RMS/Position East `( )`"
+          "description": "RMS/Position East"
         },
         "MC": {
           "dimensions": [
@@ -1895,7 +1892,7 @@
           ],
           "type": "data",
           "unit": "Ma",
-          "description": "Machnumber `( )`"
+          "description": "Machnumber"
         },
         "IRS_P": {
           "dimensions": [
@@ -1903,7 +1900,7 @@
           ],
           "type": "data",
           "unit": "deg/s",
-          "description": "IGI body roll rate `( )`"
+          "description": "IGI body roll rate"
         },
         "MIXRATIO": {
           "dimensions": [
@@ -1911,7 +1908,7 @@
           ],
           "type": "data",
           "unit": "g/kg",
-          "description": "H2O Mass Mixing Ratio `( )`"
+          "description": "H2O Mass Mixing Ratio"
         },
         "IRS_AZB": {
           "dimensions": [
@@ -1919,7 +1916,7 @@
           ],
           "type": "data",
           "unit": "m/s^2",
-          "description": "IGI body  z-axis acceleration `( )`"
+          "description": "IGI body  z-axis acceleration"
         },
         "IGI_RMSX": {
           "dimensions": [
@@ -1927,7 +1924,7 @@
           ],
           "type": "data",
           "unit": "m",
-          "description": "RMS/Position North `( )`"
+          "description": "RMS/Position North"
         },
         "THETA": {
           "dimensions": [
@@ -1935,7 +1932,7 @@
           ],
           "type": "data",
           "unit": "K",
-          "description": "Potential Temperature `( )`"
+          "description": "Potential Temperature"
         },
         "IRS_HDG": {
           "dimensions": [
@@ -1943,7 +1940,7 @@
           ],
           "type": "data",
           "unit": "deg+",
-          "description": "true heading `( )`"
+          "description": "true heading"
         },
         "IRS_THE": {
           "dimensions": [
@@ -1951,7 +1948,7 @@
           ],
           "type": "data",
           "unit": "deg",
-          "description": "pitch angle `( )`"
+          "description": "pitch angle"
         },
         "TS": {
           "dimensions": [
@@ -1959,7 +1956,7 @@
           ],
           "type": "data",
           "unit": "K",
-          "description": "Static Air Temperature (from BDY-TTQ, anti-ice-corrected) `( )`"
+          "description": "Static Air Temperature (from BDY-TTQ, anti-ice-corrected)"
         },
         "V": {
           "dimensions": [
@@ -1967,7 +1964,7 @@
           ],
           "type": "data",
           "unit": "m/s",
-          "description": "Wind Vector North Component `( )`"
+          "description": "Wind Vector North Component"
         },
         "TAT": {
           "dimensions": [
@@ -1975,7 +1972,7 @@
           ],
           "type": "data",
           "unit": "K",
-          "description": "Total Air Temperature (from BDY-TTQ, anti-ice-corrected) `( )`"
+          "description": "Total Air Temperature (from BDY-TTQ, anti-ice-corrected)"
         },
         "QC": {
           "dimensions": [
@@ -1983,7 +1980,7 @@
           ],
           "type": "data",
           "unit": "hPa",
-          "description": "Dynamic Pressure `( )`"
+          "description": "Dynamic Pressure"
         },
         "IRS_VV": {
           "dimensions": [
@@ -1991,7 +1988,7 @@
           ],
           "type": "data",
           "unit": "m/s",
-          "description": "Velocity/Up `( )`"
+          "description": "Velocity/Up"
         },
         "ALPHA": {
           "dimensions": [
@@ -1999,7 +1996,7 @@
           ],
           "type": "data",
           "unit": "deg",
-          "description": "Angle of Attack `( )`"
+          "description": "Angle of Attack"
         },
         "TAS": {
           "dimensions": [
@@ -2007,7 +2004,7 @@
           ],
           "type": "data",
           "unit": "m/s",
-          "description": "Calculated True Airspeed `( )`"
+          "description": "Calculated True Airspeed"
         },
         "ABSHUM": {
           "dimensions": [
@@ -2015,7 +2012,7 @@
           ],
           "type": "data",
           "unit": "g/m^3",
-          "description": "Absolute Humidity `( )`"
+          "description": "Absolute Humidity"
         },
         "IRS_EWV": {
           "dimensions": [
@@ -2023,7 +2020,7 @@
           ],
           "type": "data",
           "unit": "m/s",
-          "description": "Velocity/East `( )`"
+          "description": "Velocity/East"
         },
         "WS": {
           "dimensions": [
@@ -2031,7 +2028,7 @@
           ],
           "type": "data",
           "unit": "m/s",
-          "description": "Horizontal Windspeed `( )`"
+          "description": "Horizontal Windspeed"
         },
         "WA": {
           "dimensions": [
@@ -2039,7 +2036,7 @@
           ],
           "type": "data",
           "unit": "deg+",
-          "description": "Horizontal Wind Direction `( )`"
+          "description": "Horizontal Wind Direction"
         },
         "W": {
           "dimensions": [
@@ -2047,7 +2044,7 @@
           ],
           "type": "data",
           "unit": "m/s",
-          "description": "Wind Vector Vertical Component `( )`"
+          "description": "Wind Vector Vertical Component"
         }
       },
       "contacts": [
@@ -2117,7 +2114,7 @@
         "TIME": {
           "type": "temporal",
           "unit": "milliseconds since 2024-08-09 09:41:13",
-          "description": "time in seconds since 1970-1-1 (UTC) `( )`"
+          "description": "time in seconds since 1970-1-1 (UTC)"
         }
       },
       "cube:variables": {
@@ -2127,7 +2124,7 @@
           ],
           "type": "data",
           "unit": "g/m^3",
-          "description": "Absolute Humidity `( )`"
+          "description": "Absolute Humidity"
         },
         "ALPHA": {
           "dimensions": [
@@ -2135,7 +2132,7 @@
           ],
           "type": "data",
           "unit": "deg",
-          "description": "Angle of Attack `( )`"
+          "description": "Angle of Attack"
         },
         "BETA": {
           "dimensions": [
@@ -2143,15 +2140,14 @@
           ],
           "type": "data",
           "unit": "deg",
-          "description": "Angle of Sideslip `( )`"
+          "description": "Angle of Sideslip"
         },
         "H": {
           "dimensions": [
             "TIME"
           ],
           "type": "data",
-          "unit": "m",
-          "description": "`( )`"
+          "unit": "m"
         },
         "HP": {
           "dimensions": [
@@ -2159,7 +2155,7 @@
           ],
           "type": "data",
           "unit": "m",
-          "description": "Pressure Altitude `( )`"
+          "description": "Pressure Altitude"
         },
         "IGI_RMSX": {
           "dimensions": [
@@ -2167,7 +2163,7 @@
           ],
           "type": "data",
           "unit": "m",
-          "description": "IGI RMS value for position x `( )`"
+          "description": "IGI RMS value for position x"
         },
         "IGI_RMSY": {
           "dimensions": [
@@ -2175,7 +2171,7 @@
           ],
           "type": "data",
           "unit": "m",
-          "description": "IGI RMS value for position y `( )`"
+          "description": "IGI RMS value for position y"
         },
         "IGI_RMSZ": {
           "dimensions": [
@@ -2183,7 +2179,7 @@
           ],
           "type": "data",
           "unit": "m",
-          "description": "IGI RMS value for position z `( )`"
+          "description": "IGI RMS value for position z"
         },
         "IRS_ALT": {
           "dimensions": [
@@ -2191,7 +2187,7 @@
           ],
           "type": "data",
           "unit": "m",
-          "description": "IGI height above WGS84 ellipsoid `( )`"
+          "description": "IGI height above WGS84 ellipsoid"
         },
         "IRS_ATA": {
           "dimensions": [
@@ -2199,7 +2195,7 @@
           ],
           "type": "data",
           "unit": "deg+",
-          "description": "IGI actual track angle `( )`"
+          "description": "IGI actual track angle"
         },
         "IRS_AXB": {
           "dimensions": [
@@ -2207,7 +2203,7 @@
           ],
           "type": "data",
           "unit": "m/s^2",
-          "description": "IGI body  x-axis acceleration `( )`"
+          "description": "IGI body  x-axis acceleration"
         },
         "IRS_AYB": {
           "dimensions": [
@@ -2215,7 +2211,7 @@
           ],
           "type": "data",
           "unit": "m/s^2",
-          "description": "IGI body  y-axis acceleration `( )`"
+          "description": "IGI body  y-axis acceleration"
         },
         "IRS_AZB": {
           "dimensions": [
@@ -2223,7 +2219,7 @@
           ],
           "type": "data",
           "unit": "m/s^2",
-          "description": "IGI body  z-axis acceleration `( )`"
+          "description": "IGI body  z-axis acceleration"
         },
         "IRS_AZG": {
           "dimensions": [
@@ -2231,7 +2227,7 @@
           ],
           "type": "data",
           "unit": "m/s^2",
-          "description": "IGI vertical acceleration `( )`"
+          "description": "IGI vertical acceleration"
         },
         "IRS_EWV": {
           "dimensions": [
@@ -2239,7 +2235,7 @@
           ],
           "type": "data",
           "unit": "m/s",
-          "description": "IGI east west velocity `( )`"
+          "description": "IGI east west velocity"
         },
         "IRS_GS": {
           "dimensions": [
@@ -2247,15 +2243,14 @@
           ],
           "type": "data",
           "unit": "m/s",
-          "description": "IGI ground speed `( )`"
+          "description": "IGI ground speed"
         },
         "IRS_HDG": {
           "dimensions": [
             "TIME"
           ],
           "type": "data",
-          "unit": "deg+",
-          "description": "`( )`"
+          "unit": "deg+"
         },
         "IRS_LAT": {
           "dimensions": [
@@ -2263,7 +2258,7 @@
           ],
           "type": "data",
           "unit": "degrees_north",
-          "description": "IGI latitude position above WGS84 `( )`"
+          "description": "IGI latitude position above WGS84"
         },
         "IRS_LON": {
           "dimensions": [
@@ -2271,7 +2266,7 @@
           ],
           "type": "data",
           "unit": "degrees_east",
-          "description": "IGI longitude position above WGS84 `( )`"
+          "description": "IGI longitude position above WGS84"
         },
         "IRS_NSV": {
           "dimensions": [
@@ -2279,7 +2274,7 @@
           ],
           "type": "data",
           "unit": "m/s",
-          "description": "IGI north south velocity `( )`"
+          "description": "IGI north south velocity"
         },
         "IRS_P": {
           "dimensions": [
@@ -2287,7 +2282,7 @@
           ],
           "type": "data",
           "unit": "deg/s",
-          "description": "IGI body roll rate `( )`"
+          "description": "IGI body roll rate"
         },
         "IRS_PHI": {
           "dimensions": [
@@ -2295,7 +2290,7 @@
           ],
           "type": "data",
           "unit": "deg",
-          "description": "IGI roll angle `( )`"
+          "description": "IGI roll angle"
         },
         "IRS_Q": {
           "dimensions": [
@@ -2303,7 +2298,7 @@
           ],
           "type": "data",
           "unit": "deg/s",
-          "description": "IGI body pitch rate `( )`"
+          "description": "IGI body pitch rate"
         },
         "IRS_R": {
           "dimensions": [
@@ -2311,7 +2306,7 @@
           ],
           "type": "data",
           "unit": "deg/s",
-          "description": "IGI body yaw rate `( )`"
+          "description": "IGI body yaw rate"
         },
         "IRS_THE": {
           "dimensions": [
@@ -2319,7 +2314,7 @@
           ],
           "type": "data",
           "unit": "deg",
-          "description": "IGI pitch angle `( )`"
+          "description": "IGI pitch angle"
         },
         "IRS_VV": {
           "dimensions": [
@@ -2327,7 +2322,7 @@
           ],
           "type": "data",
           "unit": "m/s",
-          "description": "IGI vertical velocity `( )`"
+          "description": "IGI vertical velocity"
         },
         "MC": {
           "dimensions": [
@@ -2335,7 +2330,7 @@
           ],
           "type": "data",
           "unit": "Ma",
-          "description": "Machnumber `( )`"
+          "description": "Machnumber"
         },
         "MIXRATIO": {
           "dimensions": [
@@ -2343,7 +2338,7 @@
           ],
           "type": "data",
           "unit": "g/kg",
-          "description": "H2O Mass Mixing Ratio `( )`"
+          "description": "H2O Mass Mixing Ratio"
         },
         "MIXRATIOV": {
           "dimensions": [
@@ -2351,7 +2346,7 @@
           ],
           "type": "data",
           "unit": "micromol/mol",
-          "description": "H2O Volume Mixing Ratio `( )`"
+          "description": "H2O Volume Mixing Ratio"
         },
         "PS": {
           "dimensions": [
@@ -2359,7 +2354,7 @@
           ],
           "type": "data",
           "unit": "hPa",
-          "description": "Static Pressure (from NB_PSIA) `( )`"
+          "description": "Static Pressure (from NB_PSIA)"
         },
         "QC": {
           "dimensions": [
@@ -2367,7 +2362,7 @@
           ],
           "type": "data",
           "unit": "hPa",
-          "description": "Dynamic Pressure `( )`"
+          "description": "Dynamic Pressure"
         },
         "RELHUM": {
           "dimensions": [
@@ -2375,7 +2370,7 @@
           ],
           "type": "data",
           "unit": "%",
-          "description": "Relative Humidity with Respect to Water `( )`"
+          "description": "Relative Humidity with Respect to Water"
         },
         "SOURCE": {
           "dimensions": [
@@ -2383,7 +2378,7 @@
           ],
           "type": "data",
           "unit": " ",
-          "description": "Humidity Data Source (1:Vaisala/2:SHARC_longpath/3:SHARC_shortpath) `( )`"
+          "description": "Humidity Data Source (1:Vaisala/2:SHARC_longpath/3:SHARC_shortpath)"
         },
         "TAS": {
           "dimensions": [
@@ -2391,7 +2386,7 @@
           ],
           "type": "data",
           "unit": "m/s",
-          "description": "Calculated True Airspeed `( )`"
+          "description": "Calculated True Airspeed"
         },
         "TAT": {
           "dimensions": [
@@ -2399,7 +2394,7 @@
           ],
           "type": "data",
           "unit": "K",
-          "description": "Total Air Temperature (from BDY-TTQ, anti-ice-corrected) `( )`"
+          "description": "Total Air Temperature (from BDY-TTQ, anti-ice-corrected)"
         },
         "TD": {
           "dimensions": [
@@ -2407,7 +2402,7 @@
           ],
           "type": "data",
           "unit": "K",
-          "description": "Dewpoint Temperature `( )`"
+          "description": "Dewpoint Temperature"
         },
         "THETA": {
           "dimensions": [
@@ -2415,7 +2410,7 @@
           ],
           "type": "data",
           "unit": "K",
-          "description": "Potential Temperature `( )`"
+          "description": "Potential Temperature"
         },
         "THETA_V": {
           "dimensions": [
@@ -2423,7 +2418,7 @@
           ],
           "type": "data",
           "unit": "K",
-          "description": "Virtual Potential Temperature `( )`"
+          "description": "Virtual Potential Temperature"
         },
         "TS": {
           "dimensions": [
@@ -2431,7 +2426,7 @@
           ],
           "type": "data",
           "unit": "K",
-          "description": "Static Air Temperature (from BDY-TTQ, anti-ice-corrected) `( )`"
+          "description": "Static Air Temperature (from BDY-TTQ, anti-ice-corrected)"
         },
         "TV": {
           "dimensions": [
@@ -2439,7 +2434,7 @@
           ],
           "type": "data",
           "unit": "K",
-          "description": "Virtual Temperature `( )`"
+          "description": "Virtual Temperature"
         },
         "U": {
           "dimensions": [
@@ -2447,7 +2442,7 @@
           ],
           "type": "data",
           "unit": "m/s",
-          "description": "Wind Vector East Component `( )`"
+          "description": "Wind Vector East Component"
         },
         "V": {
           "dimensions": [
@@ -2455,7 +2450,7 @@
           ],
           "type": "data",
           "unit": "m/s",
-          "description": "Wind Vector North Component `( )`"
+          "description": "Wind Vector North Component"
         },
         "W": {
           "dimensions": [
@@ -2463,7 +2458,7 @@
           ],
           "type": "data",
           "unit": "m/s",
-          "description": "Wind Vector Vertical Component `( )`"
+          "description": "Wind Vector Vertical Component"
         },
         "WA": {
           "dimensions": [
@@ -2471,7 +2466,7 @@
           ],
           "type": "data",
           "unit": "deg+",
-          "description": "Horizontal Wind Direction `( )`"
+          "description": "Horizontal Wind Direction"
         },
         "WS": {
           "dimensions": [
@@ -2479,7 +2474,7 @@
           ],
           "type": "data",
           "unit": "m/s",
-          "description": "Horizontal Windspeed `( )`"
+          "description": "Horizontal Windspeed"
         }
       },
       "contacts": [
@@ -5238,10 +5233,7 @@
             }
           ]
         }
-      ],
-      "datetime": "2024-09-29T12:29:04.855Z",
-      "start_datetime": "2024-08-09T09:03:59.000Z",
-      "end_datetime": "2024-11-19T15:54:10.710Z"
+      ]
     },
     "assets": {
       "data": {
@@ -7604,6 +7596,1469 @@
     "assets": {
       "data": {
         "href": "ipfs://bafybeig3znybjnw6tzr5ek6acavwmkvd6rl7bo6mpbbfhkhweq5oexs3ja",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "Level 4 Gridded Sea-Pol Radar Data Composite 2D",
+      "description": "This dataset contains the processed Level 3 Sea-Pol radar moment data from all available scans gridded to a 2D Level 4 product with 1 km grid spacing. This product grids all available elevation angles in 2D using the maximum reflectivity in the vertical column. The other variables are associated with that maximum reflectivity. This product is recommended for comparison with model output composite reflectivity. More information about the dataset can be found at https://seapol.colostate.edu/data/PICCOLO/qc_data/level4/PICCOLO_Sea-Pol_readme.pdf",
+      "keywords": [
+        "radar",
+        "precipitation",
+        "sea-pol"
+      ],
+      "license": "CC-BY-4.0",
+      "platform": "RV METEOR",
+      "mission": "PICCOLO, BOWTIE, ORCESTRA",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "minutes since 2024-08-16 08:10:00",
+          "description": "Data time `(time)`"
+        },
+        "X": {
+          "type": "spatial",
+          "axis": "x",
+          "unit": "m",
+          "description": "`(projection_x_coordinate)`"
+        },
+        "Y": {
+          "type": "spatial",
+          "axis": "y",
+          "unit": "m",
+          "description": "`(projection_y_coordinate)`"
+        }
+      },
+      "cube:variables": {
+        "DBZ": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "dBZ",
+          "description": "Radar Reflectivity `(DBZ)`"
+        },
+        "grid_mapping": {
+          "dimensions": [],
+          "type": "data"
+        },
+        "heading": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degrees",
+          "description": "`(heading)`"
+        },
+        "HID_CSU": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "none",
+          "description": "CSU Hydrometeor Identification `(HID_CSU)`"
+        },
+        "KDP": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "deg/km",
+          "description": "Specific Differential Phase `(KDP)`"
+        },
+        "latitude": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "`(latitude)`"
+        },
+        "longitude": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "`(longitude)`"
+        },
+        "MASK": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "none",
+          "description": "SQI or PID used as MASK `(Blanking sector mask value)`"
+        },
+        "PHIDP": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "deg",
+          "description": "Differential Phase `(PHIDP)`"
+        },
+        "RAINRATE": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "mm/hr",
+          "description": "CSU Z-R or Blended rainrate `(RAINRATE)`"
+        },
+        "RHOHV": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "unitless",
+          "description": "Cross-correlation coefficient `(RHOHV)`"
+        },
+        "SQI": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "unitless",
+          "description": "Signal Quality Index `(SQI)`"
+        },
+        "start_time": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01",
+          "description": "Data start time `(start_time)`"
+        },
+        "stop_time": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01",
+          "description": "Data stop time `(stop_time)`"
+        },
+        "VEL": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "Doppler Velocity `(VEL)`"
+        },
+        "WIDTH": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "Spectrum width `(WIDTH)`"
+        },
+        "ZDR": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Differential Reflectivity `(ZDR)`"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Michael M. Bell",
+          "emails": [
+            {
+              "value": "mmbell@colostate.edu",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Brenda Dolan",
+          "emails": []
+        },
+        {
+          "name": "Jennifer DeHart",
+          "emails": []
+        },
+        {
+          "name": "Delián Colón-Burgos",
+          "emails": []
+        },
+        {
+          "name": "V. Chandrasekar",
+          "emails": []
+        },
+        {
+          "name": "Jim George",
+          "emails": []
+        },
+        {
+          "name": "Mateo Lovato",
+          "emails": []
+        },
+        {
+          "name": "Francesc Junyent",
+          "emails": []
+        },
+        {
+          "name": "Allison Wing",
+          "emails": []
+        },
+        {
+          "name": "James Ruppert",
+          "emails": []
+        },
+        {
+          "name": "Sarah Kennison",
+          "emails": []
+        }
+      ],
+      "datetime": "2024-09-04T12:18:06.980Z",
+      "start_datetime": "2024-08-16T08:10:00.000Z",
+      "end_datetime": "2024-09-23T16:26:13.960Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeigdehy7635uypwipv5xdnlvgnlbncvuyudajwejawn2llirbp2vyq",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "Level 4 Gridded Sea-Pol Radar Data Latlon 3D",
+      "description": "This dataset contains the processed Level 3 Sea-Pol radar moment data from all available scans gridded to a 3D Level 4 product with a 0.02 degree grid spacing in the horizontal and 1 km grid spacing in the vertical. This resolution corresponds to an approximately 2 km horizontal grid, but uses degrees as the grid spacing to more directly compare with satellite or global model products. Since the gridding is coarser than the volume product, it is recommended for comparison against satellite or model grids with similar resolution of 2 km. More information about the dataset can be found at https://seapol.colostate.edu/data/PICCOLO/qc_data/level4/PICCOLO_Sea-Pol_readme.pdf",
+      "keywords": [
+        "radar",
+        "precipitation",
+        "sea-pol"
+      ],
+      "license": "CC-BY-4.0",
+      "platform": "RV METEOR",
+      "mission": "PICCOLO, BOWTIE, ORCESTRA",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "minutes since 2024-08-16 08:10:00",
+          "description": "Data time `(time)`"
+        },
+        "X": {
+          "type": "spatial",
+          "axis": "x",
+          "unit": "m",
+          "description": "`(projection_x_coordinate)`"
+        },
+        "Y": {
+          "type": "spatial",
+          "axis": "y",
+          "unit": "m",
+          "description": "`(projection_y_coordinate)`"
+        },
+        "Z": {
+          "type": "spatial",
+          "axis": "z",
+          "unit": "m",
+          "description": "constant altitude levels `(altitude)`"
+        }
+      },
+      "cube:variables": {
+        "DBZ": {
+          "dimensions": [
+            "time",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "dBZ",
+          "description": "Radar Reflectivity `(DBZ)`"
+        },
+        "grid_mapping": {
+          "dimensions": [],
+          "type": "data"
+        },
+        "heading": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degrees",
+          "description": "`(heading)`"
+        },
+        "HID_CSU": {
+          "dimensions": [
+            "time",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "none",
+          "description": "CSU Hydrometeor Identification `(HID_CSU)`"
+        },
+        "KDP": {
+          "dimensions": [
+            "time",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "deg/km",
+          "description": "Specific Differential Phase `(KDP)`"
+        },
+        "latitude": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "`(latitude)`"
+        },
+        "longitude": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "`(longitude)`"
+        },
+        "MASK": {
+          "dimensions": [
+            "time",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "none",
+          "description": "SQI or PID used as MASK `(Blanking sector mask value)`"
+        },
+        "PHIDP": {
+          "dimensions": [
+            "time",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "deg",
+          "description": "Differential Phase `(PHIDP)`"
+        },
+        "RAINRATE": {
+          "dimensions": [
+            "time",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "mm/hr",
+          "description": "CSU Z-R or Blended rainrate `(RAINRATE)`"
+        },
+        "RHOHV": {
+          "dimensions": [
+            "time",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "unitless",
+          "description": "Cross-correlation coefficient `(RHOHV)`"
+        },
+        "SQI": {
+          "dimensions": [
+            "time",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "unitless",
+          "description": "Signal Quality Index `(SQI)`"
+        },
+        "start_time": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01",
+          "description": "Data start time `(start_time)`"
+        },
+        "stop_time": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01",
+          "description": "Data stop time `(stop_time)`"
+        },
+        "VEL": {
+          "dimensions": [
+            "time",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "Doppler Velocity `(VEL)`"
+        },
+        "WIDTH": {
+          "dimensions": [
+            "time",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "Spectrum width `(WIDTH)`"
+        },
+        "ZDR": {
+          "dimensions": [
+            "time",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Differential Reflectivity `(ZDR)`"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Michael M. Bell",
+          "emails": [
+            {
+              "value": "mmbell@colostate.edu",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Brenda Dolan",
+          "emails": []
+        },
+        {
+          "name": "Jennifer DeHart",
+          "emails": []
+        },
+        {
+          "name": "Delián Colón-Burgos",
+          "emails": []
+        },
+        {
+          "name": "V. Chandrasekar",
+          "emails": []
+        },
+        {
+          "name": "Jim George",
+          "emails": []
+        },
+        {
+          "name": "Mateo Lovato",
+          "emails": []
+        },
+        {
+          "name": "Francesc Junyent",
+          "emails": []
+        },
+        {
+          "name": "Allison Wing",
+          "emails": []
+        },
+        {
+          "name": "James Ruppert",
+          "emails": []
+        },
+        {
+          "name": "Sarah Kennison",
+          "emails": []
+        }
+      ],
+      "datetime": "2024-09-04T12:18:06.980Z",
+      "start_datetime": "2024-08-16T08:10:00.000Z",
+      "end_datetime": "2024-09-23T16:26:13.960Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeia2zoneq3sj3gury4k25rtjjffcbdjgefyr4hqljrwd65ykvrhn3m",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "Level 4 Gridded Sea-Pol Radar Data QVP 1D",
+      "description": "This dataset contains the processed Level 3 Sea-Pol radar moment data from the Quasi-Vertical Profile (QVP) scans gridded to a 1D Level 4 product. This gridding preserves the native range resolution of the radar and is representative of a vertical profile near the ship. Due to the 45 degree angle, the higher altitudes are representative of a larger area, approximately corresponding to a circle with radius equivalent to the height. More information about the dataset can be found at https://seapol.colostate.edu/data/PICCOLO/qc_data/level4/PICCOLO_Sea-Pol_readme.pdf",
+      "keywords": [
+        "radar",
+        "precipitation",
+        "sea-pol"
+      ],
+      "license": "CC-BY-4.0",
+      "platform": "RV METEOR",
+      "mission": "PICCOLO, BOWTIE, ORCESTRA",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "minutes since 2024-08-16 08:10:00",
+          "description": "Data time `(time)`"
+        },
+        "Z": {
+          "type": "spatial",
+          "axis": "z",
+          "unit": "m",
+          "description": "constant altitude levels `(altitude)`"
+        }
+      },
+      "cube:variables": {
+        "DBZ": {
+          "dimensions": [
+            "time",
+            "Z"
+          ],
+          "type": "data",
+          "unit": "dBZ",
+          "description": "Radar Reflectivity `(DBZ)`"
+        },
+        "grid_mapping": {
+          "dimensions": [],
+          "type": "data"
+        },
+        "HID_CSU": {
+          "dimensions": [
+            "time",
+            "Z"
+          ],
+          "type": "data",
+          "unit": "none",
+          "description": "CSU Hydrometeor Identification `(HID_CSU)`"
+        },
+        "KDP": {
+          "dimensions": [
+            "time",
+            "Z"
+          ],
+          "type": "data",
+          "unit": "deg/km",
+          "description": "Specific Differential Phase `(KDP)`"
+        },
+        "latitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "`(latitude)`"
+        },
+        "longitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "`(longitude)`"
+        },
+        "MASK": {
+          "dimensions": [
+            "time",
+            "Z"
+          ],
+          "type": "data",
+          "unit": "none",
+          "description": "SQI or PID used as MASK `(Blanking sector mask value)`"
+        },
+        "PHIDP": {
+          "dimensions": [
+            "time",
+            "Z"
+          ],
+          "type": "data",
+          "unit": "deg",
+          "description": "Differential Phase `(PHIDP)`"
+        },
+        "RAINRATE": {
+          "dimensions": [
+            "time",
+            "Z"
+          ],
+          "type": "data",
+          "unit": "mm/hr",
+          "description": "CSU Z-R or Blended rainrate `(RAINRATE)`"
+        },
+        "RHOHV": {
+          "dimensions": [
+            "time",
+            "Z"
+          ],
+          "type": "data",
+          "unit": "unitless",
+          "description": "Cross-correlation coefficient `(RHOHV)`"
+        },
+        "SQI": {
+          "dimensions": [
+            "time",
+            "Z"
+          ],
+          "type": "data",
+          "unit": "unitless",
+          "description": "Signal Quality Index `(SQI)`"
+        },
+        "start_time": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01",
+          "description": "Data start time `(start_time)`"
+        },
+        "stop_time": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01",
+          "description": "Data stop time `(stop_time)`"
+        },
+        "VEL": {
+          "dimensions": [
+            "time",
+            "Z"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "Doppler Velocity `(VEL)`"
+        },
+        "WIDTH": {
+          "dimensions": [
+            "time",
+            "Z"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "Spectrum width `(WIDTH)`"
+        },
+        "ZDR": {
+          "dimensions": [
+            "time",
+            "Z"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Differential Reflectivity `(ZDR)`"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Michael M. Bell",
+          "emails": [
+            {
+              "value": "mmbell@colostate.edu",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Brenda Dolan",
+          "emails": []
+        },
+        {
+          "name": "Jennifer DeHart",
+          "emails": []
+        },
+        {
+          "name": "Delián Colón-Burgos",
+          "emails": []
+        },
+        {
+          "name": "V. Chandrasekar",
+          "emails": []
+        },
+        {
+          "name": "Jim George",
+          "emails": []
+        },
+        {
+          "name": "Mateo Lovato",
+          "emails": []
+        },
+        {
+          "name": "Francesc Junyent",
+          "emails": []
+        },
+        {
+          "name": "Allison Wing",
+          "emails": []
+        },
+        {
+          "name": "James Ruppert",
+          "emails": []
+        },
+        {
+          "name": "Sarah Kennison",
+          "emails": []
+        }
+      ],
+      "datetime": "2024-09-04T12:18:06.980Z",
+      "start_datetime": "2024-08-16T08:10:00.000Z",
+      "end_datetime": "2024-09-23T16:26:13.960Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeifhwxvq4kh66dry6wo4s7auvdbfhur4gtmhwonw6ru2w537j53xiy",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "Level 4 Gridded Sea-Pol Radar Data Rainrate 2D",
+      "description": "This dataset contains the processed Level 3 Sea-Pol radar moment data from the low-level elevation scans gridded to a 2D Level 4 product with 1 km grid spacing. This product only contains the best available rain rate (Z-R or blended), the reflectivity, the hydrometeor identification, and the elevation angle used for the estimate. This product is recommended for the best available, lowest altitude rain rate. More information about the dataset can be found at https://seapol.colostate.edu/data/PICCOLO/qc_data/level4/PICCOLO_Sea-Pol_readme.pdf",
+      "keywords": [
+        "radar",
+        "precipitation",
+        "sea-pol"
+      ],
+      "license": "CC-BY-4.0",
+      "platform": "RV METEOR",
+      "mission": "PICCOLO, BOWTIE, ORCESTRA",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "minutes since 2024-08-16 08:10:00",
+          "description": "Data time `(time)`"
+        },
+        "X": {
+          "type": "spatial",
+          "axis": "x",
+          "unit": "m",
+          "description": "`(projection_x_coordinate)`"
+        },
+        "Y": {
+          "type": "spatial",
+          "axis": "y",
+          "unit": "m",
+          "description": "`(projection_y_coordinate)`"
+        }
+      },
+      "cube:variables": {
+        "DBZ": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "dBZ",
+          "description": "Radar Reflectivity `(DBZ)`"
+        },
+        "elevation_angle": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "degrees",
+          "description": "Elevation angle `(elevation_angle)`"
+        },
+        "grid_mapping": {
+          "dimensions": [],
+          "type": "data"
+        },
+        "heading": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degrees",
+          "description": "`(heading)`"
+        },
+        "HID": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "none",
+          "description": "CSU Hydrometeor Identification `(HID)`"
+        },
+        "latitude": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "`(latitude)`"
+        },
+        "longitude": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "`(longitude)`"
+        },
+        "RAINRATE": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "mm/hr",
+          "description": "CSU Z-R or Blended rainrate `(RAINRATE)`"
+        },
+        "start_time": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01",
+          "description": "Data start time `(start_time)`"
+        },
+        "stop_time": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01",
+          "description": "Data stop time `(stop_time)`"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Michael M. Bell",
+          "emails": [
+            {
+              "value": "mmbell@colostate.edu",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Brenda Dolan",
+          "emails": []
+        },
+        {
+          "name": "Jennifer DeHart",
+          "emails": []
+        },
+        {
+          "name": "Delián Colón-Burgos",
+          "emails": []
+        },
+        {
+          "name": "V. Chandrasekar",
+          "emails": []
+        },
+        {
+          "name": "Jim George",
+          "emails": []
+        },
+        {
+          "name": "Mateo Lovato",
+          "emails": []
+        },
+        {
+          "name": "Francesc Junyent",
+          "emails": []
+        },
+        {
+          "name": "Allison Wing",
+          "emails": []
+        },
+        {
+          "name": "James Ruppert",
+          "emails": []
+        },
+        {
+          "name": "Sarah Kennison",
+          "emails": []
+        }
+      ],
+      "datetime": "2024-09-04T12:15:23.106Z",
+      "start_datetime": "2024-08-16T08:10:00.000Z",
+      "end_datetime": "2024-09-23T16:20:46.213Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeigv34pwsk3t5wlmatncnavfsfie5zyd6j36eyv57qsh6f7usn5kg4",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "Level 4 Gridded Sea-Pol Radar Data RHI 2D",
+      "description": "This dataset contains the processed Level 3 Sea-Pol radar moment data from RHI scans gridded to a 2D Level 4 product with a 250 m grid spacing in the radial and vertical direction. Each RHI scan is gridded independently in 2D. The 250 m grid and weighting parameters were selected as an optimal combination for the oversampled, slower scan rate out to 120 km range. More information about the dataset can be found at https://seapol.colostate.edu/data/PICCOLO/qc_data/level4/PICCOLO_Sea-Pol_readme.pdf",
+      "keywords": [
+        "radar",
+        "precipitation",
+        "sea-pol"
+      ],
+      "license": "CC-BY-4.0",
+      "platform": "RV METEOR",
+      "mission": "PICCOLO, BOWTIE, ORCESTRA",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "minutes since 2024-08-16 14:25:00",
+          "description": "Data time `(time)`"
+        },
+        "Z": {
+          "type": "spatial",
+          "axis": "z",
+          "unit": "m",
+          "description": "constant altitude levels `(altitude)`"
+        }
+      },
+      "cube:variables": {
+        "azimuth": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degrees",
+          "description": "ray_azimuth_angle"
+        },
+        "DBZ": {
+          "dimensions": [
+            "time",
+            "Z",
+            "R"
+          ],
+          "type": "data",
+          "unit": "dBZ",
+          "description": "Radar Reflectivity `(DBZ)`"
+        },
+        "grid_mapping": {
+          "dimensions": [],
+          "type": "data"
+        },
+        "HID_CSU": {
+          "dimensions": [
+            "time",
+            "Z",
+            "R"
+          ],
+          "type": "data",
+          "unit": "none",
+          "description": "CSU Hydrometeor Identification `(HID_CSU)`"
+        },
+        "KDP": {
+          "dimensions": [
+            "time",
+            "Z",
+            "R"
+          ],
+          "type": "data",
+          "unit": "deg/km",
+          "description": "Specific Differential Phase `(KDP)`"
+        },
+        "latitude": {
+          "dimensions": [
+            "time",
+            "R"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "`(latitude)`"
+        },
+        "longitude": {
+          "dimensions": [
+            "time",
+            "R"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "`(longitude)`"
+        },
+        "MASK": {
+          "dimensions": [
+            "time",
+            "Z",
+            "R"
+          ],
+          "type": "data",
+          "unit": "none",
+          "description": "SQI or PID used as MASK `(Blanking sector mask value)`"
+        },
+        "PHIDP": {
+          "dimensions": [
+            "time",
+            "Z",
+            "R"
+          ],
+          "type": "data",
+          "unit": "deg",
+          "description": "Differential Phase `(PHIDP)`"
+        },
+        "RAINRATE": {
+          "dimensions": [
+            "time",
+            "Z",
+            "R"
+          ],
+          "type": "data",
+          "unit": "mm/hr",
+          "description": "CSU Z-R or Blended rainrate `(RAINRATE)`"
+        },
+        "RHOHV": {
+          "dimensions": [
+            "time",
+            "Z",
+            "R"
+          ],
+          "type": "data",
+          "unit": "unitless",
+          "description": "Cross-correlation coefficient `(RHOHV)`"
+        },
+        "SQI": {
+          "dimensions": [
+            "time",
+            "Z",
+            "R"
+          ],
+          "type": "data",
+          "unit": "unitless",
+          "description": "Signal Quality Index `(SQI)`"
+        },
+        "start_time": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01",
+          "description": "Data start time `(start_time)`"
+        },
+        "stop_time": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01",
+          "description": "Data stop time `(stop_time)`"
+        },
+        "VEL": {
+          "dimensions": [
+            "time",
+            "Z",
+            "R"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "Doppler Velocity `(VEL)`"
+        },
+        "WIDTH": {
+          "dimensions": [
+            "time",
+            "Z",
+            "R"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "Spectrum width `(WIDTH)`"
+        },
+        "ZDR": {
+          "dimensions": [
+            "time",
+            "Z",
+            "R"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Differential Reflectivity `(ZDR)`"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Michael M. Bell",
+          "emails": [
+            {
+              "value": "mmbell@colostate.edu",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Brenda Dolan",
+          "emails": []
+        },
+        {
+          "name": "Jennifer DeHart",
+          "emails": []
+        },
+        {
+          "name": "Delián Colón-Burgos",
+          "emails": []
+        },
+        {
+          "name": "V. Chandrasekar",
+          "emails": []
+        },
+        {
+          "name": "Jim George",
+          "emails": []
+        },
+        {
+          "name": "Mateo Lovato",
+          "emails": []
+        },
+        {
+          "name": "Francesc Junyent",
+          "emails": []
+        },
+        {
+          "name": "Allison Wing",
+          "emails": []
+        },
+        {
+          "name": "James Ruppert",
+          "emails": []
+        },
+        {
+          "name": "Sarah Kennison",
+          "emails": []
+        }
+      ],
+      "datetime": "2024-09-04T15:27:14.940Z",
+      "start_datetime": "2024-08-16T14:25:00.000Z",
+      "end_datetime": "2024-09-23T16:29:29.880Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeigbngdrbifkqry3hsqilx4rywi3pu4a6vf2fraf4bql3qyzoosh2m",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "Level 4 Gridded Sea-Pol Radar Data Volume 3D",
+      "description": "This dataset contains the processed Level 3 Sea-Pol radar moment data from all available scans gridded to a 3D Level 4 product with 1 km horizontal and vertical grid spacing. This grid represents the best estimate of the 3D volumetric structure of the radar variables. The 1 km grid and weighting parameters were selected as an optimal combination for the volume out to 120 km range. This product is recommended for general volumetric calculations, including constant altitude calculations.\nMore information about the dataset can be found at https://seapol.colostate.edu/data/PICCOLO/qc_data/level4/PICCOLO_Sea-Pol_readme.pdf",
+      "keywords": [
+        "radar",
+        "precipitation",
+        "sea-pol"
+      ],
+      "license": "CC-BY-4.0",
+      "platform": "RV METEOR",
+      "mission": "PICCOLO, BOWTIE, ORCESTRA",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "minutes since 2024-08-16 08:10:00",
+          "description": "Data time `(time)`"
+        },
+        "X": {
+          "type": "spatial",
+          "axis": "x",
+          "unit": "m",
+          "description": "`(projection_x_coordinate)`"
+        },
+        "Y": {
+          "type": "spatial",
+          "axis": "y",
+          "unit": "m",
+          "description": "`(projection_y_coordinate)`"
+        },
+        "Z": {
+          "type": "spatial",
+          "axis": "z",
+          "unit": "m",
+          "description": "constant altitude levels `(altitude)`"
+        }
+      },
+      "cube:variables": {
+        "DBZ": {
+          "dimensions": [
+            "time",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "dBZ",
+          "description": "Radar Reflectivity `(DBZ)`"
+        },
+        "grid_mapping": {
+          "dimensions": [],
+          "type": "data"
+        },
+        "heading": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degrees",
+          "description": "`(heading)`"
+        },
+        "HID_CSU": {
+          "dimensions": [
+            "time",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "none",
+          "description": "CSU Hydrometeor Identification `(HID_CSU)`"
+        },
+        "KDP": {
+          "dimensions": [
+            "time",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "deg/km",
+          "description": "Specific Differential Phase `(KDP)`"
+        },
+        "latitude": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "`(latitude)`"
+        },
+        "longitude": {
+          "dimensions": [
+            "time",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "`(longitude)`"
+        },
+        "MASK": {
+          "dimensions": [
+            "time",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "none",
+          "description": "SQI or PID used as MASK `(Blanking sector mask value)`"
+        },
+        "PHIDP": {
+          "dimensions": [
+            "time",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "deg",
+          "description": "Differential Phase `(PHIDP)`"
+        },
+        "RAINRATE": {
+          "dimensions": [
+            "time",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "mm/hr",
+          "description": "CSU Z-R or Blended rainrate `(RAINRATE)`"
+        },
+        "RHOHV": {
+          "dimensions": [
+            "time",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "unitless",
+          "description": "Cross-correlation coefficient `(RHOHV)`"
+        },
+        "SQI": {
+          "dimensions": [
+            "time",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "unitless",
+          "description": "Signal Quality Index `(SQI)`"
+        },
+        "start_time": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01",
+          "description": "Data start time `(start_time)`"
+        },
+        "stop_time": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01",
+          "description": "Data stop time `(stop_time)`"
+        },
+        "VEL": {
+          "dimensions": [
+            "time",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "Doppler Velocity `(VEL)`"
+        },
+        "WIDTH": {
+          "dimensions": [
+            "time",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "m/s",
+          "description": "Spectrum width `(WIDTH)`"
+        },
+        "ZDR": {
+          "dimensions": [
+            "time",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Differential Reflectivity `(ZDR)`"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Michael M. Bell",
+          "emails": [
+            {
+              "value": "mmbell@colostate.edu",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Brenda Dolan",
+          "emails": []
+        },
+        {
+          "name": "Jennifer DeHart",
+          "emails": []
+        },
+        {
+          "name": "Delián Colón-Burgos",
+          "emails": []
+        },
+        {
+          "name": "V. Chandrasekar",
+          "emails": []
+        },
+        {
+          "name": "Jim George",
+          "emails": []
+        },
+        {
+          "name": "Mateo Lovato",
+          "emails": []
+        },
+        {
+          "name": "Francesc Junyent",
+          "emails": []
+        },
+        {
+          "name": "Allison Wing",
+          "emails": []
+        },
+        {
+          "name": "James Ruppert",
+          "emails": []
+        },
+        {
+          "name": "Sarah Kennison",
+          "emails": []
+        }
+      ],
+      "datetime": "2024-09-04T12:18:06.980Z",
+      "start_datetime": "2024-08-16T08:10:00.000Z",
+      "end_datetime": "2024-09-23T16:26:13.960Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeifryiuhi64d6vjod6mkrfaa3rxtjrfjlv7lmvjznagzpb3q6bfyea",
         "roles": [
           "data"
         ],
@@ -14758,6 +16213,10 @@
           "type": "unknown",
           "unit": "1",
           "description": "sounding height"
+        },
+        "sonde_id": {
+          "type": "unknown",
+          "description": "sonde identifier \n\nUnique string describing the sounding's origin (PLATFORM_DIRECTION_TIME)"
         }
       },
       "cube:variables": {
@@ -14836,7 +16295,7 @@
             "sonde_id"
           ],
           "type": "data",
-          "unit": "seconds since 2020-01-01",
+          "unit": "nanoseconds since 2024-08-09 17:47:55",
           "description": "time at which the radiosonde was launched `(time)`"
         },
         "lon": {
@@ -14881,13 +16340,6 @@
           "type": "data",
           "unit": "1",
           "description": "relative humidity `(relative_humidity)`"
-        },
-        "sonde_id": {
-          "dimensions": [
-            "launch_time"
-          ],
-          "type": "data",
-          "description": "sonde identifier \n\nUnique string describing the sounding's origin (PLATFORM_DIRECTION_TIME)"
         },
         "ta": {
           "dimensions": [
@@ -14943,7 +16395,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeieuvxmdmh3vmc676y6gyd3o4qin5gpzkmv3gbxefhyieste27nlgy",
+        "href": "ipfs://bafybeia34auwyvbh2rq7cn7aguzz7pulq2krdddieesm6kpysirsui7c4m",
         "roles": [
           "data"
         ],
