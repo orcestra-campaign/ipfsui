@@ -72,3 +72,7 @@ including trajectory data. A hacky way to compress the index can be done using
 ```bash
 cat products.json | jq 'map({properties, assets})' > products_short.json
 ```
+
+### displaying DOIs
+
+To correctly render DOI landing pages, CIDs for which DOIs are registered must be listed in `packages/ui/src/components/data/dois.json`.
