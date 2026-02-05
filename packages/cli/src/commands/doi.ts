@@ -99,7 +99,8 @@ export default function makeDOICommand(doiCommand: Command) {
           return;
         }
         const doimeta = await cid2datacite(cid, options.publicationYear, publisher, helia);
-        await publishDatacite(publisher.api, doimeta);
+        const res = await publishDatacite(publisher.api, doimeta);
+        console.log(res.status, res.statusText);
       })
     });
 
@@ -115,6 +116,7 @@ export default function makeDOICommand(doiCommand: Command) {
         console.log("ERROR: publisher.yaml can't be parsed!");
         return;
       }
-      await publishDatacite(publisher.api, {doi: buildDOI(cid, publisher.prefix), event: "publish"});
+      const res = await publishDatacite(publisher.api, {doi: buildDOI(cid, publisher.prefix), event: "publish"});
+      console.log(res.status, res.statusText);
     })
 }
