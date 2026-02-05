@@ -54,7 +54,7 @@ function parseProvider(provider: Provider): string | undefined {
       return "local gateway";
     }
     if (url.match(/^https:\/\/.+\.orcestra-campaign\.org\//)) {
-      return "orcestra gateway";
+      return "ORCESTRA Gateway";
     }
     if (url.match(/^https:\/\/trustless-gateway.link\//)) {
       return "public gateway";
