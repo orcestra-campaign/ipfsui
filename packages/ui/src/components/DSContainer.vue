@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { shallowRef, unref, watch, onBeforeMount, type ShallowRef } from 'vue'
+import { shallowRef, unref, computed, watch, onBeforeMount, type ShallowRef } from 'vue'
 
 import PlaneAnimation from './PlaneAnimation.vue';
 import ShipAnimation from './ShipAnimation.vue';
@@ -15,7 +15,7 @@ import type { DatasetSrc, DatasetMetadata, ManualMetadata } from '@orcestra/util
 import * as yaml from 'js-yaml';
 
 import { useHelia } from '../plugins/HeliaProvider';
-import type { Helia } from 'helia';
+import type { Helia, Provider } from 'helia';
 import type { CID } from 'multiformats';
 import PathView from './PathView.vue';
 
@@ -26,6 +26,8 @@ const heliaProvider = useHelia();
 const metadata: ShallowRef<DatasetSrc | DatasetMetadata | undefined> = shallowRef();
 
 const stac_item = shallowRef();
+
+const providers = shallowRef<Provider[]>([]);
 
 async function resolve_cids(helia: Helia, src: string): Promise<{root_cid?: CID, item_cid?: CID}> {
     if (!helia) {
@@ -38,7 +40,48 @@ async function resolve_cids(helia: Helia, src: string): Promise<{root_cid?: CID,
     return {root_cid, item_cid};
 }
 
+const knownPeers: Record<string, string> = {
+  "12D3KooWN1cJjVBqXmCmaNF6yihB9vTuSSeSHJ2kw6waaQ5Mvmsm": "DKRZ",
+  "12D3KooWBWikPAjn7SeWVY5uzi42mncf2qdYZu88eFjroVaQ46jw": "GWDG Cloud",
+  "12D3KooWL3E6UMhVPHq8tyCKoAybRxQQgE2uGVLVphtmqNhaegE2": "Pi 5 (MPIM)",
+  "12D3KooWDxsa98TAgDRVRby6bPxvnHfqBdL1hHBqMqP2PWoSHmcJ": "Pi (lkluft)",
+};
+
+function parseProvider(provider: Provider): string | undefined {
+  if (provider.id.type === "url") {
+    const url = new TextDecoder().decode(provider.id.toMultihash().digest);
+    if (url.match(/^https?:\/\/127.0.0.1[:\/]/)) {
+      return "local gateway";
+    }
+    if (url.match(/^https:\/\/.+\.orcestra-campaign\.org\//)) {
+      return "ORCESTRA Gateway";
+    }
+    if (url.match(/^https:\/\/trustless-gateway.link\//)) {
+      return "public gateway";
+    }
+  }
+  const short = knownPeers[provider.id.toString()];
+  if (short !== undefined) {
+    return short;
+  }
+  for(const ma of provider.multiaddrs) {
+    if (ma.toString().match(/^\/dns.\/[^\/]+\.pinata\.cloud\//)) {
+      return "Pinata";
+    }
+  }
+  return undefined;
+}
+
+const updateProviders = async() => {
+  if (metadata.value?.item_cid) {
+    for await (const provider of heliaProvider.helia.value.routing.findProviders(metadata.value?.item_cid)) {
+      providers.value = [...providers.value, provider];
+    }
+  }
+}
+
 const update = async () => {
+    providers.value = [];
     if (heliaProvider.loading.value) return;
     const store = getStore(props.src, {helia: heliaProvider.helia.value});
     const raw_metadata = await store.get("/dataset_meta.yaml");
@@ -57,6 +100,7 @@ const update = async () => {
     console.log(metadata.value);
     metadata.value = {...metadata.value, ...await resolve_cids(heliaProvider.helia.value, props.src)};
     console.log(metadata.value);
+    updateProviders();  // execute asynchronously
     if (metadata.value) {
         for await (const item of parseMetadata(unref(metadata.value))) {
             stac_item.value = item;
@@ -66,6 +110,32 @@ const update = async () => {
 
 onBeforeMount(update);
 watch([() => props.src, heliaProvider?.loading], update);
+
+const providedBy = computed(() => {
+  const parsed = [];
+  const others = [];
+  for (const provider of providers.value) {
+    const p = parseProvider(unref(provider));
+    if (p !== undefined) {
+      parsed.push(p);
+    } else {
+      others.push(provider.id.toString());
+    }
+  }
+  if (parsed.length > 0) {
+    if (others.length > 0) {
+      return parsed.join(", ") + " and " + others.length + " others";
+    } else {
+      return parsed.join(", ")
+    }
+  } else {
+    if (others.length > 0) {
+      return others.length + " nodes";
+    } else {
+      return "no one ¯\_(ツ)_/¯";
+    }
+  }
+})
 </script>
 
 <template>
@@ -77,4 +147,5 @@ watch([() => props.src, heliaProvider?.loading], update);
     <PathView v-if="metadata?.src" :src="metadata?.src as string" :item_cid="metadata?.item_cid" />
     <ItemView v-if="stac_item" :item="stac_item" />
     <Animation v-else />
+    <div v-if="metadata?.item_cid">Dataset is provided by {{ providedBy }}.</div>
 </template>
