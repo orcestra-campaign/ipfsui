@@ -66,7 +66,7 @@ function parseProvider(provider: Provider): string | undefined {
   }
   for(const ma of provider.multiaddrs) {
     if (ma.toString().match(/^\/dns.\/[^\/]+\.pinata\.cloud\//)) {
-      return "pinata";
+      return "Pinata";
     }
   }
   return undefined;
