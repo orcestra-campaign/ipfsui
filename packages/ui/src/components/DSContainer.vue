@@ -44,7 +44,7 @@ const update = async () => {
     const raw_metadata = await store.get("/dataset_meta.yaml");
     if ( raw_metadata ) {
         const dataset_meta = yaml.load(new TextDecoder().decode(raw_metadata)) as ManualMetadata; //TODO: verify correctness
-        metadata.value = {src: props.src, ...resolve_cids(heliaProvider.helia.value, props.src)};
+        metadata.value = {src: props.src, ...await resolve_cids(heliaProvider.helia.value, props.src)};
         stac_item.value = parseManualMetadata(dataset_meta, metadata.value);
         return;
     }
@@ -55,7 +55,7 @@ const update = async () => {
 
     metadata.value = {src: props.src, attrs, variables};
     console.log(metadata.value);
-    metadata.value = {...metadata.value, ...resolve_cids(heliaProvider.helia.value, props.src)};
+    metadata.value = {...metadata.value, ...await resolve_cids(heliaProvider.helia.value, props.src)};
     console.log(metadata.value);
     if (metadata.value) {
         for await (const item of parseMetadata(unref(metadata.value))) {
