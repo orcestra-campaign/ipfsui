@@ -13,7 +13,18 @@ import StacMap from './StacMap.vue';
 
 import ItemAccess from './ItemAccess.vue';
 
+import untypedDoisData from "./data/dois.json" with {type: "json"};
+
 dayjs.extend(utc);
+
+interface DOIPubData {
+  prefix: string,
+  publicationYear: string,
+}
+
+type DOISPubData = Record<string, DOIPubData>;
+
+const doisData: DOISPubData = untypedDoisData as DOISPubData;
 
 const {item} = defineProps<{ item: StacItem }>();
 
@@ -67,15 +78,32 @@ function abbreviateName(name: string): string {
   return `${lastName}, ${firstName[0]}.`;
 }
 
+function cidFromStac(item: StacItem): string | undefined {
+  const href: string = item.assets.data.href;
+  if (href.match(/^ipfs:\/\/[a-zA-Z0-9]+$/)) {
+    return href.slice(7);
+  }
+  return undefined;
+}
 
 function createCitation(item: StacItem): string {
   const authors: string = item.properties.contacts
     ?.map((c: { name: string }) => abbreviateName(c.name))
     .join(", ") ?? "Unknown author";
 
-  const year: string = "2025"; // TODO: extract from DOI/attributes
+  let year: string = "2025";
   const title: string = item.properties.title ?? "Untitled";
-  const url: string = item.assets.data.href; // TODO: replace with DOI if available
+  let url: string = item.assets.data.href;
+
+  const cid = cidFromStac(item);
+  console.log(cid);
+  if (cid !== undefined) {
+    const doiInfo = doisData[cid];
+    if (doiInfo !== undefined) {
+      year = doiInfo.publicationYear;
+      url = "https://doi.org/" + doiInfo.prefix + "/" + cid;
+    }
+  }
 
   return `${authors}. (${year}). ${title}. ${url}`;
 }
