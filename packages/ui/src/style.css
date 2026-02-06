@@ -192,6 +192,10 @@ a:hover {
     font-size: .8em;
 }
 
+emph {
+    font-weight: bolder;
+}
+
 ul.inline {
     display: inline;
     margin: 0;
@@ -204,4 +208,12 @@ ul.inline > li {
 
 ul.inline > li:not(:last-child)::after {
     content: ", ";
+}
+
+.link-target {
+    transition: background-color .5s ease;
+}
+
+.link-target.highlight {
+    background-color: var(--highlight-bg-color);
 }

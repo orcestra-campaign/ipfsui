@@ -18,6 +18,23 @@ registry.set("delta", () => DeltaCodec);
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
+  async scrollBehavior(to, _from, _savedPosition) {
+    if (to.hash) {
+      const el = document.querySelector(to.hash);
+      if (el) {
+        el.classList.add("highlight");
+        setTimeout(() => {
+          el.classList.remove("highlight");
+        }, 1000);
+      }
+      return {
+        el: to.hash,
+        behavior: 'smooth',
+        top: 100,  // keep some distance to top because of navbar
+      };
+    }
+    return { top: 0 };
+  },
 });
 
 
