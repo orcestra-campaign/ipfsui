@@ -13142,7 +13142,7 @@
       "license": "CC-BY-4.0",
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE",
-      "processing:lineage": "2025-01-30T13:11:54Z: converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
+      "processing:lineage": "2026-02-05T: converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
       "cube:dimensions": {
         "layer": {
           "type": "unknown",
@@ -13286,8 +13286,7 @@
             "time"
           ],
           "type": "data",
-          "unit": "degrees_north",
-          "description": "latitude of site"
+          "unit": "degrees_north"
         },
         "life_time": {
           "dimensions": [
@@ -13302,8 +13301,7 @@
             "time"
           ],
           "type": "data",
-          "unit": "degrees_east",
-          "description": "longitude of site"
+          "unit": "degrees_east"
         },
         "mxd": {
           "dimensions": [
@@ -13510,7 +13508,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeifpycgdtmphy2kbvo7a2tchelswunmyiqhrc7qiqevubjon7bbfcm",
+        "href": "ipfs://bafybeia74wnxe2nxwkcmespzjckqwt25tyhcknah3xqxxeeevbsdiawzom",
         "roles": [
           "data"
         ],
