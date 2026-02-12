@@ -75,6 +75,22 @@ function parseProvider(provider: Provider): string | undefined {
 const updateProviders = async() => {
   if (metadata.value?.item_cid) {
     for await (const provider of heliaProvider.helia.value.routing.findProviders(metadata.value?.item_cid)) {
+      // Exclude peers by multiaddr pattern
+      const excludeAddrPatterns = [
+        /127\.0\.0\.1/,
+        /localhost/,
+        /ipfs\.io/,
+        /dweb\.link/,
+        /trustless-gateway\.link/,
+      ]
+
+      const addrs = provider.multiaddrs?.map(a => a.toString()) ?? []
+      const matchesExcludedAddr = addrs.some(addr =>
+        excludeAddrPatterns.some(pattern => pattern.test(addr))
+      )
+
+      if (matchesExcludedAddr) continue
+
       providers.value = [...providers.value, provider];
     }
   }
