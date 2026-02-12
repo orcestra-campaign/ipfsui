@@ -13919,7 +13919,9 @@
           "dimensions": [
             "time"
           ],
-          "type": "data"
+          "type": "data",
+          "unit": "1",
+          "description": "\n\nRain attenuation flag =True (1) when the rain strongly attenuates the radar signal and echo top height does not represent cloud top anymore"
         },
         "rain_detected": {
           "dimensions": [
@@ -14035,7 +14037,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeiakgiqypaykbbyxxaesqxz2g4kjwjactcpvju2tjutztm5hpxl2km",
+        "href": "ipfs://bafybeidtfyua2vmmrpnhbl6nj57x2ynowaceghdapyetc6lnrpjii2tlli",
         "roles": [
           "data"
         ],
