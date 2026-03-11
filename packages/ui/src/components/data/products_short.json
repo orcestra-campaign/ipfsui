@@ -3687,6 +3687,15 @@
               "roles": []
             }
           ]
+        },
+        {
+          "name": "Franziska Koch",
+          "emails": [
+            {
+              "value": "franziska.koch@studium.uni-hamburg.de",
+              "roles": []
+            }
+          ]
         }
       ],
       "datetime": "2024-09-29T10:26:55.375Z",
@@ -3695,7 +3704,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeicbj76n3hi52pxtcyzu5in7efk36fk7lavauishclybrsbvlrpq3e",
+        "href": "ipfs://bafybeigmb3ngfpq2yxbx5yzr34ggdb3va4jibycqra37thtlbakqxjhoza",
         "roles": [
           "data"
         ],
