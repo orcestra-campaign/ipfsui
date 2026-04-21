@@ -3887,7 +3887,7 @@
       ],
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION, MAESTRO",
-      "processing:lineage": "Level 1 ASPEN processing with Aspen V4.0.4 \nLevel 2 quality control with pydropsonde 0.5.0 \nLevel 3 processing with pydropsonde 0.5.0 \nLevel 3 concatenation with pydropsonde 0.5.0 \n",
+      "processing:lineage": "Level 1 ASPEN processing with Aspen V4.0.4 \nLevel 2 quality control with pydropsonde 0.5.5 \nLevel 3 processing with pydropsonde 0.5.5 \nLevel 3 concatenation with pydropsonde 0.5.5 \n",
       "cube:dimensions": {
         "altitude": {
           "type": "spatial",
@@ -4151,7 +4151,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeiesyutuduzqwvu4ydn7ktihjljicywxeth6wtgd5zi4ynxzqngx4m",
+        "href": "ipfs://bafybeiczbv7mycr2jois6t4dq3zwiltycomwo5xxvjqcjz2ot3newzar6q",
         "roles": [
           "data"
         ],
@@ -4179,7 +4179,7 @@
       ],
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION, MAESTRO",
-      "processing:lineage": "Level 1 ASPEN processing with Aspen V4.0.4 \nLevel 2 quality control with pydropsonde 0.5.0 \nLevel 3 processing with pydropsonde 0.5.0 \n",
+      "processing:lineage": "Level 1 ASPEN processing with Aspen V4.0.4 \nLevel 2 quality control with pydropsonde 0.5.5 \nLevel 3 processing with pydropsonde 0.5.5 \n",
       "cube:dimensions": {},
       "cube:variables": {
         "altitude_below_aircraft": {
@@ -4195,6 +4195,21 @@
           ],
           "type": "data",
           "description": "raw data dimension altitude is derived from"
+        },
+        "gps_valid": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "description": "qc gps variability"
+        },
+        "gps_valid_stduv": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "gps valid: stduv"
         },
         "gpsalt_below_aircraft": {
           "dimensions": [
@@ -4298,6 +4313,13 @@
           "type": "data",
           "unit": "1",
           "description": "value for qc  rh sfc physics val"
+        },
+        "sonde_id": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "description": "sonde identifier"
         },
         "ta_near_surface_count": {
           "dimensions": [
@@ -4415,7 +4437,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeielwn6n6mjq67pet5zpljahu6umkhrhzsfjv6yu5lp6gxbbd6xq5u",
+        "href": "ipfs://bafybeidytxgujp3evqesvvuvc3vsllv6pbcu5gc2torqkz7yo6yuazwtmu",
         "roles": [
           "data"
         ],
@@ -4442,7 +4464,7 @@
       ],
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION, MAESTRO",
-      "processing:lineage": "Level 1 ASPEN processing with Aspen V4.0.4 \nLevel 2 quality control with pydropsonde 0.5.0 \nLevel 3 processing with pydropsonde 0.5.0 \nLevel 3 concatenation with pydropsonde 0.5.0 \nLevel 4 computation with pydropsonde 0.5.0 \n",
+      "processing:lineage": "Level 1 ASPEN processing with Aspen V4.0.4 \nLevel 2 quality control with pydropsonde 0.5.5 \nLevel 3 processing with pydropsonde 0.5.5 \nLevel 3 concatenation with pydropsonde 0.5.5 \nLevel 4 computation with pydropsonde 0.5.5 \n",
       "cube:dimensions": {
         "altitude": {
           "type": "spatial",
@@ -5161,7 +5183,7 @@
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeihfqxfckruepjhrkafaz6xg5a4sepx6ahhv4zds4b3hnfiyj35c5i",
+        "href": "ipfs://bafybeibgeeqs5uhmbqy4hz4v3pihrfisiklcetisxkf63d2r473szaprwi",
         "roles": [
           "data"
         ],
