@@ -72,8 +72,8 @@ function parseProvider(provider: Provider): string | undefined {
 }
 
 const updateProviders = async() => {
-  if (metadata.value?.item_cid) {
-    for await (const provider of heliaProvider.helia.value.routing.findProviders(metadata.value?.item_cid)) {
+  if (srcinfo.value?.item_cid) {
+    for await (const provider of heliaProvider.helia.value.routing.findProviders(srcinfo.value?.item_cid)) {
       // Exclude peers by multiaddr pattern
       const excludeAddrPatterns = [
         /127\.0\.0\.1/,
@@ -145,5 +145,5 @@ const providedBy = computed(() => {
     <PathView v-if="srcinfo?.src" :src="srcinfo?.src as string" :item_cid="srcinfo?.item_cid" />
     <ItemView v-if="stac_item" :item="stac_item" />
     <Animation v-else />
-    <div v-if="metadata?.item_cid">Dataset is provided by {{ providedBy }}.</div>
+    <div v-if="srcinfo?.item_cid">Dataset is provided by {{ providedBy }}.</div>
 </template>
