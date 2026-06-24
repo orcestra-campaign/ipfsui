@@ -2824,13 +2824,11 @@
   },
   {
     "properties": {
-      "title": "Integrated Water Vapor Retrieval from the K-Band and W-Band Microwave Radiometers",
-      "description": "This dataset contains retrievals of integrated water vapor (IWV) from the KV-band microwave radiometer onboard the HALO aircraft during the ORCESTRA campaign. The retrieval is based on a linear regression model and should not be used for quantitative analysis. The purpose of this data was to provide an estimate of IWV during the flights. The processing includes formatting the data, adding georeference information, filtering for altitudes above 4800 m and adding a land-sea mask.",
+      "title": "Radiometer Data from the Halo Microwave Package (Level 2)",
+      "description": "This dataset contains retrievals of integrated water vapor (IWV), and condensate loads ice water path (IWP),  cloud liquid water path (LWP), as well as total liquid water path (TLWP) from all available microwave radiometers onboard the HALO aircraft during the ORCESTRA campaign. The data is retrieved with a neural network using the preprocessed HAMP level 2 data. Further processing included filtering for altitudes above 10500 m and filtering for unrealistic high (above 320 K) brightness temperatures for the 90.0 GHz channel. Instrument design leads to high errors for low IWP, LWP and TLWP. IWP < 50 gm-2, LWP < 25 gm-2 and TLWP < 20 gm-2 have a Median Fractional Error above 100 % and thus have to be handled with caution. ",
       "keywords": [
         "Radiometer",
         "Microwave",
-        "Integrated Water Vapor",
-        "Retrieval",
         "HALO",
         "ORCESTRA",
         "PERCUSION",
@@ -2838,21 +2836,25 @@
       ],
       "license": "CC-BY-4.0",
       "references": [
-        "10.5194/amt-7-4539-2014"
+        "https://doi.org/10.5194/amt-7-4539-2014"
       ],
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
-      "processing:lineage": "The processing software is available at https://github.com/orcestra-campaign/hamp_processing",
+      "processing:lineage": "The retrieval software is available upon request.",
       "cube:dimensions": {
+        "frequency": {
+          "type": "unknown"
+        },
         "time": {
           "type": "temporal",
-          "unit": "milliseconds since 2024-08-09T05:23:29"
+          "unit": "milliseconds since 2024-08-09 05:03:25"
         }
       },
       "cube:variables": {
         "AziAng": {
           "dimensions": [
-            "time"
+            "time",
+            "frequency"
           ],
           "type": "data",
           "unit": "DEG (0 DEG - 360 DEG)",
@@ -2860,26 +2862,28 @@
         },
         "ElAng": {
           "dimensions": [
-            "time"
+            "time",
+            "frequency"
           ],
           "type": "data",
           "unit": "degrees (-90 - 180)",
           "description": "Elevation Viewing Angle"
+        },
+        "IWP": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "g m-2",
+          "description": "Ice Water Path"
         },
         "IWV": {
           "dimensions": [
             "time"
           ],
           "type": "data",
-          "unit": "kg / m^2",
-          "description": "IWV Data"
-        },
-        "RF": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Rain Flag"
+          "unit": "kg m-2",
+          "description": "Integrated Water Vapor"
         },
         "lat": {
           "dimensions": [
@@ -2897,12 +2901,13 @@
           "unit": "degrees_east",
           "description": "WGS84 Datum/Longitude"
         },
-        "mask_sea_land": {
+        "LWP": {
           "dimensions": [
             "time"
           ],
           "type": "data",
-          "description": "Mask for sea and land. \n\n1 indicates sea, 0 indicates land."
+          "unit": "g m-2",
+          "description": "cloud Liquid Water Path"
         },
         "plane_altitude": {
           "dimensions": [
@@ -2928,50 +2933,41 @@
           "unit": "degree",
           "description": "Attitude/Roll"
         },
-        "retrieval": {
+        "RF": {
+          "dimensions": [
+            "time",
+            "frequency"
+          ],
+          "type": "data",
+          "description": "Rain Flag"
+        },
+        "TLWP": {
           "dimensions": [
             "time"
           ],
           "type": "data",
-          "description": "LV2 retrieval type"
+          "unit": "g m-2",
+          "description": "Total Liquid Water Path"
         }
       },
       "contacts": [
         {
-          "name": "Jakob Deutloff",
+          "name": "Janina Boemeke",
           "emails": [
             {
-              "value": "jakob.deutloff@uni-hamburg.de",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Lukas Kluft",
-          "emails": [
-            {
-              "value": "lukas.kluft@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Clara Bayley",
-          "emails": [
-            {
-              "value": "clara.bayley@mpimet.mpg.de",
+              "value": "janina.boemeke@studium.uni-hamburg.de",
               "roles": []
             }
           ]
         }
       ],
-      "datetime": "2024-09-29T10:36:56.375Z",
-      "start_datetime": "2024-08-09T05:23:29.000Z",
-      "end_datetime": "2024-11-19T15:50:23.750Z"
+      "datetime": "2024-09-04T06:09:23.375Z",
+      "start_datetime": "2024-08-09T05:03:25.000Z",
+      "end_datetime": "2024-09-30T07:15:21.750Z"
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeicahqvp4lovuqpu63euo5kbc22sdq4jp5p6h6wib373x72ki34tiu",
+        "href": "ipfs://bafybeihvsq73hokuex44oueqvnotaeoikwcs5yyiydtc777td2ldcm6z4y",
         "roles": [
           "data"
         ],
