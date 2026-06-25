@@ -7,7 +7,7 @@ import type {
   StacItem,
   Variable,
 } from "./stac.ts";
-import type { ManualMetadata } from "./manual_meta";
+import type { ManualMetadata } from "./manual_meta.ts";
 import type { LooseGlobalAttrs } from "./dsAttrConvention.ts";
 import {
   decodeTime,
@@ -18,12 +18,13 @@ import {
   isProfile,
   isTimeVariable,
   isTrajectory,
-} from "./cf/index";
-import { get, getDimensions } from "./ds/index";
-import type { SomeArray } from "./ds/types";
+} from "./cf/index.js";
+import { get, getDimensions } from "./ds/index.js";
+import type { SomeArray } from "./ds/types.js";
 import dayjs from "dayjs";
 
 import { CID } from "multiformats";
+import { getLogger } from "./logging.js";
 
 export interface DatasetSrc {
   src: string;
@@ -77,6 +78,10 @@ function nanMinMax(array: Iterable<number>): [number, number] {
 }
 
 async function getMinMax(variable: SomeArray): Promise<[number, number]> {
+  if (variable.shape.length == 0) {
+    const v = Number(await get(variable));
+    return [v, v];
+  }
   if (variable.is("number")) {
     const data = applyOffsetAndScale(
       (await get(variable)).data,
@@ -273,24 +278,25 @@ async function getSpatialBoundsTrajectory(
 ): Promise<
   { bbox: BBox; geometry: Geometry } | undefined
 > {
+  const logger = getLogger();
   let lats: LikeAnArray<number> | undefined = undefined;
   let lons: LikeAnArray<number> | undefined = undefined;
   for (const [varname, variable] of Object.entries(ds.variables)) {
     if (
       isLatitudeVariable(varname, variable.attrs) && variable.shape.length == 1 && shouldFetchArray(variable)
     ) {
-      if (lats !== undefined) console.warn("more than one latitude variable");
+      if (lats !== undefined) logger.error("more than one latitude variable");
       lats = applyOffsetAndScale((await get(variable)).data, variable.attrs);
     }
     if (
       isLongitudeVariable(varname, variable.attrs) && variable.shape.length == 1 && shouldFetchArray(variable)
     ) {
-      if (lons !== undefined) console.warn("more than one longitude variable");
+      if (lons !== undefined) logger.warn("more than one longitude variable");
       lons = applyOffsetAndScale((await get(variable)).data, variable.attrs);
     }
   }
   if (lats === undefined || lons === undefined) {
-    console.warn(
+    logger.warn(
       "dataset",
       ds.src,
       "is a trajectory, but it was not possible to figure out the coordinates",
@@ -322,6 +328,7 @@ async function getSpatialBoundsProfile(
 ): Promise<
   { bbox: BBox; geometry: Geometry } | undefined
 > {
+  const logger = getLogger();
   let lats: LikeAnArray<number> | undefined = undefined;
   let lons: LikeAnArray<number> | undefined = undefined;
   for (const [varname, variable] of Object.entries(ds.variables)) {
@@ -329,18 +336,18 @@ async function getSpatialBoundsProfile(
       isLatitudeVariable(varname, variable.attrs) &&
       [0, 1].includes(variable.shape.length)
     ) {
-      if (lats !== undefined) console.warn("more than one latitude variable");
+      if (lats !== undefined) logger.error("more than one latitude variable");
       lats = applyOffsetAndScale((await get(variable)).data, variable.attrs);
     }
     if (
       isLongitudeVariable(varname, variable.attrs) && variable.shape.length == 1
     ) {
-      if (lons !== undefined) console.warn("more than one longitude variable");
+      if (lons !== undefined) logger.warn("more than one longitude variable");
       lons = applyOffsetAndScale((await get(variable)).data, variable.attrs);
     }
   }
   if (lats === undefined || lons === undefined) {
-    console.warn(
+    logger.warn(
       "dataset",
       ds.src,
       "is a profile, but it was not possible to figure out the coordinates",
@@ -536,7 +543,7 @@ async function* asCompleted<T>(promises: Array<Promise<T>>): AsyncGenerator<T> {
   }
 }
 
-export function metadataToStacId(ds: { item_cid?: CID; src: string }): string {
+export function srcinfoToStacId(ds: { item_cid?: CID; src: string }): string {
   return (ds?.item_cid?.toString() ?? ds.src) + "-stac_item";
 }
 
@@ -599,7 +606,7 @@ export function parseManualMetadata(
       type: "Feature",
       stac_version: "1.1.0",
       stac_extensions: [],
-      id: metadataToStacId(srcinfo),
+      id: srcinfoToStacId(srcinfo),
       properties,
       links: [],
       assets: {
@@ -662,7 +669,7 @@ export default async function* parseMetadata(
     type: "Feature",
     stac_version: "1.1.0",
     stac_extensions: [],
-    id: metadataToStacId(ds),
+    id: srcinfoToStacId(ds),
     properties,
     links: [],
     assets: {
