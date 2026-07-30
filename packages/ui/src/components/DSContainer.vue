@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { shallowRef, unref, computed, watch, onBeforeMount, type ShallowRef } from 'vue'
 
+import { peerIdFromString } from "@libp2p/peer-id";
+
 import PlaneAnimation from './PlaneAnimation.vue';
 import ShipAnimation from './ShipAnimation.vue';
 import SondeAnimation from './SondeAnimation.vue';
@@ -39,32 +41,27 @@ async function resolve_cids(helia: Helia, src: string): Promise<{root_cid?: CID,
     return {root_cid, item_cid};
 }
 
-const knownPeers: Record<string, string> = {
+const knownPeers: Record<string, string> = Object.fromEntries(Object.entries({
   "12D3KooWN1cJjVBqXmCmaNF6yihB9vTuSSeSHJ2kw6waaQ5Mvmsm": "DKRZ",
   "12D3KooWBWikPAjn7SeWVY5uzi42mncf2qdYZu88eFjroVaQ46jw": "GWDG Cloud",
   "12D3KooWL3E6UMhVPHq8tyCKoAybRxQQgE2uGVLVphtmqNhaegE2": "Pi 5 (MPIM)",
   "12D3KooWDxsa98TAgDRVRby6bPxvnHfqBdL1hHBqMqP2PWoSHmcJ": "Pi (lkluft)",
-};
+}).map(([k, v]) => [peerIdFromString(k).toCID().toString(), v]));  // normalize PeerIDs
 
 function parseProvider(provider: Provider): string | undefined {
-  if (provider.id.type === "url") {
-    const url = new TextDecoder().decode(provider.id.toMultihash().digest);
-    if (url.match(/^https?:\/\/127.0.0.1[:\/]/)) {
-      return "local gateway";
-    }
-    if (url.match(/^https:\/\/.+\.orcestra-campaign\.org\//)) {
-      return "ORCESTRA Gateway";
-    }
-    if (url.match(/^https:\/\/trustless-gateway.link\//)) {
-      return "public gateway";
-    }
-  }
   const short = knownPeers[provider.id.toString()];
   if (short !== undefined) {
     return short;
   }
-  for(const ma of provider.multiaddrs) {
-    if (ma.toString().match(/^\/dns.\/[^\/]+\.pinata\.cloud\//)) {
+  for(const addr of provider.multiaddrs) {
+    const ma = addr.toString();
+    if (ma.startsWith("/dns/latest.orcestra-campaign.org/")) {
+        return "ORCESTRA Gateway";
+    }
+    if (ma.startsWith("/ip4/127.0.0.1/")) {
+        return "local gateway";
+    }
+    if (ma.match(/^\/dns.\/[^\/]+\.pinata\.cloud\//)) {
       return "Pinata";
     }
   }

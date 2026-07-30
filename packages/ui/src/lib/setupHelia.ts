@@ -1,17 +1,17 @@
 import { IDBBlockstore } from "blockstore-idb";
 import { IDBDatastore } from "datastore-idb";
-import { createHelia, createHeliaLight, type Helia } from "helia";
+import { createHeliaLight, type Helia } from "helia";
 
 import { withBitswap } from '@helia/bitswap'
 import { withHTTP } from '@helia/http'
 import { withLibp2p } from '@helia/libp2p'
 
 async function configureStandaloneHelia(): Promise<Helia> {
-  const helia = await withBitswap(withLibp2p(configureLocalHelia()));
+  const helia = await withBitswap(withLibp2p(await configureLocalHelia([])));
   return helia;
 }
 
-async function configureLocalHelia(gateways: Array<string> = []): Promise<Helia> {
+async function configureLocalHelia(gateways: Array<string>): Promise<Helia> {
   console.log("configuring local Helia");
   const blockstore = new IDBBlockstore("ipfs/blockstore");
   const datastore = new IDBDatastore("ipfs/datastore");
