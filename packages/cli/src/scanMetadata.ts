@@ -23,7 +23,7 @@ function isDataset(directoryListing: Array<UnixFSEntry>) {
   return false;
 }
 
-const crawlLimit = pLimit(30);
+const crawlLimit = pLimit(10);
 
 export async function collectDatasets(
   cid: CID,
