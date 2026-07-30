@@ -3,9 +3,8 @@ import type { Chunk, NumberDataType, TypedArrayConstructor } from "zarrita";
 function empty_like<D extends NumberDataType>(
   chunk: Chunk<D>,
 ): Chunk<D> {
-  const data = new (chunk.constructor as TypedArrayConstructor<D>)(
-    chunk.data,
-  );
+  // Create a new TypedArray with the same length as the original
+  const data = new (chunk.constructor as TypedArrayConstructor<D>)(chunk.data.length);
   return {
     data,
     shape: chunk.shape,
