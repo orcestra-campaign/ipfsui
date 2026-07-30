@@ -1,11 +1,6 @@
-import { createHelia, type Helia } from "helia";
+import { createHelia, createHeliaLight, type Helia } from "helia";
 
-import { createHeliaHTTP } from "@helia/http";
-import { trustlessGateway } from "@helia/block-brokers";
-import { httpGatewayRouting } from "@helia/routers";
-
-import { dns } from "@multiformats/dns";
-import { dnsJsonOverHttps } from "@multiformats/dns/resolvers";
+import { withHTTP } from "@helia/http";
 
 import { FsDatastore } from "datastore-fs";
 import { FsBlockstore } from "blockstore-fs";
@@ -16,7 +11,6 @@ import * as fs from "node:fs/promises";
 async function getGatewayFromFile(
   filename: string,
 ): Promise<string | undefined> {
-  //console.info("trying", filename);
   try {
     return (await fs.readFile(filename, {encoding: "utf-8"}))?.split("\n")[0]?.trim();
   } catch {
@@ -60,36 +54,22 @@ async function configureStandaloneHelia(): Promise<Helia> {
   const datastore = new FsDatastore(".helia/datastore");
   const blockstore = new FsBlockstore(".helia/blockstore");
 
-  const resolver = dns({
-    resolvers: {
-      ".": [
-        dnsJsonOverHttps("https://cloudflare-dns.com/dns-query"),
-        dnsJsonOverHttps("https://dns.google/resolve"),
-      ],
-    },
-  });
-
-  const helia = await createHelia({
+  const helia = createHelia({
     datastore,
     blockstore,
-    dns: resolver,
-    libp2p: { dns: resolver },
   });
-  //console.info("this node's peerId:", helia.libp2p.peerId.toString());
   return helia;
 }
 
 async function configureLocalHelia(gateway: string): Promise<Helia> {
-  const helia = await createHeliaHTTP({
-    blockBrokers: [
-      trustlessGateway({ allowInsecure: true, allowLocal: true }),
-    ],
-    routers: [
-      httpGatewayRouting({
-        gateways: [gateway],
-      }),
-    ],
-  });
+  const helia = withHTTP(createHeliaLight({
+    }), {
+      allowInsecure: true,
+      allowLocal: true,
+      delegatedRouters: ['https://delegated-ipfs.dev'],  // for some reason, it doesn't work without a delegated router
+      recursiveGateways: [gateway, "https://latest.orcestra-campaign.org"],
+    }
+    );
   return helia;
 }
 
@@ -105,7 +85,7 @@ export default async function configureHelia(): Promise<Helia> {
 }
 
 export async function withHelia(action: (helia: Helia) => Promise<void>): Promise<void> {
-  const helia = await configureHelia();
+  const helia = await(await configureHelia()).start();
   try {
     await action(helia);
   } finally {

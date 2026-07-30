@@ -9,17 +9,20 @@
     "dist/**/*"
   ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test": "node test-resolve.js"
   },
   "devDependencies": {
     "typescript": "^5.6.3"
   },
   "dependencies": {
-    "@helia/ipns": "^8.1.0",
-    "@helia/verified-fetch": "^2.4.0",
+    "@helia/dnslink": "^2.0.2",
+    "@helia/ipns": "^10.0.6",
+    "@helia/unixfs": "^8.0.5",
+    "@helia/verified-fetch": "^8.0.1",
     "dayjs": "^1.11.13",
-    "helia": "^5.2.0",
-    "ipfs-unixfs-exporter": "^13.6.1",
+    "helia": "^7.1.2",
+    "ipfs-unixfs-exporter": "^16.0.2",
     "js-yaml": "^4.1.1",
     "zarrita": "^0.5.4"
   }
