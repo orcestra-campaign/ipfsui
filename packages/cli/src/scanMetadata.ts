@@ -51,6 +51,7 @@ export async function collectDatasets(
   try {
   const res = await crawlLimit(() => {
       monitor.enterPath(path);  // enter in limit, to reflect delayed execution
+      monitor.setState(path, "IO");  // Set IO state during filesystem operations
       return Array.fromAsync(fs.ls(cid))
   });
   if (isDataset(res)) {
@@ -58,6 +59,8 @@ export async function collectDatasets(
     monitor.leavePath(path);
     return [{ cid: cid.toV1(), path }];
   } else {
+    // Set recurse state when starting to process subdirectories
+    monitor.setState(path, "recurse");
     const out = (await Promise.all(
       res.filter((e) => e.type === "directory").map((e) =>
         collectDatasets(e.cid, fs, { ...options, path: path + "/" + e.name })

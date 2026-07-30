@@ -1,11 +1,13 @@
 export interface Monitor {
   enterPath(path: string): void;
   leavePath(path: string): void;
+  setState(path: string, state: "IO" | "recurse" | "default"): void;
 }
 
 export class NoMonitor {
   enterPath() { };
   leavePath() { };
+  setState() { };
 }
 
 export class ActiveMonitor {
@@ -33,6 +35,7 @@ export class ActiveMonitor {
     this.active.delete(path);
     this.show();
   }
+  setState() { };
 }
 
 export class SlowMonitor {
@@ -49,10 +52,11 @@ export class SlowMonitor {
     clearTimeout(this.timeouts.get(path));
     this.timeouts.delete(path);
   }
+  setState() { };
 }
 
 export class TreeMonitor {
-  activePaths: Map<string, { startTime: number; children: Set<string> }>;
+  activePaths: Map<string, { startTime: number; children: Set<string>; state: "IO" | "recurse" | "default" }>;
   pathHierarchy: Map<string, string[]>; // path -> [parent, grandparent, ...]
   refreshInterval: NodeJS.Timeout | null;
   lastUpdateTime: number;
@@ -128,6 +132,20 @@ export class TreeMonitor {
     return `${(elapsed / 1000).toFixed(1)}s`;
   }
 
+  getStateIcon(isActive: boolean, state: "IO" | "recurse" | "default"): string {
+    // State-specific icons
+    switch (state) {
+      case "IO":
+        return "💾"; // Floppy disk for IO operations
+      case "recurse":
+        return "🔍"; // Magnifying glass for recursion/scanning
+      case "default":
+      default:
+        // Use spinning icon for active, folder for inactive
+        return isActive ? "🔄" : "📁";
+    }
+  }
+
   renderTree() {
     if (this.activePaths.size === 0) {
       return; // Nothing to show
@@ -187,7 +205,10 @@ export class TreeMonitor {
     // Render current path
     const prefix = "  ".repeat(indent);
     const isActive = this.activePaths.has(path);
-    const symbol = isActive ? "🔄" : "📁";
+    
+    // Get state for icon selection
+    const pathState = this.activePaths.get(path)?.state || "default";
+    const symbol = this.getStateIcon(isActive, pathState);
     
     process.stdout.write(`${prefix}${symbol} ${path} (${info.time})\n`);
     
@@ -215,7 +236,8 @@ export class TreeMonitor {
   enterPath(path: string) {
     this.activePaths.set(path, {
       startTime: Date.now(),
-      children: new Set()
+      children: new Set(),
+      state: "default"
     });
     this.renderTree();
   }
@@ -223,6 +245,14 @@ export class TreeMonitor {
   leavePath(path: string) {
     this.activePaths.delete(path);
     this.renderTree();
+  }
+
+  setState(path: string, state: "IO" | "recurse" | "default") {
+    const pathInfo = this.activePaths.get(path);
+    if (pathInfo) {
+      pathInfo.state = state;
+      this.renderTree(); // Refresh to show new state icon
+    }
   }
 
   cleanup() {
