@@ -44,14 +44,15 @@ export async function collectDatasets(
   if (cachedItems !== null) {
     return cachedItems;
   }
-  monitor.enterPath(path);
   if (blacklist.includes(path)) {
     console.log("skipping path", path);
-    monitor.leavePath(path);
     return [];
   }
   try {
-  const res = await crawlLimit(() => Array.fromAsync(fs.ls(cid)));
+  const res = await crawlLimit(() => {
+      monitor.enterPath(path);  // enter in limit, to reflect delayed execution
+      return Array.fromAsync(fs.ls(cid))
+  });
   if (isDataset(res)) {
     console.log("collected", path);
     monitor.leavePath(path);
