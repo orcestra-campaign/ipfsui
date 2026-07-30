@@ -72,6 +72,6 @@ export async function collectDatasets(
   }
   } catch (e) {
     console.error(e);
+    throw(e);
   }
-  return [];
 }
