@@ -39,6 +39,12 @@ jobs:
         run: cd packages/cli && npm link
       - name: Build page
         run: cd packages/ui && npm run build
+      - name: Install IPFS
+        uses: ipfs/download-ipfs-distribution-action@v1
+      - name: Start IPFS daemon
+        uses: ipfs/start-ipfs-daemon-action@v1
+      - name: Get test data
+        run: ipfs pin add bafybeiesyutuduzqwvu4ydn7ktihjljicywxeth6wtgd5zi4ynxzqngx4m
       - name: Run tests
         run: npm test
       - name: Upload artifact
