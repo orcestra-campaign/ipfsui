@@ -8,6 +8,34 @@ import { FsBlockstore } from "blockstore-fs";
 import * as path from "node:path";
 import * as fs from "node:fs/promises";
 
+/// NullRouter is a workaround, remove if upstream fixed
+
+import type { Capability, Provider, Router } from 'helia'
+
+class NullRouter implements Router {
+  public readonly name = 'null-router'
+
+  constructor () {
+  }
+
+  capabilities (): Capability[] {
+    return []
+  }
+
+  async * findProviders (): AsyncIterable<Provider> {
+  }
+
+  toString (): string {
+    return `NullRouter()`
+  }
+}
+
+export function nullRouter (): Router {
+  return new NullRouter()
+}
+
+// end workaround
+
 async function getGatewayFromFile(
   filename: string,
 ): Promise<string | undefined> {
@@ -54,19 +82,22 @@ async function configureStandaloneHelia(): Promise<Helia> {
   const datastore = new FsDatastore(".helia/datastore");
   const blockstore = new FsBlockstore(".helia/blockstore");
 
-  const helia = createHelia({
+  const helia = withHTTP(createHelia({
     datastore,
     blockstore,
+  }), {
+      recursiveGateways: ["https://latest.orcestra-campaign.org"],
   });
   return helia;
 }
 
 async function configureLocalHelia(gateway: string): Promise<Helia> {
   const helia = withHTTP(createHeliaLight({
+      routers: [nullRouter()],
     }), {
       allowInsecure: true,
       allowLocal: true,
-      delegatedRouters: ['https://delegated-ipfs.dev'],  // for some reason, it doesn't work without a delegated router
+      delegatedRouters: [],  // there must be a least one non-fallback router. To make an empty list work, we had to use nullRouter
       recursiveGateways: [gateway, "https://latest.orcestra-campaign.org"],
     }
     );
