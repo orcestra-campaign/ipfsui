@@ -54,7 +54,7 @@ index like so:
 cd packages/cli
 npm run build
 npm link
-dito index scan -- --cid <CID> -o products.json -C cache
+dito index scan --cid <CID> -o products.json -C cache
 ```
 
 (`-C` is optional and specifies a directory for caching items)
