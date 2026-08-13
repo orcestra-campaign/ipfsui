@@ -3711,6 +3711,7 @@
   {
     "properties": {
       "title": "Calibrated SMART upward irradiance at selected wavelength bands",
+      "keywords": [],
       "license": "CC-BY-4.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
@@ -3789,6 +3790,7 @@
   {
     "properties": {
       "title": "Calibrated SMART upward radiance at selected wavelength bands",
+      "keywords": [],
       "license": "CC-BY-4.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
@@ -3857,6 +3859,484 @@
     "assets": {
       "data": {
         "href": "ipfs://bafybeig34sqju7y3vp7qeughc2bhr6lnjd3rcr7xm7az5duj74qybozlr4",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "BEACH dropsonde dataset (Level 1)",
+      "description": "This dataset is the Level 1 BEACH dataset. The dropsonde raw data was processed with ASPEN v4.0.4.The data is organised in separate folders for each flight, including one netcdf file per sonde that is the untouched ASPEN output.",
+      "keywords": [],
+      "license": "CC-BY-4.0",
+      "references": [
+        "https://github.com/atmdrops/pydropsonde"
+      ],
+      "platform": "HALO",
+      "mission": "ORCESTRA, PERCUSION, MAESTRO",
+      "start_datetime": "2024-08-09T14:27:28",
+      "end_datetime": "2024-09-18T19:30:51",
+      "contacts": [
+        {
+          "name": "Helene Gloeckner",
+          "emails": [
+            {
+              "value": "helene.gloeckner@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Theresa Mieslinger",
+          "emails": [
+            {
+              "value": "theresa.mieslinger@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Nina Robbins",
+          "emails": [
+            {
+              "value": "nina.robbins@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
+        }
+      ]
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeieqqc5fktpmwbluppgb4vidrrx7vv44l5e7rol6zp3e3wlbjmj2q4",
+        "roles": [
+          "data"
+        ]
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "BEACH dropsonde dataset (Level 2)",
+      "description": "This dataset is part of the Level 2 BEACH datasets. It contains ASPEN-quality controlled dropsonde data (Level 1) from a single sonde from the ORCESTRA field campaign with additional QC flags from the [pydropsonde package](https://github.com/atmdrops/pydropsonde). Use this dataset if you need a valid time coordinate for the sonde (e.g. for fall speeds) or detailed QC information. In BEACH Level 3, all sondes are combined to a common altitude. BEACH Level 4 contains the circle products.",
+      "keywords": [
+        "ORCESTRA",
+        "BEACH",
+        "Sounding",
+        "Dropsondes",
+        "Tropics",
+        "Atmospheric Profiles",
+        "Full QC"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "https://github.com/atmdrops/pydropsonde"
+      ],
+      "platform": "HALO",
+      "mission": "ORCESTRA, PERCUSION, MAESTRO",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "microseconds since 2024-08-09 14:43:18.049987",
+          "description": "time of recorded measurement `(time)`"
+        }
+      },
+      "cube:variables": {
+        "alt": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "altitude above MSL `(altitude)`"
+        },
+        "flight_id": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "description": "flight identifier \n\nunique flight ID"
+        },
+        "gps_valid": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "description": "qc gps variability"
+        },
+        "gps_valid_stduv": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "gps valid: stduv"
+        },
+        "gpsalt": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "gps reported altitude above MSL `(altitude)`"
+        },
+        "gpsalt_below_aircraft": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "description": "qc heighest gpsalt measurement below aircraft"
+        },
+        "lat": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "latitude `(latitude)`"
+        },
+        "launch_altitude": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "aircraft altitude at launch"
+        },
+        "launch_lat": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "aircraft latitude at launch `(deployment_latitude)`"
+        },
+        "launch_lon": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "aircraft longitude at launch `(deployment_longitude)`"
+        },
+        "launch_time": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "microseconds since 2024-08-09T14:27:28+00:00",
+          "description": "dropsonde launch time"
+        },
+        "lon": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "longitude `(longitude)`"
+        },
+        "p": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Pa",
+          "description": "atmospheric pressure `(air_pressure)`"
+        },
+        "p_near_surface_count": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "value for qc  p near surface count"
+        },
+        "p_profile_extent_max": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "value for qc  p profile extent max"
+        },
+        "p_profile_sparsity_fraction": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "value for qc  p profile sparsity fraction"
+        },
+        "p_qc": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "description": "qc for p `(quality_flag)` \n\nif non-zero, this sonde should be used with care."
+        },
+        "p_sfc_physics_val": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "Pa",
+          "description": "value for qc  p sfc physics val"
+        },
+        "platform_id": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "description": "platform identifier \n\nunique platform ID"
+        },
+        "rh": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "relative humidity `(relative_humidity)`"
+        },
+        "rh_near_surface_count": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "value for qc  rh near surface count"
+        },
+        "rh_profile_extent_max": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "value for qc  rh profile extent max"
+        },
+        "rh_profile_sparsity_fraction": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "value for qc  rh profile sparsity fraction"
+        },
+        "rh_qc": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "description": "qc for rh `(quality_flag)` \n\nif non-zero, this sonde should be used with care."
+        },
+        "rh_sfc_physics_val": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "value for qc  rh sfc physics val"
+        },
+        "sonde_id": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "description": "sonde identifier"
+        },
+        "sonde_qc": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "description": "aggregated quality flag for sonde `(aggregate_quality_flag)` \n\nif not 0 some quality control has not been passed. Handle with care."
+        },
+        "ta": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "air temperature `(air_temperature)`"
+        },
+        "ta_near_surface_count": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "value for qc  ta near surface count"
+        },
+        "ta_profile_extent_max": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "value for qc  ta profile extent max"
+        },
+        "ta_profile_sparsity_fraction": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "value for qc  ta profile sparsity fraction"
+        },
+        "ta_qc": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "description": "qc for ta `(quality_flag)` \n\nif non-zero, this sonde should be used with care."
+        },
+        "ta_sfc_physics_val": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "value for qc  ta sfc physics val"
+        },
+        "times_per_sonde": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "description": "\n\nNumber of times per sonde"
+        },
+        "u": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "u component of winds `(eastward_wind)`"
+        },
+        "u_near_surface_count": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "value for qc  u near surface count"
+        },
+        "u_profile_extent_max": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "value for qc  u profile extent max"
+        },
+        "u_profile_sparsity_fraction": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "value for qc  u profile sparsity fraction"
+        },
+        "u_qc": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "description": "qc for u `(quality_flag)` \n\nif non-zero, this sonde should be used with care."
+        },
+        "v": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "v component of winds `(northward_wind)`"
+        },
+        "v_near_surface_count": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "value for qc  v near surface count"
+        },
+        "v_profile_extent_max": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "value for qc  v profile extent max"
+        },
+        "v_profile_sparsity_fraction": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "value for qc  v profile sparsity fraction"
+        },
+        "v_qc": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "description": "qc for v `(quality_flag)` \n\nif non-zero, this sonde should be used with care."
+        },
+        "vaisala_serial_id": {
+          "dimensions": [
+            "sonde"
+          ],
+          "type": "data",
+          "description": "vaisala serial identifier \n\ndevice serial ID provided by the manufacturer Vaisala"
+        },
+        "w": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "atmospheric vertical velocity `(upward_air_velocity)`"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Helene Gloeckner",
+          "emails": [
+            {
+              "value": "helene.gloeckner@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Theresa Mieslinger",
+          "emails": [
+            {
+              "value": "theresa.mieslinger@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Nina Robbins",
+          "emails": [
+            {
+              "value": "nina.robbins@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
+        }
+      ],
+      "datetime": "2024-09-03T16:59:09.019Z",
+      "start_datetime": "2024-08-09T14:27:28.000Z",
+      "end_datetime": "2024-09-28T19:30:50.038Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeifi5pglgpcq6onwb3yixhvghcmenkvqmcqi7qgjbrbqlgoyrvj52i",
         "roles": [
           "data"
         ],
@@ -5191,6 +5671,7 @@
     "properties": {
       "title": "HALO position and attitude data during the PERCUSION campaign",
       "description": "This dataset provides a best estimate of the position and attitude of the HALO aircraft during the ORCESTRA campaign. In general, 100Hz data from the IGI system is used (see the `source` attribute of the per-flight datasets when in doubt).",
+      "keywords": [],
       "license": "CC0-1.0",
       "platform": "HALO",
       "mission": "ORCESTRA, PERCUSION",
@@ -5276,6 +5757,10 @@
     "properties": {
       "title": "Shipboard ADCP current measurements (38 kHz) during RV METEOR cruise M203",
       "description": "Current velocities of the upper water column along the cruise track of R/V Meteor cruise M203 were collected by a vessel-mounted 38 kHz RDI Ocean Surveyor ADCP. The ADCP transducer was located at 5.0 m below the water line. The instrument was operated in narrowband mode (WM10) with a bin size of 32.00 m, a blanking distance of 16.00 m, and a total of 55 bins, covering the depth range between 53.0 m and 1781.0 m. Attitude data from the ship's motion reference unit were used by the data acquisition software VmDAS internally to convert ADCP beam velocities to geographic coordinates. The Python toolbox OSADCP (version 2.0.0) was used for data post-processing. Single-ping data were screened for bottom signals and, where appropriate, a bottom mask was manually processed. Acoustic Interferences were identified based on outliers in the ADCP echo intensity data. Echo intensity data were cleaned accordingly and affected velocity cells were flagged to be removed prior ensemble-averaging. The ship's velocity was calculated from position fixes obtained by the Global Navigation Satellite System (GNSS), taking into account lever arms of ADCP transducer and GNSS antenna. Accuracy of the derived water velocities mainly depends on the quality of the position fixes and the ship's heading data. Further errors stem from a misalignment of the transducer with the ship's centerline. Data processing included water track calibration of the misalignment angle (0.0691° +/- 0.5613°) and scale factor (1.0054 +/- 0.0088) of the measured velocities. The velocity data were averaged in time using an average interval of 60 s. Depth cells with ensemble-averaged percent-good values below 25% are marked as 'bad data'.",
+      "keywords": [
+        "BOWTIE",
+        "M203"
+      ],
       "license": "CC-BY-4.0",
       "references": [
         "https://doi.org/10.1594/PANGAEA.974251"
@@ -5492,6 +5977,10 @@
     "properties": {
       "title": "Shipboard ADCP current measurements (75 kHz) during RV METEOR cruise M203",
       "description": "Current velocities of the upper water column along the cruise track of R/V Meteor cruise M203 were collected by a vessel-mounted 75 kHz RDI Ocean Surveyor ADCP. The ADCP transducer was located at 5.0 m below the water line. The instrument was operated in narrowband mode (WM10) with a bin size of 8.00 m, a blanking distance of 4.00 m, and a total of 100 bins, covering the depth range between 17.0 m and 809.0 m. Attitude data from the ship's motion reference unit were used by the data acquisition software VmDAS internally to convert ADCP beam velocities to geographic coordinates. The Python toolbox OSADCP (version 2.0.0) was used for data post-processing. Single-ping data were screened for bottom signals and, where appropriate, a bottom mask was manually processed. Acoustic Interferences were identified based on outliers in the ADCP echo intensity data. Echo intensity data were cleaned accordingly and affected velocity cells were flagged to be removed prior ensemble-averaging. The ship's velocity was calculated from position fixes obtained by the Global Navigation Satellite System (GNSS), taking into account lever arms of ADCP transducer and GNSS antenna. Accuracy of the derived water velocities mainly depends on the quality of the position fixes and the ship's heading data. Further errors stem from a misalignment of the transducer with the ship's centerline. Data processing included water track calibration of the misalignment angle (-46.4281° +/- 0.5612°) and scale factor (1.0069 +/- 0.0086) of the measured velocities. The velocity data were averaged in time using an average interval of 60 s. Depth cells with ensemble-averaged percent-good values below 25% are marked as 'bad data'.",
+      "keywords": [
+        "BOWTIE",
+        "M203"
+      ],
       "license": "CC-BY-4.0",
       "references": [
         "https://doi.org/10.1594/PANGAEA.974252"
@@ -5707,6 +6196,10 @@
   {
     "properties": {
       "title": "GEOMAR PO-processed CTD data of cruise Meteor 203/1 CTD station number 1",
+      "keywords": [
+        "BOWTIE",
+        "M203"
+      ],
       "license": "CC-BY-4.0",
       "references": [
         ""
@@ -5929,6 +6422,10 @@
   {
     "properties": {
       "title": "Ship information database (DVS DShip) of METEOR cruise M203",
+      "keywords": [
+        "BOWTIE",
+        "M203"
+      ],
       "license": "CC-BY-4.0",
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE",
@@ -6298,6 +6795,10 @@
     "properties": {
       "title": "IWV data from GNSS antenna on R/V METEOR",
       "description": "ZTD are screened using range check and outlier check on both position and ZTD. ZTD are converted to IWV using ERA5 sea level pressure data, 1-hourly, 0.25x0.25 deg and VMF1 atmospheric integrated mean temperature, 6-hourly,  2.0x2.5 deg. See [Bosser et al., 2021, ESSD] for more information.",
+      "keywords": [
+        "BOWTIE",
+        "M203"
+      ],
       "license": "CC-BY-4.0",
       "references": [
         "\"Bosser et al. 2021, ESSD\""
@@ -6394,7 +6895,9 @@
       "keywords": [
         "HATPRO",
         "Radiometer",
-        "Microwave"
+        "Microwave",
+        "BOWTIE",
+        "M203"
       ],
       "license": "CC-BY-4.0",
       "references": [
@@ -6541,7 +7044,9 @@
       "keywords": [
         "HATPRO",
         "Radiometer",
-        "Microwave"
+        "Microwave",
+        "BOWTIE",
+        "M203"
       ],
       "license": "CC-BY-4.0",
       "references": [
@@ -6769,7 +7274,9 @@
       "keywords": [
         "Oceans",
         "Ocean Temperature",
-        "Sea Surface Temperature"
+        "Sea Surface Temperature",
+        "BOWTIE",
+        "M203"
       ],
       "license": "CC-BY-SA-4.0",
       "references": [
@@ -7043,6 +7550,10 @@
   {
     "properties": {
       "title": "Raman LiDAR LICHT fast product (2min smoothing) during METEOR cruise M203",
+      "keywords": [
+        "BOWTIE",
+        "M203"
+      ],
       "license": "CC-BY-4.0",
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE",
@@ -7232,6 +7743,10 @@
   {
     "properties": {
       "title": "Raman LiDAR LICHT slow product (58min smoothing) during METEOR cruise M203",
+      "keywords": [
+        "BOWTIE",
+        "M203"
+      ],
       "license": "CC-BY-4.0",
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE",
@@ -7504,6 +8019,10 @@
     "properties": {
       "title": "X-band Radar surface derived currents M203",
       "description": "Radar derived surface currents, based in linear waves dispersion relation properties. The retrieved currents  are based on the frequency shifts observed by the radar within the wave field observations.A Helmholtz-Zentrum Hereon marine X-band radar was installed in RV Meteorfrom August 10th 2024 to March 17th 2025. An external GPS was also installed to geolocate the radar backscatter-Intensity data. The radar was equipped with a 7.5' (2.3 m) wide antenna with vertical polarization in transmit and receive (VV) and operated in short pulse mode with a pulse duration of 50 to 70 ns, a pulse repetition frequency of 2000 Hz, and a nominal transmitted peak power of 12 kW. These settings yield a nominal resolution at the -3 dB level of 7.5 to 10.5 m and about 1° in range and azimuth, respectively. The recieved signal was digitized at 40 MHz with 1504 sampled range cells yielding a spatial sampling distance of 3.75 m, and a maximum range of roughly 5640 km. The radar was scheduled to continuously record data in the standard scanning mode, that is at an antenna rotation period of roughly 2 seconds. The radar was operated as needed, based on the Meteor crew's requirements. During the first two weeks, some data was lost due to hard drive storage failures. That issue was resolved, and the remaining data gaps are due to intentional shutdowns requested by the crew.",
+      "keywords": [
+        "BOWTIE",
+        "M203"
+      ],
       "license": "CC-BY-4.0",
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE",
@@ -7637,7 +8156,9 @@
       "keywords": [
         "radar",
         "precipitation",
-        "sea-pol"
+        "sea-pol",
+        "BOWTIE",
+        "M203"
       ],
       "license": "CC-BY-4.0",
       "platform": "RV METEOR",
@@ -7893,7 +8414,9 @@
       "keywords": [
         "radar",
         "precipitation",
-        "sea-pol"
+        "sea-pol",
+        "BOWTIE",
+        "M203"
       ],
       "license": "CC-BY-4.0",
       "platform": "RV METEOR",
@@ -8166,7 +8689,9 @@
       "keywords": [
         "radar",
         "precipitation",
-        "sea-pol"
+        "sea-pol",
+        "BOWTIE",
+        "M203"
       ],
       "license": "CC-BY-4.0",
       "platform": "RV METEOR",
@@ -8393,7 +8918,9 @@
       "keywords": [
         "radar",
         "precipitation",
-        "sea-pol"
+        "sea-pol",
+        "BOWTIE",
+        "M203"
       ],
       "license": "CC-BY-4.0",
       "platform": "RV METEOR",
@@ -8579,7 +9106,9 @@
       "keywords": [
         "radar",
         "precipitation",
-        "sea-pol"
+        "sea-pol",
+        "BOWTIE",
+        "M203"
       ],
       "license": "CC-BY-4.0",
       "platform": "RV METEOR",
@@ -8827,7 +9356,9 @@
       "keywords": [
         "radar",
         "precipitation",
-        "sea-pol"
+        "sea-pol",
+        "BOWTIE",
+        "M203"
       ],
       "license": "CC-BY-4.0",
       "platform": "RV METEOR",
@@ -9102,7 +9633,9 @@
         "subskin SST",
         "Sea Snake",
         "tropical Atlantic",
-        "ITCZ"
+        "ITCZ",
+        "BOWTIE",
+        "M203"
       ],
       "license": "CC-BY-4.0",
       "references": [
@@ -9200,7 +9733,12 @@
   },
   {
     "properties": {
-      "title": "Sunphotometer (Microtops) measurements during METEOR cruise M203 (Level 1.0)",
+      "title": "Sunphotometer (Microtops) measurements during METEOR cruise M203 (data collection)",
+      "description": "This dataset collection contains sunphotometer (Microtops) measurements taken during BOWTIE. Please use an IPFS gateway of your choice to inspect the included Zarr stores.",
+      "keywords": [
+        "BOWTIE",
+        "M203"
+      ],
       "license": "CC-BY-4.0",
       "references": [
         "https://aeronet.gsfc.nasa.gov/new_web/cruises_v3/Meteor_24_0.html"
@@ -9208,126 +9746,8 @@
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE, AERONET",
       "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "seconds since 2024-08-19 13:08:01"
-        }
-      },
-      "cube:variables": {
-        "440-870nm_angstrom_exponent": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "440-870nm_Angstrom_Exponent"
-        },
-        "aeronet_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AERONET_Number"
-        },
-        "air_mass": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Air Mass"
-        },
-        "aod_1020nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_1020nm"
-        },
-        "aod_1640nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_1640nm"
-        },
-        "aod_340nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_340nm"
-        },
-        "aod_380nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_380nm"
-        },
-        "aod_440nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_440nm"
-        },
-        "aod_500nm(int)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_500nm(int)"
-        },
-        "aod_675nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_675nm"
-        },
-        "aod_870nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_870nm"
-        },
-        "last_processing_date(dd:mm:yyyy)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Last_Processing_Date(dd:mm:yyyy)"
-        },
-        "latitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Latitude"
-        },
-        "longitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Longitude"
-        },
-        "microtops_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Microtops_Number"
-        },
-        "water_vapor(cm)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Water Vapor(cm)"
-        }
-      },
+      "start_datetime": "2024-08-19T13:08:01.000000000",
+      "end_datetime": "2024-09-21T20:00:04.000000000",
       "contacts": [
         {
           "name": "Elena Lind",
@@ -9356,3541 +9776,14 @@
             }
           ]
         }
-      ],
-      "datetime": "2024-09-05T04:34:02.500Z",
-      "start_datetime": "2024-08-19T13:08:01.000Z",
-      "end_datetime": "2024-09-21T20:00:04.000Z"
+      ]
     },
     "assets": {
       "data": {
-        "href": "ipfs://bafybeib6tduloxx5ubl2u64qjhxbrfnir4secnbu2huyslmlexge27ehoq",
+        "href": "ipfs://bafybeifw2qrevl4ckmncq4zqpwivorcgketyyyjap5po7xkvkykjhi5jpa",
         "roles": [
           "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "Sunphotometer (Microtops) measurements during METEOR cruise M203 (Level 1.5)",
-      "license": "CC-BY-4.0",
-      "references": [
-        "https://aeronet.gsfc.nasa.gov/new_web/cruises_v3/Meteor_24_0.html"
-      ],
-      "platform": "RV METEOR",
-      "mission": "ORCESTRA, BOW-TIE, AERONET",
-      "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "seconds since 2024-08-19 13:09:02"
-        }
-      },
-      "cube:variables": {
-        "440-870nm_angstrom_exponent": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "440-870nm_Angstrom_Exponent"
-        },
-        "aeronet_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AERONET_Number"
-        },
-        "air_mass": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Air Mass"
-        },
-        "aod_1020nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_1020nm"
-        },
-        "aod_1640nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_1640nm"
-        },
-        "aod_340nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_340nm"
-        },
-        "aod_380nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_380nm"
-        },
-        "aod_440nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_440nm"
-        },
-        "aod_500nm(int)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_500nm(int)"
-        },
-        "aod_675nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_675nm"
-        },
-        "aod_870nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_870nm"
-        },
-        "last_processing_date(dd:mm:yyyy)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Last_Processing_Date(dd:mm:yyyy)"
-        },
-        "latitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Latitude"
-        },
-        "longitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Longitude"
-        },
-        "microtops_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Microtops_Number"
-        },
-        "water_vapor(cm)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Water Vapor(cm)"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Elena Lind",
-          "emails": [
-            {
-              "value": "elena.lind@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Pawan Gupta",
-          "emails": [
-            {
-              "value": "pawan.gupta@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Daniel Klocke",
-          "emails": [
-            {
-              "value": "daniel.klocke@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-05T04:34:19.000Z",
-      "start_datetime": "2024-08-19T13:09:02.000Z",
-      "end_datetime": "2024-09-21T19:59:36.000Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeihi3q3gfz65yigz47z5gfa4nru6z46unkmjmydmzqqr6uqqsr6xwm",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "Sunphotometer (Microtops) measurements during METEOR cruise M203 (Level 2.0)",
-      "license": "CC-BY-4.0",
-      "references": [
-        "https://aeronet.gsfc.nasa.gov/new_web/cruises_v3/Meteor_24_0.html"
-      ],
-      "platform": "RV METEOR",
-      "mission": "ORCESTRA, BOW-TIE, AERONET",
-      "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "seconds since 2024-08-19 15:04:47"
-        }
-      },
-      "cube:variables": {
-        "440-870nm_angstrom_exponent": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "440-870nm_Angstrom_Exponent"
-        },
-        "aeronet_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AERONET_Number"
-        },
-        "air_mass": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Air Mass"
-        },
-        "aod_1020nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_1020nm"
-        },
-        "aod_1640nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_1640nm"
-        },
-        "aod_340nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_340nm"
-        },
-        "aod_380nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_380nm"
-        },
-        "aod_440nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_440nm"
-        },
-        "aod_500nm(int)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_500nm(int)"
-        },
-        "aod_675nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_675nm"
-        },
-        "aod_870nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_870nm"
-        },
-        "last_processing_date(dd:mm:yyyy)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Last_Processing_Date(dd:mm:yyyy)"
-        },
-        "latitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Latitude"
-        },
-        "longitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Longitude"
-        },
-        "microtops_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Microtops_Number"
-        },
-        "water_vapor(cm)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Water Vapor(cm)"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Elena Lind",
-          "emails": [
-            {
-              "value": "elena.lind@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Pawan Gupta",
-          "emails": [
-            {
-              "value": "pawan.gupta@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Daniel Klocke",
-          "emails": [
-            {
-              "value": "daniel.klocke@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-05T05:32:11.500Z",
-      "start_datetime": "2024-08-19T15:04:47.000Z",
-      "end_datetime": "2024-09-21T19:59:36.000Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeiajum5pcrb43tnwsseh2zaysryjutlal7ozcucqcxc4fduks46idu",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "Sunphotometer (Microtops) measurements during METEOR cruise M203 (Level 1.5)",
-      "license": "CC-BY-4.0",
-      "references": [
-        "https://aeronet.gsfc.nasa.gov/new_web/cruises_v3/Meteor_24_0.html"
-      ],
-      "platform": "RV METEOR",
-      "mission": "ORCESTRA, BOW-TIE, AERONET",
-      "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "seconds since 2024-08-19 14:56:33"
-        }
-      },
-      "cube:variables": {
-        "440-870nm_angstrom_exponent": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "440-870nm_Angstrom_Exponent"
-        },
-        "aeronet_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AERONET_Number"
-        },
-        "air_mass": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Air Mass"
-        },
-        "aod_1020nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_1020nm"
-        },
-        "aod_1640nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_1640nm"
-        },
-        "aod_340nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_340nm"
-        },
-        "aod_380nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_380nm"
-        },
-        "aod_440nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_440nm"
-        },
-        "aod_500nm(int)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_500nm(int)"
-        },
-        "aod_675nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_675nm"
-        },
-        "aod_870nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_870nm"
-        },
-        "last_processing_date(dd:mm:yyyy)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Last_Processing_Date(dd:mm:yyyy)"
-        },
-        "latitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Latitude"
-        },
-        "longitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Longitude"
-        },
-        "microtops_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Microtops_Number"
-        },
-        "number_of_observations": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Number_of_Observations"
-        },
-        "std_1020nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_1020nm"
-        },
-        "std_1640nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_1640nm"
-        },
-        "std_340nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_340nm"
-        },
-        "std_380nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_380nm"
-        },
-        "std_440-870nm_angstrom_exponent": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_440-870nm_Angstrom_Exponent"
-        },
-        "std_440nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_440nm"
-        },
-        "std_500nm(int)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_500nm(int)"
-        },
-        "std_675nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_675nm"
-        },
-        "std_870nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_870nm"
-        },
-        "std_water_vapor(cm)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_Water_Vapor(cm)"
-        },
-        "water_vapor(cm)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Water Vapor(cm)"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Elena Lind",
-          "emails": [
-            {
-              "value": "elena.lind@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Pawan Gupta",
-          "emails": [
-            {
-              "value": "pawan.gupta@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Daniel Klocke",
-          "emails": [
-            {
-              "value": "daniel.klocke@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-05T03:50:14.500Z",
-      "start_datetime": "2024-08-19T14:56:33.000Z",
-      "end_datetime": "2024-09-21T16:43:56.000Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeihg457ruqnu5kazguctvhg677kzijnuh46dk5zerdlo2jji4xr25y",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "Sunphotometer (Microtops) measurements during METEOR cruise M203 (Level 2.0)",
-      "license": "CC-BY-4.0",
-      "references": [
-        "https://aeronet.gsfc.nasa.gov/new_web/cruises_v3/Meteor_24_0.html"
-      ],
-      "platform": "RV METEOR",
-      "mission": "ORCESTRA, BOW-TIE, AERONET",
-      "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "seconds since 2024-08-19 16:03:51"
-        }
-      },
-      "cube:variables": {
-        "440-870nm_angstrom_exponent": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "440-870nm_Angstrom_Exponent"
-        },
-        "aeronet_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AERONET_Number"
-        },
-        "air_mass": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Air Mass"
-        },
-        "aod_1020nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_1020nm"
-        },
-        "aod_1640nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_1640nm"
-        },
-        "aod_340nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_340nm"
-        },
-        "aod_380nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_380nm"
-        },
-        "aod_440nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_440nm"
-        },
-        "aod_500nm(int)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_500nm(int)"
-        },
-        "aod_675nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_675nm"
-        },
-        "aod_870nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_870nm"
-        },
-        "last_processing_date(dd:mm:yyyy)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Last_Processing_Date(dd:mm:yyyy)"
-        },
-        "latitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Latitude"
-        },
-        "longitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Longitude"
-        },
-        "microtops_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Microtops_Number"
-        },
-        "number_of_observations": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Number_of_Observations"
-        },
-        "std_1020nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_1020nm"
-        },
-        "std_1640nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_1640nm"
-        },
-        "std_340nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_340nm"
-        },
-        "std_380nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_380nm"
-        },
-        "std_440-870nm_angstrom_exponent": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_440-870nm_Angstrom_Exponent"
-        },
-        "std_440nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_440nm"
-        },
-        "std_500nm(int)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_500nm(int)"
-        },
-        "std_675nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_675nm"
-        },
-        "std_870nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_870nm"
-        },
-        "std_water_vapor(cm)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_Water_Vapor(cm)"
-        },
-        "water_vapor(cm)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Water Vapor(cm)"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Elena Lind",
-          "emails": [
-            {
-              "value": "elena.lind@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Pawan Gupta",
-          "emails": [
-            {
-              "value": "pawan.gupta@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Daniel Klocke",
-          "emails": [
-            {
-              "value": "daniel.klocke@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-05T04:23:53.500Z",
-      "start_datetime": "2024-08-19T16:03:51.000Z",
-      "end_datetime": "2024-09-21T16:43:56.000Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeiad324d7kwbxtrtw6iopuv5lepjkhj4hmmcylso3o2k57dddurom4",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "Sunphotometer (Microtops) measurements during METEOR cruise M203 (Level 1.5)",
-      "license": "CC-BY-4.0",
-      "references": [
-        "https://aeronet.gsfc.nasa.gov/new_web/cruises_v3/Meteor_24_0.html"
-      ],
-      "platform": "RV METEOR",
-      "mission": "ORCESTRA, BOW-TIE, AERONET",
-      "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "seconds since 2024-08-19 13:08:58"
-        }
-      },
-      "cube:variables": {
-        "440-870nm_angstrom_exponent": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "440-870nm_Angstrom_Exponent"
-        },
-        "aeronet_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AERONET_Number"
-        },
-        "air_mass": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Air Mass"
-        },
-        "aod_1020nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_1020nm"
-        },
-        "aod_1640nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_1640nm"
-        },
-        "aod_340nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_340nm"
-        },
-        "aod_380nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_380nm"
-        },
-        "aod_440nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_440nm"
-        },
-        "aod_500nm(int)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_500nm(int)"
-        },
-        "aod_675nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_675nm"
-        },
-        "aod_870nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_870nm"
-        },
-        "last_processing_date(dd:mm:yyyy)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Last_Processing_Date(dd:mm:yyyy)"
-        },
-        "latitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Latitude"
-        },
-        "longitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Longitude"
-        },
-        "microtops_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Microtops_Number"
-        },
-        "number_of_observations": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Number_of_Observations"
-        },
-        "std_1020nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_1020nm"
-        },
-        "std_1640nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_1640nm"
-        },
-        "std_340nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_340nm"
-        },
-        "std_380nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_380nm"
-        },
-        "std_440-870nm_angstrom_exponent": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_440-870nm_Angstrom_Exponent"
-        },
-        "std_440nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_440nm"
-        },
-        "std_500nm(int)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_500nm(int)"
-        },
-        "std_675nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_675nm"
-        },
-        "std_870nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_870nm"
-        },
-        "std_water_vapor(cm)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_Water_Vapor(cm)"
-        },
-        "water_vapor(cm)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Water Vapor(cm)"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Elena Lind",
-          "emails": [
-            {
-              "value": "elena.lind@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Pawan Gupta",
-          "emails": [
-            {
-              "value": "pawan.gupta@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Daniel Klocke",
-          "emails": [
-            {
-              "value": "daniel.klocke@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-05T04:34:14.000Z",
-      "start_datetime": "2024-08-19T13:08:58.000Z",
-      "end_datetime": "2024-09-21T19:59:30.000Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeicjmxud3bs73c4rwr5xjzxnp3mckesr2i4pgwxu4fhdtubq2i27xu",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "Sunphotometer (Microtops) measurements during METEOR cruise M203 (Level 2.0)",
-      "license": "CC-BY-4.0",
-      "references": [
-        "https://aeronet.gsfc.nasa.gov/new_web/cruises_v3/Meteor_24_0.html"
-      ],
-      "platform": "RV METEOR",
-      "mission": "ORCESTRA, BOW-TIE, AERONET",
-      "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "seconds since 2024-08-19 15:05:10"
-        }
-      },
-      "cube:variables": {
-        "440-870nm_angstrom_exponent": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "440-870nm_Angstrom_Exponent"
-        },
-        "aeronet_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AERONET_Number"
-        },
-        "air_mass": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Air Mass"
-        },
-        "aod_1020nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_1020nm"
-        },
-        "aod_1640nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_1640nm"
-        },
-        "aod_340nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_340nm"
-        },
-        "aod_380nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_380nm"
-        },
-        "aod_440nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_440nm"
-        },
-        "aod_500nm(int)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_500nm(int)"
-        },
-        "aod_675nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_675nm"
-        },
-        "aod_870nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AOD_870nm"
-        },
-        "last_processing_date(dd:mm:yyyy)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Last_Processing_Date(dd:mm:yyyy)"
-        },
-        "latitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Latitude"
-        },
-        "longitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Longitude"
-        },
-        "microtops_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Microtops_Number"
-        },
-        "number_of_observations": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Number_of_Observations"
-        },
-        "std_1020nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_1020nm"
-        },
-        "std_1640nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_1640nm"
-        },
-        "std_340nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_340nm"
-        },
-        "std_380nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_380nm"
-        },
-        "std_440-870nm_angstrom_exponent": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_440-870nm_Angstrom_Exponent"
-        },
-        "std_440nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_440nm"
-        },
-        "std_500nm(int)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_500nm(int)"
-        },
-        "std_675nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_675nm"
-        },
-        "std_870nm": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_870nm"
-        },
-        "std_water_vapor(cm)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STD_Water_Vapor(cm)"
-        },
-        "water_vapor(cm)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Water Vapor(cm)"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Elena Lind",
-          "emails": [
-            {
-              "value": "elena.lind@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Pawan Gupta",
-          "emails": [
-            {
-              "value": "pawan.gupta@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Daniel Klocke",
-          "emails": [
-            {
-              "value": "daniel.klocke@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-05T05:32:20.000Z",
-      "start_datetime": "2024-08-19T15:05:10.000Z",
-      "end_datetime": "2024-09-21T19:59:30.000Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeiabjnl4olrtxl2672hn4lvuxgiexn3zu4px4yw5meht73lxcjlhf4",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "Sunphotometer (Microtops) measurements during METEOR cruise M203 (Level 1.0, SDA Retrieval)",
-      "license": "CC-BY-4.0",
-      "references": [
-        "https://aeronet.gsfc.nasa.gov/new_web/cruises_v3/Meteor_24_0.html"
-      ],
-      "platform": "RV METEOR",
-      "mission": "ORCESTRA, BOW-TIE, AERONET",
-      "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "seconds since 2024-08-19 13:08:01"
-        }
-      },
-      "cube:variables": {
-        "2nd_order_reg_fit_error_total_aod_500nm(regression_dtau_a)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "2nd_Order_Reg_Fit_Error_Total_AOD_500nm(regression_dtau_a)"
-        },
-        "380nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "380nm_Input_AOD"
-        },
-        "440nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "440nm_Input_AOD"
-        },
-        "500nm(int)_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "500nm(int)_Input_AOD"
-        },
-        "675nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "675nm_Input_AOD"
-        },
-        "870nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "870nm_Input_AOD"
-        },
-        "ae_fine_mode_500nm(alpha_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AE_Fine_Mode_500nm(alpha_f)"
-        },
-        "aeronet_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AERONET_Number"
-        },
-        "air_mass": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Air_Mass"
-        },
-        "angstrom_exponent(ae)_total_500nm(alpha)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Angstrom_Exponent(AE)_Total_500nm(alpha)"
-        },
-        "coarse_mode_aod_500nm(tau_c)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Coarse_Mode_AOD_500nm(tau_c)"
-        },
-        "coarsemodefraction_500nm(1_eta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "CoarseModeFraction_500nm(1_eta)"
-        },
-        "dae/dln(wavelength)_fine_mode_500nm(alphap_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "dAE/dln(wavelength)_Fine_Mode_500nm(alphap_f)"
-        },
-        "dae/dln(wavelength)_total_500nm(alphap)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "dAE/dln(wavelength)_Total_500nm(alphap)"
-        },
-        "fine_mode_aod_500nm(tau_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Fine_Mode_AOD_500nm(tau_f)"
-        },
-        "finemodefraction_500nm(eta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "FineModeFraction_500nm(eta)"
-        },
-        "julian_day": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Julian_Day"
-        },
-        "last_processing_date(dd:mm:yyyy)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Last_Processing_Date(dd:mm:yyyy)"
-        },
-        "latitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Latitude"
-        },
-        "longitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Longitude"
-        },
-        "microtops_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Microtops_Number"
-        },
-        "rmse_coarse_mode_aod_500nm(dtau_c)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "RMSE_Coarse_Mode_AOD_500nm(Dtau_c)"
-        },
-        "rmse_fine_mode_aod_500nm(dtau_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "RMSE_Fine_Mode_AOD_500nm(Dtau_f)"
-        },
-        "rmse_fmf_and_cmf_fractions_500nm(deta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "RMSE_FMF_and_CMF_Fractions_500nm(Deta)"
-        },
-        "solar_zenith_angle": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Solar_Zenith_Angle"
-        },
-        "total_aod_500nm(tau_a)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Total_AOD_500nm(tau_a)"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Elena Lind",
-          "emails": [
-            {
-              "value": "elena.lind@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Pawan Gupta",
-          "emails": [
-            {
-              "value": "pawan.gupta@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Daniel Klocke",
-          "emails": [
-            {
-              "value": "daniel.klocke@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-05T04:34:02.500Z",
-      "start_datetime": "2024-08-19T13:08:01.000Z",
-      "end_datetime": "2024-09-21T20:00:04.000Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeigebhl4hmdqpj4i3cs4pnb2pmoedhq2zbph2wyrfktlie25ii2f3y",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "Sunphotometer (Microtops) measurements during METEOR cruise M203 (Level 1.5, SDA Retrieval)",
-      "license": "CC-BY-4.0",
-      "references": [
-        "https://aeronet.gsfc.nasa.gov/new_web/cruises_v3/Meteor_24_0.html"
-      ],
-      "platform": "RV METEOR",
-      "mission": "ORCESTRA, BOW-TIE, AERONET",
-      "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "seconds since 2024-08-19 13:09:02"
-        }
-      },
-      "cube:variables": {
-        "2nd_order_reg_fit_error_total_aod_500nm(regression_dtau_a)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "2nd_Order_Reg_Fit_Error_Total_AOD_500nm(regression_dtau_a)"
-        },
-        "380nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "380nm_Input_AOD"
-        },
-        "440nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "440nm_Input_AOD"
-        },
-        "500nm(int)_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "500nm(int)_Input_AOD"
-        },
-        "675nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "675nm_Input_AOD"
-        },
-        "870nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "870nm_Input_AOD"
-        },
-        "ae_fine_mode_500nm(alpha_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AE_Fine_Mode_500nm(alpha_f)"
-        },
-        "aeronet_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AERONET_Number"
-        },
-        "air_mass": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Air_Mass"
-        },
-        "angstrom_exponent(ae)_total_500nm(alpha)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Angstrom_Exponent(AE)_Total_500nm(alpha)"
-        },
-        "coarse_mode_aod_500nm(tau_c)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Coarse_Mode_AOD_500nm(tau_c)"
-        },
-        "coarsemodefraction_500nm(1_eta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "CoarseModeFraction_500nm(1_eta)"
-        },
-        "dae/dln(wavelength)_fine_mode_500nm(alphap_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "dAE/dln(wavelength)_Fine_Mode_500nm(alphap_f)"
-        },
-        "dae/dln(wavelength)_total_500nm(alphap)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "dAE/dln(wavelength)_Total_500nm(alphap)"
-        },
-        "fine_mode_aod_500nm(tau_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Fine_Mode_AOD_500nm(tau_f)"
-        },
-        "finemodefraction_500nm(eta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "FineModeFraction_500nm(eta)"
-        },
-        "julian_day": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Julian_Day"
-        },
-        "last_processing_date(dd:mm:yyyy)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Last_Processing_Date(dd:mm:yyyy)"
-        },
-        "latitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Latitude"
-        },
-        "longitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Longitude"
-        },
-        "microtops_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Microtops_Number"
-        },
-        "rmse_coarse_mode_aod_500nm(dtau_c)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "RMSE_Coarse_Mode_AOD_500nm(Dtau_c)"
-        },
-        "rmse_fine_mode_aod_500nm(dtau_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "RMSE_Fine_Mode_AOD_500nm(Dtau_f)"
-        },
-        "rmse_fmf_and_cmf_fractions_500nm(deta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "RMSE_FMF_and_CMF_Fractions_500nm(Deta)"
-        },
-        "solar_zenith_angle": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Solar_Zenith_Angle"
-        },
-        "total_aod_500nm(tau_a)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Total_AOD_500nm(tau_a)"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Elena Lind",
-          "emails": [
-            {
-              "value": "elena.lind@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Pawan Gupta",
-          "emails": [
-            {
-              "value": "pawan.gupta@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Daniel Klocke",
-          "emails": [
-            {
-              "value": "daniel.klocke@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-05T04:34:19.000Z",
-      "start_datetime": "2024-08-19T13:09:02.000Z",
-      "end_datetime": "2024-09-21T19:59:36.000Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeigjod26u4ei2gtipqcxchbw3gdjtqwrpvk47vnxvvz7b64risg76y",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "Sunphotometer (Microtops) measurements during METEOR cruise M203 (Level 2.0, SDA Retrieval)",
-      "license": "CC-BY-4.0",
-      "references": [
-        "https://aeronet.gsfc.nasa.gov/new_web/cruises_v3/Meteor_24_0.html"
-      ],
-      "platform": "RV METEOR",
-      "mission": "ORCESTRA, BOW-TIE, AERONET",
-      "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "seconds since 2024-08-19 15:04:47"
-        }
-      },
-      "cube:variables": {
-        "2nd_order_reg_fit_error_total_aod_500nm(regression_dtau_a)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "2nd_Order_Reg_Fit_Error_Total_AOD_500nm(regression_dtau_a)"
-        },
-        "380nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "380nm_Input_AOD"
-        },
-        "440nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "440nm_Input_AOD"
-        },
-        "500nm(int)_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "500nm(int)_Input_AOD"
-        },
-        "675nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "675nm_Input_AOD"
-        },
-        "870nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "870nm_Input_AOD"
-        },
-        "ae_fine_mode_500nm(alpha_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AE_Fine_Mode_500nm(alpha_f)"
-        },
-        "aeronet_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AERONET_Number"
-        },
-        "air_mass": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Air_Mass"
-        },
-        "angstrom_exponent(ae)_total_500nm(alpha)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Angstrom_Exponent(AE)_Total_500nm(alpha)"
-        },
-        "coarse_mode_aod_500nm(tau_c)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Coarse_Mode_AOD_500nm(tau_c)"
-        },
-        "coarsemodefraction_500nm(1_eta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "CoarseModeFraction_500nm(1_eta)"
-        },
-        "dae/dln(wavelength)_fine_mode_500nm(alphap_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "dAE/dln(wavelength)_Fine_Mode_500nm(alphap_f)"
-        },
-        "dae/dln(wavelength)_total_500nm(alphap)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "dAE/dln(wavelength)_Total_500nm(alphap)"
-        },
-        "fine_mode_aod_500nm(tau_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Fine_Mode_AOD_500nm(tau_f)"
-        },
-        "finemodefraction_500nm(eta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "FineModeFraction_500nm(eta)"
-        },
-        "julian_day": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Julian_Day"
-        },
-        "last_processing_date(dd:mm:yyyy)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Last_Processing_Date(dd:mm:yyyy)"
-        },
-        "latitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Latitude"
-        },
-        "longitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Longitude"
-        },
-        "microtops_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Microtops_Number"
-        },
-        "rmse_coarse_mode_aod_500nm(dtau_c)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "RMSE_Coarse_Mode_AOD_500nm(Dtau_c)"
-        },
-        "rmse_fine_mode_aod_500nm(dtau_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "RMSE_Fine_Mode_AOD_500nm(Dtau_f)"
-        },
-        "rmse_fmf_and_cmf_fractions_500nm(deta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "RMSE_FMF_and_CMF_Fractions_500nm(Deta)"
-        },
-        "solar_zenith_angle": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Solar_Zenith_Angle"
-        },
-        "total_aod_500nm(tau_a)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Total_AOD_500nm(tau_a)"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Elena Lind",
-          "emails": [
-            {
-              "value": "elena.lind@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Pawan Gupta",
-          "emails": [
-            {
-              "value": "pawan.gupta@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Daniel Klocke",
-          "emails": [
-            {
-              "value": "daniel.klocke@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-05T05:32:11.500Z",
-      "start_datetime": "2024-08-19T15:04:47.000Z",
-      "end_datetime": "2024-09-21T19:59:36.000Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeibn4t3xahjmeihfhz6sxdtscqq2v5sgocsrw2u3mw7kxaeboepkci",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "Sunphotometer (Microtops) measurements during METEOR cruise M203 (Level 1.5, SDA Retrieval)",
-      "license": "CC-BY-4.0",
-      "references": [
-        "https://aeronet.gsfc.nasa.gov/new_web/cruises_v3/Meteor_24_0.html"
-      ],
-      "platform": "RV METEOR",
-      "mission": "ORCESTRA, BOW-TIE, AERONET",
-      "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "seconds since 2024-08-19 14:56:33"
-        }
-      },
-      "cube:variables": {
-        "2nd_order_reg_fit_error_total_aod_500nm(regression_dtau_a)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "2nd_Order_Reg_Fit_Error_Total_AOD_500nm(regression_dtau_a)"
-        },
-        "380nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "380nm_Input_AOD"
-        },
-        "440nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "440nm_Input_AOD"
-        },
-        "500nm(int)_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "500nm(int)_Input_AOD"
-        },
-        "675nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "675nm_Input_AOD"
-        },
-        "870nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "870nm_Input_AOD"
-        },
-        "ae_fine_mode_500nm(alpha_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AE_Fine_Mode_500nm(alpha_f)"
-        },
-        "aeronet_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AERONET_Number"
-        },
-        "angstrom_exponent(ae)_total_500nm(alpha)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Angstrom_Exponent(AE)_Total_500nm(alpha)"
-        },
-        "coarse_mode_aod_500nm(tau_c)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Coarse_Mode_AOD_500nm(tau_c)"
-        },
-        "coarsemodefraction_500nm(1_eta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "CoarseModeFraction_500nm(1_eta)"
-        },
-        "dae/dln(wavelength)_fine_mode_500nm(alphap_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "dAE/dln(wavelength)_Fine_Mode_500nm(alphap_f)"
-        },
-        "dae/dln(wavelength)_total_500nm(alphap)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "dAE/dln(wavelength)_Total_500nm(alphap)"
-        },
-        "fine_mode_aod_500nm(tau_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Fine_Mode_AOD_500nm(tau_f)"
-        },
-        "finemodefraction_500nm(eta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "FineModeFraction_500nm(eta)"
-        },
-        "julian_day": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Julian_Day"
-        },
-        "last_processing_date(dd:mm:yyyy)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Last_Processing_Date(dd:mm:yyyy)"
-        },
-        "latitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Latitude"
-        },
-        "longitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Longitude"
-        },
-        "microtops_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Microtops_Number"
-        },
-        "number_of_observations": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Number_of_Observations"
-        },
-        "rmse_coarse_mode_aod_500nm(dtau_c)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "RMSE_Coarse_Mode_AOD_500nm(Dtau_c)"
-        },
-        "rmse_fine_mode_aod_500nm(dtau_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "RMSE_Fine_Mode_AOD_500nm(Dtau_f)"
-        },
-        "rmse_fmf_and_cmf_fractions_500nm(deta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "RMSE_FMF_and_CMF_Fractions_500nm(Deta)"
-        },
-        "stdev-2nd_order_reg_fit_error_total_aod_500nm(regression_dtau_a)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-2nd_Order_Reg_Fit_Error_Total_AOD_500nm(regression_dtau_a)"
-        },
-        "stdev-380nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-380nm_Input_AOD"
-        },
-        "stdev-440nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-440nm_Input_AOD"
-        },
-        "stdev-500nm(int)_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-500nm(int)_Input_AOD"
-        },
-        "stdev-675nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-675nm_Input_AOD"
-        },
-        "stdev-870nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-870nm_Input_AOD"
-        },
-        "stdev-ae_fine_mode_500nm(alpha_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-AE_Fine_Mode_500nm(alpha_f)"
-        },
-        "stdev-angstrom_exponent(ae)_total_500nm(alpha)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-Angstrom_Exponent(AE)_Total_500nm(alpha)"
-        },
-        "stdev-coarse_mode_aod_500nm(tau_c)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-Coarse_Mode_AOD_500nm(tau_c)"
-        },
-        "stdev-coarsemodefraction_500nm(1_eta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-CoarseModeFraction_500nm(1_eta)"
-        },
-        "stdev-dae/dln(wavelength)_fine_mode_500nm(alphap_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-dAE/dln(wavelength)_Fine_Mode_500nm(alphap_f)"
-        },
-        "stdev-dae/dln(wavelength)_total_500nm(alphap)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-dAE/dln(wavelength)_Total_500nm(alphap)"
-        },
-        "stdev-fine_mode_aod_500nm(tau_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-Fine_Mode_AOD_500nm(tau_f)"
-        },
-        "stdev-finemodefraction_500nm(eta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-FineModeFraction_500nm(eta)"
-        },
-        "stdev-rmse_coarse_mode_aod_500nm(dtau_c)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-RMSE_Coarse_Mode_AOD_500nm(Dtau_c)"
-        },
-        "stdev-rmse_fine_mode_aod_500nm(dtau_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-RMSE_Fine_Mode_AOD_500nm(Dtau_f)"
-        },
-        "stdev-rmse_fmf_and_cmf_fractions_500nm(deta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-RMSE_FMF_and_CMF_Fractions_500nm(Deta)"
-        },
-        "stdev-total_aod_500nm(tau_a)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-Total_AOD_500nm(tau_a)"
-        },
-        "total_aod_500nm(tau_a)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Total_AOD_500nm(tau_a)"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Elena Lind",
-          "emails": [
-            {
-              "value": "elena.lind@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Pawan Gupta",
-          "emails": [
-            {
-              "value": "pawan.gupta@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Daniel Klocke",
-          "emails": [
-            {
-              "value": "daniel.klocke@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-05T03:50:14.500Z",
-      "start_datetime": "2024-08-19T14:56:33.000Z",
-      "end_datetime": "2024-09-21T16:43:56.000Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeibgqzunlkw2535ovklrbzpauqkwj3anne77angwixtniflbahi2bi",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "Sunphotometer (Microtops) measurements during METEOR cruise M203 (Level 2.0, SDA Retrieval)",
-      "license": "CC-BY-4.0",
-      "references": [
-        "https://aeronet.gsfc.nasa.gov/new_web/cruises_v3/Meteor_24_0.html"
-      ],
-      "platform": "RV METEOR",
-      "mission": "ORCESTRA, BOW-TIE, AERONET",
-      "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "seconds since 2024-08-19 16:03:51"
-        }
-      },
-      "cube:variables": {
-        "2nd_order_reg_fit_error_total_aod_500nm(regression_dtau_a)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "2nd_Order_Reg_Fit_Error_Total_AOD_500nm(regression_dtau_a)"
-        },
-        "380nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "380nm_Input_AOD"
-        },
-        "440nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "440nm_Input_AOD"
-        },
-        "500nm(int)_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "500nm(int)_Input_AOD"
-        },
-        "675nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "675nm_Input_AOD"
-        },
-        "870nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "870nm_Input_AOD"
-        },
-        "ae_fine_mode_500nm(alpha_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AE_Fine_Mode_500nm(alpha_f)"
-        },
-        "aeronet_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AERONET_Number"
-        },
-        "angstrom_exponent(ae)_total_500nm(alpha)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Angstrom_Exponent(AE)_Total_500nm(alpha)"
-        },
-        "coarse_mode_aod_500nm(tau_c)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Coarse_Mode_AOD_500nm(tau_c)"
-        },
-        "coarsemodefraction_500nm(1_eta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "CoarseModeFraction_500nm(1_eta)"
-        },
-        "dae/dln(wavelength)_fine_mode_500nm(alphap_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "dAE/dln(wavelength)_Fine_Mode_500nm(alphap_f)"
-        },
-        "dae/dln(wavelength)_total_500nm(alphap)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "dAE/dln(wavelength)_Total_500nm(alphap)"
-        },
-        "fine_mode_aod_500nm(tau_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Fine_Mode_AOD_500nm(tau_f)"
-        },
-        "finemodefraction_500nm(eta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "FineModeFraction_500nm(eta)"
-        },
-        "julian_day": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Julian_Day"
-        },
-        "last_processing_date(dd:mm:yyyy)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Last_Processing_Date(dd:mm:yyyy)"
-        },
-        "latitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Latitude"
-        },
-        "longitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Longitude"
-        },
-        "microtops_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Microtops_Number"
-        },
-        "number_of_observations": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Number_of_Observations"
-        },
-        "rmse_coarse_mode_aod_500nm(dtau_c)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "RMSE_Coarse_Mode_AOD_500nm(Dtau_c)"
-        },
-        "rmse_fine_mode_aod_500nm(dtau_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "RMSE_Fine_Mode_AOD_500nm(Dtau_f)"
-        },
-        "rmse_fmf_and_cmf_fractions_500nm(deta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "RMSE_FMF_and_CMF_Fractions_500nm(Deta)"
-        },
-        "stdev-2nd_order_reg_fit_error_total_aod_500nm(regression_dtau_a)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-2nd_Order_Reg_Fit_Error_Total_AOD_500nm(regression_dtau_a)"
-        },
-        "stdev-380nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-380nm_Input_AOD"
-        },
-        "stdev-440nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-440nm_Input_AOD"
-        },
-        "stdev-500nm(int)_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-500nm(int)_Input_AOD"
-        },
-        "stdev-675nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-675nm_Input_AOD"
-        },
-        "stdev-870nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-870nm_Input_AOD"
-        },
-        "stdev-ae_fine_mode_500nm(alpha_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-AE_Fine_Mode_500nm(alpha_f)"
-        },
-        "stdev-angstrom_exponent(ae)_total_500nm(alpha)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-Angstrom_Exponent(AE)_Total_500nm(alpha)"
-        },
-        "stdev-coarse_mode_aod_500nm(tau_c)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-Coarse_Mode_AOD_500nm(tau_c)"
-        },
-        "stdev-coarsemodefraction_500nm(1_eta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-CoarseModeFraction_500nm(1_eta)"
-        },
-        "stdev-dae/dln(wavelength)_fine_mode_500nm(alphap_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-dAE/dln(wavelength)_Fine_Mode_500nm(alphap_f)"
-        },
-        "stdev-dae/dln(wavelength)_total_500nm(alphap)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-dAE/dln(wavelength)_Total_500nm(alphap)"
-        },
-        "stdev-fine_mode_aod_500nm(tau_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-Fine_Mode_AOD_500nm(tau_f)"
-        },
-        "stdev-finemodefraction_500nm(eta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-FineModeFraction_500nm(eta)"
-        },
-        "stdev-rmse_coarse_mode_aod_500nm(dtau_c)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-RMSE_Coarse_Mode_AOD_500nm(Dtau_c)"
-        },
-        "stdev-rmse_fine_mode_aod_500nm(dtau_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-RMSE_Fine_Mode_AOD_500nm(Dtau_f)"
-        },
-        "stdev-rmse_fmf_and_cmf_fractions_500nm(deta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-RMSE_FMF_and_CMF_Fractions_500nm(Deta)"
-        },
-        "stdev-total_aod_500nm(tau_a)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-Total_AOD_500nm(tau_a)"
-        },
-        "total_aod_500nm(tau_a)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Total_AOD_500nm(tau_a)"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Elena Lind",
-          "emails": [
-            {
-              "value": "elena.lind@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Pawan Gupta",
-          "emails": [
-            {
-              "value": "pawan.gupta@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Daniel Klocke",
-          "emails": [
-            {
-              "value": "daniel.klocke@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-05T04:23:53.500Z",
-      "start_datetime": "2024-08-19T16:03:51.000Z",
-      "end_datetime": "2024-09-21T16:43:56.000Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeihs2zdvcy4de7yjuxatqciztdy6or7kfdwocbnnx7csrmbpngemei",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "Sunphotometer (Microtops) measurements during METEOR cruise M203 (Level 1.5, SDA Retrieval)",
-      "license": "CC-BY-4.0",
-      "references": [
-        "https://aeronet.gsfc.nasa.gov/new_web/cruises_v3/Meteor_24_0.html"
-      ],
-      "platform": "RV METEOR",
-      "mission": "ORCESTRA, BOW-TIE, AERONET",
-      "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "seconds since 2024-08-19 13:08:58"
-        }
-      },
-      "cube:variables": {
-        "2nd_order_reg_fit_error_total_aod_500nm(regression_dtau_a)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "2nd_Order_Reg_Fit_Error_Total_AOD_500nm(regression_dtau_a)"
-        },
-        "380nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "380nm_Input_AOD"
-        },
-        "440nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "440nm_Input_AOD"
-        },
-        "500nm(int)_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "500nm(int)_Input_AOD"
-        },
-        "675nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "675nm_Input_AOD"
-        },
-        "870nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "870nm_Input_AOD"
-        },
-        "ae_fine_mode_500nm(alpha_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AE_Fine_Mode_500nm(alpha_f)"
-        },
-        "aeronet_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AERONET_Number"
-        },
-        "angstrom_exponent(ae)_total_500nm(alpha)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Angstrom_Exponent(AE)_Total_500nm(alpha)"
-        },
-        "coarse_mode_aod_500nm(tau_c)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Coarse_Mode_AOD_500nm(tau_c)"
-        },
-        "coarsemodefraction_500nm(1_eta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "CoarseModeFraction_500nm(1_eta)"
-        },
-        "dae/dln(wavelength)_fine_mode_500nm(alphap_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "dAE/dln(wavelength)_Fine_Mode_500nm(alphap_f)"
-        },
-        "dae/dln(wavelength)_total_500nm(alphap)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "dAE/dln(wavelength)_Total_500nm(alphap)"
-        },
-        "fine_mode_aod_500nm(tau_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Fine_Mode_AOD_500nm(tau_f)"
-        },
-        "finemodefraction_500nm(eta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "FineModeFraction_500nm(eta)"
-        },
-        "julian_day": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Julian_Day"
-        },
-        "last_processing_date(dd:mm:yyyy)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Last_Processing_Date(dd:mm:yyyy)"
-        },
-        "latitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Latitude"
-        },
-        "longitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Longitude"
-        },
-        "microtops_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Microtops_Number"
-        },
-        "number_of_observations": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Number_of_Observations"
-        },
-        "rmse_coarse_mode_aod_500nm(dtau_c)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "RMSE_Coarse_Mode_AOD_500nm(Dtau_c)"
-        },
-        "rmse_fine_mode_aod_500nm(dtau_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "RMSE_Fine_Mode_AOD_500nm(Dtau_f)"
-        },
-        "rmse_fmf_and_cmf_fractions_500nm(deta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "RMSE_FMF_and_CMF_Fractions_500nm(Deta)"
-        },
-        "stdev-2nd_order_reg_fit_error_total_aod_500nm(regression_dtau_a)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-2nd_Order_Reg_Fit_Error_Total_AOD_500nm(regression_dtau_a)"
-        },
-        "stdev-380nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-380nm_Input_AOD"
-        },
-        "stdev-440nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-440nm_Input_AOD"
-        },
-        "stdev-500nm(int)_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-500nm(int)_Input_AOD"
-        },
-        "stdev-675nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-675nm_Input_AOD"
-        },
-        "stdev-870nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-870nm_Input_AOD"
-        },
-        "stdev-ae_fine_mode_500nm(alpha_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-AE_Fine_Mode_500nm(alpha_f)"
-        },
-        "stdev-angstrom_exponent(ae)_total_500nm(alpha)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-Angstrom_Exponent(AE)_Total_500nm(alpha)"
-        },
-        "stdev-coarse_mode_aod_500nm(tau_c)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-Coarse_Mode_AOD_500nm(tau_c)"
-        },
-        "stdev-coarsemodefraction_500nm(1_eta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-CoarseModeFraction_500nm(1_eta)"
-        },
-        "stdev-dae/dln(wavelength)_fine_mode_500nm(alphap_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-dAE/dln(wavelength)_Fine_Mode_500nm(alphap_f)"
-        },
-        "stdev-dae/dln(wavelength)_total_500nm(alphap)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-dAE/dln(wavelength)_Total_500nm(alphap)"
-        },
-        "stdev-fine_mode_aod_500nm(tau_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-Fine_Mode_AOD_500nm(tau_f)"
-        },
-        "stdev-finemodefraction_500nm(eta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-FineModeFraction_500nm(eta)"
-        },
-        "stdev-rmse_coarse_mode_aod_500nm(dtau_c)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-RMSE_Coarse_Mode_AOD_500nm(Dtau_c)"
-        },
-        "stdev-rmse_fine_mode_aod_500nm(dtau_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-RMSE_Fine_Mode_AOD_500nm(Dtau_f)"
-        },
-        "stdev-rmse_fmf_and_cmf_fractions_500nm(deta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-RMSE_FMF_and_CMF_Fractions_500nm(Deta)"
-        },
-        "stdev-total_aod_500nm(tau_a)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-Total_AOD_500nm(tau_a)"
-        },
-        "total_aod_500nm(tau_a)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Total_AOD_500nm(tau_a)"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Elena Lind",
-          "emails": [
-            {
-              "value": "elena.lind@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Pawan Gupta",
-          "emails": [
-            {
-              "value": "pawan.gupta@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Daniel Klocke",
-          "emails": [
-            {
-              "value": "daniel.klocke@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-05T04:34:14.000Z",
-      "start_datetime": "2024-08-19T13:08:58.000Z",
-      "end_datetime": "2024-09-21T19:59:30.000Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeicdct7qj7qelajf6cftkph66jnjvibpsa35m22gkd3qy7cmnowray",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "Sunphotometer (Microtops) measurements during METEOR cruise M203 (Level 2.0, SDA Retrieval)",
-      "license": "CC-BY-4.0",
-      "references": [
-        "https://aeronet.gsfc.nasa.gov/new_web/cruises_v3/Meteor_24_0.html"
-      ],
-      "platform": "RV METEOR",
-      "mission": "ORCESTRA, BOW-TIE, AERONET",
-      "processing:lineage": "Converted to Zarr by Lukas Kluft",
-      "cube:dimensions": {
-        "time": {
-          "type": "temporal",
-          "unit": "seconds since 2024-08-19 15:05:10"
-        }
-      },
-      "cube:variables": {
-        "2nd_order_reg_fit_error_total_aod_500nm(regression_dtau_a)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "2nd_Order_Reg_Fit_Error_Total_AOD_500nm(regression_dtau_a)"
-        },
-        "380nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "380nm_Input_AOD"
-        },
-        "440nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "440nm_Input_AOD"
-        },
-        "500nm(int)_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "500nm(int)_Input_AOD"
-        },
-        "675nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "675nm_Input_AOD"
-        },
-        "870nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "870nm_Input_AOD"
-        },
-        "ae_fine_mode_500nm(alpha_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AE_Fine_Mode_500nm(alpha_f)"
-        },
-        "aeronet_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "AERONET_Number"
-        },
-        "angstrom_exponent(ae)_total_500nm(alpha)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Angstrom_Exponent(AE)_Total_500nm(alpha)"
-        },
-        "coarse_mode_aod_500nm(tau_c)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Coarse_Mode_AOD_500nm(tau_c)"
-        },
-        "coarsemodefraction_500nm(1_eta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "CoarseModeFraction_500nm(1_eta)"
-        },
-        "dae/dln(wavelength)_fine_mode_500nm(alphap_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "dAE/dln(wavelength)_Fine_Mode_500nm(alphap_f)"
-        },
-        "dae/dln(wavelength)_total_500nm(alphap)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "dAE/dln(wavelength)_Total_500nm(alphap)"
-        },
-        "fine_mode_aod_500nm(tau_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Fine_Mode_AOD_500nm(tau_f)"
-        },
-        "finemodefraction_500nm(eta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "FineModeFraction_500nm(eta)"
-        },
-        "julian_day": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Julian_Day"
-        },
-        "last_processing_date(dd:mm:yyyy)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Last_Processing_Date(dd:mm:yyyy)"
-        },
-        "latitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Latitude"
-        },
-        "longitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Longitude"
-        },
-        "microtops_number": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Microtops_Number"
-        },
-        "number_of_observations": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Number_of_Observations"
-        },
-        "rmse_coarse_mode_aod_500nm(dtau_c)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "RMSE_Coarse_Mode_AOD_500nm(Dtau_c)"
-        },
-        "rmse_fine_mode_aod_500nm(dtau_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "RMSE_Fine_Mode_AOD_500nm(Dtau_f)"
-        },
-        "rmse_fmf_and_cmf_fractions_500nm(deta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "RMSE_FMF_and_CMF_Fractions_500nm(Deta)"
-        },
-        "stdev-2nd_order_reg_fit_error_total_aod_500nm(regression_dtau_a)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-2nd_Order_Reg_Fit_Error_Total_AOD_500nm(regression_dtau_a)"
-        },
-        "stdev-380nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-380nm_Input_AOD"
-        },
-        "stdev-440nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-440nm_Input_AOD"
-        },
-        "stdev-500nm(int)_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-500nm(int)_Input_AOD"
-        },
-        "stdev-675nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-675nm_Input_AOD"
-        },
-        "stdev-870nm_input_aod": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-870nm_Input_AOD"
-        },
-        "stdev-ae_fine_mode_500nm(alpha_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-AE_Fine_Mode_500nm(alpha_f)"
-        },
-        "stdev-angstrom_exponent(ae)_total_500nm(alpha)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-Angstrom_Exponent(AE)_Total_500nm(alpha)"
-        },
-        "stdev-coarse_mode_aod_500nm(tau_c)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-Coarse_Mode_AOD_500nm(tau_c)"
-        },
-        "stdev-coarsemodefraction_500nm(1_eta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-CoarseModeFraction_500nm(1_eta)"
-        },
-        "stdev-dae/dln(wavelength)_fine_mode_500nm(alphap_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-dAE/dln(wavelength)_Fine_Mode_500nm(alphap_f)"
-        },
-        "stdev-dae/dln(wavelength)_total_500nm(alphap)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-dAE/dln(wavelength)_Total_500nm(alphap)"
-        },
-        "stdev-fine_mode_aod_500nm(tau_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-Fine_Mode_AOD_500nm(tau_f)"
-        },
-        "stdev-finemodefraction_500nm(eta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-FineModeFraction_500nm(eta)"
-        },
-        "stdev-rmse_coarse_mode_aod_500nm(dtau_c)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-RMSE_Coarse_Mode_AOD_500nm(Dtau_c)"
-        },
-        "stdev-rmse_fine_mode_aod_500nm(dtau_f)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-RMSE_Fine_Mode_AOD_500nm(Dtau_f)"
-        },
-        "stdev-rmse_fmf_and_cmf_fractions_500nm(deta)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-RMSE_FMF_and_CMF_Fractions_500nm(Deta)"
-        },
-        "stdev-total_aod_500nm(tau_a)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "STDEV-Total_AOD_500nm(tau_a)"
-        },
-        "total_aod_500nm(tau_a)": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "description": "Total_AOD_500nm(tau_a)"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Elena Lind",
-          "emails": [
-            {
-              "value": "elena.lind@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Pawan Gupta",
-          "emails": [
-            {
-              "value": "pawan.gupta@nasa.gov",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "Daniel Klocke",
-          "emails": [
-            {
-              "value": "daniel.klocke@mpimet.mpg.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-05T05:32:20.000Z",
-      "start_datetime": "2024-08-19T15:05:10.000Z",
-      "end_datetime": "2024-09-21T19:59:30.000Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeiezql6fvp3dn4pv6elsqocqgpu7stajh6heoahniazndch2nsjwhe",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
+        ]
       }
     }
   },
@@ -12898,6 +9791,10 @@
     "properties": {
       "title": "Horizontal wind profiles from shipborne scanning wind lidar",
       "description": "During BOW-TIE (ORCESTRA) a scanning motion-stabilized wind lidar on the RV Meteor performed various scanning routines to look at profiles and cross sections of the horizontal wind components. This dataset presents the horizontal wind profiles over the lowest 1-2 kilometer of the atmosphere retrieved from the Doppler Beam Swinging (DBS) scanning mode. Each DBS sweep involves pointing the lidar beam at four azimuth angles (0,90,180,270 degrees) around a scanning circle at an elevation angle of 80 degrees followed by one vertically pointing beam. The DBS method assumes that the instantaneous velocity field is homogeneous across the scanning circle. During the final part of the cruise, as indicated by a flag, the stabilization platform was disabled. Motion stabilization is not critical for DBS wind profiles when averaged over longer time windows (10 min or longer); however, scrutiny is advised.",
+      "keywords": [
+        "BOWTIE",
+        "M203"
+      ],
       "license": "CC-BY-4.0",
       "references": [
         "Ishwardat (2017)",
@@ -12989,6 +9886,10 @@
   {
     "properties": {
       "title": "Wind LiDAR LiTra S raw data (ship motion present)",
+      "keywords": [
+        "BOWTIE",
+        "M203"
+      ],
       "license": "CC-BY-4.0",
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE",
@@ -13048,6 +9949,10 @@
   {
     "properties": {
       "title": "Wind LiDAR LiTra S heave-corrected, synchronous ship motion data",
+      "keywords": [
+        "BOWTIE",
+        "M203"
+      ],
       "license": "CC-BY-4.0",
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE",
@@ -13107,6 +10012,10 @@
   {
     "properties": {
       "title": "Wind LiDAR LiTra S heave-corrected, asynchronous ship motion data",
+      "keywords": [
+        "BOWTIE",
+        "M203"
+      ],
       "license": "CC-BY-4.0",
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE",
@@ -13166,6 +10075,10 @@
   {
     "properties": {
       "title": "Ceilometer (CHM15k Nimbus) measurements during METEOR cruise M203",
+      "keywords": [
+        "BOWTIE",
+        "M203"
+      ],
       "license": "CC-BY-4.0",
       "platform": "RV METEOR",
       "mission": "ORCESTRA, BOW-TIE",
@@ -13545,12 +10458,53 @@
   },
   {
     "properties": {
+      "title": "Time-lapse videos of the cloud camera during BOWTIE (M203)",
+      "description": "The all-sky camera is a self-made imager containing a Mobotix Camera (S15D) with an optical fisheye-lens sensor (B016, 180°-180°) mounted in an outdoor housing.  This camera records a full sky image every 10 seconds with a resolution of 1280x960 pixel in JPG-format and sends these pictures to a network-connected computer, where the files are stored in daily zip files for further processing.",
+      "keywords": [
+        "ORCESTRA",
+        "BOWTIE",
+        "cloud camera",
+        "time-lapse",
+        "BOWTIE",
+        "M203"
+      ],
+      "license": "CC-BY-4.0",
+      "platform": "RV METEOR",
+      "mission": "ORCESTRA, BOWTIE",
+      "processing:lineage": "Created time-lapse videos from original cloud camera images",
+      "start_datetime": "2024-08-09T18:49:02.456000",
+      "end_datetime": "2024-09-23T23:49:42.425000",
+      "contacts": [
+        {
+          "name": "Friedhelm Jansen",
+          "emails": [
+            {
+              "value": "friedhelm.jansen@mpimet.mpg.dee",
+              "roles": []
+            }
+          ]
+        }
+      ]
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeiboq3nvwkggfk2u47a3eknrq75ajthxe66adfzyyowj6bnx5f3ssu",
+        "roles": [
+          "data"
+        ]
+      }
+    }
+  },
+  {
+    "properties": {
       "title": "Cloud radar and Cloudnet on RV Meteor during BOWTIE",
       "description": "Cloudnet target classification data ",
       "keywords": [
         "Cloudnet",
         "effective radius",
-        "droplet"
+        "droplet",
+        "BOWTIE",
+        "M203"
       ],
       "license": "CC-BY-4.0",
       "references": [
@@ -14081,7 +11035,9 @@
         "rainrate",
         "parsivel",
         "meteor",
-        "DSD"
+        "DSD",
+        "BOWTIE",
+        "M203"
       ],
       "license": "CC-BY-4.0",
       "references": [
@@ -14604,7 +11560,9 @@
         "rainrate",
         "parsivel",
         "meteor",
-        "DSD"
+        "DSD",
+        "BOWTIE",
+        "M203"
       ],
       "license": "CC-BY-4.0",
       "references": [
@@ -15127,7 +12085,9 @@
         "rainrate",
         "parsivel",
         "meteor",
-        "DSD"
+        "DSD",
+        "BOWTIE",
+        "M203"
       ],
       "license": "CC-BY-4.0",
       "references": [
@@ -15551,8 +12511,100 @@
   },
   {
     "properties": {
+      "title": "FS Meteor log and coordination log between RV METEOR and other platforms during BOWTIE",
+      "description": "This dataset contains the RV METEOR log (met_203_1_station_book.csv), a light version indicating only stations (M203-StationList_md_new.csv), and the coordination log between RV METEOR and other platforms during BOWTIE.",
+      "keywords": [
+        "ORCESTRA",
+        "BOWTIE",
+        "coordination",
+        "book-log",
+        "BOWTIE",
+        "M203"
+      ],
+      "license": "CC-BY-4.0",
+      "platform": "RV METEOR",
+      "mission": "ORCESTRA, BOWTIE",
+      "processing:lineage": "processed from cruise M203 book",
+      "start_datetime": "2024-08-16 16:50:41",
+      "end_datetime": "2024-09-24 01:50:58",
+      "contacts": [
+        {
+          "name": "Hans Segura",
+          "emails": [
+            {
+              "value": "hans.segura@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Allison A. Wing",
+          "emails": [
+            {
+              "value": "awing@fsu.edu",
+              "roles": []
+            }
+          ]
+        }
+      ]
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeianebwhw4uzkqnaekl5kyoau7hubxaens7azrftgqtz2mccciejle",
+        "roles": [
+          "data"
+        ]
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "Station in BOWTIE (CTD, MSS, UAV)",
+      "description": "This dataset contains the starting time and ending time of stations related to Conductivity-Temperature-Depth measurements (CTD), microstructure profiling system (MSS), and uncrew aerial vehicle/ drones (UAV). During CTD and UAV, RV METEOR was stationary while MSS measurements requeried slow movement of RV METEOR.",
+      "keywords": [
+        "ORCESTRA",
+        "BOWTIE",
+        "CTD",
+        "MSS",
+        "UAV",
+        "BOWTIE",
+        "M203"
+      ],
+      "license": "CC-BY-4.0",
+      "platform": "RV METEOR",
+      "mission": "ORCESTRA, BOWTIE",
+      "processing:lineage": "processed from cruise M203 book",
+      "start_datetime": "2024-08-18 01:14:00",
+      "end_datetime": "2024-09-22 14:57:00",
+      "contacts": [
+        {
+          "name": "Hans Segura",
+          "emails": [
+            {
+              "value": "hans.segura@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
+        }
+      ]
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeiekpjsfkslf2drgqtigah7a2y33zuzv6tjlrwgsxqv6plwebbnr5m",
+        "roles": [
+          "data"
+        ]
+      }
+    }
+  },
+  {
+    "properties": {
       "title": "surface rain flag from Micro Rain Radar",
       "description": "Flag for rain occurence retrieved from the Micro Rain Radar measurement. Therefore, the observed reflectivity in secondlowest radar range gate (120m)?",
+      "keywords": [
+        "BOWTIE",
+        "M203"
+      ],
       "license": "CC-BY-4.0",
       "platform": "RV METEOR",
       "mission": "BOW-TIE",
@@ -15610,7 +12662,9 @@
       "keywords": [
         "precipitation amount",
         "precipitation gauge",
-        "precipitation rate"
+        "precipitation rate",
+        "BOWTIE",
+        "M203"
       ],
       "license": "CC-BY-4.0",
       "platform": "RV METEOR",
@@ -15761,7 +12815,9 @@
         "Sea Surface Salinity",
         "Thermosalinograph",
         "tropical Atlantic",
-        "ITCZ"
+        "ITCZ",
+        "BOWTIE",
+        "M203"
       ],
       "license": "CC-BY-4.0",
       "references": [
@@ -15886,6 +12942,7 @@
     "properties": {
       "title": "Clear-air vertical velocity during ORCESTRA retrieved from Meteosat water vapor brightness temperatures",
       "description": "This dataset contains clear air vertical velocity retrievals over the tropical Atlantic during the ORCESTRA field campaign.\nThe retrievals are based on the methodology described in Poujol and Bony (2024)\nVertical velocity is inferred from brightness temperature in the water vapor absorption band.\nTwo channels are used: the channel at 6.2µm that sounds the upper troposphere, and the channel at 7.3µm that sounds the mid-troposphere.\nThe dataset is provided with hourly time resolution and on the native satellite grid (about 3 km horizontal resolution). Two levels are provided for the two channels.\nFor each level, the vertical pressure velocity and its standard error are provided. Also, an estimate of emission level temperature is provided and corresponds to the vertical coordinate.\nNote that emission level temperature varies in space and time.\nAn estimate of the emission level pressure is also provided but is based on interpolation with respect to a moist adiabatic temperature profile.\nTherefore, emission level temperature should be used preferentially as a vertical coordinate.\nFor further details on the retrieval method, its biases and uncertainties, refer to Poujol and Bony (2024).\n",
+      "keywords": [],
       "license": "CC-BY-4.0",
       "references": [
         "\"Poujol and Bony (2024). Measuring Clear-Air vertical Motions from Space, AGU Advances. https://doi.org/10.1029/2024AV001267\""
@@ -16019,7 +13076,9 @@
         "RAPSODI",
         "Radiosonde Profiles",
         "Sounding",
-        "RV Meteor"
+        "RV Meteor",
+        "BOWTIE",
+        "M203"
       ],
       "license": "CC-BY-4.0",
       "references": [
@@ -16226,7 +13285,9 @@
         "Sounding",
         "INMG",
         "RV Meteor",
-        "BCO"
+        "BCO",
+        "BOWTIE",
+        "M203"
       ],
       "license": "CC-BY-4.0",
       "references": [
@@ -16441,7 +13502,9 @@
         "Sounding",
         "INMG",
         "RV Meteor",
-        "BCO"
+        "BCO",
+        "BOWTIE",
+        "M203"
       ],
       "license": "CC-BY-4.0",
       "references": [
