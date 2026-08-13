@@ -565,8 +565,9 @@ function parseCommaList(cs_list: string | undefined): string[] | undefined {
 }
 
 function missionKeywords(mission: string | undefined): string[] {
-  if (!mission || !/\bBOW[-\s]?TIE\b/i.test(mission)) return [];
-  return ["BOWTIE", "M203"];
+  if (!mission) return [];
+  if (/\bBOW[-\s]?TIE\b/i.test(mission)) return ["BOWTIE", "M203"];
+  return [];
 }
 
 export function parseManualMetadata(
