@@ -1,4 +1,4 @@
-import type { BBox } from "./stac"
+import type { BBox } from "./stac.js"
 
 export interface ManualAttributes {
   title?: string,

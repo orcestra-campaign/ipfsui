@@ -5,7 +5,11 @@
 
 name: Node
 
-on: ["push", "pull_request"]
+on:
+  push:
+    branches:
+    - main
+  pull_request:
 
 permissions:
   contents: read
@@ -18,21 +22,33 @@ jobs:
 
     steps:
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Setup repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: 23
+          node-version: 26
       - name: Install dependencies
         run: npm install
       - name: Build utils
         run: cd packages/utils && npm run build
+      - name: Build cli
+        run: cd packages/cli && npm run build
+      - name: Install cli
+        run: cd packages/cli && npm link
       - name: Build page
         run: cd packages/ui && npm run build
+      - name: Install IPFS
+        uses: ipfs/download-ipfs-distribution-action@v1
+      - name: Start IPFS daemon
+        uses: ipfs/start-ipfs-daemon-action@v1
+      - name: Get test data
+        run: ipfs pin add bafybeiesyutuduzqwvu4ydn7ktihjljicywxeth6wtgd5zi4ynxzqngx4m
+      - name: Run tests
+        run: npm test
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: packages/ui/dist
 
@@ -49,4 +65,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

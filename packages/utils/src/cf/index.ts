@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc.js";
 import minMax from "dayjs/plugin/minMax.js";
 import type { ManipulateType } from "dayjs";
-import type { DatasetMetadata } from "../parseMetadata";
+import type { DatasetMetadata } from "../parseMetadata.js";
 
 dayjs.extend(utc);
 dayjs.extend(minMax);

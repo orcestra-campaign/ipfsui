@@ -6,6 +6,29 @@
     "packages/*"
   ],
   "dependencies": {
-    "@unhead/vue": "^2.0.19"
+    "@unhead/vue": "^2.0.19",
+    "node-datachannel": "^0.32.3"
+  },
+  "devDependencies": {
+    "@vitest/ui": "^4.0.17",
+    "prettier": "^3.8.0",
+    "syncpack": "^15.3.2",
+    "vitest": "^4.0.17"
+  },
+  "overrides": {
+    "multiformats": "14.0.5"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "coverage": "vitest run --coverage"
+  },
+  "allowScripts": {
+    "iso-constants@0.1.2": true,
+    "@ipshipyard/node-datachannel@0.26.6": true,
+    "esbuild@0.25.9": true,
+    "fsevents@2.3.3": true,
+    "node-datachannel@0.32.3": true
   }
 }

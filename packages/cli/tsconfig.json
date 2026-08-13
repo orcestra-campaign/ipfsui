@@ -3,9 +3,11 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "dist",
+    "module": "es2022",
+    "target": "es2022",
+    "lib": ["esnext"],
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "strict": true,
     "paths": {
       "@orcestra/*": ["./packages/*"]
     },
@@ -13,10 +15,14 @@
     "skipLibCheck": true,
     "declaration": true,
 
-    /* prefer node, should be compatible with bundler as well */
+    /* Bundler mode */
     "moduleResolution": "node",
     "isolatedModules": true,
     "moduleDetection": "force",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+
+    "types": ["node", "vitest/globals"]
   },
   "include": ["src/**/*.ts"],
 }

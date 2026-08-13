@@ -1,32 +1,29 @@
 import { IDBBlockstore } from "blockstore-idb";
 import { IDBDatastore } from "datastore-idb";
-import { createHelia, type Helia } from "helia";
+import { createHeliaLight, type Helia } from "helia";
 
-import { createHeliaHTTP } from "@helia/http";
-import { trustlessGateway } from "@helia/block-brokers";
-import { delegatedHTTPRouting, httpGatewayRouting } from "@helia/routers";
+import { withBitswap } from '@helia/bitswap'
+import { withHTTP } from '@helia/http'
+import { withLibp2p } from '@helia/libp2p'
 
 async function configureStandaloneHelia(): Promise<Helia> {
+  const helia = await withBitswap(withLibp2p(await configureLocalHelia([])));
+  return helia;
+}
+
+async function configureLocalHelia(gateways: Array<string>): Promise<Helia> {
+  console.log("configuring local Helia");
   const blockstore = new IDBBlockstore("ipfs/blockstore");
   const datastore = new IDBDatastore("ipfs/datastore");
   await Promise.all([blockstore.open(), datastore.open()]);
-  return await createHelia({ blockstore, datastore });
-}
-
-async function configureLocalHelia(gateway: string): Promise<Helia> {
-  const helia = await createHeliaHTTP({
-    blockBrokers: [
-      trustlessGateway({ allowInsecure: true, allowLocal: true }),
-    ],
-    routers: [
-      httpGatewayRouting({
-        gateways: [gateway, "https://latest.orcestra-campaign.org"],
-      }),
-      delegatedHTTPRouting("https://delegated-ipfs.dev"),
-      httpGatewayRouting({
-        gateways: ["https://trustless-gateway.link"],
-      }),
-    ],
+  const helia = await withHTTP(createHeliaLight({
+      blockstore,
+      datastore,
+  }), {
+      allowInsecure: true,
+      allowLocal: true,
+      delegatedRouters: ['https://delegated-ipfs.dev'],
+      recursiveGateways: gateways.concat(["https://latest.orcestra-campaign.org"]),
   });
   return helia;
 }
@@ -35,12 +32,14 @@ export interface SetupHeliaOpts {
   ipfsInBrowser?: boolean;
 }
 
-export default function setupHelia(
+export default async function setupHelia(
   opts: SetupHeliaOpts | undefined,
 ): Promise<Helia> {
+  let helia;
   if (opts?.ipfsInBrowser) {
-    return configureStandaloneHelia();
+    helia = await configureStandaloneHelia();
   } else {
-    return configureLocalHelia("http://127.0.0.1:8080");
+    helia = await configureLocalHelia(["http://127.0.0.1:8080"]);
   }
+  return await helia.start();
 }
