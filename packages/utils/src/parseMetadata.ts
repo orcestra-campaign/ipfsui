@@ -564,6 +564,11 @@ function parseCommaList(cs_list: string | undefined): string[] | undefined {
   return list.map((item) => item.replace(/__COMMA_PLACEHOLDER__/g, ","));
 }
 
+function missionKeywords(mission: string | undefined): string[] {
+  if (!mission || !/\bBOW[-\s]?TIE\b/i.test(mission)) return [];
+  return ["BOWTIE", "M203"];
+}
+
 export function parseManualMetadata(
   manual_metadata: ManualMetadata, srcinfo: DatasetSrc
 ): StacItem {
@@ -576,7 +581,7 @@ export function parseManualMetadata(
   const properties: Properties = {
       title: manual_metadata.attributes?.title,
       description: manual_metadata.attributes?.summary,
-      keywords: parseCommaList(manual_metadata.attributes?.keywords),
+      keywords: [...(parseCommaList(manual_metadata.attributes?.keywords) ?? []), ...missionKeywords(manual_metadata.attributes?.project)],
       license: manual_metadata.attributes?.license,
       references: parseCommaList(manual_metadata.attributes?.references),
       platform: manual_metadata.attributes?.platform,
@@ -639,7 +644,7 @@ export default async function* parseMetadata(
   const properties: Properties = {
     title: ds.attrs?.title,
     description: ds.attrs?.summary,
-    keywords: parseCommaList(ds.attrs?.keywords),
+    keywords: [...(parseCommaList(ds.attrs?.keywords) ?? []), ...missionKeywords(ds.attrs?.project)],
     license: ds.attrs?.license,
     references: parseCommaList(ds.attrs?.references),
     platform: ds.attrs?.platform,
