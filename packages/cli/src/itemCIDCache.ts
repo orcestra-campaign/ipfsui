@@ -35,8 +35,14 @@ export class FileItemCIDCache implements ItemCIDCache {
     });
   }
   async getItem(root: CID): Promise<Array<CIDPath> | null> {
+    return this.readItems(this.filename(root));
+  }
+  async putItem(root: CID, items: Array<CIDPath>): Promise<void> {
+    await this.writeItems(this.filename(root), items);
+  }
+  private async readItems(filename: string): Promise<Array<CIDPath> | null> {
     try {
-      const content = await fs.readFile(this.filename(root), {encoding: "utf-8"});
+      const content = await fs.readFile(filename, { encoding: "utf-8" });
       if (content !== undefined) {
         return JSON.parse(content).map(
           ({ cid, path }: { cid: string; path: string }) => {
@@ -52,17 +58,17 @@ export class FileItemCIDCache implements ItemCIDCache {
     }
     return null;
   }
-  async putItem(root: CID, items: Array<CIDPath>): Promise<void> {
+  private async writeItems(filename: string, items: Array<CIDPath>): Promise<void> {
     await fs.mkdir(this.root, { recursive: true });
     return await fs.writeFile(
-      this.filename(root),
+      filename,
       JSON.stringify(items.map(({ cid, path }: { cid: CID; path: string }) => {
         return {
           cid: cid.toString(),
           path,
         };
       })),
-      {encoding: "utf-8"},
+      { encoding: "utf-8" },
     );
   }
 }
