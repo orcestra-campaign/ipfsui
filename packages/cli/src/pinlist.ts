@@ -1,3 +1,4 @@
+import { CID } from "multiformats";
 import * as yaml from "js-yaml";
 import * as fs from "node:fs/promises";
 
@@ -8,7 +9,7 @@ export interface PinMeta {
 }
 
 export interface PinEntry {
-  cid: string;
+  cid: string;  // string representation of CID v1
   name?: string;
   meta?: PinMeta;
 }
@@ -30,7 +31,8 @@ export function parsePinlist(content: string): PinEntry[] {
     if (typeof cid !== "string" || cid.length === 0) {
       throw new Error("each pinlist entry must have a `cid` string");
     }
-    const result: PinEntry = { cid };
+    // Normalize CIDs to v1
+    const result: PinEntry = { cid: CID.parse(cid).toV1().toString() };
     if (typeof name === "string") {
       result.name = name;
     }
@@ -58,10 +60,10 @@ export function getSupersededCids(pins: PinEntry[]): Set<string> {
     if (prev === undefined) continue;
     if (Array.isArray(prev)) {
       for (const p of prev) {
-        if (typeof p === "string") superseded.add(p);
+        if (typeof p === "string") superseded.add(CID.parse(p).toV1().toString());
       }
     } else if (typeof prev === "string") {
-      superseded.add(prev);
+      superseded.add(CID.parse(prev).toV1.toString());
     }
   }
   return superseded;
