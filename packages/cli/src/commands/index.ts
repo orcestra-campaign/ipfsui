@@ -9,8 +9,7 @@ import { collectDatasets } from "../scanMetadata.js";
 import { TreeMonitor, NoMonitor } from "../scanMonitor.js";
 import {
   readPinlist,
-  getSupersededCids,
-  getActiveCids,
+  excludeSupersededEntries,
   filterByTags,
   excludeByTags,
 } from "../pinlist.js";
@@ -49,12 +48,11 @@ export default function makeIndexCommand(indexCommand: Command) {
           const pins = await readPinlist(options.pinlist);
           let selected = filterByTags(pins, options.tag ?? []);
           selected = excludeByTags(selected, options.excludeTag ?? []);
-          const superseded = getSupersededCids(selected);
-          rootCids = getActiveCids(selected)
-            .filter((cid) => !superseded.has(cid))
-            .map((cid) => CID.parse(cid));
+          selected = excludeSupersededEntries(selected)
 
-          console.log(`processing ${rootCids.length} active root CIDs from pinlist (skipping ${superseded.size} superseded)`);
+          rootCids = selected.map((pin) => CID.parse(pin.cid));
+
+          console.log(`processing ${rootCids.length} active root CIDs from pinlist`);
         } else if (options.cid !== undefined) {
           rootCids = [CID.parse(options.cid)];
         } else {

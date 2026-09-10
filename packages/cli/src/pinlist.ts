@@ -3,7 +3,7 @@ import * as yaml from "js-yaml";
 import * as fs from "node:fs/promises";
 
 export interface PinMeta {
-  prev?: string | string[];
+  prev?: string;
   tags?: string[];
   [key: string]: unknown;
 }
@@ -58,13 +58,7 @@ export function getSupersededCids(pins: PinEntry[]): Set<string> {
   for (const pin of pins) {
     const prev = pin.meta?.prev;
     if (prev === undefined) continue;
-    if (Array.isArray(prev)) {
-      for (const p of prev) {
-        if (typeof p === "string") superseded.add(CID.parse(p).toV1().toString());
-      }
-    } else if (typeof prev === "string") {
-      superseded.add(CID.parse(prev).toV1.toString());
-    }
+    superseded.add(CID.parse(prev).toV1().toString());
   }
   return superseded;
 }
@@ -73,9 +67,9 @@ export function getSupersededCids(pins: PinEntry[]): Set<string> {
  * CIDs that are safe to index: every entry whose CID is not superseded by a
  * newer entry.
  */
-export function getActiveCids(pins: PinEntry[]): string[] {
+export function excludeSupersededEntries(pins: PinEntry[]): PinEntry[] {
   const superseded = getSupersededCids(pins);
-  return pins.map((p) => p.cid).filter((cid) => !superseded.has(cid));
+  return pins.filter((p) => !superseded.has(p.cid));
 }
 
 /**
