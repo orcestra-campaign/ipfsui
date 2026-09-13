@@ -70,6 +70,10 @@ export default function makeIndexCommand(indexCommand: Command) {
           )
         )).flat();
 
+        const uniqueDatasets = new Set<string>(
+          datasetLocations.map(loc => loc.cid.toString())
+        );
+
         // Clean up monitor if it was a TreeMonitor
         if (monitor instanceof TreeMonitor) {
           monitor.cleanup();
@@ -77,7 +81,8 @@ export default function makeIndexCommand(indexCommand: Command) {
 
         console.log("all datasets collected, extracting metadata");
         const stacItems = await Promise.all(
-          datasetLocations.map(async ({ cid }) => {
+          [...uniqueDatasets].map(async cidStr => {
+            const cid = CID.parse(cidStr);
             const stacItem = await cid2stac(cid, helia, stacCache);
             console.log(stacItem?.properties?.title);
             return stacItem;
