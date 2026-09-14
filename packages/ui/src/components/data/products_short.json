@@ -13740,5 +13740,57 @@
         "type": "application/vnd+zarr"
       }
     }
+  },
+  {
+    "properties": {
+      "title": "BEACH dropsonde dataset (Level 0)",
+      "description": "This dataset is the Level 0 BEACH dataset. It contains the raw data as output by the AVAPS system in several raw file formats.",
+      "keywords": [],
+      "license": "CC-BY-4.0",
+      "references": [
+        "https://github.com/atmdrops/pydropsonde"
+      ],
+      "platform": "HALO",
+      "mission": "ORCESTRA, PERCUSION, MAESTRO",
+      "start_datetime": "2024-08-09T14:27:28",
+      "end_datetime": "2024-09-18T19:30:51",
+      "contacts": [
+        {
+          "name": "Helene Gloeckner",
+          "emails": [
+            {
+              "value": "helene.gloeckner@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Theresa Mieslinger",
+          "emails": [
+            {
+              "value": "theresa.mieslinger@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Nina Robbins",
+          "emails": [
+            {
+              "value": "nina.robbins@mpimet.mpg.de",
+              "roles": []
+            }
+          ]
+        }
+      ]
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeif4n7lov7syd5ragolfosqf6t7zuawexxjhtr5r2ezecvgvvj7eje",
+        "roles": [
+          "data"
+        ]
+      }
+    }
   }
 ]
