@@ -61,11 +61,11 @@ export default function makeIndexCommand(indexCommand: Command) {
         }
 
         const datasetLocations = (await Promise.all(
-          rootCids.map((cid, index) =>
+          rootCids.map(cid =>
             collectDatasets(cid, ipfs_fs, {
               cache: itemCIDCache,
               monitor: monitor,
-              path: index.toString()
+              path: cid.toString()
             })
           )
         )).flat();
