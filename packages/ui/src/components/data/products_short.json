@@ -1,6 +1,189 @@
 [
   {
     "properties": {
+      "title": "Two-dimensional brightness temperature (7.7 µm–12.0 µm, 1 Hz) derived from VELOX during PERCUSION",
+      "description": "The thermal-infrared imager VELOX (Video airbornE Longwave Observations within siX channels) onboard HALO provided 2D brightness temperature (BT) fields of the surface and cloud tops during the PERCUSION campaign. VELOX has a field-of-view of 35.5° x 28.7° with 640 x 512 spatial pixels. For a target distance of 10 km the spatial resolution is about 10 m. The imager has two redundant broadband and four narrow-band channels in the wavelength range from 7.7 µm to 12.0 µm.\n\nThe dataset comprises brightness temperatures measured in one of the broadband channels (BT1: 7.7 µm - 12 µm) and four narrow-band channels with respective central wavelengths and half-widths at 8.65 +/- 0.55 µm (BT2), 10.74 +/- 0.39 µm (BT3), 11.66 +/- 0.81 µm (BT5), and 12.00 +/- 0.50 µm (BT6). The brightness temperature measurements were corrected for bad pixels and effects introduced by the housing window. A destriping procedure was applied for the spectral channels only. To allow cross-channel comparability the image size was adapted according to a channel footprint alignment. Therefore, 2D brightness temperature fields with a size of 635 x 507 pixels and a temporal resolution of 1 Hz are provided. In addition, cloud-free simulations are provided for all channels with a temporal resolution of 1 min.\n\nNo cross-calibration is available. Therefore, we recommend using the given dataset with care and to rely on relative values rather than absolute values. Nevertheless, the cloud-free simulations can be used as a guideline to identify possible offsets in the measured brightness temperature. We recommend using the mean of the 10 x 10 central pixels (variable “BT_center”) for comparison to the simulations.\n",
+      "keywords": [
+        "PERCUSION",
+        "HALO",
+        "VELOX",
+        "thermal-infrared",
+        "brightness temperature"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "'Schäfer, M. et al: VELOX – A new thermal infrared imager for airborne remote sensing of cloud and surface properties, Atmos. Meas. Tech., 15, 1491-1509, https://doi.org/10.5194/amt-15-1491-2022, 2022.'"
+      ],
+      "platform": "HALO",
+      "processing:lineage": "2026-09-07: Merged datasets over campaign period and converted to Zarr",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "milliseconds since 2024-08-11 12:29:55.749000",
+          "description": "`(time)`"
+        },
+        "time_sim": {
+          "type": "temporal",
+          "unit": "seconds since 2024-08-11 12:28:34"
+        },
+        "x": {
+          "type": "unknown"
+        },
+        "y": {
+          "type": "unknown"
+        }
+      },
+      "cube:variables": {
+        "alt": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Altitude \n\nPlatform altitude"
+        },
+        "BT_2D": {
+          "dimensions": [
+            "time",
+            "y",
+            "x"
+          ],
+          "type": "data",
+          "unit": "degree_celsius",
+          "description": "Two-dimensional brightness temperature measured by VELOX at flight altitude `(brightness_temperature)`"
+        },
+        "BT_center": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_celsius",
+          "description": "Mean of the 10 x 10 central pixels `(brightness_temperature)`"
+        },
+        "BT_sim": {
+          "dimensions": [
+            "time_sim"
+          ],
+          "type": "data",
+          "unit": "degree_celsius",
+          "description": "Simulated brightness temperature `(brightness_temperature)` \n\nRadiative transfer simulations for cloud-free conditions with 1 min temporal resolution"
+        },
+        "lat": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degrees_north",
+          "description": "Latitude `(latitude)` \n\nPlatform latitude coordinate"
+        },
+        "lon": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degrees_east",
+          "description": "Longitude `(longitude)` \n\nPlatform longitude coordinate"
+        },
+        "vaa": {
+          "dimensions": [
+            "y",
+            "x"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Viewing azimuth angle `(sensor_azimuth_angle)` \n\nCamera viewing azimuth angle of each spatial pixel, counterclockwise with 0° pointing in flight direction."
+        },
+        "vza": {
+          "dimensions": [
+            "y",
+            "x"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "Viewing zenith angle `(sensor_zenith_angle)` \n\nCamera viewing zenith angle of each spatial pixel."
+        }
+      },
+      "contacts": [
+        {
+          "name": "Sophie Rosenburg",
+          "emails": [
+            {
+              "value": "sophie.rosenburg@uni-leipzig.de",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Michael Schäfer",
+          "emails": [
+            {
+              "value": "michael.schaefer@uni-leipzig.de",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Anna E. Luebke",
+          "emails": [
+            {
+              "value": "anna.luebke@uni-leipzig.de",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Kevin Wolf",
+          "emails": [
+            {
+              "value": "kevin.wolf@uni-leipzig.de",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Patrizia Schoch",
+          "emails": [
+            {
+              "value": "patrizia.schoch@uni-leipzig.de",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "André Ehrlich",
+          "emails": [
+            {
+              "value": "a.ehrlich@uni-leipzig.de",
+              "roles": []
+            }
+          ]
+        },
+        {
+          "name": "Manfred Wendisch",
+          "emails": [
+            {
+              "value": "m.wendisch@uni-leipzig.de",
+              "roles": []
+            }
+          ]
+        }
+      ],
+      "datetime": "2024-09-29T03:11:56.500Z",
+      "start_datetime": "2024-08-11T12:28:34.000Z",
+      "end_datetime": "2024-11-16T17:55:19.000Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeihwsmivzu2lb6u7mzb64ux2egrtob66aklbvocvqr7nrn3apsfeo4",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
       "title": "MAESTRO-2024 ATR42 Chemistry Observation - Ozone",
       "description": "SAFIRE ATR42 CHEMISTRY in situ measurements",
       "keywords": [
