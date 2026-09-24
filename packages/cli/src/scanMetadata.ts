@@ -78,14 +78,14 @@ export async function collectDatasets(
     const res = await limit(() => Array.fromAsync(fs.ls(cid)));
     if (await isDataset(res, fs, limit)) {
       console.log("collected", path);
-      out = [{ cid: cid.toV1(), path }];
+      out = [{ cid: cid.toV1(), path: "" }];
     } else {
       monitor.setState(path, "IO");
       const is_dir = await Promise.all(res.map((e) => isDirectory(e.cid, fs, crawlLimit)));
       monitor.setState(path, "recurse");
       out = (await Promise.all(
         res.filter((_, i) => is_dir[i]).map((e) =>
-          collectDatasets(e.cid, fs, { ...options, path: path + "/" + e.name })
+          collectDatasets(e.cid, fs, { ...options, path: path + "/" + e.name }).then((cps) => cps.map((cp) => { return {...cp, path: "/" + e.name + cp.path }; }))
         ),
       )).flat();
     }
