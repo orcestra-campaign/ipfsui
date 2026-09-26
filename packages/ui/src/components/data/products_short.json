@@ -17463,5 +17463,198 @@
         "type": "application/vnd+zarr"
       }
     }
+  },
+  {
+    "properties": {
+      "title": "Broadband solar and thermal-infrared, upward and downward irradiance measured by BACARDI during the PERCUSION field campaign",
+      "description": "In 2024, the _Persistent EarthCARE Underflight Studies of the ITCZ and Organized Convection_ (PERCUSION) campaign took place as one of several sub-projects in the _Organized Convection and EarthCARE Studies over the Tropical Atlantic_ (ORCESTRA) initiative. The main goal of ORCESTRA and PERCUSION was to better understand the mechanisms responsible for the organization of tropical convection at the mesoscale as well as validate the newly launched EarthCARE satellite.  During PERCUSION, the German High Altitude and Long Range (HALO) research aircraft was operated with an EarthCARE-like payload. Throughout August and September, targeted flights based out of Sal, Cape Verde and Barbados were made across the Atlantic Intertropical Convergence Zone (ITCZ). Coordinated underpasses with EarthCARE were also a feature of all research flights. In November, additional flights based out of Oberpfaffenhofen, Germany took place with the primary aim of EarthCARE validation in other atmospheric conditions.\n\nOne of the instruments on board HALO was the Broadband AirCrAft RaDiometer Instrumentation (BACARDI; Ehrlich et al., 2023), which provides observations of broadband solar and thermal-infrared, upward and downward irradiance at flight altitude. BACARDI consists of two sets of Kipp and Zonen instruments — pyranometers (CMP-22) for the solar range (0.2–3.6 µm) and pyrgeometers (CGR-4) for the thermal-infrared range (4.5–42 µm). The data is provided at a frequency of 10 Hz and has been corrected for dynamic temperature effects. Observations of the downward solar irradiance have been provided with and without correction for the aircraft attitude, which assumes cloud-free and cloudy conditions above the aircraft. Simulated cloud-free downward solar irradiances are also provided as a reference.\n",
+      "keywords": [
+        "airborne measurements",
+        "broadband irradiance",
+        "irradiance",
+        "solar irradiance",
+        "terrestrial irradiance",
+        "radiometer",
+        "aircraft",
+        "PERCUSION"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "https://doi.org/10.5194/amt-16-1563-2023",
+        "https://doi.org/10.5281/zenodo.18999497"
+      ],
+      "platform": "HALO",
+      "processing:lineage": "Converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "milliseconds since 2024-08-11 11:59:34",
+          "description": "time"
+        }
+      },
+      "cube:variables": {
+        "alt": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "altitude (WGS84 Datum/Elliptical, BAHAMAS) `(altitude)`"
+        },
+        "cloud_flag": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "description": "Cloud flag for clouds in front of the Sun affecting the solar downward irradiance [0 = cloud free, 1 = cloudy]"
+        },
+        "F_down_solar": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "W m-2",
+          "description": "Downward solar irradiance corrected for cloud-free conditions (0.2-3.6 um) (BACARDI) `(downwelling_shortwave_flux_in_air)`"
+        },
+        "F_down_solar_diff": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "W m-2",
+          "description": "Downward solar irradiance corrected for diffuse/cloudy conditions (0.2-3.6 um) (BACARDI) `(diffuse_downwelling_shortwave_flux_in_air)`"
+        },
+        "F_down_solar_sim": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "W m-2",
+          "description": "Downward solar irradiance simulated for cloud-free conditions (with libRadtran)"
+        },
+        "F_down_terrestrial": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "W m-2",
+          "description": "Downward terrestrial irradiance (4.5-42 um) (BACARDI) `(downwelling_longwave_flux_in_air)`"
+        },
+        "F_up_solar": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "W m-2",
+          "description": "Upward solar irradiance (0.2-3.6 um) (BACARDI) `(upwelling_shortwave_flux_in_air)`"
+        },
+        "F_up_terrestrial": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "W m-2",
+          "description": "Upward terrestrial irradiance (4.5-42 um) (BACARDI) `(upwelling_longwave_flux_in_air)`"
+        },
+        "lat": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_north",
+          "description": "latitude (WGS84 Datum/Latitude, BAHAMAS) `(latitude)`"
+        },
+        "lon": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_east",
+          "description": "longitude (WGS84 Datum/Longitude, BAHAMAS) `(longitude)`"
+        },
+        "saa": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "solar azimuth angle `(solar_azimuth_angle)`"
+        },
+        "sza": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree",
+          "description": "solar zenith angle `(solar_zenith_angle)`"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Anna E. Luebke",
+          "emails": []
+        },
+        {
+          "name": "André Ehrlich",
+          "emails": []
+        },
+        {
+          "name": "Kevin Wolf",
+          "emails": []
+        },
+        {
+          "name": "Andreas Giez",
+          "emails": []
+        },
+        {
+          "name": "Martin Zöger",
+          "emails": []
+        },
+        {
+          "name": "Christian Mallaun",
+          "emails": []
+        },
+        {
+          "name": "Vladyslav Nenakhov",
+          "emails": []
+        },
+        {
+          "name": "Lisa Eirenschmalz",
+          "emails": []
+        },
+        {
+          "name": "Dominika Pasternak",
+          "emails": []
+        },
+        {
+          "name": "Sophie Rosenburg",
+          "emails": []
+        },
+        {
+          "name": "Michael Schäfer",
+          "emails": []
+        },
+        {
+          "name": "Patrizia Schoch",
+          "emails": []
+        },
+        {
+          "name": "Manfred Wendisch",
+          "emails": []
+        }
+      ],
+      "datetime": "2024-09-30T13:54:05.950Z",
+      "start_datetime": "2024-08-11T11:59:34.000Z",
+      "end_datetime": "2024-11-19T15:48:37.900Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeic7yakug2r2dbxsk6b5oi7ajvztlxu3agk3dsaho6rc5weaod6qdy",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
   }
 ]
