@@ -9,7 +9,7 @@ import { collectDatasets } from "../scanMetadata.js";
 import { TreeMonitor, NoMonitor } from "../scanMonitor.js";
 import {
   readPinlist,
-  excludeSupersededEntries,
+  getSupersededCids,
   filterByTags,
   excludeByTags,
 } from "../pinlist.js";
@@ -43,12 +43,15 @@ export default function makeIndexCommand(indexCommand: Command) {
         const monitor = options.treeMonitor ? new TreeMonitor() : new NoMonitor();
 
         let rootCids: CID[];
+        let superseded: Set<string>;
 
         if (options.pinlist !== undefined) {
           const pins = await readPinlist(options.pinlist);
           let selected = filterByTags(pins, options.tag ?? []);
           selected = excludeByTags(selected, options.excludeTag ?? []);
-          selected = excludeSupersededEntries(selected)
+
+          superseded = getSupersededCids(selected);
+          selected = selected.filter((p) => !superseded.has(p.cid));
 
           rootCids = selected.map((pin) => CID.parse(pin.cid));
 
@@ -70,9 +73,9 @@ export default function makeIndexCommand(indexCommand: Command) {
           )
         )).flat();
 
-        const uniqueDatasets = new Set<string>(
+        let uniqueDatasets = Array.from(new Set<string>(
           datasetLocations.map(loc => loc.cid.toString())
-        );
+        )).filter((c) => !superseded.has(c));
 
         // Clean up monitor if it was a TreeMonitor
         if (monitor instanceof TreeMonitor) {

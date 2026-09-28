@@ -64,15 +64,6 @@ export function getSupersededCids(pins: PinEntry[]): Set<string> {
 }
 
 /**
- * CIDs that are safe to index: every entry whose CID is not superseded by a
- * newer entry.
- */
-export function excludeSupersededEntries(pins: PinEntry[]): PinEntry[] {
-  const superseded = getSupersededCids(pins);
-  return pins.filter((p) => !superseded.has(p.cid));
-}
-
-/**
  * Filter entries to those containing at least one of the given tags.
  * When `tags` is empty, all entries are returned.
  */
