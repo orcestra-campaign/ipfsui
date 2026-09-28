@@ -184,6 +184,124 @@
   },
   {
     "properties": {
+      "title": "Stereographic retrieved cloud geometry from specMACS",
+      "description": "This dataset contains stereographically derived points on the cloud surface derived from the specMACS polLL and polLR onboard the HALO aircraft during the PERCUSION campaign. As the algorithm is based on feature matching due to contrast gradients, it does not necessarily mean that there is no cloud if no points are identified.",
+      "keywords": [
+        "HALO",
+        "specMACS",
+        "cloud geometry",
+        "PERCUSION"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "https://doi.org/10.5194/amt-12-1155-2019",
+        "https://doi.org/10.5194/amt-17-6807-2024"
+      ],
+      "mission": "ORCESTRA, PERCUSION",
+      "processing:lineage": "Combined data and converted to zarr on 2025-09-19T06:50:56",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "milliseconds since 2024-08-09T09:51:15.673000",
+          "description": "time"
+        }
+      },
+      "cube:variables": {
+        "lon": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_east",
+          "description": "longitude in WGS84"
+        },
+        "lat": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_north",
+          "description": "latitude in WGS84"
+        },
+        "distance_uncertainty": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data"
+        },
+        "max_misspointing": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "maximum misspointing from stereographic reconstruction"
+        },
+        "height": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "height above WGS84"
+        },
+        "start_time": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01",
+          "description": "start time of point observation"
+        },
+        "end_time": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "nanoseconds since 1970-01-01",
+          "description": "end time of point observation"
+        },
+        "height_above_geoid": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "height above geoid/seasurface in meter"
+        },
+        "distance": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "distance between camera and tracked point"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Lea Volkmer",
+          "emails": [
+            {
+              "value": "L.Volkmer@physik.uni-muenchen.de",
+              "roles": []
+            }
+          ]
+        }
+      ]
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeieuwgibicmq3wkewlhdpvyqan32aiepktum27dsh4gx5kehxc2jsm",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
       "title": "MAESTRO-2024 ATR42 Chemistry Observation - Ozone",
       "description": "SAFIRE ATR42 CHEMISTRY in situ measurements",
       "keywords": [
@@ -1533,308 +1651,6 @@
     "assets": {
       "data": {
         "href": "ipfs://bafybeihzcwakly2vlkifrdktcte3njleh6gouvn5lieyxdp4irpap2gf3i",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
-      "title": "Broadband solar and terrestrial, upward and downward irradiance measured by BACARDI on HALO during the PERCUSION field campaign",
-      "keywords": [
-        "airborne measurements",
-        "broadband irradiance",
-        "irradiance",
-        "solar irradiance",
-        "terrestrial irradiance",
-        "radiometer",
-        "aircraft"
-      ],
-      "license": "CC-BY-4.0",
-      "references": [
-        "https://halo-db.pa.op.dlr.de/dataset/10435"
-      ],
-      "platform": "HALO",
-      "mission": "PERCUSION",
-      "processing:lineage": "Converted to Zarr by Lukas Kluft (lukas.kluft@mpimet.mpg.de)",
-      "cube:dimensions": {
-        "TIME": {
-          "type": "temporal",
-          "unit": "milliseconds since 2024-08-16 11:35:40"
-        }
-      },
-      "cube:variables": {
-        "COSBETA_COSTHETA": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": " ",
-          "description": "correction factor for direct shortwave radiation for dpitch= -2.3617284 deg, droll= 0.14252401 deg"
-        },
-        "FDL": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "W m-2",
-          "description": "Longwave Radiation Flux on upward looking Pyrgeometer (thermal offset corrected)"
-        },
-        "FDSC": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "W m-2"
-        },
-        "FUL": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "W m-2",
-          "description": "Longwave Radiation Flux on downward looking Pyrgeometer (thermal offset corrected)"
-        },
-        "FUS": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "W m-2"
-        },
-        "F_RBLTH": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "W m-2",
-          "description": "Radiometer Bottom Long Wavelengths, Thermopile Signal (on E_R34)"
-        },
-        "F_RBLTR": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "K",
-          "description": "Radiometer Bottom Long Wavelengths, Sensor Reference Temperature (on E_R41)"
-        },
-        "F_RBSTB": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "K",
-          "description": "Radiometer Bottom Short Wavelengths, Sensor Body Temperature (on E_R33)"
-        },
-        "F_RBSTH": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "W m-2",
-          "description": "Radiometer Bottom Short Wavelengths, Thermopile Signal (on E_R31)"
-        },
-        "F_RBSTR": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "K",
-          "description": "Radiometer Bottom Short Wavelengths, Sensor Reference Temperature (on E_R32)"
-        },
-        "F_RTLTH": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "W m-2",
-          "description": "Radiometer Top Long Wavelengths, Thermopile Signal (on E_R14)"
-        },
-        "F_RTLTR": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "K",
-          "description": "Radiometer Top Long Wavelengths, Sensor Reference Temperature (on E_R21)"
-        },
-        "F_RTSTH": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "W m-2",
-          "description": "Radiometer Top Short Wavelengths, Thermopile Signal (on E_R11)"
-        },
-        "F_RTSTR": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "K",
-          "description": "Radiometer Top Short Wavelengths, Sensor Reference Temperature (on E_R14)"
-        },
-        "HP": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "Pressure Altitude"
-        },
-        "IRS_ALT": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "WGS84 Datum/Elliptical Height"
-        },
-        "IRS_ATA": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "deg+",
-          "description": "IGI actual track angle"
-        },
-        "IRS_HDG": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "deg+",
-          "description": "true heading"
-        },
-        "IRS_LAT": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "degrees_north",
-          "description": "WGS84 Datum/Latitude"
-        },
-        "IRS_LON": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "degrees_east",
-          "description": "WGS84 Datum/Longitude"
-        },
-        "IRS_P": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "deg s-1",
-          "description": "IGI body roll rate"
-        },
-        "IRS_PHI": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "deg",
-          "description": "roll angle"
-        },
-        "IRS_Q": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "deg s-1",
-          "description": "IGI body pitch rate"
-        },
-        "IRS_R": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "deg s-1",
-          "description": "IGI body yaw rate"
-        },
-        "IRS_THE": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "deg",
-          "description": "pitch angle"
-        },
-        "PS": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "hPa",
-          "description": "Static Pressure (from NB_PSIA)"
-        },
-        "SUN_ALT": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "deg",
-          "description": "Solar Altitude along flight track"
-        },
-        "SUN_AZI": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "deg",
-          "description": "Sun Azimuth along flight track"
-        },
-        "TS": {
-          "dimensions": [
-            "TIME"
-          ],
-          "type": "data",
-          "unit": "K",
-          "description": "Static Air Temperature (from BDY-TTQ, anti-ice-corrected)"
-        }
-      },
-      "contacts": [
-        {
-          "name": "A. Giez",
-          "emails": [
-            {
-              "value": "andreas.giez@dlr.de",
-              "roles": []
-            }
-          ]
-        },
-        {
-          "name": "M. Zoeger",
-          "emails": []
-        },
-        {
-          "name": "Ch. Mallaun",
-          "emails": []
-        },
-        {
-          "name": "V. Nenakhov",
-          "emails": []
-        },
-        {
-          "name": "L. Eirenschmalz",
-          "emails": []
-        },
-        {
-          "name": "D. Pasternak",
-          "emails": []
-        }
-      ],
-      "datetime": "2024-10-03T01:42:08.950Z",
-      "start_datetime": "2024-08-16T11:35:40.000Z",
-      "end_datetime": "2024-11-19T15:48:37.900Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeiaoalflfftmsfqakenwp5gpxnxfjhaxkrjq7gpa4ucpbwj5jdb6qi",
         "roles": [
           "data"
         ],
