@@ -212,6 +212,14 @@ useHead({
     margin: 0;
 }
 
+.supersede {
+    border: solid crimson 2px;
+    background-color: lavenderblush;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin: 5px 0;
+}
+
 .title {
   font-family: "Roboto Slab";
   font-size: 42px;
@@ -269,6 +277,10 @@ useHead({
 }
 
 @media (prefers-color-scheme: dark) {
+    .supersede {
+        background-color: #3a0000;
+    }
+
     .keywords li {
         background-color: transparent;
         border: 1px solid var(--orcestra-yellow);
