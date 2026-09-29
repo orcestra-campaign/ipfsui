@@ -53,12 +53,14 @@ export async function readPinlist(filename: string): Promise<PinEntry[]> {
  * These datasets are superseded by the entry referencing them and should not
  * be indexed.
  */
-export function getSupersededCids(pins: PinEntry[]): Set<string> {
-  const superseded = new Set<string>();
+export function getSupersededCids(pins: PinEntry[]): Map<string, string> {
+  const superseded = new Map<string, string>;
   for (const pin of pins) {
     const prev = pin.meta?.prev;
     if (prev === undefined) continue;
-    superseded.add(CID.parse(prev).toV1().toString());
+    const old_cid = CID.parse(prev).toV1().toString();
+    const new_cid = CID.parse(pin.cid).toV1().toString();
+    superseded.set(old_cid, new_cid);
   }
   return superseded;
 }
