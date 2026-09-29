@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { VMarkdownView } from 'vue3-markdown'
 import 'vue3-markdown/dist/vue3-markdown.css'
 import dayjs from "dayjs";
@@ -14,6 +15,7 @@ import StacMap from './StacMap.vue';
 import ItemAccess from './ItemAccess.vue';
 
 import untypedDoisData from "./data/dois.json" with {type: "json"};
+import untypedSupersededData from "./data/superseded.json" with {type: "json"};
 
 dayjs.extend(utc);
 
@@ -25,6 +27,10 @@ interface DOIPubData {
 type DOISPubData = Record<string, DOIPubData>;
 
 const doisData: DOISPubData = untypedDoisData as DOISPubData;
+const supersededMap = new Map<string, string>(Object.entries(untypedSupersededData));
+
+const route = useRoute()
+const router = useRouter()
 
 const {item} = defineProps<{ item: StacItem }>();
 
@@ -86,6 +92,16 @@ function cidFromStac(item: StacItem): string | undefined {
   return undefined;
 }
 
+function checkSupersede(item: StacItem): string | undefined {
+  const cid = cidFromStac(item);
+  if (cid === undefined) return undefined;
+
+  const new_cid = supersededMap.get(cid);
+  if (new_cid === undefined) return undefined;
+  return router.resolve(route.path.replace(cid, new_cid)).href
+}
+const supersede = computed(() => checkSupersede(item));
+
 function createCitation(item: StacItem): string {
   const authors: string = item.properties.contacts
     ?.map((c: { name: string }) => abbreviateName(c.name))
@@ -127,6 +143,7 @@ useHead({
 </script>
 
 <template>
+    <div class="supersede" v-if="supersede">There is a <a :href="supersede">newer version</a> of the dataset.</div>
     <div class="head">
         <h1 class="title">{{ item.properties?.title }}</h1>
         <div class="aux">
@@ -195,6 +212,14 @@ useHead({
     margin: 0;
 }
 
+.supersede {
+    border: solid crimson 2px;
+    background-color: lavenderblush;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin: 5px 0;
+}
+
 .title {
   font-family: "Roboto Slab";
   font-size: 42px;
@@ -252,6 +277,10 @@ useHead({
 }
 
 @media (prefers-color-scheme: dark) {
+    .supersede {
+        background-color: #3a0000;
+    }
+
     .keywords li {
         background-color: transparent;
         border: 1px solid var(--orcestra-yellow);
