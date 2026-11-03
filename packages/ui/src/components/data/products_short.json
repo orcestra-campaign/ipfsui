@@ -10496,537 +10496,6 @@
   },
   {
     "properties": {
-      "title": "Cloud radar and Cloudnet on RV Meteor during BOWTIE",
-      "description": "Cloudnet target classification data ",
-      "keywords": [
-        "Cloudnet",
-        "effective radius",
-        "droplet",
-        "BOWTIE",
-        "M203"
-      ],
-      "license": "CC-BY-4.0",
-      "references": [
-        "https://doi.org/10.21105/joss.02123",
-        "https://doi.org/10.1175/1520-0426(2002)019<0835:TROSCD>2.0.CO;2"
-      ],
-      "platform": "RV METEOR",
-      "mission": "BOW-TIE",
-      "cube:dimensions": {
-        "height": {
-          "type": "unknown",
-          "unit": "m",
-          "description": "Height above mean sea level `(height_above_mean_sea_level)`"
-        },
-        "time": {
-          "type": "temporal",
-          "unit": "seconds since 2024-08-17 00:00:15"
-        }
-      },
-      "cube:variables": {
-        "altitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "Altitude of site `(altitude)`"
-        },
-        "beta": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "sr-1 m-1",
-          "description": "Attenuated backscatter coefficient"
-        },
-        "beta_bias": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "dB",
-          "description": "Bias in attenuated backscatter coefficient"
-        },
-        "beta_error": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "dB",
-          "description": "Error in attenuated backscatter coefficient"
-        },
-        "category_bits": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "Target categorization bits"
-        },
-        "cloud_base_height_agl": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "Height of cloud base above ground level"
-        },
-        "cloud_base_height_amsl": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "Height of cloud base above mean sea level"
-        },
-        "cloud_top_height_agl": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "Height of cloud top above ground level"
-        },
-        "cloud_top_height_amsl": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "Height of cloud top above mean sea level"
-        },
-        "der": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "Droplet effective radius"
-        },
-        "der_error": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "Absolute error in droplet effective radius"
-        },
-        "der_retrieval_status": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "Droplet effective radius retrieval status"
-        },
-        "der_scaled": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "Droplet effective radius (scaled to LWP)"
-        },
-        "der_scaled_error": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "Absolute error in droplet effective radius (scaled to LWP)"
-        },
-        "detection_status": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "Radar and lidar detection status"
-        },
-        "ghost_echo_flag1": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "%",
-          "description": "Flag for Ghost echoes based on spectra"
-        },
-        "ghost_echo_flag2": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "%",
-          "description": "Flag for Ghost echoes based on spectra"
-        },
-        "ier": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "Ice effective radius"
-        },
-        "ier_error": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "m",
-          "description": "Random error in ice effective radius"
-        },
-        "ier_retrieval_status": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "Ice effective radius retrieval status"
-        },
-        "insect_prob": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "Insect probability"
-        },
-        "iwc": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "kg m-3",
-          "description": "Ice water content"
-        },
-        "iwc_bias": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "dB",
-          "description": "Possible bias in ice water content"
-        },
-        "iwc_error": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "dB",
-          "description": "Random error in ice water content"
-        },
-        "iwc_retrieval_status": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "Ice water content retrieval status"
-        },
-        "iwc_sensitivity": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "kg m-3",
-          "description": "Minimum detectable ice water content"
-        },
-        "latitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree_north",
-          "description": "Latitude of site `(latitude)`"
-        },
-        "ldr": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "dB",
-          "description": "Linear depolarisation ratio"
-        },
-        "lidar_wavelength": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "nm",
-          "description": "Laser wavelength"
-        },
-        "longitude": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "degree_east",
-          "description": "Longitude of site `(longitude)`"
-        },
-        "lwc": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "kg m-3",
-          "description": "Liquid water content `(mass_concentration_of_liquid_water_in_air)`"
-        },
-        "lwc_error": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "dB",
-          "description": "Random error in liquid water content, one standard deviation"
-        },
-        "lwc_retrieval_status": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "Liquid water content retrieval status"
-        },
-        "lwp": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "kg m-2",
-          "description": "Liquid water path `(atmosphere_cloud_liquid_water_content)`"
-        },
-        "lwp_error": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "kg m-2",
-          "description": "Error in liquid water path"
-        },
-        "N_scaled": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "Cloud droplet number concentration"
-        },
-        "nyquist_velocity": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "m s-1",
-          "description": "Nyquist velocity"
-        },
-        "quality_bits": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "Data quality bits"
-        },
-        "radar_frequency": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "GHz",
-          "description": "Radar transmit frequency"
-        },
-        "radar_gas_atten": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "dB",
-          "description": "Two-way radar attenuation due to atmospheric gases"
-        },
-        "radar_liquid_atten": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "dB",
-          "description": "Two-way radar attenuation due to liquid water"
-        },
-        "radar_melting_atten": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "dB",
-          "description": "Two-way radar attenuation due to melting ice"
-        },
-        "radar_rain_atten": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "dB",
-          "description": "Two-way radar attenuation due to rain"
-        },
-        "rain_attenuation_flag": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "\n\nRain attenuation flag =True (1) when the rain strongly attenuates the radar signal and echo top height does not represent cloud top anymore"
-        },
-        "rain_detected": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "Rain detected"
-        },
-        "rainfall_rate": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "m s-1",
-          "description": "Rainfall rate `(rainfall_rate)`"
-        },
-        "target_classification": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "1",
-          "description": "Target classification"
-        },
-        "Tw": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "K",
-          "description": "Wet-bulb temperature"
-        },
-        "v": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "m s-1",
-          "description": "Doppler velocity"
-        },
-        "v_sigma": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "m s-1",
-          "description": "Standard deviation of mean Doppler velocity"
-        },
-        "width": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "m s-1",
-          "description": "Spectral width"
-        },
-        "Z": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "dBZ",
-          "description": "Radar reflectivity factor"
-        },
-        "Z_bias": {
-          "dimensions": [
-            "time"
-          ],
-          "type": "data",
-          "unit": "dB",
-          "description": "Bias in radar reflectivity factor"
-        },
-        "Z_error": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "dB",
-          "description": "Error in radar reflectivity factor"
-        },
-        "Z_sensitivity": {
-          "dimensions": [
-            "time",
-            "height"
-          ],
-          "type": "data",
-          "unit": "dBZ",
-          "description": "Minimum detectable radar reflectivity"
-        }
-      },
-      "contacts": [
-        {
-          "name": "Andreas Foth",
-          "emails": [
-            {
-              "value": "andreas.foth@uni-leipzig.de",
-              "roles": []
-            }
-          ]
-        }
-      ],
-      "datetime": "2024-09-04T10:30:00.000Z",
-      "start_datetime": "2024-08-17T00:00:15.000Z",
-      "end_datetime": "2024-09-22T20:59:45.000Z"
-    },
-    "assets": {
-      "data": {
-        "href": "ipfs://bafybeidtfyua2vmmrpnhbl6nj57x2ynowaceghdapyetc6lnrpjii2tlli",
-        "roles": [
-          "data"
-        ],
-        "type": "application/vnd+zarr"
-      }
-    }
-  },
-  {
-    "properties": {
       "title": "METEOR1 PARSIVEL Disdrometer QCed data",
       "description": "This dataset corresponds to one of two PARSIVEL disdrometers aboard\nthe RV Meteor. This version underwent a QC process and data products\nfor research were added.\n\n*QC process:\nA quality control method developed by the Central Weather Administration of Taiwan\nwas implemented. QC follows the work of Lu et al. (2020) and Friedrich et al. (2013)\nand the procedure only processes liquid rain. No hail or graupel remains after QC.\n\n*Research variables:\nIn addition to the variables provided by the raw parsivel data,\nthis version also includes data products for microphysical\nand radar analysis. These include drop-size distribution moments\nand simulated dual-polarization radar quantities at different\nwavelengths.\n\nMore information on the data, QC process and postprocessed products\ncan be found in the README file.\n\n",
       "keywords": [
@@ -17466,6 +16935,537 @@
     "assets": {
       "data": {
         "href": "ipfs://bafybeic7yakug2r2dbxsk6b5oi7ajvztlxu3agk3dsaho6rc5weaod6qdy",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
+  },
+  {
+    "properties": {
+      "title": "Cloud radar and Cloudnet on RV Meteor during BOWTIE",
+      "description": "\nLevel 0 is the raw Doppler Spectra observed by the cloud radar (not published here).\nLevel 1 refers to the automatically retrieved products by the internal software of the cloud radar (not published here).\nThe Level 1 data was upgraded to Level 1b after applying routines for dealiasing, despeckeling and a heave correction (not published here).\nLevel 2 dataset was created by applying the Cloudnet processing chain (on the Cloudnet servers), also including ceilometer, microwave radiometer and model (ECMWF) data. The regridded level 1b data and further derived microphysical products are level 2.\nThe dataset was updated to level 2a by adding quality flags for strong radar signal attenuation and ghost echoes (published here).\n",
+      "keywords": [
+        "Cloudnet",
+        "effective radius",
+        "droplet",
+        "BOWTIE",
+        "M203"
+      ],
+      "license": "CC-BY-4.0",
+      "references": [
+        "https://doi.org/10.21105/joss.02123",
+        "https://doi.org/10.1175/1520-0426(2002)019<0835:TROSCD>2.0.CO;2"
+      ],
+      "platform": "RV METEOR",
+      "mission": "BOW-TIE",
+      "cube:dimensions": {
+        "height": {
+          "type": "unknown",
+          "unit": "m",
+          "description": "Height above mean sea level `(height_above_mean_sea_level)`"
+        },
+        "time": {
+          "type": "temporal",
+          "unit": "seconds since 2024-08-17 00:00:15"
+        }
+      },
+      "cube:variables": {
+        "altitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Altitude of site `(altitude)`"
+        },
+        "beta": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "sr-1 m-1",
+          "description": "Attenuated backscatter coefficient"
+        },
+        "beta_bias": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Bias in attenuated backscatter coefficient"
+        },
+        "beta_error": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Error in attenuated backscatter coefficient"
+        },
+        "category_bits": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Target categorization bits"
+        },
+        "cloud_base_height_agl": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Height of cloud base above ground level"
+        },
+        "cloud_base_height_amsl": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Height of cloud base above mean sea level"
+        },
+        "cloud_top_height_agl": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Height of cloud top above ground level"
+        },
+        "cloud_top_height_amsl": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Height of cloud top above mean sea level"
+        },
+        "der": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Droplet effective radius"
+        },
+        "der_error": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Absolute error in droplet effective radius"
+        },
+        "der_retrieval_status": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Droplet effective radius retrieval status"
+        },
+        "der_scaled": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Droplet effective radius (scaled to LWP)"
+        },
+        "der_scaled_error": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Absolute error in droplet effective radius (scaled to LWP)"
+        },
+        "detection_status": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Radar and lidar detection status"
+        },
+        "ghost_echo_flag1": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "%",
+          "description": "Flag for Ghost echoes based on spectra"
+        },
+        "ghost_echo_flag2": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "%",
+          "description": "Flag for Ghost echoes based on spectra"
+        },
+        "ier": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Ice effective radius"
+        },
+        "ier_error": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "Random error in ice effective radius"
+        },
+        "ier_retrieval_status": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Ice effective radius retrieval status"
+        },
+        "insect_prob": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Insect probability"
+        },
+        "iwc": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "kg m-3",
+          "description": "Ice water content"
+        },
+        "iwc_bias": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Possible bias in ice water content"
+        },
+        "iwc_error": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Random error in ice water content"
+        },
+        "iwc_retrieval_status": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Ice water content retrieval status"
+        },
+        "iwc_sensitivity": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "kg m-3",
+          "description": "Minimum detectable ice water content"
+        },
+        "latitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_north",
+          "description": "Latitude of site `(latitude)`"
+        },
+        "ldr": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Linear depolarisation ratio"
+        },
+        "lidar_wavelength": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "nm",
+          "description": "Laser wavelength"
+        },
+        "longitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_east",
+          "description": "Longitude of site `(longitude)`"
+        },
+        "lwc": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "kg m-3",
+          "description": "Liquid water content `(mass_concentration_of_liquid_water_in_air)`"
+        },
+        "lwc_error": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Random error in liquid water content, one standard deviation"
+        },
+        "lwc_retrieval_status": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Liquid water content retrieval status"
+        },
+        "lwp": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "kg m-2",
+          "description": "Liquid water path `(atmosphere_cloud_liquid_water_content)`"
+        },
+        "lwp_error": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "kg m-2",
+          "description": "Error in liquid water path"
+        },
+        "N_scaled": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Cloud droplet number concentration"
+        },
+        "nyquist_velocity": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Nyquist velocity"
+        },
+        "quality_bits": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Data quality bits"
+        },
+        "radar_frequency": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "GHz",
+          "description": "Radar transmit frequency"
+        },
+        "radar_gas_atten": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Two-way radar attenuation due to atmospheric gases"
+        },
+        "radar_liquid_atten": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Two-way radar attenuation due to liquid water"
+        },
+        "radar_melting_atten": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Two-way radar attenuation due to melting ice"
+        },
+        "radar_rain_atten": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Two-way radar attenuation due to rain"
+        },
+        "rain_attenuation_flag": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "\n\nRain attenuation flag =True (1) when the rain strongly attenuates the radar signal and echo top height does not represent cloud top anymore"
+        },
+        "rain_detected": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Rain detected"
+        },
+        "rainfall_rate": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Rainfall rate `(rainfall_rate)`"
+        },
+        "target_classification": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "1",
+          "description": "Target classification"
+        },
+        "Tw": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "Wet-bulb temperature"
+        },
+        "v": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Doppler velocity"
+        },
+        "v_sigma": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Standard deviation of mean Doppler velocity"
+        },
+        "width": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "m s-1",
+          "description": "Spectral width"
+        },
+        "Z": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "dBZ",
+          "description": "Radar reflectivity factor"
+        },
+        "Z_bias": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Bias in radar reflectivity factor"
+        },
+        "Z_error": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "dB",
+          "description": "Error in radar reflectivity factor"
+        },
+        "Z_sensitivity": {
+          "dimensions": [
+            "time",
+            "height"
+          ],
+          "type": "data",
+          "unit": "dBZ",
+          "description": "Minimum detectable radar reflectivity"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Andreas Foth",
+          "emails": [
+            {
+              "value": "andreas.foth@uni-leipzig.de",
+              "roles": []
+            }
+          ]
+        }
+      ],
+      "datetime": "2024-09-04T10:30:00.000Z",
+      "start_datetime": "2024-08-17T00:00:15.000Z",
+      "end_datetime": "2024-09-22T20:59:45.000Z"
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeigvbfdpib7u7eq2inssdsj34lufti57shbgv2vfrhd7fu5alrlcru",
         "roles": [
           "data"
         ],
