@@ -72,7 +72,7 @@ including trajectory data. A hacky way to compress the index can be done using
 `jq`:
 
 ```bash
-cat products.json | jq 'map({properties, assets})' > products_short.json
+jq 'map({properties, assets})' products.json > products_short.json
 ```
 
 ### displaying DOIs
