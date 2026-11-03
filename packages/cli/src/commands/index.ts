@@ -43,7 +43,7 @@ export default function makeIndexCommand(indexCommand: Command) {
         const monitor = options.treeMonitor ? new TreeMonitor() : new NoMonitor();
 
         let rootCids: CID[];
-        let superseded: Set<string>;
+        let is_superseded: Set<string>;
 
         if (options.pinlist !== undefined) {
           const pins = await readPinlist(options.pinlist);
@@ -56,9 +56,9 @@ export default function makeIndexCommand(indexCommand: Command) {
             JSON.stringify(Object.fromEntries(supersededMap)),
             {encoding: "utf-8"}
           );
-          superseded =  new Set(supersededMap.keys());
+          is_superseded =  new Set(supersededMap.keys());
 
-          selected = selected.filter((p) => !superseded.has(p.cid));
+          selected = selected.filter((p) => !is_superseded.has(p.cid));
 
           rootCids = selected.map((pin) => CID.parse(pin.cid));
 
@@ -82,7 +82,7 @@ export default function makeIndexCommand(indexCommand: Command) {
 
         let uniqueDatasets = Array.from(new Set<string>(
           datasetLocations.map(loc => loc.cid.toString())
-        )).filter((c) => !superseded.has(c));
+        )).filter((c) => !is_superseded.has(c));
 
         // Clean up monitor if it was a TreeMonitor
         if (monitor instanceof TreeMonitor) {
