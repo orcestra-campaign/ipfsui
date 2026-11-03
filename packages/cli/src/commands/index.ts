@@ -56,7 +56,7 @@ export default function makeIndexCommand(indexCommand: Command) {
             JSON.stringify(Object.fromEntries(supersededMap)),
             {encoding: "utf-8"}
           );
-          superseded =  new Set(supersededMap.values());
+          superseded =  new Set(supersededMap.keys());
 
           selected = selected.filter((p) => !superseded.has(p.cid));
 
