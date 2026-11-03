@@ -40,7 +40,7 @@ jobs:
       - name: Build page
         run: cd packages/ui && npm run build
       - name: Install IPFS
-        uses: ipfs/download-ipfs-distribution-action@v1
+        uses: ipfs/download-ipfs-distribution-action@v2
       - name: Start IPFS daemon
         uses: ipfs/start-ipfs-daemon-action@v1
       - name: Get test data
