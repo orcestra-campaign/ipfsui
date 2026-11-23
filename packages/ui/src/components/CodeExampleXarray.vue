@@ -15,7 +15,7 @@ export default {
 <script setup lang="ts">
 import { computed } from 'vue';
 import { ref } from "vue";
-import { Copy, Check, Info } from "lucide-vue-next";
+import { Copy, Check, Info } from "@lucide/vue";
 
 
 const props = defineProps<{ src: string }>();

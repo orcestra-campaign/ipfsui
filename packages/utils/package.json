@@ -23,7 +23,7 @@
     "dayjs": "^1.11.13",
     "helia": "^7.1.2",
     "ipfs-unixfs-exporter": "^16.0.2",
-    "js-yaml": "^4.1.1",
+    "js-yaml": "^5.5.0",
     "zarrita": "^0.5.4"
   }
 }

@@ -6,17 +6,19 @@
     "packages/*"
   ],
   "dependencies": {
-    "@unhead/vue": "^2.0.19",
-    "node-datachannel": "^0.32.3"
+    "@unhead/vue": "^2.1.18",
+    "node-datachannel": "^0.33.6"
   },
   "devDependencies": {
-    "@vitest/ui": "^4.0.17",
+    "@vitest/ui": "4.1.12",
     "prettier": "^3.8.0",
     "syncpack": "^15.3.2",
-    "vitest": "^4.0.17"
+    "vitest": "4.1.12"
   },
   "overrides": {
-    "multiformats": "14.0.5"
+    "multiformats": "14.0.5",
+    "katex": "0.19.1",
+    "vite": "6.4.6"
   },
   "scripts": {
     "test": "vitest run",
@@ -27,8 +29,9 @@
   "allowScripts": {
     "iso-constants@0.1.2": true,
     "@ipshipyard/node-datachannel@0.26.6": true,
-    "esbuild@0.25.9": true,
     "fsevents@2.3.3": true,
-    "node-datachannel@0.32.3": true
+    "node-datachannel@0.32.3": true,
+    "esbuild@0.25.12": true,
+    "esbuild@0.28.2": true
   }
 }

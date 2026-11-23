@@ -15,7 +15,6 @@
     "@helia/http": "^4.0.6",
     "@helia/unixfs": "^8.0.5",
     "@orcestra/utils": "1.0.0",
-    "@types/p-limit": "^2.1.0",
     "blockstore-fs": "^4.0.1",
     "commander": "^12.1.0",
     "datastore-fs": "^12.0.1",
