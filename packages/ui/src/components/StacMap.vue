@@ -19,8 +19,6 @@ const mapCenter = computed(() => {
   return [(item.bbox[1] + item.bbox[3]) / 2, (item.bbox[0] + item.bbox[2]) / 2] as [number, number];
 });
 
-const map = ref();
-
 const onMapReady = (mapObject: Map) => {
   if (mapObject && mapBounds.value !== undefined) {
     // When the map is ready, fit its bounds to item bounds
