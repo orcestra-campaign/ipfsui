@@ -1,4 +1,4 @@
-import { open, withConsolidated } from "zarrita";
+import { open, withConsolidatedMetadata } from "zarrita";
 import type { SomeArray } from "./types.js";
 import { type Dataset, isListableStore, type SomeStore } from "./types.js";
 
@@ -13,7 +13,7 @@ export async function readDataset(
 ): Promise<Dataset> {
   //const _store  = (store?.contents !== undefined) ? store : await withConsolidated(store);
 
-  const _store = isListableStore(store) ? store : await withConsolidated(store);
+  const _store = isListableStore(store) ? store : await withConsolidatedMetadata(store);
   const group = await open(_store, { kind: "group" });
   const contents = _store.contents();
 
@@ -23,7 +23,7 @@ export async function readDataset(
     if (kind !== "array") {
       continue;
     }
-    variables[path.slice(1)] = await open(group.resolve(path), { kind });
+    variables[path.slice(1)] = await open(group.resolve(path), { kind: "array" });
   }
 
   return {
