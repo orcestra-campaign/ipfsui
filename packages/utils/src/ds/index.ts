@@ -5,7 +5,10 @@ import { type Dataset, isListableStore, type SomeStore } from "./types.js";
 export { Array, get, slice } from "zarrita";
 
 export function getDimensions(array: SomeArray): string[] | undefined {
-  return array.attrs?._ARRAY_DIMENSIONS as string[];
+  // Prefer dimensionNames (zarrita exposes this for both v2 and v3 arrays)
+  if (array.dimensionNames) return array.dimensionNames;
+  // Fall back to _ARRAY_DIMENSIONS attribute (CF convention)
+  return array.attrs?._ARRAY_DIMENSIONS as string[] | undefined;
 }
 
 export async function readDataset(
@@ -23,7 +26,11 @@ export async function readDataset(
     if (kind !== "array") {
       continue;
     }
-    variables[path.slice(1)] = await open(group.resolve(path), { kind: "array" });
+    // `contents()` from `withConsolidatedMetadata` returns paths without a leading slash.
+    // Normalize to absolute path so `slice(1)` produces the correct variable name
+    // and `group.resolve()` looks up the cached metadata key correctly.
+    const resolved = path.startsWith("/") ? path : `/${path}`;
+    variables[resolved.slice(1)] = await open(group.resolve(resolved), { kind: "array" });
   }
 
   return {
