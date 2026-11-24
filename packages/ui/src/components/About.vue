@@ -37,11 +37,11 @@ import Nav from './Nav.vue';
     </p>
     <p>
     In order to reach this goal, we do two things:
+    </p>
     <ul>
         <li>We use <router-link to="#what_is_a_cid">content identifiers</router-link> instead of location based identifiers to ensure the dataset identifiers don't have to change over time, and data integrity can be verified by everyone.</li>
         <li>We, our friends and our partners operate a redundant set of storage nodes, thus ensuring that there'll always be an available copy of each indexed dataset.</li>
     </ul>
-    </p>
     <h3 id="kinds_of_data" class="link-target">What kind of data is in this repository?</h3>
     <p>
     This is a repository for <emph>open data</emph>, in <router-link to="#mission_and_scope">scope of the repository</router-link>.
