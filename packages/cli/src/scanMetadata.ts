@@ -27,7 +27,7 @@ async function isDirectory(cid: CID, fs: UnixFS, limit: LimitFunction) {
 
 async function isDataset(directoryListing: Array<UnixFSDirectoryEntry>, fs: UnixFS, limit: LimitFunction) {
   for (const entry of directoryListing) {
-    if ([".zgroup", "dataset_meta.yaml"].includes(entry.name)) {
+    if (["zarr.json", ".zgroup", "dataset_meta.yaml"].includes(entry.name)) {
         const entryStats = await limit(() => fs.stat(entry.cid));
         if (["file", "raw", "identity"].includes(entryStats.type)) {
             return true;
