@@ -18105,5 +18105,246 @@
         "type": "application/vnd+zarr"
       }
     }
+  },
+  {
+    "properties": {
+      "title": "STAbilized Radar Platform Alignment Sensor (STARPAS)",
+      "description": "The LIMRAD94 cloud radar during the BOWTIE cruise was mounted on a passive stabilization platform. The STARPAS system measures the platform alignment with an accelerometer and gyroscope. The dataset features the calculated euler angles from the two sensors as well as acceleration and angular velocity.",
+      "keywords": [
+        "BOWTIE",
+        "M203"
+      ],
+      "license": "CC-BY-SA 3.0",
+      "references": [
+        "\"Cloud radar data: Foth, A.. (2025). Cloud radar and Cloudnet on RV Meteor during BOWTIE. ipfs://bafybeigvbfdpib7u7eq2inssdsj34lufti57shbgv2vfrhd7fu5alrlcru\"",
+        "Firmware: https://doi.org/10.5281/ZENODO.22769719"
+      ],
+      "mission": "Beobachtung von Ozean und Wolken – Das Trans ITCZ Experiment (BOW-TIE), under the framework of ORCESTRA (Organized Convection and EarthCARE Studies over the Tropical Atlantic)",
+      "processing:lineage": "2026-03-30T12:41:42: Generated level l1b  by starpas version 1.0.0; ",
+      "cube:dimensions": {
+        "time": {
+          "type": "temporal",
+          "unit": "nanoseconds since 2024-08-16 09:10:45"
+        }
+      },
+      "cube:variables": {
+        "altitude": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "m",
+          "description": "`(altitude)`"
+        },
+        "ax": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "mg",
+          "description": "`(acceleration_x)`"
+        },
+        "ax_ship": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "mg",
+          "description": "`(acceleration_x)`"
+        },
+        "ay": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "mg",
+          "description": "`(acceleration_y)`"
+        },
+        "ay_ship": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "mg",
+          "description": "`(acceleration_y)`"
+        },
+        "az": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "mg",
+          "description": "`(acceleration_z)`"
+        },
+        "az_ship": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "mg",
+          "description": "`(acceleration_z)`"
+        },
+        "gps-fixquality": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "",
+          "description": "`(quality_flag)`"
+        },
+        "gps-satellites": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "",
+          "description": "`(count)`"
+        },
+        "gps-speed": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "",
+          "description": "`(platform_speed_wrt_ground)`"
+        },
+        "gx": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "deg s-1",
+          "description": "`(angular_velocity_x)`"
+        },
+        "gy": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "deg s-1",
+          "description": "`(angular_velocity_y)`"
+        },
+        "gz": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "deg s-1",
+          "description": "`(angular_velocity_z)`"
+        },
+        "heave_ship": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data"
+        },
+        "lat": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_north",
+          "description": "`(latitude)`"
+        },
+        "lon": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "degree_east",
+          "description": "`(longitude)`"
+        },
+        "pitch_acc": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data"
+        },
+        "pitch_gyr": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data"
+        },
+        "pitch_ship": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data"
+        },
+        "pressure": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "Pa",
+          "description": "air pressure `(air_pressure)`"
+        },
+        "roll_acc": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data"
+        },
+        "roll_gyr": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data"
+        },
+        "roll_ship": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data"
+        },
+        "temperature": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data",
+          "unit": "K",
+          "description": "sensor temperature `(temperature_of_sensor)`"
+        },
+        "yaw_acc": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data"
+        },
+        "yaw_gyr": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data"
+        },
+        "yaw_ship": {
+          "dimensions": [
+            "time"
+          ],
+          "type": "data"
+        }
+      },
+      "contacts": [
+        {
+          "name": "Jonas Witthuhn",
+          "emails": [
+            {
+              "value": "jonas.witthuhn@tropos.de",
+              "roles": []
+            }
+          ]
+        }
+      ]
+    },
+    "assets": {
+      "data": {
+        "href": "ipfs://bafybeic7thjl5atkfprqffvbddw4xzl2hlunsaehxugwohnp5rir6h5gp4",
+        "roles": [
+          "data"
+        ],
+        "type": "application/vnd+zarr"
+      }
+    }
   }
 ]
